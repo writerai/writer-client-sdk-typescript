@@ -10,4 +10,4 @@ generation:
 typescript:
   version: 0.2.0
   author: writerai
-  packageName: '@writer-ai/sdk'
+  packageName: '@writerai/writer-sdk'
