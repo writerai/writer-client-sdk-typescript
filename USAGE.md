@@ -3,10 +3,10 @@
 import {
   ContentDetectorApiRequest,
   ContentDetectorApiResponse 
-} from "@writer-ai/sdk/dist/sdk/models/operations";
+} from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
-import { Writer } from "@writer-ai/sdk";
+import { Writer } from "@writerai/writer-sdk";
 
 
 const sdk = new Writer();
