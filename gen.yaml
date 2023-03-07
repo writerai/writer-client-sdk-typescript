@@ -1,0 +1,9 @@
+configVersion: 1.0.0
+generation:
+  telemetryEnabled: false
+  sdkClassName: Writer
+  sdkFlattening: true
+typescript:
+  version: 0.1.0
+  author: writerai
+  packageName: '@writer-ai/sdk'
