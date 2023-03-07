@@ -17,13 +17,13 @@
 ### NPM
 
 ```bash
-npm add @writer-ai/sdk
+npm add @writerai/writer-sdk
 ```
 
 ### Yarn
 
 ```bash
-yarn add @writer-ai/sdk
+yarn add @writerai/writer-sdk
 ```
 <!-- End SDK Installation -->
 
@@ -33,10 +33,10 @@ yarn add @writer-ai/sdk
 import {
   ContentDetectorApiRequest,
   ContentDetectorApiResponse 
-} from "@writer-ai/sdk/dist/sdk/models/operations";
+} from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
-import { Writer } from "@writer-ai/sdk";
+import { Writer } from "@writerai/writer-sdk";
 
 
 const sdk = new Writer();

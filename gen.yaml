@@ -8,6 +8,6 @@ generation:
   sdkClassName: Writer
   sdkFlattening: true
 typescript:
-  version: 0.2.0
+  version: 0.2.1
   author: writerai
   packageName: '@writerai/writer-sdk'
