@@ -1,4 +1,19 @@
-<!-- Start SDK Example Usage -->
+# aiContentDetector
+
+## Overview
+
+Methods related to AI Content Detector
+
+### Available Operations
+
+* [detect](#detect) - Content detector api
+
+## detect
+
+Content detector api
+
+### Example Usage
+
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 import { DetectContentRequest, DetectContentResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
@@ -9,12 +24,12 @@ const sdk = new Writer({
   security: {
     apiKey: "YOUR_API_KEY_HERE",
   },
-  organizationId: 548814,
+  organizationId: 715190,
 });
 
 const req: DetectContentRequest = {
   contentDetectorRequest: {
-    input: "provident",
+    input: "quibusdam",
   },
 };
 
@@ -24,4 +39,3 @@ sdk.aiContentDetector.detect(req).then((res: DetectContentResponse | AxiosError)
   }
 });
 ```
-<!-- End SDK Example Usage -->

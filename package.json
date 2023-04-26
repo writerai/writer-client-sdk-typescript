@@ -1,6 +1,6 @@
 {
   "name": "@writerai/writer-sdk",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "author": "writerai",
   "scripts": {
     "prepare": "tsc --build"
@@ -22,5 +22,10 @@
   "files": [
     "dist",
     "README.md"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/writerai/writer-client-sdk-typescript.git",
+    "directory": "."
+  }
 }
