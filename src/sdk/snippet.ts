@@ -40,7 +40,7 @@ export class Snippet {
   /**
    * Delete snippets
    */
-  delete(
+  async delete(
     req: operations.DeleteSnippetsRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.DeleteSnippetsResponse> {
@@ -61,52 +61,53 @@ export class Snippet {
     const headers = { ...utils.getHeadersFromRequest(req), ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req, this._globals);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "delete",
       headers: headers,
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.DeleteSnippetsResponse =
-        new operations.DeleteSnippetsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-          headers: utils.getHeadersFromResponse(httpRes.headers),
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.DeleteResponse
-            );
-          }
-          break;
-        case [400, 401, 403, 404, 500].includes(httpRes?.status):
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.failResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.FailResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.DeleteSnippetsResponse =
+      new operations.DeleteSnippetsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+        headers: utils.getHeadersFromResponse(httpRes.headers),
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.deleteResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.DeleteResponse
+          );
+        }
+        break;
+      case [400, 401, 403, 404, 500].includes(httpRes?.status):
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.failResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.FailResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Find snippets
    */
-  find(
+  async find(
     req: operations.FindSnippetsRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.FindSnippetsResponse> {
@@ -126,51 +127,52 @@ export class Snippet {
 
     const queryParams: string = utils.serializeQueryParams(req, this._globals);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.FindSnippetsResponse =
-        new operations.FindSnippetsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-          headers: utils.getHeadersFromResponse(httpRes.headers),
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.paginatedResultSnippetWithUser = utils.objectToClass(
-              httpRes?.data,
-              shared.PaginatedResultSnippetWithUser
-            );
-          }
-          break;
-        case [400, 401, 403, 404, 500].includes(httpRes?.status):
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.failResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.FailResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.FindSnippetsResponse =
+      new operations.FindSnippetsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+        headers: utils.getHeadersFromResponse(httpRes.headers),
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.paginatedResultSnippetWithUser = utils.objectToClass(
+            httpRes?.data,
+            shared.PaginatedResultSnippetWithUser
+          );
+        }
+        break;
+      case [400, 401, 403, 404, 500].includes(httpRes?.status):
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.failResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.FailResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Update snippets
    */
-  update(
+  async update(
     req: operations.UpdateSnippetsRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.UpdateSnippetsResponse> {
@@ -208,7 +210,8 @@ export class Snippet {
       ...config?.headers,
     };
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "put",
       headers: headers,
@@ -216,41 +219,41 @@ export class Snippet {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.UpdateSnippetsResponse =
-        new operations.UpdateSnippetsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-          headers: utils.getHeadersFromResponse(httpRes.headers),
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.snippetWithUsers = [];
-            const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.snippetWithUsers = utils.objectToClass(
-              httpRes?.data,
-              shared.SnippetWithUser,
-              resFieldDepth
-            );
-          }
-          break;
-        case [400, 401, 403, 404, 500].includes(httpRes?.status):
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.failResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.FailResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.UpdateSnippetsResponse =
+      new operations.UpdateSnippetsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+        headers: utils.getHeadersFromResponse(httpRes.headers),
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.snippetWithUsers = [];
+          const resFieldDepth: number = utils.getResFieldDepth(res);
+          res.snippetWithUsers = utils.objectToClass(
+            httpRes?.data,
+            shared.SnippetWithUser,
+            resFieldDepth
+          );
+        }
+        break;
+      case [400, 401, 403, 404, 500].includes(httpRes?.status):
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.failResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.FailResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

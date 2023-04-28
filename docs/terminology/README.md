@@ -19,7 +19,7 @@ Add terms
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { AddTermsRequest, AddTermsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
+import { AddTermsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 import {
   CreateTermsRequestFailHandlingEnum,
   FullLinkedTermPosEnum,
@@ -32,7 +32,6 @@ import {
   TermMistakeCreatePosEnum,
   TermMistakePosEnum,
 } from "@writerai/writer-sdk/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new Writer({
   security: {
@@ -41,7 +40,7 @@ const sdk = new Writer({
   organizationId: 998848,
 });
 
-const req: AddTermsRequest = {
+sdk.terminology.add({
   createTermsRequest: {
     failHandling: CreateTermsRequestFailHandlingEnum.ValidateOnly,
     models: [
@@ -123,10 +122,8 @@ const req: AddTermsRequest = {
     ],
   },
   teamId: 729991,
-};
-
-sdk.terminology.add(req).then((res: AddTermsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: AddTermsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -140,8 +137,7 @@ Delete terms
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { DeleteTermsRequest, DeleteTermsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { DeleteTermsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 const sdk = new Writer({
   security: {
@@ -150,17 +146,15 @@ const sdk = new Writer({
   organizationId: 749999,
 });
 
-const req: DeleteTermsRequest = {
+sdk.terminology.delete({
   xRequestID: "dolores",
   ids: [
     521037,
     489549,
   ],
   teamId: 54338,
-};
-
-sdk.terminology.delete(req).then((res: DeleteTermsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DeleteTermsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -176,7 +170,6 @@ Find terms
 import { Writer } from "@writerai/writer-sdk";
 import {
   FindTermsPartOfSpeechEnum,
-  FindTermsRequest,
   FindTermsResponse,
   FindTermsSortFieldEnum,
   FindTermsSortOrderEnum,
@@ -189,7 +182,6 @@ import {
   TermExampleTypeEnum,
   TermMistakePosEnum,
 } from "@writerai/writer-sdk/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new Writer({
   security: {
@@ -198,7 +190,7 @@ const sdk = new Writer({
   organizationId: 338985,
 });
 
-const req: FindTermsRequest = {
+sdk.terminology.find({
   limit: 199996,
   offset: 179490,
   partOfSpeech: FindTermsPartOfSpeechEnum.Noun,
@@ -211,10 +203,8 @@ const req: FindTermsRequest = {
   teamId: 345352,
   term: "hic",
   type: FindTermsTypeEnum.Pending,
-};
-
-sdk.terminology.find(req).then((res: FindTermsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: FindTermsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -228,7 +218,7 @@ Update terms
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { UpdateTermsRequest, UpdateTermsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
+import { UpdateTermsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 import {
   FullLinkedTermPosEnum,
   FullTermWithUserPosEnum,
@@ -241,7 +231,6 @@ import {
   TermUpdateTypeEnum,
   UpdateTermsRequestFailHandlingEnum,
 } from "@writerai/writer-sdk/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new Writer({
   security: {
@@ -250,7 +239,7 @@ const sdk = new Writer({
   organizationId: 608253,
 });
 
-const req: UpdateTermsRequest = {
+sdk.terminology.update({
   updateTermsRequest: {
     failHandling: UpdateTermsRequestFailHandlingEnum.Skip,
     models: [
@@ -438,10 +427,8 @@ const req: UpdateTermsRequest = {
   },
   xRequestID: "totam",
   teamId: 628982,
-};
-
-sdk.terminology.update(req).then((res: UpdateTermsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UpdateTermsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

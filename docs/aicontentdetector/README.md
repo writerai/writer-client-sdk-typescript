@@ -16,9 +16,8 @@ Content detector api
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { DetectContentRequest, DetectContentResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
+import { DetectContentResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 import { ContentDetectorResponseLabelEnum } from "@writerai/writer-sdk/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new Writer({
   security: {
@@ -27,14 +26,12 @@ const sdk = new Writer({
   organizationId: 715190,
 });
 
-const req: DetectContentRequest = {
+sdk.aiContentDetector.detect({
   contentDetectorRequest: {
     input: "quibusdam",
   },
-};
-
-sdk.aiContentDetector.detect(req).then((res: DetectContentResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DetectContentResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

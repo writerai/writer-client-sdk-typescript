@@ -19,8 +19,7 @@ Delete file
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { DeleteFileRequest, DeleteFileResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { DeleteFileResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 const sdk = new Writer({
   security: {
@@ -29,12 +28,10 @@ const sdk = new Writer({
   organizationId: 613064,
 });
 
-const req: DeleteFileRequest = {
+sdk.files.delete({
   fileId: "iure",
-};
-
-sdk.files.delete(req).then((res: DeleteFileResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DeleteFileResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -48,8 +45,7 @@ Get file
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { GetFileRequest, GetFileResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { GetFileResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 const sdk = new Writer({
   security: {
@@ -58,12 +54,10 @@ const sdk = new Writer({
   organizationId: 902349,
 });
 
-const req: GetFileRequest = {
+sdk.files.get({
   fileId: "quidem",
-};
-
-sdk.files.get(req).then((res: GetFileResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetFileResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -77,8 +71,7 @@ List files
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { ListFilesRequest, ListFilesResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { ListFilesResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 const sdk = new Writer({
   security: {
@@ -87,10 +80,8 @@ const sdk = new Writer({
   organizationId: 99280,
 });
 
-const req: ListFilesRequest = {};
-
-sdk.files.list(req).then((res: ListFilesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+sdk.files.list({}).then((res: ListFilesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -104,8 +95,7 @@ Upload file
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { UploadFileRequest, UploadFileResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { UploadFileResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 const sdk = new Writer({
   security: {
@@ -114,17 +104,15 @@ const sdk = new Writer({
   organizationId: 60225,
 });
 
-const req: UploadFileRequest = {
+sdk.files.upload({
   uploadModelFileRequest: {
     file: {
       content: "reiciendis".encode(),
       file: "est",
     },
   },
-};
-
-sdk.files.upload(req).then((res: UploadFileResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UploadFileResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

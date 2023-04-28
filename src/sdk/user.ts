@@ -40,7 +40,7 @@ export class User {
   /**
    * List users
    */
-  list(
+  async list(
     req: operations.ListUsersRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.ListUsersResponse> {
@@ -55,44 +55,44 @@ export class User {
 
     const queryParams: string = utils.serializeQueryParams(req, this._globals);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListUsersResponse =
-        new operations.ListUsersResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-          headers: utils.getHeadersFromResponse(httpRes.headers),
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.paginatedResultUserPublicResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.PaginatedResultUserPublicResponse
-            );
-          }
-          break;
-        case [400, 401, 403, 404, 500].includes(httpRes?.status):
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.failResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.FailResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
+    const res: operations.ListUsersResponse = new operations.ListUsersResponse({
+      statusCode: httpRes.status,
+      contentType: contentType,
+      rawResponse: httpRes,
+      headers: utils.getHeadersFromResponse(httpRes.headers),
     });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.paginatedResultUserPublicResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.PaginatedResultUserPublicResponse
+          );
+        }
+        break;
+      case [400, 401, 403, 404, 500].includes(httpRes?.status):
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.failResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.FailResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

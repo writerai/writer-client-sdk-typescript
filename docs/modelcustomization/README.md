@@ -19,8 +19,7 @@ Create model customization
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { CreateModelCustomizationRequest, CreateModelCustomizationResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { CreateModelCustomizationResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 const sdk = new Writer({
   security: {
@@ -29,7 +28,7 @@ const sdk = new Writer({
   organizationId: 653140,
 });
 
-const req: CreateModelCustomizationRequest = {
+sdk.modelCustomization.create({
   createCustomizationRequest: {
     additionalHyperParameters: {
       numVirtualTokens: 670638,
@@ -44,10 +43,8 @@ const req: CreateModelCustomizationRequest = {
     validationDatasetFileId: "iure",
   },
   modelId: "culpa",
-};
-
-sdk.modelCustomization.create(req).then((res: CreateModelCustomizationResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateModelCustomizationResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -61,8 +58,7 @@ Delete Model customization
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { DeleteModelCustomizationRequest, DeleteModelCustomizationResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { DeleteModelCustomizationResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 const sdk = new Writer({
   security: {
@@ -71,13 +67,11 @@ const sdk = new Writer({
   organizationId: 988374,
 });
 
-const req: DeleteModelCustomizationRequest = {
+sdk.modelCustomization.delete({
   customizationId: "sapiente",
   modelId: "architecto",
-};
-
-sdk.modelCustomization.delete(req).then((res: DeleteModelCustomizationResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DeleteModelCustomizationResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -91,8 +85,7 @@ Get model customization
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { GetModelCustomizationRequest, GetModelCustomizationResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { GetModelCustomizationResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 const sdk = new Writer({
   security: {
@@ -101,13 +94,11 @@ const sdk = new Writer({
   organizationId: 652790,
 });
 
-const req: GetModelCustomizationRequest = {
+sdk.modelCustomization.get({
   customizationId: "dolorem",
   modelId: "culpa",
-};
-
-sdk.modelCustomization.get(req).then((res: GetModelCustomizationResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetModelCustomizationResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -121,8 +112,7 @@ List model customizations
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { ListModelCustomizationsRequest, ListModelCustomizationsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { ListModelCustomizationsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 const sdk = new Writer({
   security: {
@@ -131,12 +121,10 @@ const sdk = new Writer({
   organizationId: 161309,
 });
 
-const req: ListModelCustomizationsRequest = {
+sdk.modelCustomization.list({
   modelId: "repellat",
-};
-
-sdk.modelCustomization.list(req).then((res: ListModelCustomizationsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListModelCustomizationsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

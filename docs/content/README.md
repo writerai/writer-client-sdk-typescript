@@ -17,9 +17,8 @@ Check your content against your preset styleguide.
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { ContentCheckRequest, ContentCheckResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
+import { ContentCheckResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 import { ContentIssueServiceEnum } from "@writerai/writer-sdk/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new Writer({
   security: {
@@ -28,7 +27,7 @@ const sdk = new Writer({
   organizationId: 149675,
 });
 
-const req: ContentCheckRequest = {
+sdk.content.check({
   contentRequest: {
     content: "iste",
     settings: {
@@ -51,10 +50,8 @@ const req: ContentCheckRequest = {
     },
   },
   teamId: 222321,
-};
-
-sdk.content.check(req).then((res: ContentCheckResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ContentCheckResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -68,8 +65,7 @@ Apply the style guide suggestions directly to your content.
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { ContentCorrectRequest, ContentCorrectResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { ContentCorrectResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 const sdk = new Writer({
   security: {
@@ -78,7 +74,7 @@ const sdk = new Writer({
   organizationId: 616934,
 });
 
-const req: ContentCorrectRequest = {
+sdk.content.correct({
   contentRequest: {
     content: "laboriosam",
     settings: {
@@ -102,10 +98,8 @@ const req: ContentCorrectRequest = {
   },
   xRequestID: "hic",
   teamId: 902599,
-};
-
-sdk.content.correct(req).then((res: ContentCorrectResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ContentCorrectResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

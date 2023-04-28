@@ -18,8 +18,7 @@ Delete snippets
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { DeleteSnippetsRequest, DeleteSnippetsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { DeleteSnippetsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 const sdk = new Writer({
   security: {
@@ -28,17 +27,15 @@ const sdk = new Writer({
   organizationId: 581850,
 });
 
-const req: DeleteSnippetsRequest = {
+sdk.snippet.delete({
   xRequestID: "numquam",
   ids: [
     "quam",
     "molestiae",
   ],
   teamId: 244425,
-};
-
-sdk.snippet.delete(req).then((res: DeleteSnippetsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DeleteSnippetsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -52,13 +49,7 @@ Find snippets
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import {
-  FindSnippetsRequest,
-  FindSnippetsResponse,
-  FindSnippetsSortFieldEnum,
-  FindSnippetsSortOrderEnum,
-} from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { FindSnippetsResponse, FindSnippetsSortFieldEnum, FindSnippetsSortOrderEnum } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 const sdk = new Writer({
   security: {
@@ -67,7 +58,7 @@ const sdk = new Writer({
   organizationId: 623510,
 });
 
-const req: FindSnippetsRequest = {
+sdk.snippet.find({
   limit: 158969,
   offset: 338007,
   search: "vitae",
@@ -85,10 +76,8 @@ const req: FindSnippetsRequest = {
     "aut",
   ],
   teamId: 97101,
-};
-
-sdk.snippet.find(req).then((res: FindSnippetsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: FindSnippetsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -102,8 +91,7 @@ Update snippets
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { UpdateSnippetsRequest, UpdateSnippetsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { UpdateSnippetsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 const sdk = new Writer({
   security: {
@@ -112,7 +100,7 @@ const sdk = new Writer({
   organizationId: 622846,
 });
 
-const req: UpdateSnippetsRequest = {
+sdk.snippet.update({
   requestBody: [
     {
       description: "laborum",
@@ -188,10 +176,8 @@ const req: UpdateSnippetsRequest = {
   ],
   xRequestID: "facilis",
   teamId: 447926,
-};
-
-sdk.snippet.update(req).then((res: UpdateSnippetsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UpdateSnippetsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

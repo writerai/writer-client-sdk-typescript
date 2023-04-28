@@ -17,8 +17,7 @@ Create completion for LLM model
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { CreateCompletionRequest, CreateCompletionResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { CreateCompletionResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 const sdk = new Writer({
   security: {
@@ -27,7 +26,7 @@ const sdk = new Writer({
   organizationId: 870088,
 });
 
-const req: CreateCompletionRequest = {
+sdk.completions.create({
   completionRequest: {
     bestOf: 978619,
     frequencyPenalty: 4736.08,
@@ -44,10 +43,8 @@ const req: CreateCompletionRequest = {
     topP: 5820.2,
   },
   modelId: "fugit",
-};
-
-sdk.completions.create(req).then((res: CreateCompletionResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateCompletionResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -61,11 +58,7 @@ Create completion for LLM customization model
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import {
-  CreateModelCustomizationCompletionRequest,
-  CreateModelCustomizationCompletionResponse,
-} from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { CreateModelCustomizationCompletionResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 const sdk = new Writer({
   security: {
@@ -74,7 +67,7 @@ const sdk = new Writer({
   organizationId: 537373,
 });
 
-const req: CreateModelCustomizationCompletionRequest = {
+sdk.completions.createModelCustomizationCompletion({
   completionRequest: {
     bestOf: 944669,
     frequencyPenalty: 7586.16,
@@ -95,10 +88,8 @@ const req: CreateModelCustomizationCompletionRequest = {
   },
   customizationId: "ad",
   modelId: "natus",
-};
-
-sdk.completions.createModelCustomizationCompletion(req).then((res: CreateModelCustomizationCompletionResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateModelCustomizationCompletionResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

@@ -40,7 +40,7 @@ export class CoWrite {
   /**
    * Generate content using predefined templates
    */
-  generateContent(
+  async generateContent(
     req: operations.GenerateContentRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GenerateContentResponse> {
@@ -76,7 +76,8 @@ export class CoWrite {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -84,42 +85,42 @@ export class CoWrite {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GenerateContentResponse =
-        new operations.GenerateContentResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-          headers: utils.getHeadersFromResponse(httpRes.headers),
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.draft = utils.objectToClass(httpRes?.data, shared.Draft);
-          }
-          break;
-        case [400, 401, 403, 404, 500].includes(httpRes?.status):
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.failResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.FailResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GenerateContentResponse =
+      new operations.GenerateContentResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+        headers: utils.getHeadersFromResponse(httpRes.headers),
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.draft = utils.objectToClass(httpRes?.data, shared.Draft);
+        }
+        break;
+      case [400, 401, 403, 404, 500].includes(httpRes?.status):
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.failResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.FailResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Get a list of your existing CoWrite templates
    */
-  listTemplates(
+  async listTemplates(
     req: operations.ListTemplatesRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.ListTemplatesResponse> {
@@ -137,44 +138,45 @@ export class CoWrite {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListTemplatesResponse =
-        new operations.ListTemplatesResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-          headers: utils.getHeadersFromResponse(httpRes.headers),
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.templateDetailsResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.TemplateDetailsResponse
-            );
-          }
-          break;
-        case [400, 401, 403, 404, 500].includes(httpRes?.status):
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.failResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.FailResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ListTemplatesResponse =
+      new operations.ListTemplatesResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+        headers: utils.getHeadersFromResponse(httpRes.headers),
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.templateDetailsResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.TemplateDetailsResponse
+          );
+        }
+        break;
+      case [400, 401, 403, 404, 500].includes(httpRes?.status):
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.failResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.FailResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

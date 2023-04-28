@@ -40,7 +40,7 @@ export class Completions {
   /**
    * Create completion for LLM model
    */
-  create(
+  async create(
     req: operations.CreateCompletionRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateCompletionResponse> {
@@ -76,7 +76,8 @@ export class Completions {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -84,45 +85,45 @@ export class Completions {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateCompletionResponse =
-        new operations.CreateCompletionResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-          headers: utils.getHeadersFromResponse(httpRes.headers),
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.completionResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.CompletionResponse
-            );
-          }
-          break;
-        case [400, 401, 403, 404, 500].includes(httpRes?.status):
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.failResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.FailResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateCompletionResponse =
+      new operations.CreateCompletionResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+        headers: utils.getHeadersFromResponse(httpRes.headers),
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.completionResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.CompletionResponse
+          );
+        }
+        break;
+      case [400, 401, 403, 404, 500].includes(httpRes?.status):
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.failResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.FailResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Create completion for LLM customization model
    */
-  createModelCustomizationCompletion(
+  async createModelCustomizationCompletion(
     req: operations.CreateModelCustomizationCompletionRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateModelCustomizationCompletionResponse> {
@@ -158,7 +159,8 @@ export class Completions {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -166,38 +168,38 @@ export class Completions {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateModelCustomizationCompletionResponse =
-        new operations.CreateModelCustomizationCompletionResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-          headers: utils.getHeadersFromResponse(httpRes.headers),
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.completionResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.CompletionResponse
-            );
-          }
-          break;
-        case [400, 401, 403, 404, 500].includes(httpRes?.status):
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.failResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.FailResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateModelCustomizationCompletionResponse =
+      new operations.CreateModelCustomizationCompletionResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+        headers: utils.getHeadersFromResponse(httpRes.headers),
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.completionResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.CompletionResponse
+          );
+        }
+        break;
+      case [400, 401, 403, 404, 500].includes(httpRes?.status):
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.failResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.FailResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

@@ -16,9 +16,8 @@ List available LLM models
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { ListModelsRequest, ListModelsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
+import { ListModelsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 import { GenerationModelInfoResponseTypeEnum } from "@writerai/writer-sdk/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new Writer({
   security: {
@@ -27,10 +26,8 @@ const sdk = new Writer({
   organizationId: 653108,
 });
 
-const req: ListModelsRequest = {};
-
-sdk.models.list(req).then((res: ListModelsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+sdk.models.list({}).then((res: ListModelsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

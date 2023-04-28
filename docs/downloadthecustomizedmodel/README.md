@@ -16,8 +16,7 @@ Download your fine-tuned model (available only for Palmyra Base and Palmyra Larg
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { FetchCustomizedModelFileRequest, FetchCustomizedModelFileResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { FetchCustomizedModelFileResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 const sdk = new Writer({
   security: {
@@ -26,13 +25,11 @@ const sdk = new Writer({
   organizationId: 681820,
 });
 
-const req: FetchCustomizedModelFileRequest = {
+sdk.downloadTheCustomizedModel.fetchFile({
   customizationId: "in",
   modelId: "corporis",
-};
-
-sdk.downloadTheCustomizedModel.fetchFile(req).then((res: FetchCustomizedModelFileResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: FetchCustomizedModelFileResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

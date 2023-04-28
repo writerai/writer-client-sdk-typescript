@@ -22,7 +22,6 @@ import {
   SubscriptionPublicResponseApiProductNameEnum,
   SubscriptionPublicResponseApiStatusEnum,
 } from "@writerai/writer-sdk/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new Writer({
   security: {
@@ -31,8 +30,8 @@ const sdk = new Writer({
   organizationId: 602763,
 });
 
-sdk.billing.getSubscriptionDetails().then((res: GetSubscriptionDetailsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+sdk.billing.getSubscriptionDetails().then((res: GetSubscriptionDetailsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

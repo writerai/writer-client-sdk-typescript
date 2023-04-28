@@ -40,7 +40,7 @@ export class AIContentDetector {
   /**
    * Content detector api
    */
-  detect(
+  async detect(
     req: operations.DetectContentRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.DetectContentResponse> {
@@ -76,7 +76,8 @@ export class AIContentDetector {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -84,41 +85,41 @@ export class AIContentDetector {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.DetectContentResponse =
-        new operations.DetectContentResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-          headers: utils.getHeadersFromResponse(httpRes.headers),
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.contentDetectorResponses = [];
-            const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.contentDetectorResponses = utils.objectToClass(
-              httpRes?.data,
-              shared.ContentDetectorResponse,
-              resFieldDepth
-            );
-          }
-          break;
-        case [400, 401, 403, 404, 500].includes(httpRes?.status):
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.failResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.FailResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.DetectContentResponse =
+      new operations.DetectContentResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+        headers: utils.getHeadersFromResponse(httpRes.headers),
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.contentDetectorResponses = [];
+          const resFieldDepth: number = utils.getResFieldDepth(res);
+          res.contentDetectorResponses = utils.objectToClass(
+            httpRes?.data,
+            shared.ContentDetectorResponse,
+            resFieldDepth
+          );
+        }
+        break;
+      case [400, 401, 403, 404, 500].includes(httpRes?.status):
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.failResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.FailResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

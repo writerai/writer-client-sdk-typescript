@@ -17,9 +17,8 @@ Page details
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { PageDetailsRequest, PageDetailsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
+import { PageDetailsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 import { PageWithSectionResponseStatusEnum } from "@writerai/writer-sdk/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new Writer({
   security: {
@@ -28,12 +27,10 @@ const sdk = new Writer({
   organizationId: 100226,
 });
 
-const req: PageDetailsRequest = {
+sdk.styleguide.get({
   pageId: 99569,
-};
-
-sdk.styleguide.get(req).then((res: PageDetailsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: PageDetailsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -47,9 +44,8 @@ List your styleguide pages
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { ListPagesRequest, ListPagesResponse, ListPagesStatusEnum } from "@writerai/writer-sdk/dist/sdk/models/operations";
+import { ListPagesResponse, ListPagesStatusEnum } from "@writerai/writer-sdk/dist/sdk/models/operations";
 import { PagePublicApiResponseStatusEnum } from "@writerai/writer-sdk/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new Writer({
   security: {
@@ -58,14 +54,12 @@ const sdk = new Writer({
   organizationId: 919483,
 });
 
-const req: ListPagesRequest = {
+sdk.styleguide.listPages({
   limit: 352312,
   offset: 714242,
   status: ListPagesStatusEnum.Live,
-};
-
-sdk.styleguide.listPages(req).then((res: ListPagesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListPagesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
