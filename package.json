@@ -1,6 +1,6 @@
 {
   "name": "@writerai/writer-sdk",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "author": "writerai",
   "scripts": {
     "prepare": "tsc --build"
