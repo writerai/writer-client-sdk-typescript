@@ -7,7 +7,7 @@ import { MetaData } from "./metadata";
 import { Usage } from "./usage";
 import { Expose, Transform, Type } from "class-transformer";
 
-export enum SubscriptionPublicResponseApiProductNameEnum {
+export enum SubscriptionPublicResponseApiProductName {
   Free = "free",
   Pro = "pro",
   Team = "team",
@@ -15,7 +15,7 @@ export enum SubscriptionPublicResponseApiProductNameEnum {
   Legacy = "legacy",
 }
 
-export enum SubscriptionPublicResponseApiStatusEnum {
+export enum SubscriptionPublicResponseApiStatus {
   Trialing = "trialing",
   Active = "active",
   PastDue = "past_due",
@@ -38,7 +38,7 @@ export class SubscriptionPublicResponseApi extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "productName" })
-  productName: SubscriptionPublicResponseApiProductNameEnum;
+  productName: SubscriptionPublicResponseApiProductName;
 
   @SpeakeasyMetadata()
   @Expose({ name: "seats" })
@@ -46,7 +46,7 @@ export class SubscriptionPublicResponseApi extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: SubscriptionPublicResponseApiStatusEnum;
+  status: SubscriptionPublicResponseApiStatus;
 
   @SpeakeasyMetadata()
   @Expose({ name: "subscriptionId" })

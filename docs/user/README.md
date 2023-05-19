@@ -16,8 +16,8 @@ List users
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { ListUsersResponse, ListUsersSortFieldEnum, ListUsersSortOrderEnum } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { UserPublicResponseAccountStatusEnum } from "@writerai/writer-sdk/dist/sdk/models/shared";
+import { ListUsersResponse, ListUsersSortField, ListUsersSortOrder } from "@writerai/writer-sdk/dist/sdk/models/operations";
+import { UserPublicResponseAccountStatus } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({
   security: {
@@ -30,8 +30,8 @@ sdk.user.list({
   limit: 872651,
   offset: 311860,
   search: "tempora",
-  sortField: ListUsersSortFieldEnum.CreationTime,
-  sortOrder: ListUsersSortOrderEnum.Desc,
+  sortField: ListUsersSortField.CreationTime,
+  sortOrder: ListUsersSortOrder.Desc,
 }).then((res: ListUsersResponse) => {
   if (res.statusCode == 200) {
     // handle response

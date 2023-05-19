@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export enum TermMistakeCreatePosEnum {
+export enum TermMistakeCreatePos {
   Noun = "noun",
   Verb = "verb",
   Adverb = "adverb",
@@ -23,7 +23,7 @@ export class TermMistakeCreate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "pos" })
-  pos?: TermMistakeCreatePosEnum;
+  pos?: TermMistakeCreatePos;
 
   @SpeakeasyMetadata()
   @Expose({ name: "reference" })

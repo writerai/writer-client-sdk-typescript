@@ -60,6 +60,7 @@ export class Snippet {
 
     const headers = { ...utils.getHeadersFromRequest(req), ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req, this._globals);
+    headers["Accept"] = "application/json;q=1, application/json;q=0";
     headers[
       "user-agent"
     ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
@@ -130,6 +131,7 @@ export class Snippet {
 
     const headers = { ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req, this._globals);
+    headers["Accept"] = "application/json;q=1, application/json;q=0";
     headers[
       "user-agent"
     ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
@@ -217,6 +219,7 @@ export class Snippet {
       ...reqBodyHeaders,
       ...config?.headers,
     };
+    headers["Accept"] = "application/json;q=1, application/json;q=0";
     headers[
       "user-agent"
     ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;

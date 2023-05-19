@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export enum ListPagesStatusEnum {
+export enum ListPagesStatus {
   Live = "live",
   Offline = "offline",
 }
@@ -23,7 +23,7 @@ export class ListPagesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=status",
   })
-  status?: ListPagesStatusEnum;
+  status?: ListPagesStatus;
 }
 
 export class ListPagesResponse extends SpeakeasyBase {

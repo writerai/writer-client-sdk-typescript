@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { TermUpdate } from "./termupdate";
 import { Expose, Type } from "class-transformer";
 
-export enum UpdateTermsRequestFailHandlingEnum {
+export enum UpdateTermsRequestFailHandling {
   Accumulate = "accumulate",
   Validate = "validate",
   Skip = "skip",
@@ -16,7 +16,7 @@ export enum UpdateTermsRequestFailHandlingEnum {
 export class UpdateTermsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "failHandling" })
-  failHandling?: UpdateTermsRequestFailHandlingEnum;
+  failHandling?: UpdateTermsRequestFailHandling;
 
   @SpeakeasyMetadata({ elemType: TermUpdate })
   @Expose({ name: "models" })

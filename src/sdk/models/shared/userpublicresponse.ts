@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Transform } from "class-transformer";
 
-export enum UserPublicResponseAccountStatusEnum {
+export enum UserPublicResponseAccountStatus {
   Invited = "invited",
   SignedUp = "signed_up",
 }
@@ -13,7 +13,7 @@ export enum UserPublicResponseAccountStatusEnum {
 export class UserPublicResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountStatus" })
-  accountStatus: UserPublicResponseAccountStatusEnum;
+  accountStatus: UserPublicResponseAccountStatus;
 
   @SpeakeasyMetadata()
   @Expose({ name: "avatar" })

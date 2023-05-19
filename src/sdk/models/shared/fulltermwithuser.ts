@@ -11,14 +11,14 @@ import { TermMistake } from "./termmistake";
 import { TermTagResponse } from "./termtagresponse";
 import { Expose, Transform, Type } from "class-transformer";
 
-export enum FullTermWithUserPosEnum {
+export enum FullTermWithUserPos {
   Noun = "noun",
   Verb = "verb",
   Adverb = "adverb",
   Adjective = "adjective",
 }
 
-export enum FullTermWithUserTypeEnum {
+export enum FullTermWithUserType {
   Approved = "approved",
   Banned = "banned",
   Pending = "pending",
@@ -88,7 +88,7 @@ export class FullTermWithUser extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "pos" })
-  pos?: FullTermWithUserPosEnum;
+  pos?: FullTermWithUserPos;
 
   @SpeakeasyMetadata({ elemType: TermTagResponse })
   @Expose({ name: "tags" })
@@ -105,5 +105,5 @@ export class FullTermWithUser extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: FullTermWithUserTypeEnum;
+  type: FullTermWithUserType;
 }

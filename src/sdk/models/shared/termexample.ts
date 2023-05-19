@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export enum TermExampleTypeEnum {
+export enum TermExampleType {
   Good = "good",
   Bad = "bad",
 }
@@ -29,5 +29,5 @@ export class TermExample extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: TermExampleTypeEnum;
+  type: TermExampleType;
 }

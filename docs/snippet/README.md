@@ -49,7 +49,7 @@ Find snippets
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { FindSnippetsResponse, FindSnippetsSortFieldEnum, FindSnippetsSortOrderEnum } from "@writerai/writer-sdk/dist/sdk/models/operations";
+import { FindSnippetsResponse, FindSnippetsSortField, FindSnippetsSortOrder } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 const sdk = new Writer({
   security: {
@@ -67,8 +67,8 @@ sdk.snippet.find({
     "enim",
     "odit",
   ],
-  sortField: FindSnippetsSortFieldEnum.ModificationTime,
-  sortOrder: FindSnippetsSortOrderEnum.Asc,
+  sortField: FindSnippetsSortField.ModificationTime,
+  sortOrder: FindSnippetsSortOrder.Asc,
   tags: [
     "ipsam",
     "id",

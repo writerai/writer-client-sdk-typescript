@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export enum ContentDetectorResponseLabelEnum {
+export enum ContentDetectorResponseLabel {
   Fake = "fake",
   Real = "real",
 }
@@ -13,7 +13,7 @@ export enum ContentDetectorResponseLabelEnum {
 export class ContentDetectorResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "label" })
-  label: ContentDetectorResponseLabelEnum;
+  label: ContentDetectorResponseLabel;
 
   @SpeakeasyMetadata()
   @Expose({ name: "score" })

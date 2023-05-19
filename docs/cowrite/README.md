@@ -71,7 +71,7 @@ Get a list of your existing CoWrite templates
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 import { ListTemplatesResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { InputTypeEnum } from "@writerai/writer-sdk/dist/sdk/models/shared";
+import { InputType } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({
   security: {

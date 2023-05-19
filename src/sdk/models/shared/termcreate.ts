@@ -10,14 +10,14 @@ import { TermMistakeCreate } from "./termmistakecreate";
 import { TermTagCreate } from "./termtagcreate";
 import { Expose, Type } from "class-transformer";
 
-export enum TermCreatePosEnum {
+export enum TermCreatePos {
   Noun = "noun",
   Verb = "verb",
   Adverb = "adverb",
   Adjective = "adjective",
 }
 
-export enum TermCreateTypeEnum {
+export enum TermCreateType {
   Approved = "approved",
   Banned = "banned",
   Pending = "pending",
@@ -58,7 +58,7 @@ export class TermCreate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "pos" })
-  pos?: TermCreatePosEnum;
+  pos?: TermCreatePos;
 
   @SpeakeasyMetadata()
   @Expose({ name: "reference" })
@@ -75,5 +75,5 @@ export class TermCreate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: TermCreateTypeEnum;
+  type: TermCreateType;
 }

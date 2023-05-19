@@ -18,7 +18,7 @@ Page details
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 import { PageDetailsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { PageWithSectionResponseStatusEnum } from "@writerai/writer-sdk/dist/sdk/models/shared";
+import { PageWithSectionResponseStatus } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({
   security: {
@@ -44,8 +44,8 @@ List your styleguide pages
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { ListPagesResponse, ListPagesStatusEnum } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { PagePublicApiResponseStatusEnum } from "@writerai/writer-sdk/dist/sdk/models/shared";
+import { ListPagesResponse, ListPagesStatus } from "@writerai/writer-sdk/dist/sdk/models/operations";
+import { PagePublicApiResponseStatus } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({
   security: {
@@ -57,7 +57,7 @@ const sdk = new Writer({
 sdk.styleguide.listPages({
   limit: 352312,
   offset: 714242,
-  status: ListPagesStatusEnum.Live,
+  status: ListPagesStatus.Live,
 }).then((res: ListPagesResponse) => {
   if (res.statusCode == 200) {
     // handle response

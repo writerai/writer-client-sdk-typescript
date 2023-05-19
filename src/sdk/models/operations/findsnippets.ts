@@ -6,13 +6,13 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export enum FindSnippetsSortFieldEnum {
+export enum FindSnippetsSortField {
   Shortcut = "shortcut",
   CreationTime = "creationTime",
   ModificationTime = "modificationTime",
 }
 
-export enum FindSnippetsSortOrderEnum {
+export enum FindSnippetsSortOrder {
   Asc = "asc",
   Desc = "desc",
 }
@@ -44,12 +44,12 @@ export class FindSnippetsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=sortField",
   })
-  sortField?: FindSnippetsSortFieldEnum;
+  sortField?: FindSnippetsSortField;
 
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=sortOrder",
   })
-  sortOrder?: FindSnippetsSortOrderEnum;
+  sortOrder?: FindSnippetsSortOrder;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=tags" })
   tags?: string[];

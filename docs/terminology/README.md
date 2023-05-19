@@ -21,16 +21,16 @@ Add terms
 import { Writer } from "@writerai/writer-sdk";
 import { AddTermsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 import {
-  CreateTermsRequestFailHandlingEnum,
-  FullLinkedTermPosEnum,
-  FullTermWithUserPosEnum,
-  FullTermWithUserTypeEnum,
-  TermCreatePosEnum,
-  TermCreateTypeEnum,
-  TermExampleCreateTypeEnum,
-  TermExampleTypeEnum,
-  TermMistakeCreatePosEnum,
-  TermMistakePosEnum,
+  CreateTermsRequestFailHandling,
+  FullLinkedTermPos,
+  FullTermWithUserPos,
+  FullTermWithUserType,
+  TermCreatePos,
+  TermCreateType,
+  TermExampleCreateType,
+  TermExampleType,
+  TermMistakeCreatePos,
+  TermMistakePos,
 } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({
@@ -42,7 +42,7 @@ const sdk = new Writer({
 
 sdk.terminology.add({
   createTermsRequest: {
-    failHandling: CreateTermsRequestFailHandlingEnum.ValidateOnly,
+    failHandling: CreateTermsRequestFailHandling.ValidateOnly,
     models: [
       {
         approvedTermExtension: {
@@ -55,19 +55,19 @@ sdk.terminology.add({
         examples: [
           {
             example: "accusantium",
-            type: TermExampleCreateTypeEnum.Good,
+            type: TermExampleCreateType.Good,
           },
           {
             example: "praesentium",
-            type: TermExampleCreateTypeEnum.Bad,
+            type: TermExampleCreateType.Bad,
           },
           {
             example: "magni",
-            type: TermExampleCreateTypeEnum.Good,
+            type: TermExampleCreateType.Good,
           },
           {
             example: "quo",
-            type: TermExampleCreateTypeEnum.Bad,
+            type: TermExampleCreateType.Bad,
           },
         ],
         highlight: false,
@@ -93,23 +93,23 @@ sdk.terminology.add({
           {
             caseSensitive: false,
             mistake: "ipsam",
-            pos: TermMistakeCreatePosEnum.Verb,
+            pos: TermMistakeCreatePos.Verb,
             reference: "autem",
           },
           {
             caseSensitive: false,
             mistake: "nam",
-            pos: TermMistakeCreatePosEnum.Noun,
+            pos: TermMistakeCreatePos.Noun,
             reference: "pariatur",
           },
           {
             caseSensitive: false,
             mistake: "nemo",
-            pos: TermMistakeCreatePosEnum.Adjective,
+            pos: TermMistakeCreatePos.Adjective,
             reference: "perferendis",
           },
         ],
-        pos: TermCreatePosEnum.Adjective,
+        pos: TermCreatePos.Adjective,
         reference: "amet",
         tags: [
           {
@@ -117,7 +117,7 @@ sdk.terminology.add({
           },
         ],
         term: "corporis",
-        type: TermCreateTypeEnum.Pending,
+        type: TermCreateType.Pending,
       },
     ],
   },
@@ -169,18 +169,18 @@ Find terms
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 import {
-  FindTermsPartOfSpeechEnum,
+  FindTermsPartOfSpeech,
   FindTermsResponse,
-  FindTermsSortFieldEnum,
-  FindTermsSortOrderEnum,
-  FindTermsTypeEnum,
+  FindTermsSortField,
+  FindTermsSortOrder,
+  FindTermsType,
 } from "@writerai/writer-sdk/dist/sdk/models/operations";
 import {
-  FullLinkedTermPosEnum,
-  FullTermWithUserPosEnum,
-  FullTermWithUserTypeEnum,
-  TermExampleTypeEnum,
-  TermMistakePosEnum,
+  FullLinkedTermPos,
+  FullTermWithUserPos,
+  FullTermWithUserType,
+  TermExampleType,
+  TermMistakePos,
 } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({
@@ -193,16 +193,16 @@ const sdk = new Writer({
 sdk.terminology.find({
   limit: 199996,
   offset: 179490,
-  partOfSpeech: FindTermsPartOfSpeechEnum.Noun,
-  sortField: FindTermsSortFieldEnum.Term,
-  sortOrder: FindTermsSortOrderEnum.Desc,
+  partOfSpeech: FindTermsPartOfSpeech.Noun,
+  sortField: FindTermsSortField.Term,
+  sortOrder: FindTermsSortOrder.Desc,
   tags: [
     "dolor",
     "vero",
   ],
   teamId: 345352,
   term: "hic",
-  type: FindTermsTypeEnum.Pending,
+  type: FindTermsType.Pending,
 }).then((res: FindTermsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -220,16 +220,16 @@ Update terms
 import { Writer } from "@writerai/writer-sdk";
 import { UpdateTermsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 import {
-  FullLinkedTermPosEnum,
-  FullTermWithUserPosEnum,
-  FullTermWithUserTypeEnum,
-  TermExampleCreateTypeEnum,
-  TermExampleTypeEnum,
-  TermMistakeCreatePosEnum,
-  TermMistakePosEnum,
-  TermUpdatePosEnum,
-  TermUpdateTypeEnum,
-  UpdateTermsRequestFailHandlingEnum,
+  FullLinkedTermPos,
+  FullTermWithUserPos,
+  FullTermWithUserType,
+  TermExampleCreateType,
+  TermExampleType,
+  TermMistakeCreatePos,
+  TermMistakePos,
+  TermUpdatePos,
+  TermUpdateType,
+  UpdateTermsRequestFailHandling,
 } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({
@@ -241,7 +241,7 @@ const sdk = new Writer({
 
 sdk.terminology.update({
   updateTermsRequest: {
-    failHandling: UpdateTermsRequestFailHandlingEnum.Skip,
+    failHandling: UpdateTermsRequestFailHandling.Skip,
     models: [
       {
         approvedTermExtension: {
@@ -254,19 +254,19 @@ sdk.terminology.update({
         examples: [
           {
             example: "consequuntur",
-            type: TermExampleCreateTypeEnum.Bad,
+            type: TermExampleCreateType.Bad,
           },
           {
             example: "error",
-            type: TermExampleCreateTypeEnum.Good,
+            type: TermExampleCreateType.Good,
           },
           {
             example: "occaecati",
-            type: TermExampleCreateTypeEnum.Bad,
+            type: TermExampleCreateType.Bad,
           },
           {
             example: "adipisci",
-            type: TermExampleCreateTypeEnum.Bad,
+            type: TermExampleCreateType.Bad,
           },
         ],
         highlight: false,
@@ -285,30 +285,30 @@ sdk.terminology.update({
           {
             caseSensitive: false,
             mistake: "nobis",
-            pos: TermMistakeCreatePosEnum.Adverb,
+            pos: TermMistakeCreatePos.Adverb,
             reference: "delectus",
           },
           {
             caseSensitive: false,
             mistake: "quaerat",
-            pos: TermMistakeCreatePosEnum.Adverb,
+            pos: TermMistakeCreatePos.Adverb,
             reference: "aliquid",
           },
           {
             caseSensitive: false,
             mistake: "dolorem",
-            pos: TermMistakeCreatePosEnum.Noun,
+            pos: TermMistakeCreatePos.Noun,
             reference: "dolor",
           },
         ],
-        pos: TermUpdatePosEnum.Noun,
+        pos: TermUpdatePos.Noun,
         tags: [
           {
             tag: "hic",
           },
         ],
         term: "excepturi",
-        type: TermUpdateTypeEnum.Pending,
+        type: TermUpdateType.Pending,
       },
       {
         approvedTermExtension: {
@@ -321,11 +321,11 @@ sdk.terminology.update({
         examples: [
           {
             example: "reiciendis",
-            type: TermExampleCreateTypeEnum.Good,
+            type: TermExampleCreateType.Good,
           },
           {
             example: "dolorum",
-            type: TermExampleCreateTypeEnum.Good,
+            type: TermExampleCreateType.Good,
           },
         ],
         highlight: false,
@@ -340,17 +340,17 @@ sdk.terminology.update({
           {
             caseSensitive: false,
             mistake: "quaerat",
-            pos: TermMistakeCreatePosEnum.Adjective,
+            pos: TermMistakeCreatePos.Adjective,
             reference: "quidem",
           },
           {
             caseSensitive: false,
             mistake: "voluptatibus",
-            pos: TermMistakeCreatePosEnum.Verb,
+            pos: TermMistakeCreatePos.Verb,
             reference: "natus",
           },
         ],
-        pos: TermUpdatePosEnum.Noun,
+        pos: TermUpdatePos.Noun,
         tags: [
           {
             tag: "sit",
@@ -363,7 +363,7 @@ sdk.terminology.update({
           },
         ],
         term: "soluta",
-        type: TermUpdateTypeEnum.Pending,
+        type: TermUpdateType.Pending,
       },
       {
         approvedTermExtension: {
@@ -376,11 +376,11 @@ sdk.terminology.update({
         examples: [
           {
             example: "dolorum",
-            type: TermExampleCreateTypeEnum.Bad,
+            type: TermExampleCreateType.Bad,
           },
           {
             example: "omnis",
-            type: TermExampleCreateTypeEnum.Bad,
+            type: TermExampleCreateType.Bad,
           },
         ],
         highlight: false,
@@ -407,11 +407,11 @@ sdk.terminology.update({
           {
             caseSensitive: false,
             mistake: "optio",
-            pos: TermMistakeCreatePosEnum.Adjective,
+            pos: TermMistakeCreatePos.Adjective,
             reference: "ad",
           },
         ],
-        pos: TermUpdatePosEnum.Adjective,
+        pos: TermUpdatePos.Adjective,
         tags: [
           {
             tag: "deserunt",
@@ -421,7 +421,7 @@ sdk.terminology.update({
           },
         ],
         term: "minima",
-        type: TermUpdateTypeEnum.Pending,
+        type: TermUpdateType.Pending,
       },
     ],
   },

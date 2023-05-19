@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export enum InputTypeEnum {
+export enum InputType {
   Textbox = "textbox",
   Textarea = "textarea",
   Dropdown = "dropdown",
@@ -46,7 +46,7 @@ export class Input extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: InputTypeEnum;
+  type: InputType;
 
   @SpeakeasyMetadata()
   @Expose({ name: "unitCopy" })

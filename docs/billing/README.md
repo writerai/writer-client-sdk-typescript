@@ -18,9 +18,9 @@ Get your organization subscription details
 import { Writer } from "@writerai/writer-sdk";
 import { GetSubscriptionDetailsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 import {
-  MetaDataTierEnum,
-  SubscriptionPublicResponseApiProductNameEnum,
-  SubscriptionPublicResponseApiStatusEnum,
+  MetaDataTier,
+  SubscriptionPublicResponseApiProductName,
+  SubscriptionPublicResponseApiStatus,
 } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({

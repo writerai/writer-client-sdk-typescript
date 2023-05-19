@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export enum MetaDataTierEnum {
+export enum MetaDataTier {
   Enterprise1 = "enterprise-1",
   Enterprise2 = "enterprise-2",
   Enterprise3 = "enterprise-3",
@@ -43,5 +43,5 @@ export class MetaData extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "tier" })
-  tier?: MetaDataTierEnum;
+  tier?: MetaDataTier;
 }

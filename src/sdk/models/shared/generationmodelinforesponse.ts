@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export enum GenerationModelInfoResponseTypeEnum {
+export enum GenerationModelInfoResponseType {
   Gpt = "GPT",
   Instruct = "Instruct",
 }
@@ -21,5 +21,5 @@ export class GenerationModelInfoResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: GenerationModelInfoResponseTypeEnum;
+  type: GenerationModelInfoResponseType;
 }
