@@ -8,13 +8,13 @@ import { FullTermWithUser } from "./fulltermwithuser";
 import { Expose, Type } from "class-transformer";
 
 export class CreateTermsResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: FailMessage })
-  @Expose({ name: "fails" })
-  @Type(() => FailMessage)
-  fails?: FailMessage[];
+    @SpeakeasyMetadata({ elemType: FailMessage })
+    @Expose({ name: "fails" })
+    @Type(() => FailMessage)
+    fails?: FailMessage[];
 
-  @SpeakeasyMetadata({ elemType: FullTermWithUser })
-  @Expose({ name: "models" })
-  @Type(() => FullTermWithUser)
-  models?: FullTermWithUser[];
+    @SpeakeasyMetadata({ elemType: FullTermWithUser })
+    @Expose({ name: "models" })
+    @Type(() => FullTermWithUser)
+    models?: FullTermWithUser[];
 }

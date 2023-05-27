@@ -11,317 +11,301 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
  * Methods related to Files
  */
 export class Files {
-  _defaultClient: AxiosInstance;
-  _securityClient: AxiosInstance;
-  _serverURL: string;
-  _language: string;
-  _sdkVersion: string;
-  _genVersion: string;
-  _globals: any;
+    _defaultClient: AxiosInstance;
+    _securityClient: AxiosInstance;
+    _serverURL: string;
+    _language: string;
+    _sdkVersion: string;
+    _genVersion: string;
+    _globals: any;
 
-  constructor(
-    defaultClient: AxiosInstance,
-    securityClient: AxiosInstance,
-    serverURL: string,
-    language: string,
-    sdkVersion: string,
-    genVersion: string,
-    globals: any
-  ) {
-    this._defaultClient = defaultClient;
-    this._securityClient = securityClient;
-    this._serverURL = serverURL;
-    this._language = language;
-    this._sdkVersion = sdkVersion;
-    this._genVersion = genVersion;
-    this._globals = globals;
-  }
-
-  /**
-   * Delete file
-   */
-  async delete(
-    req: operations.DeleteFileRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.DeleteFileResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.DeleteFileRequest(req);
+    constructor(
+        defaultClient: AxiosInstance,
+        securityClient: AxiosInstance,
+        serverURL: string,
+        language: string,
+        sdkVersion: string,
+        genVersion: string,
+        globals: any
+    ) {
+        this._defaultClient = defaultClient;
+        this._securityClient = securityClient;
+        this._serverURL = serverURL;
+        this._language = language;
+        this._sdkVersion = sdkVersion;
+        this._genVersion = genVersion;
+        this._globals = globals;
     }
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/llm/organization/{organizationId}/file/{fileId}",
-      req,
-      this._globals
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "delete",
-      headers: headers,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.DeleteFileResponse =
-      new operations.DeleteFileResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-        headers: utils.getHeadersFromResponse(httpRes.headers),
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.deleteFile200ApplicationJSONObject = utils.objectToClass(
-            httpRes?.data
-          );
+    /**
+     * Delete file
+     */
+    async delete(
+        req: operations.DeleteFileRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.DeleteFileResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.DeleteFileRequest(req);
         }
-        break;
-      case [400, 401, 403, 404, 500].includes(httpRes?.status):
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.failResponse = utils.objectToClass(
-            httpRes?.data,
-            shared.FailResponse
-          );
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/llm/organization/{organizationId}/file/{fileId}",
+            req,
+            this._globals
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "delete",
+            headers: headers,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
-    }
 
-    return res;
-  }
-
-  /**
-   * Get file
-   */
-  async get(
-    req: operations.GetFileRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetFileResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetFileRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/llm/organization/{organizationId}/file/{fileId}",
-      req,
-      this._globals
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "get",
-      headers: headers,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetFileResponse = new operations.GetFileResponse({
-      statusCode: httpRes.status,
-      contentType: contentType,
-      rawResponse: httpRes,
-      headers: utils.getHeadersFromResponse(httpRes.headers),
-    });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.modelFile = utils.objectToClass(httpRes?.data, shared.ModelFile);
+        const res: operations.DeleteFileResponse = new operations.DeleteFileResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+            headers: utils.getHeadersFromResponse(httpRes.headers),
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.deleteFile200ApplicationJSONObject = utils.objectToClass(httpRes?.data);
+                }
+                break;
+            case [400, 401, 403, 404, 500].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.failResponse = utils.objectToClass(httpRes?.data, shared.FailResponse);
+                }
+                break;
         }
-        break;
-      case [400, 401, 403, 404, 500].includes(httpRes?.status):
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.failResponse = utils.objectToClass(
-            httpRes?.data,
-            shared.FailResponse
-          );
+
+        return res;
+    }
+
+    /**
+     * Get file
+     */
+    async get(
+        req: operations.GetFileRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetFileResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetFileRequest(req);
         }
-        break;
-    }
 
-    return res;
-  }
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/llm/organization/{organizationId}/file/{fileId}",
+            req,
+            this._globals
+        );
 
-  /**
-   * List files
-   */
-  async list(
-    req: operations.ListFilesRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.ListFilesResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ListFilesRequest(req);
-    }
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/llm/organization/{organizationId}/file",
-      req,
-      this._globals
-    );
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "get",
+            headers: headers,
+            ...config,
+        });
 
-    const headers = { ...config?.headers };
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "get",
-      headers: headers,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.ListFilesResponse = new operations.ListFilesResponse({
-      statusCode: httpRes.status,
-      contentType: contentType,
-      rawResponse: httpRes,
-      headers: utils.getHeadersFromResponse(httpRes.headers),
-    });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.modelFilesResponse = utils.objectToClass(
-            httpRes?.data,
-            shared.ModelFilesResponse
-          );
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
-      case [400, 401, 403, 404, 500].includes(httpRes?.status):
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.failResponse = utils.objectToClass(
-            httpRes?.data,
-            shared.FailResponse
-          );
+
+        const res: operations.GetFileResponse = new operations.GetFileResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+            headers: utils.getHeadersFromResponse(httpRes.headers),
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.modelFile = utils.objectToClass(httpRes?.data, shared.ModelFile);
+                }
+                break;
+            case [400, 401, 403, 404, 500].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.failResponse = utils.objectToClass(httpRes?.data, shared.FailResponse);
+                }
+                break;
         }
-        break;
+
+        return res;
     }
 
-    return res;
-  }
-
-  /**
-   * Upload file
-   */
-  async upload(
-    req: operations.UploadFileRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.UploadFileResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.UploadFileRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/llm/organization/{organizationId}/file",
-      req,
-      this._globals
-    );
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-        req,
-        "uploadModelFileRequest",
-        "multipart"
-      );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...reqBodyHeaders, ...config?.headers };
-    if (reqBody == null || Object.keys(reqBody).length === 0)
-      throw new Error("request body is required");
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "post",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.UploadFileResponse =
-      new operations.UploadFileResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-        headers: utils.getHeadersFromResponse(httpRes.headers),
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.modelFile = utils.objectToClass(httpRes?.data, shared.ModelFile);
+    /**
+     * List files
+     */
+    async list(
+        req: operations.ListFilesRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.ListFilesResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.ListFilesRequest(req);
         }
-        break;
-      case [400, 401, 403, 404, 500].includes(httpRes?.status):
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.failResponse = utils.objectToClass(
-            httpRes?.data,
-            shared.FailResponse
-          );
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/llm/organization/{organizationId}/file",
+            req,
+            this._globals
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "get",
+            headers: headers,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
+
+        const res: operations.ListFilesResponse = new operations.ListFilesResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+            headers: utils.getHeadersFromResponse(httpRes.headers),
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.modelFilesResponse = utils.objectToClass(
+                        httpRes?.data,
+                        shared.ModelFilesResponse
+                    );
+                }
+                break;
+            case [400, 401, 403, 404, 500].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.failResponse = utils.objectToClass(httpRes?.data, shared.FailResponse);
+                }
+                break;
+        }
+
+        return res;
     }
 
-    return res;
-  }
+    /**
+     * Upload file
+     */
+    async upload(
+        req: operations.UploadFileRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.UploadFileResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.UploadFileRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/llm/organization/{organizationId}/file",
+            req,
+            this._globals
+        );
+
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+        try {
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+                req,
+                "uploadModelFileRequest",
+                "multipart"
+            );
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                throw new Error(`Error serializing request body, cause: ${e.message}`);
+            }
+        }
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (reqBody == null || Object.keys(reqBody).length === 0)
+            throw new Error("request body is required");
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "post",
+            headers: headers,
+            data: reqBody,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.UploadFileResponse = new operations.UploadFileResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+            headers: utils.getHeadersFromResponse(httpRes.headers),
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.modelFile = utils.objectToClass(httpRes?.data, shared.ModelFile);
+                }
+                break;
+            case [400, 401, 403, 404, 500].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.failResponse = utils.objectToClass(httpRes?.data, shared.FailResponse);
+                }
+                break;
+        }
+
+        return res;
+    }
 }

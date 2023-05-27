@@ -6,16 +6,16 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export enum ContentDetectorResponseLabel {
-  Fake = "fake",
-  Real = "real",
+    Fake = "fake",
+    Real = "real",
 }
 
 export class ContentDetectorResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "label" })
-  label: ContentDetectorResponseLabel;
+    @SpeakeasyMetadata()
+    @Expose({ name: "label" })
+    label: ContentDetectorResponseLabel;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "score" })
-  score: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "score" })
+    score: number;
 }

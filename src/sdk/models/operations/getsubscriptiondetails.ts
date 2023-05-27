@@ -7,24 +7,24 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetSubscriptionDetailsResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * Bad Request
-   */
-  @SpeakeasyMetadata()
-  failResponse?: shared.FailResponse;
+    /**
+     * Bad Request
+     */
+    @SpeakeasyMetadata()
+    failResponse?: shared.FailResponse;
 
-  @SpeakeasyMetadata()
-  headers?: Record<string, string[]>;
+    @SpeakeasyMetadata()
+    headers?: Record<string, string[]>;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  @SpeakeasyMetadata()
-  subscriptionPublicResponseApi?: shared.SubscriptionPublicResponseApi;
+    @SpeakeasyMetadata()
+    subscriptionPublicResponseApi?: shared.SubscriptionPublicResponseApi;
 }

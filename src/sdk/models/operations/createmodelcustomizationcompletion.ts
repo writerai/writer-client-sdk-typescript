@@ -7,44 +7,38 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class CreateModelCustomizationCompletionRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  completionRequest: shared.CompletionRequest;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    completionRequest: shared.CompletionRequest;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=customizationId",
-  })
-  customizationId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=customizationId" })
+    customizationId: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=modelId",
-  })
-  modelId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=modelId" })
+    modelId: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=organizationId",
-  })
-  organizationId?: number;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=organizationId" })
+    organizationId?: number;
 }
 
 export class CreateModelCustomizationCompletionResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  completionResponse?: shared.CompletionResponse;
+    @SpeakeasyMetadata()
+    completionResponse?: shared.CompletionResponse;
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * Bad Request
-   */
-  @SpeakeasyMetadata()
-  failResponse?: shared.FailResponse;
+    /**
+     * Bad Request
+     */
+    @SpeakeasyMetadata()
+    failResponse?: shared.FailResponse;
 
-  @SpeakeasyMetadata()
-  headers?: Record<string, string[]>;
+    @SpeakeasyMetadata()
+    headers?: Record<string, string[]>;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

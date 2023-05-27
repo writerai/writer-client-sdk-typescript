@@ -7,39 +7,35 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class ContentCheckRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  contentRequest: shared.ContentRequest;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    contentRequest: shared.ContentRequest;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=organizationId",
-  })
-  organizationId?: number;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=organizationId" })
+    organizationId?: number;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=teamId",
-  })
-  teamId: number;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=teamId" })
+    teamId: number;
 }
 
 export class ContentCheckResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * Bad Request
-   */
-  @SpeakeasyMetadata()
-  failResponse?: shared.FailResponse;
+    /**
+     * Bad Request
+     */
+    @SpeakeasyMetadata()
+    failResponse?: shared.FailResponse;
 
-  @SpeakeasyMetadata()
-  headers?: Record<string, string[]>;
+    @SpeakeasyMetadata()
+    headers?: Record<string, string[]>;
 
-  @SpeakeasyMetadata()
-  processedContent?: shared.ProcessedContent;
+    @SpeakeasyMetadata()
+    processedContent?: shared.ProcessedContent;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

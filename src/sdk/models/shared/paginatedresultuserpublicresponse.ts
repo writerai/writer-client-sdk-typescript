@@ -8,17 +8,17 @@ import { UserPublicResponse } from "./userpublicresponse";
 import { Expose, Type } from "class-transformer";
 
 export class PaginatedResultUserPublicResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "pagination" })
-  @Type(() => Pagination)
-  pagination: Pagination;
+    @SpeakeasyMetadata()
+    @Expose({ name: "pagination" })
+    @Type(() => Pagination)
+    pagination: Pagination;
 
-  @SpeakeasyMetadata({ elemType: UserPublicResponse })
-  @Expose({ name: "result" })
-  @Type(() => UserPublicResponse)
-  result?: UserPublicResponse[];
+    @SpeakeasyMetadata({ elemType: UserPublicResponse })
+    @Expose({ name: "result" })
+    @Type(() => UserPublicResponse)
+    result?: UserPublicResponse[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "totalCount" })
-  totalCount: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "totalCount" })
+    totalCount: number;
 }

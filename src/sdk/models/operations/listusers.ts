@@ -7,64 +7,56 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export enum ListUsersSortField {
-  Id = "id",
-  Name = "name",
-  CreationTime = "creationTime",
-  Deleted = "deleted",
-  ModificationTime = "modificationTime",
-  Email = "email",
-  LastSeen = "lastSeen",
+    Id = "id",
+    Name = "name",
+    CreationTime = "creationTime",
+    Deleted = "deleted",
+    ModificationTime = "modificationTime",
+    Email = "email",
+    LastSeen = "lastSeen",
 }
 
 export enum ListUsersSortOrder {
-  Asc = "asc",
-  Desc = "desc",
+    Asc = "asc",
+    Desc = "desc",
 }
 
 export class ListUsersRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=limit" })
-  limit?: number;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=limit" })
+    limit?: number;
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=offset",
-  })
-  offset?: number;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=offset" })
+    offset?: number;
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=search",
-  })
-  search?: string;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=search" })
+    search?: string;
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=sortField",
-  })
-  sortField?: ListUsersSortField;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=sortField" })
+    sortField?: ListUsersSortField;
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=sortOrder",
-  })
-  sortOrder?: ListUsersSortOrder;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=sortOrder" })
+    sortOrder?: ListUsersSortOrder;
 }
 
 export class ListUsersResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * Bad Request
-   */
-  @SpeakeasyMetadata()
-  failResponse?: shared.FailResponse;
+    /**
+     * Bad Request
+     */
+    @SpeakeasyMetadata()
+    failResponse?: shared.FailResponse;
 
-  @SpeakeasyMetadata()
-  headers?: Record<string, string[]>;
+    @SpeakeasyMetadata()
+    headers?: Record<string, string[]>;
 
-  @SpeakeasyMetadata()
-  paginatedResultUserPublicResponse?: shared.PaginatedResultUserPublicResponse;
+    @SpeakeasyMetadata()
+    paginatedResultUserPublicResponse?: shared.PaginatedResultUserPublicResponse;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

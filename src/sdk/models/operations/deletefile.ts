@@ -7,36 +7,32 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class DeleteFileRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=fileId",
-  })
-  fileId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=fileId" })
+    fileId: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=organizationId",
-  })
-  organizationId?: number;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=organizationId" })
+    organizationId?: number;
 }
 
 export class DeleteFileResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * Bad Request
-   */
-  @SpeakeasyMetadata()
-  failResponse?: shared.FailResponse;
+    /**
+     * Bad Request
+     */
+    @SpeakeasyMetadata()
+    failResponse?: shared.FailResponse;
 
-  @SpeakeasyMetadata()
-  headers?: Record<string, string[]>;
+    @SpeakeasyMetadata()
+    headers?: Record<string, string[]>;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  @SpeakeasyMetadata()
-  deleteFile200ApplicationJSONObject?: Record<string, any>;
+    @SpeakeasyMetadata()
+    deleteFile200ApplicationJSONObject?: Record<string, any>;
 }

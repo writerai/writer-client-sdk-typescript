@@ -11,119 +11,115 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
  * Methods related to AI Content Detector
  */
 export class AIContentDetector {
-  _defaultClient: AxiosInstance;
-  _securityClient: AxiosInstance;
-  _serverURL: string;
-  _language: string;
-  _sdkVersion: string;
-  _genVersion: string;
-  _globals: any;
+    _defaultClient: AxiosInstance;
+    _securityClient: AxiosInstance;
+    _serverURL: string;
+    _language: string;
+    _sdkVersion: string;
+    _genVersion: string;
+    _globals: any;
 
-  constructor(
-    defaultClient: AxiosInstance,
-    securityClient: AxiosInstance,
-    serverURL: string,
-    language: string,
-    sdkVersion: string,
-    genVersion: string,
-    globals: any
-  ) {
-    this._defaultClient = defaultClient;
-    this._securityClient = securityClient;
-    this._serverURL = serverURL;
-    this._language = language;
-    this._sdkVersion = sdkVersion;
-    this._genVersion = genVersion;
-    this._globals = globals;
-  }
-
-  /**
-   * Content detector api
-   */
-  async detect(
-    req: operations.DetectContentRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.DetectContentResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.DetectContentRequest(req);
+    constructor(
+        defaultClient: AxiosInstance,
+        securityClient: AxiosInstance,
+        serverURL: string,
+        language: string,
+        sdkVersion: string,
+        genVersion: string,
+        globals: any
+    ) {
+        this._defaultClient = defaultClient;
+        this._securityClient = securityClient;
+        this._serverURL = serverURL;
+        this._language = language;
+        this._sdkVersion = sdkVersion;
+        this._genVersion = genVersion;
+        this._globals = globals;
     }
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/content/organization/{organizationId}/detect",
-      req,
-      this._globals
-    );
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-        req,
-        "contentDetectorRequest",
-        "json"
-      );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...reqBodyHeaders, ...config?.headers };
-    if (reqBody == null || Object.keys(reqBody).length === 0)
-      throw new Error("request body is required");
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "post",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.DetectContentResponse =
-      new operations.DetectContentResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-        headers: utils.getHeadersFromResponse(httpRes.headers),
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.contentDetectorResponses = [];
-          const resFieldDepth: number = utils.getResFieldDepth(res);
-          res.contentDetectorResponses = utils.objectToClass(
-            httpRes?.data,
-            shared.ContentDetectorResponse,
-            resFieldDepth
-          );
+    /**
+     * Content detector api
+     */
+    async detect(
+        req: operations.DetectContentRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.DetectContentResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.DetectContentRequest(req);
         }
-        break;
-      case [400, 401, 403, 404, 500].includes(httpRes?.status):
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.failResponse = utils.objectToClass(
-            httpRes?.data,
-            shared.FailResponse
-          );
-        }
-        break;
-    }
 
-    return res;
-  }
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/content/organization/{organizationId}/detect",
+            req,
+            this._globals
+        );
+
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+        try {
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+                req,
+                "contentDetectorRequest",
+                "json"
+            );
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                throw new Error(`Error serializing request body, cause: ${e.message}`);
+            }
+        }
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (reqBody == null || Object.keys(reqBody).length === 0)
+            throw new Error("request body is required");
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "post",
+            headers: headers,
+            data: reqBody,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.DetectContentResponse = new operations.DetectContentResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+            headers: utils.getHeadersFromResponse(httpRes.headers),
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.contentDetectorResponses = [];
+                    const resFieldDepth: number = utils.getResFieldDepth(res);
+                    res.contentDetectorResponses = utils.objectToClass(
+                        httpRes?.data,
+                        shared.ContentDetectorResponse,
+                        resFieldDepth
+                    );
+                }
+                break;
+            case [400, 401, 403, 404, 500].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.failResponse = utils.objectToClass(httpRes?.data, shared.FailResponse);
+                }
+                break;
+        }
+
+        return res;
+    }
 }

@@ -11,101 +11,96 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
  * Methods related to Download the customized model
  */
 export class DownloadTheCustomizedModel {
-  _defaultClient: AxiosInstance;
-  _securityClient: AxiosInstance;
-  _serverURL: string;
-  _language: string;
-  _sdkVersion: string;
-  _genVersion: string;
-  _globals: any;
+    _defaultClient: AxiosInstance;
+    _securityClient: AxiosInstance;
+    _serverURL: string;
+    _language: string;
+    _sdkVersion: string;
+    _genVersion: string;
+    _globals: any;
 
-  constructor(
-    defaultClient: AxiosInstance,
-    securityClient: AxiosInstance,
-    serverURL: string,
-    language: string,
-    sdkVersion: string,
-    genVersion: string,
-    globals: any
-  ) {
-    this._defaultClient = defaultClient;
-    this._securityClient = securityClient;
-    this._serverURL = serverURL;
-    this._language = language;
-    this._sdkVersion = sdkVersion;
-    this._genVersion = genVersion;
-    this._globals = globals;
-  }
-
-  /**
-   * Download your fine-tuned model (available only for Palmyra Base and Palmyra Large)
-   */
-  async fetchFile(
-    req: operations.FetchCustomizedModelFileRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.FetchCustomizedModelFileResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.FetchCustomizedModelFileRequest(req);
+    constructor(
+        defaultClient: AxiosInstance,
+        securityClient: AxiosInstance,
+        serverURL: string,
+        language: string,
+        sdkVersion: string,
+        genVersion: string,
+        globals: any
+    ) {
+        this._defaultClient = defaultClient;
+        this._securityClient = securityClient;
+        this._serverURL = serverURL;
+        this._language = language;
+        this._sdkVersion = sdkVersion;
+        this._genVersion = genVersion;
+        this._globals = globals;
     }
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/llm/organization/{organizationId}/model/{modelId}/customization/{customizationId}/fetch",
-      req,
-      this._globals
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    headers["Accept"] = "application/json;q=1, application/octet-stream;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "get",
-      headers: headers,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.FetchCustomizedModelFileResponse =
-      new operations.FetchCustomizedModelFileResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-        headers: utils.getHeadersFromResponse(httpRes.headers),
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/octet-stream`)) {
-          const resBody: string = JSON.stringify(httpRes?.data, null, 0);
-          const out: Uint8Array = new Uint8Array(resBody.length);
-          for (let i = 0; i < resBody.length; i++)
-            out[i] = resBody.charCodeAt(i);
-          res.fetchCustomizedModelFile200ApplicationOctetStreamBinaryString =
-            out;
+    /**
+     * Download your fine-tuned model (available only for Palmyra Base and Palmyra Large)
+     */
+    async fetchFile(
+        req: operations.FetchCustomizedModelFileRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.FetchCustomizedModelFileResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.FetchCustomizedModelFileRequest(req);
         }
-        break;
-      case [400, 401, 403, 404, 500].includes(httpRes?.status):
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.failResponse = utils.objectToClass(
-            httpRes?.data,
-            shared.FailResponse
-          );
-        }
-        break;
-    }
 
-    return res;
-  }
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/llm/organization/{organizationId}/model/{modelId}/customization/{customizationId}/fetch",
+            req,
+            this._globals
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json;q=1, application/octet-stream;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "get",
+            headers: headers,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.FetchCustomizedModelFileResponse =
+            new operations.FetchCustomizedModelFileResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+                headers: utils.getHeadersFromResponse(httpRes.headers),
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/octet-stream`)) {
+                    const resBody: string = JSON.stringify(httpRes?.data, null, 0);
+                    const out: Uint8Array = new Uint8Array(resBody.length);
+                    for (let i = 0; i < resBody.length; i++) out[i] = resBody.charCodeAt(i);
+                    res.fetchCustomizedModelFile200ApplicationOctetStreamBinaryString = out;
+                }
+                break;
+            case [400, 401, 403, 404, 500].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.failResponse = utils.objectToClass(httpRes?.data, shared.FailResponse);
+                }
+                break;
+        }
+
+        return res;
+    }
 }

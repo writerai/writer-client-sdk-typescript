@@ -11,69 +11,69 @@ import { TermTagCreate } from "./termtagcreate";
 import { Expose, Type } from "class-transformer";
 
 export enum TermUpdatePos {
-  Noun = "noun",
-  Verb = "verb",
-  Adverb = "adverb",
-  Adjective = "adjective",
+    Noun = "noun",
+    Verb = "verb",
+    Adverb = "adverb",
+    Adjective = "adjective",
 }
 
 export enum TermUpdateType {
-  Approved = "approved",
-  Banned = "banned",
-  Pending = "pending",
+    Approved = "approved",
+    Banned = "banned",
+    Pending = "pending",
 }
 
 export class TermUpdate extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "approvedTermExtension" })
-  @Type(() => ApprovedTermExtensionCreate)
-  approvedTermExtension?: ApprovedTermExtensionCreate;
+    @SpeakeasyMetadata()
+    @Expose({ name: "approvedTermExtension" })
+    @Type(() => ApprovedTermExtensionCreate)
+    approvedTermExtension?: ApprovedTermExtensionCreate;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "caseSensitive" })
-  caseSensitive: boolean;
+    @SpeakeasyMetadata()
+    @Expose({ name: "caseSensitive" })
+    caseSensitive: boolean;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "description" })
-  description?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "description" })
+    description?: string;
 
-  @SpeakeasyMetadata({ elemType: TermExampleCreate })
-  @Expose({ name: "examples" })
-  @Type(() => TermExampleCreate)
-  examples?: TermExampleCreate[];
+    @SpeakeasyMetadata({ elemType: TermExampleCreate })
+    @Expose({ name: "examples" })
+    @Type(() => TermExampleCreate)
+    examples?: TermExampleCreate[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "highlight" })
-  highlight?: boolean;
+    @SpeakeasyMetadata()
+    @Expose({ name: "highlight" })
+    highlight?: boolean;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: number;
 
-  @SpeakeasyMetadata({ elemType: LinkedTermCreate })
-  @Expose({ name: "linkedTerms" })
-  @Type(() => LinkedTermCreate)
-  linkedTerms?: LinkedTermCreate[];
+    @SpeakeasyMetadata({ elemType: LinkedTermCreate })
+    @Expose({ name: "linkedTerms" })
+    @Type(() => LinkedTermCreate)
+    linkedTerms?: LinkedTermCreate[];
 
-  @SpeakeasyMetadata({ elemType: TermMistakeCreate })
-  @Expose({ name: "mistakes" })
-  @Type(() => TermMistakeCreate)
-  mistakes?: TermMistakeCreate[];
+    @SpeakeasyMetadata({ elemType: TermMistakeCreate })
+    @Expose({ name: "mistakes" })
+    @Type(() => TermMistakeCreate)
+    mistakes?: TermMistakeCreate[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "pos" })
-  pos?: TermUpdatePos;
+    @SpeakeasyMetadata()
+    @Expose({ name: "pos" })
+    pos?: TermUpdatePos;
 
-  @SpeakeasyMetadata({ elemType: TermTagCreate })
-  @Expose({ name: "tags" })
-  @Type(() => TermTagCreate)
-  tags?: TermTagCreate[];
+    @SpeakeasyMetadata({ elemType: TermTagCreate })
+    @Expose({ name: "tags" })
+    @Type(() => TermTagCreate)
+    tags?: TermTagCreate[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "term" })
-  term: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "term" })
+    term: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type: TermUpdateType;
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type: TermUpdateType;
 }

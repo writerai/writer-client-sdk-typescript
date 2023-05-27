@@ -7,8 +7,8 @@ import { GenerationModelInfoResponse } from "./generationmodelinforesponse";
 import { Expose, Type } from "class-transformer";
 
 export class GenerationModelsResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GenerationModelInfoResponse })
-  @Expose({ name: "data" })
-  @Type(() => GenerationModelInfoResponse)
-  data?: GenerationModelInfoResponse[];
+    @SpeakeasyMetadata({ elemType: GenerationModelInfoResponse })
+    @Expose({ name: "data" })
+    @Type(() => GenerationModelInfoResponse)
+    data?: GenerationModelInfoResponse[];
 }

@@ -7,44 +7,38 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class UpdateTermsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  updateTermsRequest: shared.UpdateTermsRequest;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    updateTermsRequest: shared.UpdateTermsRequest;
 
-  @SpeakeasyMetadata({
-    data: "header, style=simple;explode=false;name=X-Request-ID",
-  })
-  xRequestID?: string;
+    @SpeakeasyMetadata({ data: "header, style=simple;explode=false;name=X-Request-ID" })
+    xRequestID?: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=organizationId",
-  })
-  organizationId?: number;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=organizationId" })
+    organizationId?: number;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=teamId",
-  })
-  teamId: number;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=teamId" })
+    teamId: number;
 }
 
 export class UpdateTermsResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  createTermsResponse?: shared.CreateTermsResponse;
+    @SpeakeasyMetadata()
+    createTermsResponse?: shared.CreateTermsResponse;
 
-  /**
-   * Bad Request
-   */
-  @SpeakeasyMetadata()
-  failResponse?: shared.FailResponse;
+    /**
+     * Bad Request
+     */
+    @SpeakeasyMetadata()
+    failResponse?: shared.FailResponse;
 
-  @SpeakeasyMetadata()
-  headers?: Record<string, string[]>;
+    @SpeakeasyMetadata()
+    headers?: Record<string, string[]>;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }
