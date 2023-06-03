@@ -33,19 +33,42 @@ export type SDKProps = {
      * The security details required to authenticate the SDK
      */
     security?: shared.Security;
+
     /**
      * Allows setting the organizationId parameter for all supported operations
      */
     organizationId?: number;
+
     /**
      * Allows overriding the default axios client used by the SDK
      */
     defaultClient?: AxiosInstance;
+
+    /**
+     * Allows overriding the default server used by the SDK
+     */
+    serverIdx?: number;
+
     /**
      * Allows overriding the default server URL used by the SDK
      */
     serverURL?: string;
 };
+
+export class SDKConfiguration {
+    defaultClient: AxiosInstance;
+    securityClient: AxiosInstance;
+    serverURL: string;
+    serverDefaults: any;
+    language = "typescript";
+    sdkVersion = "0.18.0";
+    genVersion = "2.35.3";
+    globals: any;
+
+    public constructor(init?: Partial<SDKConfiguration>) {
+        Object.assign(this, init);
+    }
+}
 
 export class Writer {
     /**
@@ -101,164 +124,53 @@ export class Writer {
      */
     public user: User;
 
-    public _defaultClient: AxiosInstance;
-    public _securityClient: AxiosInstance;
-    public _serverURL: string;
-    private _language = "typescript";
-    private _sdkVersion = "0.17.1";
-    private _genVersion = "2.34.7";
-    private _globals: any;
+    private sdkConfiguration: SDKConfiguration;
 
     constructor(props?: SDKProps) {
-        this._serverURL = props?.serverURL ?? ServerList[0];
+        let serverURL = props?.serverURL;
+        const serverIdx = props?.serverIdx ?? 0;
 
-        this._defaultClient = props?.defaultClient ?? axios.create({ baseURL: this._serverURL });
-        if (props?.security) {
-            let security: shared.Security = props.security;
-            if (!(props.security instanceof utils.SpeakeasyBase))
-                security = new shared.Security(props.security);
-            this._securityClient = utils.createSecurityClient(this._defaultClient, security);
-        } else {
-            this._securityClient = this._defaultClient;
+        if (!serverURL) {
+            serverURL = ServerList[serverIdx];
         }
 
-        this._globals = {
-            parameters: {
-                queryParam: {},
-                pathParam: {
-                    organizationId: props?.organizationId,
+        const defaultClient = props?.defaultClient ?? axios.create({ baseURL: serverURL });
+        let securityClient = defaultClient;
+
+        if (props?.security) {
+            let security: shared.Security = props.security;
+            if (!(props.security instanceof utils.SpeakeasyBase)) {
+                security = new shared.Security(props.security);
+            }
+            securityClient = utils.createSecurityClient(defaultClient, security);
+        }
+
+        this.sdkConfiguration = new SDKConfiguration({
+            defaultClient: defaultClient,
+            securityClient: securityClient,
+            serverURL: serverURL,
+            globals: {
+                parameters: {
+                    queryParam: {},
+                    pathParam: {
+                        organizationId: props?.organizationId,
+                    },
                 },
             },
-        };
+        });
 
-        this.aiContentDetector = new AIContentDetector(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion,
-            this._globals
-        );
-
-        this.billing = new Billing(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion,
-            this._globals
-        );
-
-        this.coWrite = new CoWrite(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion,
-            this._globals
-        );
-
-        this.completions = new Completions(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion,
-            this._globals
-        );
-
-        this.content = new Content(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion,
-            this._globals
-        );
-
-        this.downloadTheCustomizedModel = new DownloadTheCustomizedModel(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion,
-            this._globals
-        );
-
-        this.files = new Files(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion,
-            this._globals
-        );
-
-        this.modelCustomization = new ModelCustomization(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion,
-            this._globals
-        );
-
-        this.models = new Models(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion,
-            this._globals
-        );
-
-        this.snippet = new Snippet(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion,
-            this._globals
-        );
-
-        this.styleguide = new Styleguide(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion,
-            this._globals
-        );
-
-        this.terminology = new Terminology(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion,
-            this._globals
-        );
-
-        this.user = new User(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion,
-            this._globals
-        );
+        this.aiContentDetector = new AIContentDetector(this.sdkConfiguration);
+        this.billing = new Billing(this.sdkConfiguration);
+        this.coWrite = new CoWrite(this.sdkConfiguration);
+        this.completions = new Completions(this.sdkConfiguration);
+        this.content = new Content(this.sdkConfiguration);
+        this.downloadTheCustomizedModel = new DownloadTheCustomizedModel(this.sdkConfiguration);
+        this.files = new Files(this.sdkConfiguration);
+        this.modelCustomization = new ModelCustomization(this.sdkConfiguration);
+        this.models = new Models(this.sdkConfiguration);
+        this.snippet = new Snippet(this.sdkConfiguration);
+        this.styleguide = new Styleguide(this.sdkConfiguration);
+        this.terminology = new Terminology(this.sdkConfiguration);
+        this.user = new User(this.sdkConfiguration);
     }
 }
