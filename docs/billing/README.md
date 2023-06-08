@@ -25,7 +25,7 @@ import {
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 602763,
 });

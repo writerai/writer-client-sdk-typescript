@@ -21,7 +21,7 @@ import { CreateCompletionResponse } from "@writerai/writer-sdk/dist/sdk/models/o
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 870088,
 });
@@ -62,7 +62,7 @@ import { CreateModelCustomizationCompletionResponse } from "@writerai/writer-sdk
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 537373,
 });

@@ -22,7 +22,7 @@ import { DeleteSnippetsResponse } from "@writerai/writer-sdk/dist/sdk/models/ope
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 581850,
 });
@@ -53,7 +53,7 @@ import { FindSnippetsResponse, FindSnippetsSortField, FindSnippetsSortOrder } fr
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 623510,
 });
@@ -95,7 +95,7 @@ import { UpdateSnippetsResponse } from "@writerai/writer-sdk/dist/sdk/models/ope
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 622846,
 });

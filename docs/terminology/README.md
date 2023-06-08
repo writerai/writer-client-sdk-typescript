@@ -35,7 +35,7 @@ import {
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 998848,
 });
@@ -141,7 +141,7 @@ import { DeleteTermsResponse } from "@writerai/writer-sdk/dist/sdk/models/operat
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 749999,
 });
@@ -185,7 +185,7 @@ import {
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 338985,
 });
@@ -234,7 +234,7 @@ import {
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 608253,
 });

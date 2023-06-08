@@ -21,7 +21,7 @@ import { GenerationModelInfoResponseType } from "@writerai/writer-sdk/dist/sdk/m
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 653108,
 });

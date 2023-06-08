@@ -21,7 +21,7 @@ import { GenerateContentResponse } from "@writerai/writer-sdk/dist/sdk/models/op
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 857946,
 });
@@ -75,7 +75,7 @@ import { InputType } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 778157,
 });

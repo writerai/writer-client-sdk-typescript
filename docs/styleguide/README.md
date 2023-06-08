@@ -22,7 +22,7 @@ import { PageWithSectionResponseStatus } from "@writerai/writer-sdk/dist/sdk/mod
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 100226,
 });
@@ -49,7 +49,7 @@ import { PagePublicApiResponseStatus } from "@writerai/writer-sdk/dist/sdk/model
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 919483,
 });

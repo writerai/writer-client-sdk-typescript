@@ -20,7 +20,7 @@ import { FetchCustomizedModelFileResponse } from "@writerai/writer-sdk/dist/sdk/
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 681820,
 });

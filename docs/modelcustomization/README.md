@@ -23,7 +23,7 @@ import { CreateModelCustomizationResponse } from "@writerai/writer-sdk/dist/sdk/
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 653140,
 });
@@ -62,7 +62,7 @@ import { DeleteModelCustomizationResponse } from "@writerai/writer-sdk/dist/sdk/
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 988374,
 });
@@ -89,7 +89,7 @@ import { GetModelCustomizationResponse } from "@writerai/writer-sdk/dist/sdk/mod
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 652790,
 });
@@ -116,7 +116,7 @@ import { ListModelCustomizationsResponse } from "@writerai/writer-sdk/dist/sdk/m
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 161309,
 });

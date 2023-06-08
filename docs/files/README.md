@@ -23,7 +23,7 @@ import { DeleteFileResponse } from "@writerai/writer-sdk/dist/sdk/models/operati
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 613064,
 });
@@ -49,7 +49,7 @@ import { GetFileResponse } from "@writerai/writer-sdk/dist/sdk/models/operations
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 902349,
 });
@@ -75,7 +75,7 @@ import { ListFilesResponse } from "@writerai/writer-sdk/dist/sdk/models/operatio
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 99280,
 });
@@ -99,7 +99,7 @@ import { UploadFileResponse } from "@writerai/writer-sdk/dist/sdk/models/operati
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 60225,
 });

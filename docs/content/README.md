@@ -22,7 +22,7 @@ import { ContentIssueService } from "@writerai/writer-sdk/dist/sdk/models/shared
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 149675,
 });
@@ -69,7 +69,7 @@ import { ContentCorrectResponse } from "@writerai/writer-sdk/dist/sdk/models/ope
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 616934,
 });

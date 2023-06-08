@@ -6,7 +6,7 @@ import { ContentDetectorResponseLabel } from "@writerai/writer-sdk/dist/sdk/mode
 
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 548814,
 });
