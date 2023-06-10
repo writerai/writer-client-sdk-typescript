@@ -72,7 +72,10 @@ export class Files {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.deleteFile200ApplicationJSONObject = utils.objectToClass(httpRes?.data);
+                    res.deleteFile200ApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.DeleteFile200ApplicationJSON
+                    );
                 }
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):

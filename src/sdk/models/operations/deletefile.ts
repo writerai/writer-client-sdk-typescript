@@ -14,6 +14,8 @@ export class DeleteFileRequest extends SpeakeasyBase {
     organizationId?: number;
 }
 
+export class DeleteFile200ApplicationJSON extends SpeakeasyBase {}
+
 export class DeleteFileResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
@@ -34,5 +36,5 @@ export class DeleteFileResponse extends SpeakeasyBase {
     rawResponse?: AxiosResponse;
 
     @SpeakeasyMetadata()
-    deleteFile200ApplicationJSONObject?: Record<string, any>;
+    deleteFile200ApplicationJSONObject?: DeleteFile200ApplicationJSON;
 }

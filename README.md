@@ -66,72 +66,72 @@ sdk.aiContentDetector.detect({
 ## Available Resources and Operations
 
 
-### [aiContentDetector](docs/aicontentdetector/README.md)
+### [aiContentDetector](docs/sdks/aicontentdetector/README.md)
 
-* [detect](docs/aicontentdetector/README.md#detect) - Content detector api
+* [detect](docs/sdks/aicontentdetector/README.md#detect) - Content detector api
 
-### [billing](docs/billing/README.md)
+### [billing](docs/sdks/billing/README.md)
 
-* [getSubscriptionDetails](docs/billing/README.md#getsubscriptiondetails) - Get your organization subscription details
+* [getSubscriptionDetails](docs/sdks/billing/README.md#getsubscriptiondetails) - Get your organization subscription details
 
-### [coWrite](docs/cowrite/README.md)
+### [coWrite](docs/sdks/cowrite/README.md)
 
-* [generateContent](docs/cowrite/README.md#generatecontent) - Generate content using predefined templates
-* [listTemplates](docs/cowrite/README.md#listtemplates) - Get a list of your existing CoWrite templates
+* [generateContent](docs/sdks/cowrite/README.md#generatecontent) - Generate content using predefined templates
+* [listTemplates](docs/sdks/cowrite/README.md#listtemplates) - Get a list of your existing CoWrite templates
 
-### [completions](docs/completions/README.md)
+### [completions](docs/sdks/completions/README.md)
 
-* [create](docs/completions/README.md#create) - Create completion for LLM model
-* [createModelCustomizationCompletion](docs/completions/README.md#createmodelcustomizationcompletion) - Create completion for LLM customization model
+* [create](docs/sdks/completions/README.md#create) - Create completion for LLM model
+* [createModelCustomizationCompletion](docs/sdks/completions/README.md#createmodelcustomizationcompletion) - Create completion for LLM customization model
 
-### [content](docs/content/README.md)
+### [content](docs/sdks/content/README.md)
 
-* [check](docs/content/README.md#check) - Check your content against your preset styleguide.
-* [correct](docs/content/README.md#correct) - Apply the style guide suggestions directly to your content.
+* [check](docs/sdks/content/README.md#check) - Check your content against your preset styleguide.
+* [correct](docs/sdks/content/README.md#correct) - Apply the style guide suggestions directly to your content.
 
-### [downloadTheCustomizedModel](docs/downloadthecustomizedmodel/README.md)
+### [downloadTheCustomizedModel](docs/sdks/downloadthecustomizedmodel/README.md)
 
-* [fetchFile](docs/downloadthecustomizedmodel/README.md#fetchfile) - Download your fine-tuned model (available only for Palmyra Base and Palmyra Large)
+* [fetchFile](docs/sdks/downloadthecustomizedmodel/README.md#fetchfile) - Download your fine-tuned model (available only for Palmyra Base and Palmyra Large)
 
-### [files](docs/files/README.md)
+### [files](docs/sdks/files/README.md)
 
-* [delete](docs/files/README.md#delete) - Delete file
-* [get](docs/files/README.md#get) - Get file
-* [list](docs/files/README.md#list) - List files
-* [upload](docs/files/README.md#upload) - Upload file
+* [delete](docs/sdks/files/README.md#delete) - Delete file
+* [get](docs/sdks/files/README.md#get) - Get file
+* [list](docs/sdks/files/README.md#list) - List files
+* [upload](docs/sdks/files/README.md#upload) - Upload file
 
-### [modelCustomization](docs/modelcustomization/README.md)
+### [modelCustomization](docs/sdks/modelcustomization/README.md)
 
-* [create](docs/modelcustomization/README.md#create) - Create model customization
-* [delete](docs/modelcustomization/README.md#delete) - Delete Model customization
-* [get](docs/modelcustomization/README.md#get) - Get model customization
-* [list](docs/modelcustomization/README.md#list) - List model customizations
+* [create](docs/sdks/modelcustomization/README.md#create) - Create model customization
+* [delete](docs/sdks/modelcustomization/README.md#delete) - Delete Model customization
+* [get](docs/sdks/modelcustomization/README.md#get) - Get model customization
+* [list](docs/sdks/modelcustomization/README.md#list) - List model customizations
 
-### [models](docs/models/README.md)
+### [models](docs/sdks/models/README.md)
 
-* [list](docs/models/README.md#list) - List available LLM models
+* [list](docs/sdks/models/README.md#list) - List available LLM models
 
-### [snippet](docs/snippet/README.md)
+### [snippet](docs/sdks/snippet/README.md)
 
-* [delete](docs/snippet/README.md#delete) - Delete snippets
-* [find](docs/snippet/README.md#find) - Find snippets
-* [update](docs/snippet/README.md#update) - Update snippets
+* [delete](docs/sdks/snippet/README.md#delete) - Delete snippets
+* [find](docs/sdks/snippet/README.md#find) - Find snippets
+* [update](docs/sdks/snippet/README.md#update) - Update snippets
 
-### [styleguide](docs/styleguide/README.md)
+### [styleguide](docs/sdks/styleguide/README.md)
 
-* [get](docs/styleguide/README.md#get) - Page details
-* [listPages](docs/styleguide/README.md#listpages) - List your styleguide pages
+* [get](docs/sdks/styleguide/README.md#get) - Page details
+* [listPages](docs/sdks/styleguide/README.md#listpages) - List your styleguide pages
 
-### [terminology](docs/terminology/README.md)
+### [terminology](docs/sdks/terminology/README.md)
 
-* [add](docs/terminology/README.md#add) - Add terms
-* [delete](docs/terminology/README.md#delete) - Delete terms
-* [find](docs/terminology/README.md#find) - Find terms
-* [update](docs/terminology/README.md#update) - Update terms
+* [add](docs/sdks/terminology/README.md#add) - Add terms
+* [delete](docs/sdks/terminology/README.md#delete) - Delete terms
+* [find](docs/sdks/terminology/README.md#find) - Find terms
+* [update](docs/sdks/terminology/README.md#update) - Update terms
 
-### [user](docs/user/README.md)
+### [user](docs/sdks/user/README.md)
 
-* [list](docs/user/README.md#list) - List users
+* [list](docs/sdks/user/README.md#list) - List users
 <!-- End SDK Available Operations -->
 
 ### SDK Generated by [Speakeasy](https://docs.speakeasyapi.dev/docs/using-speakeasy/client-sdks)

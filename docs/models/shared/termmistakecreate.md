@@ -1,0 +1,11 @@
+# TermMistakeCreate
+
+
+## Fields
+
+| Field                                                               | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `caseSensitive`                                                     | *boolean*                                                           | :heavy_check_mark:                                                  | N/A                                                                 |
+| `mistake`                                                           | *string*                                                            | :heavy_check_mark:                                                  | N/A                                                                 |
+| `pos`                                                               | [TermMistakeCreatePos](../../models/shared/termmistakecreatepos.md) | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `reference`                                                         | *string*                                                            | :heavy_minus_sign:                                                  | N/A                                                                 |

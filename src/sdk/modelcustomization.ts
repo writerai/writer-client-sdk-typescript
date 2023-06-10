@@ -162,7 +162,8 @@ export class ModelCustomization {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.deleteModelCustomization200ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data
+                        httpRes?.data,
+                        operations.DeleteModelCustomization200ApplicationJSON
                     );
                 }
                 break;
