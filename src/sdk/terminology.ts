@@ -70,6 +70,7 @@ export class Terminology {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -86,18 +87,22 @@ export class Terminology {
             rawResponse: httpRes,
             headers: utils.getHeadersFromResponse(httpRes.headers),
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createTermsResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.CreateTermsResponse
                     );
                 }
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.failResponse = utils.objectToClass(httpRes?.data, shared.FailResponse);
+                    res.failResponse = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.FailResponse
+                    );
                 }
                 break;
         }
@@ -142,6 +147,7 @@ export class Terminology {
             url: url + queryParams,
             method: "delete",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -157,15 +163,22 @@ export class Terminology {
             rawResponse: httpRes,
             headers: utils.getHeadersFromResponse(httpRes.headers),
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.deleteResponse = utils.objectToClass(httpRes?.data, shared.DeleteResponse);
+                    res.deleteResponse = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.DeleteResponse
+                    );
                 }
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.failResponse = utils.objectToClass(httpRes?.data, shared.FailResponse);
+                    res.failResponse = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.FailResponse
+                    );
                 }
                 break;
         }
@@ -210,6 +223,7 @@ export class Terminology {
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -225,18 +239,22 @@ export class Terminology {
             rawResponse: httpRes,
             headers: utils.getHeadersFromResponse(httpRes.headers),
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.paginatedResultFullTermWithUser = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.PaginatedResultFullTermWithUser
                     );
                 }
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.failResponse = utils.objectToClass(httpRes?.data, shared.FailResponse);
+                    res.failResponse = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.FailResponse
+                    );
                 }
                 break;
         }
@@ -300,6 +318,7 @@ export class Terminology {
             url: url,
             method: "put",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -316,18 +335,22 @@ export class Terminology {
             rawResponse: httpRes,
             headers: utils.getHeadersFromResponse(httpRes.headers),
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createTermsResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.CreateTermsResponse
                     );
                 }
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.failResponse = utils.objectToClass(httpRes?.data, shared.FailResponse);
+                    res.failResponse = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.FailResponse
+                    );
                 }
                 break;
         }

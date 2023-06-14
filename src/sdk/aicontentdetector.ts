@@ -70,6 +70,7 @@ export class AIContentDetector {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -86,13 +87,14 @@ export class AIContentDetector {
             rawResponse: httpRes,
             headers: utils.getHeadersFromResponse(httpRes.headers),
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.contentDetectorResponses = [];
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.contentDetectorResponses = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.ContentDetectorResponse,
                         resFieldDepth
                     );
@@ -100,7 +102,10 @@ export class AIContentDetector {
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.failResponse = utils.objectToClass(httpRes?.data, shared.FailResponse);
+                    res.failResponse = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.FailResponse
+                    );
                 }
                 break;
         }

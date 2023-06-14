@@ -54,6 +54,7 @@ export class Files {
             url: url,
             method: "delete",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -69,18 +70,22 @@ export class Files {
             rawResponse: httpRes,
             headers: utils.getHeadersFromResponse(httpRes.headers),
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.deleteFile200ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.DeleteFile200ApplicationJSON
                     );
                 }
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.failResponse = utils.objectToClass(httpRes?.data, shared.FailResponse);
+                    res.failResponse = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.FailResponse
+                    );
                 }
                 break;
         }
@@ -124,6 +129,7 @@ export class Files {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -139,15 +145,19 @@ export class Files {
             rawResponse: httpRes,
             headers: utils.getHeadersFromResponse(httpRes.headers),
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.modelFile = utils.objectToClass(httpRes?.data, shared.ModelFile);
+                    res.modelFile = utils.objectToClass(JSON.parse(decodedRes), shared.ModelFile);
                 }
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.failResponse = utils.objectToClass(httpRes?.data, shared.FailResponse);
+                    res.failResponse = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.FailResponse
+                    );
                 }
                 break;
         }
@@ -191,6 +201,7 @@ export class Files {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -206,18 +217,22 @@ export class Files {
             rawResponse: httpRes,
             headers: utils.getHeadersFromResponse(httpRes.headers),
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.modelFilesResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.ModelFilesResponse
                     );
                 }
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.failResponse = utils.objectToClass(httpRes?.data, shared.FailResponse);
+                    res.failResponse = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.FailResponse
+                    );
                 }
                 break;
         }
@@ -277,6 +292,7 @@ export class Files {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -293,15 +309,19 @@ export class Files {
             rawResponse: httpRes,
             headers: utils.getHeadersFromResponse(httpRes.headers),
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.modelFile = utils.objectToClass(httpRes?.data, shared.ModelFile);
+                    res.modelFile = utils.objectToClass(JSON.parse(decodedRes), shared.ModelFile);
                 }
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.failResponse = utils.objectToClass(httpRes?.data, shared.FailResponse);
+                    res.failResponse = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.FailResponse
+                    );
                 }
                 break;
         }

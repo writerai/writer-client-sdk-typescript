@@ -70,6 +70,7 @@ export class CoWrite {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -86,15 +87,19 @@ export class CoWrite {
             rawResponse: httpRes,
             headers: utils.getHeadersFromResponse(httpRes.headers),
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.draft = utils.objectToClass(httpRes?.data, shared.Draft);
+                    res.draft = utils.objectToClass(JSON.parse(decodedRes), shared.Draft);
                 }
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.failResponse = utils.objectToClass(httpRes?.data, shared.FailResponse);
+                    res.failResponse = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.FailResponse
+                    );
                 }
                 break;
         }
@@ -138,6 +143,7 @@ export class CoWrite {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -153,18 +159,22 @@ export class CoWrite {
             rawResponse: httpRes,
             headers: utils.getHeadersFromResponse(httpRes.headers),
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.templateDetailsResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.TemplateDetailsResponse
                     );
                 }
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.failResponse = utils.objectToClass(httpRes?.data, shared.FailResponse);
+                    res.failResponse = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.FailResponse
+                    );
                 }
                 break;
         }
