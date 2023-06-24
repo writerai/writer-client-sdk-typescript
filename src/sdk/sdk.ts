@@ -8,6 +8,7 @@ import { Billing } from "./billing";
 import { Completions } from "./completions";
 import { Content } from "./content";
 import { CoWrite } from "./cowrite";
+import { Document } from "./document";
 import { DownloadTheCustomizedModel } from "./downloadthecustomizedmodel";
 import { Files } from "./files";
 import { ModelCustomization } from "./modelcustomization";
@@ -61,8 +62,8 @@ export class SDKConfiguration {
     serverURL: string;
     serverDefaults: any;
     language = "typescript";
-    openapiDocVersion = "1.6";
-    sdkVersion = "0.23.0";
+    openapiDocVersion = "1.7";
+    sdkVersion = "0.24.0";
     genVersion = "2.43.2";
     globals: any;
 
@@ -124,6 +125,10 @@ export class Writer {
      * Methods related to User
      */
     public user: User;
+    /**
+     * Methods related to document
+     */
+    public document: Document;
 
     private sdkConfiguration: SDKConfiguration;
 
@@ -173,5 +178,6 @@ export class Writer {
         this.styleguide = new Styleguide(this.sdkConfiguration);
         this.terminology = new Terminology(this.sdkConfiguration);
         this.user = new User(this.sdkConfiguration);
+        this.document = new Document(this.sdkConfiguration);
     }
 }
