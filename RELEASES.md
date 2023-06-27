@@ -327,3 +327,11 @@ Based on:
 - Speakeasy CLI 1.50.1 (2.43.2) https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [NPM v0.24.0] https://www.npmjs.com/package/@writerai/writer-sdk/v/0.24.0 - .
+
+## 2023-06-27 00:17:00
+### Changes
+Based on:
+- OpenAPI Doc 1.7 https://raw.githubusercontent.com/speakeasy-sdks/w-ai-openapi/main/openapi.yaml
+- Speakeasy CLI 1.51.1 (2.50.2) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.25.0] https://www.npmjs.com/package/@writerai/writer-sdk/v/0.25.0 - .
