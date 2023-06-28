@@ -6,94 +6,82 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export enum FindTermsPartOfSpeechEnum {
-  Noun = "noun",
-  Verb = "verb",
-  Adverb = "adverb",
-  Adjective = "adjective",
+export enum FindTermsPartOfSpeech {
+    Noun = "noun",
+    Verb = "verb",
+    Adverb = "adverb",
+    Adjective = "adjective",
 }
 
-export enum FindTermsSortFieldEnum {
-  Term = "term",
-  CreationTime = "creationTime",
-  ModificationTime = "modificationTime",
-  Type = "type",
+export enum FindTermsSortField {
+    Term = "term",
+    CreationTime = "creationTime",
+    ModificationTime = "modificationTime",
+    Type = "type",
 }
 
-export enum FindTermsSortOrderEnum {
-  Asc = "asc",
-  Desc = "desc",
+export enum FindTermsSortOrder {
+    Asc = "asc",
+    Desc = "desc",
 }
 
-export enum FindTermsTypeEnum {
-  Approved = "approved",
-  Banned = "banned",
-  Pending = "pending",
+export enum FindTermsType {
+    Approved = "approved",
+    Banned = "banned",
+    Pending = "pending",
 }
 
 export class FindTermsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=limit" })
-  limit?: number;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=limit" })
+    limit?: number;
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=offset",
-  })
-  offset?: number;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=offset" })
+    offset?: number;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=organizationId",
-  })
-  organizationId?: number;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=organizationId" })
+    organizationId?: number;
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=partOfSpeech",
-  })
-  partOfSpeech?: FindTermsPartOfSpeechEnum;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=partOfSpeech" })
+    partOfSpeech?: FindTermsPartOfSpeech;
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=sortField",
-  })
-  sortField?: FindTermsSortFieldEnum;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=sortField" })
+    sortField?: FindTermsSortField;
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=sortOrder",
-  })
-  sortOrder?: FindTermsSortOrderEnum;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=sortOrder" })
+    sortOrder?: FindTermsSortOrder;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=tags" })
-  tags?: string[];
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=tags" })
+    tags?: string[];
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=teamId",
-  })
-  teamId: number;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=teamId" })
+    teamId: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=term" })
-  term?: string;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=term" })
+    term?: string;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=type" })
-  type?: FindTermsTypeEnum;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=type" })
+    type?: FindTermsType;
 }
 
 export class FindTermsResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * Bad Request
-   */
-  @SpeakeasyMetadata()
-  failResponse?: shared.FailResponse;
+    /**
+     * Bad Request
+     */
+    @SpeakeasyMetadata()
+    failResponse?: shared.FailResponse;
 
-  @SpeakeasyMetadata()
-  headers?: Record<string, string[]>;
+    @SpeakeasyMetadata()
+    headers?: Record<string, string[]>;
 
-  @SpeakeasyMetadata()
-  paginatedResultFullTermWithUser?: shared.PaginatedResultFullTermWithUser;
+    @SpeakeasyMetadata()
+    paginatedResultFullTermWithUser?: shared.PaginatedResultFullTermWithUser;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

@@ -1,27 +1,24 @@
 <!-- Start SDK Example Usage -->
 ```typescript
-import {
-  DetectContentRequest,
-  DetectContentResponse
-} from "@writerai/writer-sdk/dist/sdk/models/operations";
-
-import { AxiosError } from "axios";
 import { Writer } from "@writerai/writer-sdk";
+import { DetectContentResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
+import { ContentDetectorResponseLabel } from "@writerai/writer-sdk/dist/sdk/models/shared";
+
 const sdk = new Writer({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    apiKey: "",
   },
   organizationId: 548814,
 });
 
-const req: DetectContentRequest = {
+sdk.aiContentDetector.detect({
   contentDetectorRequest: {
     input: "provident",
   },
-};
-
-sdk.aiContentDetector.detect(req).then((res: DetectContentResponse | AxiosError) => {
-   // handle response
+}).then((res: DetectContentResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
 });
 ```
 <!-- End SDK Example Usage -->

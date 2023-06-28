@@ -7,41 +7,35 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class ListTemplatesRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=organizationId",
-  })
-  organizationId?: number;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=organizationId" })
+    organizationId?: number;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=teamId",
-  })
-  teamId: number;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=teamId" })
+    teamId: number;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=templateId",
-  })
-  templateId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=templateId" })
+    templateId: string;
 }
 
 export class ListTemplatesResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * Bad Request
-   */
-  @SpeakeasyMetadata()
-  failResponse?: shared.FailResponse;
+    /**
+     * Bad Request
+     */
+    @SpeakeasyMetadata()
+    failResponse?: shared.FailResponse;
 
-  @SpeakeasyMetadata()
-  headers?: Record<string, string[]>;
+    @SpeakeasyMetadata()
+    headers?: Record<string, string[]>;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  @SpeakeasyMetadata()
-  templateDetailsResponse?: shared.TemplateDetailsResponse;
+    @SpeakeasyMetadata()
+    templateDetailsResponse?: shared.TemplateDetailsResponse;
 }

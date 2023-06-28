@@ -4,6 +4,8 @@
 
 export * from "./approvedtermextension";
 export * from "./approvedtermextensioncreate";
+export * from "./briefdocument";
+export * from "./briefdocuments";
 export * from "./completiongenerationchoice";
 export * from "./completiongenerationchoicelogprobs";
 export * from "./completionrequest";
@@ -19,6 +21,7 @@ export * from "./createtermsrequest";
 export * from "./createtermsresponse";
 export * from "./customizationsresponse";
 export * from "./deleteresponse";
+export * from "./document";
 export * from "./draft";
 export * from "./failmessage";
 export * from "./failresponse";

@@ -7,12 +7,12 @@ import { CompletionGenerationChoiceLogprobs } from "./completiongenerationchoice
 import { Expose, Type } from "class-transformer";
 
 export class CompletionGenerationChoice extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "logprobs" })
-  @Type(() => CompletionGenerationChoiceLogprobs)
-  logprobs?: CompletionGenerationChoiceLogprobs;
+    @SpeakeasyMetadata()
+    @Expose({ name: "logprobs" })
+    @Type(() => CompletionGenerationChoiceLogprobs)
+    logprobs?: CompletionGenerationChoiceLogprobs;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "text" })
-  text: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "text" })
+    text: string;
 }
