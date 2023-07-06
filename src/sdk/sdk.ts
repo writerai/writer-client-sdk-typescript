@@ -63,8 +63,8 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "1.7";
-    sdkVersion = "0.27.0";
-    genVersion = "2.55.0";
+    sdkVersion = "0.28.0";
+    genVersion = "2.57.2";
     globals: any;
 
     public constructor(init?: Partial<SDKConfiguration>) {
