@@ -18,7 +18,6 @@ Check your content against your preset styleguide.
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 import { ContentCheckResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { ContentIssueService } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({
   security: {

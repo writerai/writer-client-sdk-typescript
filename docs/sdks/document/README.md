@@ -18,7 +18,6 @@ Get document details
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 import { GetDocumentDetailsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { DocumentAccess } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({
   security: {
@@ -63,7 +62,6 @@ import {
   ListTeamDocumentsSortField,
   ListTeamDocumentsSortOrder,
 } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { BriefDocumentAccess } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({
   security: {

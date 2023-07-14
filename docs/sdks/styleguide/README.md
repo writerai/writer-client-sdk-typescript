@@ -18,7 +18,6 @@ Page details
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 import { PageDetailsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { PageWithSectionResponseStatus } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({
   security: {
@@ -58,7 +57,6 @@ List your styleguide pages
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 import { ListPagesResponse, ListPagesStatus } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { PagePublicApiResponseStatus } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({
   security: {

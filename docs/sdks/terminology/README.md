@@ -22,15 +22,10 @@ import { Writer } from "@writerai/writer-sdk";
 import { AddTermsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 import {
   CreateTermsRequestFailHandling,
-  FullLinkedTermPos,
-  FullTermWithUserPos,
-  FullTermWithUserType,
   TermCreatePos,
   TermCreateType,
   TermExampleCreateType,
-  TermExampleType,
   TermMistakeCreatePos,
-  TermMistakePos,
 } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({
@@ -201,13 +196,6 @@ import {
   FindTermsSortOrder,
   FindTermsType,
 } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import {
-  FullLinkedTermPos,
-  FullTermWithUserPos,
-  FullTermWithUserType,
-  TermExampleType,
-  TermMistakePos,
-} from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({
   security: {
@@ -259,13 +247,8 @@ Update terms
 import { Writer } from "@writerai/writer-sdk";
 import { UpdateTermsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 import {
-  FullLinkedTermPos,
-  FullTermWithUserPos,
-  FullTermWithUserType,
   TermExampleCreateType,
-  TermExampleType,
   TermMistakeCreatePos,
-  TermMistakePos,
   TermUpdatePos,
   TermUpdateType,
   UpdateTermsRequestFailHandling,

@@ -17,7 +17,6 @@ List users
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 import { ListUsersResponse, ListUsersSortField, ListUsersSortOrder } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { UserPublicResponseAccountStatus } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({
   security: {
