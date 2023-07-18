@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -77,6 +78,13 @@ export class DownloadTheCustomizedModel {
                 if (utils.matchContentType(contentType, `application/octet-stream`)) {
                     res.fetchCustomizedModelFile200ApplicationOctetStreamBinaryString =
                         httpRes?.data;
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):
@@ -84,6 +92,13 @@ export class DownloadTheCustomizedModel {
                     res.failResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.FailResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

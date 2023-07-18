@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -96,6 +97,13 @@ export class ModelCustomization {
                         JSON.parse(decodedRes),
                         shared.ModelCustomization
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):
@@ -103,6 +111,13 @@ export class ModelCustomization {
                     res.failResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.FailResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -172,6 +187,13 @@ export class ModelCustomization {
                         JSON.parse(decodedRes),
                         operations.DeleteModelCustomization200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):
@@ -179,6 +201,13 @@ export class ModelCustomization {
                     res.failResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.FailResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -248,6 +277,13 @@ export class ModelCustomization {
                         JSON.parse(decodedRes),
                         shared.ModelCustomization
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):
@@ -255,6 +291,13 @@ export class ModelCustomization {
                     res.failResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.FailResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -324,6 +367,13 @@ export class ModelCustomization {
                         JSON.parse(decodedRes),
                         shared.CustomizationsResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):
@@ -331,6 +381,13 @@ export class ModelCustomization {
                     res.failResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.FailResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
