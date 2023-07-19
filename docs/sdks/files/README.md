@@ -25,11 +25,11 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 613064,
+  organizationId: 612096,
 });
 
 sdk.files.delete({
-  fileId: "iure",
+  fileId: "dolor",
 }).then((res: DeleteFileResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -64,11 +64,11 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 902349,
+  organizationId: 616934,
 });
 
 sdk.files.get({
-  fileId: "quidem",
+  fileId: "laboriosam",
 }).then((res: GetFileResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -103,7 +103,7 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 99280,
+  organizationId: 943749,
 });
 
 sdk.files.list({}).then((res: ListFilesResponse) => {
@@ -140,14 +140,14 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 60225,
+  organizationId: 902599,
 });
 
 sdk.files.upload({
   uploadModelFileRequest: {
     file: {
-      content: "reiciendis".encode(),
-      file: "est",
+      content: "fuga".encode(),
+      file: "in",
     },
   },
 }).then((res: UploadFileResponse) => {

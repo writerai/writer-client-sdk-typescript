@@ -24,16 +24,15 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 581850,
+  organizationId: 988374,
 });
 
 sdk.snippet.delete({
-  xRequestID: "numquam",
+  xRequestID: "sapiente",
   ids: [
-    "quam",
-    "molestiae",
+    "mollitia",
   ],
-  teamId: 244425,
+  teamId: 208876,
 }).then((res: DeleteSnippetsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -68,27 +67,26 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 623510,
+  organizationId: 635059,
 });
 
 sdk.snippet.find({
-  limit: 158969,
-  offset: 338007,
-  search: "vitae",
+  limit: 161309,
+  offset: 995300,
+  search: "mollitia",
   shortcuts: [
-    "animi",
-    "enim",
-    "odit",
+    "numquam",
+    "commodi",
+    "quam",
   ],
-  sortField: FindSnippetsSortField.ModificationTime,
+  sortField: FindSnippetsSortField.CreationTime,
   sortOrder: FindSnippetsSortOrder.Asc,
   tags: [
-    "ipsam",
-    "id",
-    "possimus",
-    "aut",
+    "quia",
+    "quis",
+    "vitae",
   ],
-  teamId: 97101,
+  teamId: 674752,
 }).then((res: FindSnippetsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -123,85 +121,42 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 622846,
+  organizationId: 656330,
 });
 
 sdk.snippet.update({
   requestBody: [
     {
-      description: "laborum",
-      id: "1ffe78f0-97b0-4074-b154-71b5e6e13b99",
-      shortcut: "pariatur",
-      snippet: "modi",
+      description: "odit",
+      id: "c3f5ad01-9da1-4ffe-b8f0-97b0074f1547",
+      shortcut: "dicta",
+      snippet: "harum",
       tags: [
         {
-          tag: "rem",
+          tag: "accusamus",
         },
         {
-          tag: "voluptates",
-        },
-        {
-          tag: "quasi",
+          tag: "commodi",
         },
       ],
     },
     {
       description: "repudiandae",
-      id: "91e450ad-2abd-4442-a980-2d502a94bb4f",
-      shortcut: "eum",
-      snippet: "non",
+      id: "13b99d48-8e1e-491e-850a-d2abd4426980",
+      shortcut: "magni",
+      snippet: "assumenda",
       tags: [
         {
-          tag: "sint",
+          tag: "alias",
         },
         {
-          tag: "aliquid",
-        },
-        {
-          tag: "provident",
-        },
-        {
-          tag: "necessitatibus",
-        },
-      ],
-    },
-    {
-      description: "sint",
-      id: "a3efa77d-fb14-4cd6-aae3-95efb9ba88f3",
-      shortcut: "deserunt",
-      snippet: "nisi",
-      tags: [
-        {
-          tag: "natus",
-        },
-        {
-          tag: "omnis",
-        },
-      ],
-    },
-    {
-      description: "molestiae",
-      id: "074ba446-9b6e-4214-9959-890afa563e25",
-      shortcut: "quasi",
-      snippet: "iure",
-      tags: [
-        {
-          tag: "debitis",
-        },
-        {
-          tag: "eius",
-        },
-        {
-          tag: "maxime",
-        },
-        {
-          tag: "deleniti",
+          tag: "fugit",
         },
       ],
     },
   ],
-  xRequestID: "facilis",
-  teamId: 447926,
+  xRequestID: "dolorum",
+  teamId: 569618,
 }).then((res: UpdateSnippetsResponse) => {
   if (res.statusCode == 200) {
     // handle response
