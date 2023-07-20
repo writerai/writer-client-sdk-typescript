@@ -8,7 +8,7 @@
 | `bestOf`           | *number*           | :heavy_minus_sign: | N/A                | 1                  |
 | `frequencyPenalty` | *number*           | :heavy_minus_sign: | N/A                |                    |
 | `logprobs`         | *number*           | :heavy_minus_sign: | N/A                |                    |
-| `maxTokens`        | *number*           | :heavy_minus_sign: | N/A                | 2048               |
+| `maxTokens`        | *number*           | :heavy_minus_sign: | N/A                | 1024               |
 | `minTokens`        | *number*           | :heavy_minus_sign: | N/A                | 1                  |
 | `n`                | *number*           | :heavy_minus_sign: | N/A                |                    |
 | `presencePenalty`  | *number*           | :heavy_minus_sign: | N/A                |                    |
