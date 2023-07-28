@@ -12,6 +12,11 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 /**
  * Methods related to Download the customized model
  */
+export enum FetchFileAcceptEnum {
+    applicationJson = "application/json",
+    applicationOctetStream = "application/octet-stream",
+}
+
 export class DownloadTheCustomizedModel {
     private sdkConfiguration: SDKConfiguration;
 
@@ -24,7 +29,8 @@ export class DownloadTheCustomizedModel {
      */
     async fetchFile(
         req: operations.FetchCustomizedModelFileRequest,
-        config?: AxiosRequestConfig
+        config?: AxiosRequestConfig,
+        acceptHeaderOverride?: FetchFileAcceptEnum
     ): Promise<operations.FetchCustomizedModelFileResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
             req = new operations.FetchCustomizedModelFileRequest(req);
@@ -45,7 +51,12 @@ export class DownloadTheCustomizedModel {
             this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
 
         const headers = { ...config?.headers };
-        headers["Accept"] = "application/json;q=1, application/octet-stream;q=0";
+        if (acceptHeaderOverride !== undefined) {
+            headers["Accept"] = acceptHeaderOverride.toString();
+        } else {
+            headers["Accept"] = "application/json;q=1, application/octet-stream;q=0";
+        }
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;

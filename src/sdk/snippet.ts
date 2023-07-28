@@ -12,6 +12,7 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 /**
  * Methods related to Snippets
  */
+
 export class Snippet {
     private sdkConfiguration: SDKConfiguration;
 
@@ -46,7 +47,8 @@ export class Snippet {
 
         const headers = { ...utils.getHeadersFromRequest(req), ...config?.headers };
         const queryParams: string = utils.serializeQueryParams(req, this.sdkConfiguration.globals);
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -136,7 +138,8 @@ export class Snippet {
 
         const headers = { ...config?.headers };
         const queryParams: string = utils.serializeQueryParams(req, this.sdkConfiguration.globals);
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -239,7 +242,8 @@ export class Snippet {
             ...reqBodyHeaders,
             ...config?.headers,
         };
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
