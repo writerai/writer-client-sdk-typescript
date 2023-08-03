@@ -2,14 +2,14 @@ configVersion: 1.0.0
 management:
   docChecksum: 27756f470bb1b99e7ef9404e83715165
   docVersion: "1.7"
-  speakeasyVersion: 1.66.1
-  generationVersion: 2.75.2
+  speakeasyVersion: 1.68.1
+  generationVersion: 2.77.1
 generation:
   sdkClassName: Writer
   singleTagPerOp: false
   telemetryEnabled: false
 typescript:
-  version: 0.36.1
+  version: 0.37.0
   author: writerai
   maxMethodParams: 0
   packageName: '@writerai/writer-sdk'
