@@ -106,10 +106,9 @@ export class CoWrite {
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.failResponse = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.FailResponse
-                    );
+                    const err = utils.objectToClass(JSON.parse(decodedRes), errors.FailResponse);
+                    err.rawResponse = httpRes;
+                    throw new errors.FailResponse(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -119,6 +118,14 @@ export class CoWrite {
                     );
                 }
                 break;
+            case (httpRes?.status >= 400 && httpRes?.status < 500) ||
+                (httpRes?.status >= 500 && httpRes?.status < 600):
+                throw new errors.SDKError(
+                    "API error occurred",
+                    httpRes.status,
+                    decodedRes,
+                    httpRes
+                );
         }
 
         return res;
@@ -196,10 +203,9 @@ export class CoWrite {
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.failResponse = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.FailResponse
-                    );
+                    const err = utils.objectToClass(JSON.parse(decodedRes), errors.FailResponse);
+                    err.rawResponse = httpRes;
+                    throw new errors.FailResponse(err);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -209,6 +215,14 @@ export class CoWrite {
                     );
                 }
                 break;
+            case (httpRes?.status >= 400 && httpRes?.status < 500) ||
+                (httpRes?.status >= 500 && httpRes?.status < 600):
+                throw new errors.SDKError(
+                    "API error occurred",
+                    httpRes.status,
+                    decodedRes,
+                    httpRes
+                );
         }
 
         return res;

@@ -24,12 +24,6 @@ export class GetDocumentDetailsResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     document?: shared.Document;
 
-    /**
-     * Bad Request
-     */
-    @SpeakeasyMetadata()
-    failResponse?: shared.FailResponse;
-
     @SpeakeasyMetadata()
     headers?: Record<string, string[]>;
 

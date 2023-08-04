@@ -27,12 +27,6 @@ export class UpdateTermsResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     createTermsResponse?: shared.CreateTermsResponse;
 
-    /**
-     * Bad Request
-     */
-    @SpeakeasyMetadata()
-    failResponse?: shared.FailResponse;
-
     @SpeakeasyMetadata()
     headers?: Record<string, string[]>;
 

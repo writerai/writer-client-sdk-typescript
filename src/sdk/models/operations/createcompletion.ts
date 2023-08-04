@@ -24,12 +24,6 @@ export class CreateCompletionResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
 
-    /**
-     * Bad Request
-     */
-    @SpeakeasyMetadata()
-    failResponse?: shared.FailResponse;
-
     @SpeakeasyMetadata()
     headers?: Record<string, string[]>;
 

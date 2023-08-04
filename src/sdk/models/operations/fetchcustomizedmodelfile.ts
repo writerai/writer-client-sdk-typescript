@@ -3,7 +3,6 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class FetchCustomizedModelFileRequest extends SpeakeasyBase {
@@ -20,12 +19,6 @@ export class FetchCustomizedModelFileRequest extends SpeakeasyBase {
 export class FetchCustomizedModelFileResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
-
-    /**
-     * Bad Request
-     */
-    @SpeakeasyMetadata()
-    failResponse?: shared.FailResponse;
 
     @SpeakeasyMetadata()
     headers?: Record<string, string[]>;

@@ -27,12 +27,6 @@ export class ContentCorrectResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     correctionResponse?: shared.CorrectionResponse;
 
-    /**
-     * Bad Request
-     */
-    @SpeakeasyMetadata()
-    failResponse?: shared.FailResponse;
-
     @SpeakeasyMetadata()
     headers?: Record<string, string[]>;
 

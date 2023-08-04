@@ -3,7 +3,6 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class DeleteFileRequest extends SpeakeasyBase {
@@ -19,12 +18,6 @@ export class DeleteFile200ApplicationJSON extends SpeakeasyBase {}
 export class DeleteFileResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
-
-    /**
-     * Bad Request
-     */
-    @SpeakeasyMetadata()
-    failResponse?: shared.FailResponse;
 
     @SpeakeasyMetadata()
     headers?: Record<string, string[]>;
