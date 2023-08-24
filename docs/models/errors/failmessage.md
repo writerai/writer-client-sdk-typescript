@@ -1,12 +1,10 @@
-# FailResponse
-
-Bad Request
+# FailMessage
 
 
 ## Fields
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `errors`           | *FailMessage*[]    | :heavy_minus_sign: | N/A                |
+| `description`      | *string*           | :heavy_check_mark: | N/A                |
 | `extras`           | *any*              | :heavy_check_mark: | N/A                |
-| `tpe`              | *string*           | :heavy_check_mark: | N/A                |
+| `key`              | *string*           | :heavy_check_mark: | N/A                |

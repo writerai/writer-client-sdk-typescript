@@ -3,22 +3,17 @@
  */
 
 import { SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
-import { AxiosResponse } from "axios";
-import { classToPlain, Exclude, Expose, Type } from "class-transformer";
+import { FailMessage } from "./failmessage";
+import { classToPlain, Expose, Type } from "class-transformer";
 
 /**
  * Bad Request
  */
 export class FailResponse extends Error {
-    @SpeakeasyMetadata()
-    @Exclude()
-    rawResponse?: AxiosResponse;
-
-    @SpeakeasyMetadata({ elemType: shared.FailMessage })
+    @SpeakeasyMetadata({ elemType: FailMessage })
     @Expose({ name: "errors" })
-    @Type(() => shared.FailMessage)
-    errors?: shared.FailMessage[];
+    @Type(() => FailMessage)
+    errors?: FailMessage[];
 
     @SpeakeasyMetadata()
     @Expose({ name: "extras" })
@@ -27,12 +22,15 @@ export class FailResponse extends Error {
     @SpeakeasyMetadata()
     @Expose({ name: "tpe" })
     tpe: string;
-    constructor(err: FailResponse) {
+
+    constructor(err?: FailResponse) {
         super();
-        Object.assign(this, err);
-        this.message = JSON.stringify(
-            classToPlain(err, { exposeUnsetFields: false, excludeExtraneousValues: true })
-        );
+        if (err) {
+            Object.assign(this, err);
+            this.message = JSON.stringify(
+                classToPlain(err, { exposeUnsetFields: false, excludeExtraneousValues: true })
+            );
+        }
 
         this.name = "FailResponse";
         Object.setPrototypeOf(this, FailResponse.prototype);

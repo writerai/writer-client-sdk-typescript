@@ -64,7 +64,6 @@ src/sdk/models/operations/getdocumentdetails.ts
 src/sdk/models/operations/listteamdocuments.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/contentdetectorresponse.ts
-src/sdk/models/shared/failmessage.ts
 src/sdk/models/shared/contentdetectorrequest.ts
 src/sdk/models/shared/subscriptionpublicresponseapi.ts
 src/sdk/models/shared/usage.ts
@@ -112,6 +111,7 @@ src/sdk/models/shared/termmistake.ts
 src/sdk/models/shared/fulllinkedterm.ts
 src/sdk/models/shared/approvedtermextension.ts
 src/sdk/models/shared/termexample.ts
+src/sdk/models/shared/failmessage.ts
 src/sdk/models/shared/createtermsrequest.ts
 src/sdk/models/shared/termcreate.ts
 src/sdk/models/shared/termtagcreate.ts
@@ -130,6 +130,7 @@ src/sdk/models/shared/briefdocument.ts
 src/sdk/models/shared/security.ts
 src/sdk/models/shared/index.ts
 src/sdk/models/errors/failresponse.ts
+src/sdk/models/errors/failmessage.ts
 src/sdk/models/errors/index.ts
 docs/sdks/writer/README.md
 docs/sdks/aicontentdetector/README.md
@@ -221,7 +222,6 @@ docs/models/operations/listteamdocumentsrequest.md
 docs/models/operations/listteamdocumentsresponse.md
 docs/models/shared/contentdetectorresponselabel.md
 docs/models/shared/contentdetectorresponse.md
-docs/models/shared/failmessage.md
 docs/models/shared/contentdetectorrequest.md
 docs/models/shared/subscriptionpublicresponseapiproductname.md
 docs/models/shared/subscriptionpublicresponseapistatus.md
@@ -283,6 +283,7 @@ docs/models/shared/fulllinkedterm.md
 docs/models/shared/approvedtermextension.md
 docs/models/shared/termexampletype.md
 docs/models/shared/termexample.md
+docs/models/shared/failmessage.md
 docs/models/shared/createtermsrequestfailhandling.md
 docs/models/shared/createtermsrequest.md
 docs/models/shared/termcreatepos.md
@@ -311,3 +312,4 @@ docs/models/shared/briefdocumentaccess.md
 docs/models/shared/briefdocument.md
 docs/models/shared/security.md
 docs/models/errors/failresponse.md
+docs/models/errors/failmessage.md
