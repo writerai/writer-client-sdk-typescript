@@ -17,19 +17,18 @@ List users
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 import { ListUsersResponse, ListUsersSortField, ListUsersSortOrder } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { UserPublicResponseAccountStatus } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 55,
+  organizationId: 20651,
 });
 
 sdk.user.list({
-  limit: 872651,
-  offset: 311860,
-  search: "tempora",
+  limit: 229219,
+  offset: 758379,
+  search: "accusamus",
   sortField: ListUsersSortField.CreationTime,
   sortOrder: ListUsersSortOrder.Desc,
 }).then((res: ListUsersResponse) => {

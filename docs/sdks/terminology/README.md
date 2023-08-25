@@ -22,22 +22,17 @@ import { Writer } from "@writerai/writer-sdk";
 import { AddTermsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 import {
   CreateTermsRequestFailHandling,
-  FullLinkedTermPos,
-  FullTermWithUserPos,
-  FullTermWithUserType,
   TermCreatePos,
   TermCreateType,
   TermExampleCreateType,
-  TermExampleType,
   TermMistakeCreatePos,
-  TermMistakePos,
 } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 998848,
+  organizationId: 248753,
 });
 
 sdk.terminology.add({
@@ -51,77 +46,191 @@ sdk.terminology.add({
           fixCommonMistakes: false,
         },
         caseSensitive: false,
-        description: "saepe",
+        description: "aliquid",
         examples: [
           {
-            example: "accusantium",
-            type: TermExampleCreateType.Good,
-          },
-          {
-            example: "praesentium",
+            example: "necessitatibus",
             type: TermExampleCreateType.Bad,
           },
           {
-            example: "magni",
+            example: "officia",
             type: TermExampleCreateType.Good,
           },
           {
-            example: "quo",
+            example: "debitis",
             type: TermExampleCreateType.Bad,
           },
         ],
         highlight: false,
         linkedTerms: [
           {
-            linkedTermId: 807319,
-            reference: "ea",
+            linkedTermId: 447125,
+            reference: "in",
           },
           {
-            linkedTermId: 569101,
-            reference: "odit",
-          },
-          {
-            linkedTermId: 407183,
-            reference: "accusantium",
-          },
-          {
-            linkedTermId: 69167,
+            linkedTermId: 846409,
             reference: "maiores",
+          },
+          {
+            linkedTermId: 699479,
+            reference: "dicta",
           },
         ],
         mistakes: [
           {
             caseSensitive: false,
-            mistake: "ipsam",
-            pos: TermMistakeCreatePos.Verb,
-            reference: "autem",
-          },
-          {
-            caseSensitive: false,
-            mistake: "nam",
-            pos: TermMistakeCreatePos.Noun,
-            reference: "pariatur",
-          },
-          {
-            caseSensitive: false,
-            mistake: "nemo",
+            mistake: "cumque",
             pos: TermMistakeCreatePos.Adjective,
+            reference: "ea",
+          },
+          {
+            caseSensitive: false,
+            mistake: "aliquid",
+            pos: TermMistakeCreatePos.Adverb,
+            reference: "accusamus",
+          },
+        ],
+        pos: TermCreatePos.Noun,
+        reference: "occaecati",
+        tags: [
+          {
+            tag: "accusamus",
+          },
+          {
+            tag: "delectus",
+          },
+        ],
+        term: "quidem",
+        type: TermCreateType.Banned,
+      },
+      {
+        approvedTermExtension: {
+          capitalize: false,
+          fixCase: false,
+          fixCommonMistakes: false,
+        },
+        caseSensitive: false,
+        description: "nam",
+        examples: [
+          {
+            example: "blanditiis",
+            type: TermExampleCreateType.Bad,
+          },
+          {
+            example: "sapiente",
+            type: TermExampleCreateType.Good,
+          },
+          {
+            example: "deserunt",
+            type: TermExampleCreateType.Good,
+          },
+        ],
+        highlight: false,
+        linkedTerms: [
+          {
+            linkedTermId: 618809,
+            reference: "omnis",
+          },
+          {
+            linkedTermId: 474867,
             reference: "perferendis",
           },
         ],
-        pos: TermCreatePos.Adjective,
-        reference: "amet",
-        tags: [
+        mistakes: [
           {
-            tag: "cumque",
+            caseSensitive: false,
+            mistake: "magnam",
+            pos: TermMistakeCreatePos.Adverb,
+            reference: "id",
+          },
+          {
+            caseSensitive: false,
+            mistake: "labore",
+            pos: TermMistakeCreatePos.Verb,
+            reference: "suscipit",
           },
         ],
-        term: "corporis",
+        pos: TermCreatePos.Adverb,
+        reference: "nobis",
+        tags: [
+          {
+            tag: "vero",
+          },
+          {
+            tag: "aspernatur",
+          },
+        ],
+        term: "architecto",
+        type: TermCreateType.Approved,
+      },
+      {
+        approvedTermExtension: {
+          capitalize: false,
+          fixCase: false,
+          fixCommonMistakes: false,
+        },
+        caseSensitive: false,
+        description: "et",
+        examples: [
+          {
+            example: "ullam",
+            type: TermExampleCreateType.Bad,
+          },
+          {
+            example: "quos",
+            type: TermExampleCreateType.Bad,
+          },
+          {
+            example: "accusantium",
+            type: TermExampleCreateType.Bad,
+          },
+        ],
+        highlight: false,
+        linkedTerms: [
+          {
+            linkedTermId: 652103,
+            reference: "ad",
+          },
+          {
+            linkedTermId: 431418,
+            reference: "dolor",
+          },
+          {
+            linkedTermId: 896547,
+            reference: "odit",
+          },
+          {
+            linkedTermId: 367562,
+            reference: "quasi",
+          },
+        ],
+        mistakes: [
+          {
+            caseSensitive: false,
+            mistake: "doloribus",
+            pos: TermMistakeCreatePos.Adjective,
+            reference: "eius",
+          },
+          {
+            caseSensitive: false,
+            mistake: "maxime",
+            pos: TermMistakeCreatePos.Adverb,
+            reference: "facilis",
+          },
+        ],
+        pos: TermCreatePos.Verb,
+        reference: "architecto",
+        tags: [
+          {
+            tag: "repudiandae",
+          },
+        ],
+        term: "ullam",
         type: TermCreateType.Pending,
       },
     ],
   },
-  teamId: 729991,
+  teamId: 469249,
 }).then((res: AddTermsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -156,16 +265,15 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 749999,
+  organizationId: 998848,
 });
 
 sdk.terminology.delete({
-  xRequestID: "dolores",
+  xRequestID: "quibusdam",
   ids: [
-    521037,
-    489549,
+    904648,
   ],
-  teamId: 54338,
+  teamId: 868126,
 }).then((res: DeleteTermsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -201,34 +309,29 @@ import {
   FindTermsSortOrder,
   FindTermsType,
 } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import {
-  FullLinkedTermPos,
-  FullTermWithUserPos,
-  FullTermWithUserType,
-  TermExampleType,
-  TermMistakePos,
-} from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 338985,
+  organizationId: 37559,
 });
 
 sdk.terminology.find({
-  limit: 199996,
-  offset: 179490,
-  partOfSpeech: FindTermsPartOfSpeech.Noun,
+  limit: 162493,
+  offset: 508315,
+  partOfSpeech: FindTermsPartOfSpeech.Adverb,
   sortField: FindTermsSortField.Term,
-  sortOrder: FindTermsSortOrder.Desc,
+  sortOrder: FindTermsSortOrder.Asc,
   tags: [
-    "dolor",
-    "vero",
+    "illum",
+    "pariatur",
+    "maxime",
+    "ea",
   ],
-  teamId: 345352,
-  term: "hic",
-  type: FindTermsType.Pending,
+  teamId: 569101,
+  term: "odit",
+  type: FindTermsType.Banned,
 }).then((res: FindTermsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -259,13 +362,8 @@ Update terms
 import { Writer } from "@writerai/writer-sdk";
 import { UpdateTermsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 import {
-  FullLinkedTermPos,
-  FullTermWithUserPos,
-  FullTermWithUserType,
   TermExampleCreateType,
-  TermExampleType,
   TermMistakeCreatePos,
-  TermMistakePos,
   TermUpdatePos,
   TermUpdateType,
   UpdateTermsRequestFailHandling,
@@ -275,12 +373,12 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 608253,
+  organizationId: 33222,
 });
 
 sdk.terminology.update({
   updateTermsRequest: {
-    failHandling: UpdateTermsRequestFailHandling.Skip,
+    failHandling: UpdateTermsRequestFailHandling.Accumulate,
     models: [
       {
         approvedTermExtension: {
@@ -289,183 +387,242 @@ sdk.terminology.update({
           fixCommonMistakes: false,
         },
         caseSensitive: false,
-        description: "voluptatem",
+        description: "quidem",
         examples: [
           {
-            example: "consequuntur",
-            type: TermExampleCreateType.Bad,
-          },
-          {
-            example: "error",
+            example: "voluptate",
             type: TermExampleCreateType.Good,
           },
           {
-            example: "occaecati",
-            type: TermExampleCreateType.Bad,
-          },
-          {
-            example: "adipisci",
-            type: TermExampleCreateType.Bad,
-          },
-        ],
-        highlight: false,
-        id: 934214,
-        linkedTerms: [
-          {
-            linkedTermId: 613966,
-            reference: "dolorum",
-          },
-          {
-            linkedTermId: 535633,
-            reference: "pariatur",
-          },
-        ],
-        mistakes: [
-          {
-            caseSensitive: false,
-            mistake: "nobis",
-            pos: TermMistakeCreatePos.Adverb,
-            reference: "delectus",
-          },
-          {
-            caseSensitive: false,
-            mistake: "quaerat",
-            pos: TermMistakeCreatePos.Adverb,
-            reference: "aliquid",
-          },
-          {
-            caseSensitive: false,
-            mistake: "dolorem",
-            pos: TermMistakeCreatePos.Noun,
-            reference: "dolor",
-          },
-        ],
-        pos: TermUpdatePos.Noun,
-        tags: [
-          {
-            tag: "hic",
-          },
-        ],
-        term: "excepturi",
-        type: TermUpdateType.Pending,
-      },
-      {
-        approvedTermExtension: {
-          capitalize: false,
-          fixCase: false,
-          fixCommonMistakes: false,
-        },
-        caseSensitive: false,
-        description: "voluptate",
-        examples: [
-          {
-            example: "reiciendis",
-            type: TermExampleCreateType.Good,
-          },
-          {
-            example: "dolorum",
+            example: "nam",
             type: TermExampleCreateType.Good,
           },
         ],
         highlight: false,
-        id: 85295,
+        id: 866383,
         linkedTerms: [
           {
-            linkedTermId: 56418,
-            reference: "iure",
-          },
-        ],
-        mistakes: [
-          {
-            caseSensitive: false,
-            mistake: "quaerat",
-            pos: TermMistakeCreatePos.Adjective,
-            reference: "quidem",
-          },
-          {
-            caseSensitive: false,
-            mistake: "voluptatibus",
-            pos: TermMistakeCreatePos.Verb,
-            reference: "natus",
-          },
-        ],
-        pos: TermUpdatePos.Noun,
-        tags: [
-          {
-            tag: "sit",
-          },
-          {
-            tag: "fugiat",
-          },
-          {
-            tag: "ab",
-          },
-        ],
-        term: "soluta",
-        type: TermUpdateType.Pending,
-      },
-      {
-        approvedTermExtension: {
-          capitalize: false,
-          fixCase: false,
-          fixCommonMistakes: false,
-        },
-        caseSensitive: false,
-        description: "iusto",
-        examples: [
-          {
-            example: "dolorum",
-            type: TermExampleCreateType.Bad,
-          },
-          {
-            example: "omnis",
-            type: TermExampleCreateType.Bad,
-          },
-        ],
-        highlight: false,
-        id: 714697,
-        linkedTerms: [
-          {
-            linkedTermId: 469497,
-            reference: "ipsum",
-          },
-          {
-            linkedTermId: 456015,
-            reference: "id",
-          },
-          {
-            linkedTermId: 906418,
-            reference: "eius",
-          },
-          {
-            linkedTermId: 137220,
+            linkedTermId: 975522,
             reference: "perferendis",
           },
+          {
+            linkedTermId: 855804,
+            reference: "amet",
+          },
         ],
         mistakes: [
           {
             caseSensitive: false,
-            mistake: "optio",
+            mistake: "cumque",
+            pos: TermMistakeCreatePos.Verb,
+            reference: "hic",
+          },
+        ],
+        pos: TermUpdatePos.Adverb,
+        tags: [
+          {
+            tag: "dolores",
+          },
+          {
+            tag: "quis",
+          },
+          {
+            tag: "totam",
+          },
+        ],
+        term: "dignissimos",
+        type: TermUpdateType.Approved,
+      },
+      {
+        approvedTermExtension: {
+          capitalize: false,
+          fixCase: false,
+          fixCommonMistakes: false,
+        },
+        caseSensitive: false,
+        description: "quis",
+        examples: [
+          {
+            example: "eos",
+            type: TermExampleCreateType.Good,
+          },
+        ],
+        highlight: false,
+        id: 170986,
+        linkedTerms: [
+          {
+            linkedTermId: 463451,
+            reference: "dolor",
+          },
+          {
+            linkedTermId: 874573,
+            reference: "nostrum",
+          },
+          {
+            linkedTermId: 944120,
+            reference: "recusandae",
+          },
+          {
+            linkedTermId: 608253,
+            reference: "facilis",
+          },
+        ],
+        mistakes: [
+          {
+            caseSensitive: false,
+            mistake: "voluptatem",
             pos: TermMistakeCreatePos.Adjective,
-            reference: "ad",
+            reference: "consequuntur",
+          },
+          {
+            caseSensitive: false,
+            mistake: "blanditiis",
+            pos: TermMistakeCreatePos.Adverb,
+            reference: "eaque",
+          },
+          {
+            caseSensitive: false,
+            mistake: "occaecati",
+            pos: TermMistakeCreatePos.Adverb,
+            reference: "adipisci",
           },
         ],
         pos: TermUpdatePos.Adjective,
         tags: [
           {
-            tag: "deserunt",
+            tag: "modi",
           },
           {
-            tag: "provident",
+            tag: "iste",
+          },
+          {
+            tag: "dolorum",
+          },
+          {
+            tag: "deleniti",
           },
         ],
-        term: "minima",
+        term: "pariatur",
+        type: TermUpdateType.Banned,
+      },
+      {
+        approvedTermExtension: {
+          capitalize: false,
+          fixCase: false,
+          fixCommonMistakes: false,
+        },
+        caseSensitive: false,
+        description: "nobis",
+        examples: [
+          {
+            example: "delectus",
+            type: TermExampleCreateType.Good,
+          },
+          {
+            example: "quos",
+            type: TermExampleCreateType.Good,
+          },
+          {
+            example: "dolorem",
+            type: TermExampleCreateType.Good,
+          },
+        ],
+        highlight: false,
+        id: 222443,
+        linkedTerms: [
+          {
+            linkedTermId: 218749,
+            reference: "hic",
+          },
+        ],
+        mistakes: [
+          {
+            caseSensitive: false,
+            mistake: "cum",
+            pos: TermMistakeCreatePos.Verb,
+            reference: "dignissimos",
+          },
+          {
+            caseSensitive: false,
+            mistake: "reiciendis",
+            pos: TermMistakeCreatePos.Noun,
+            reference: "dolorum",
+          },
+          {
+            caseSensitive: false,
+            mistake: "numquam",
+            pos: TermMistakeCreatePos.Noun,
+            reference: "ipsa",
+          },
+        ],
+        pos: TermUpdatePos.Noun,
+        tags: [
+          {
+            tag: "odio",
+          },
+          {
+            tag: "quaerat",
+          },
+        ],
+        term: "accusamus",
+        type: TermUpdateType.Pending,
+      },
+      {
+        approvedTermExtension: {
+          capitalize: false,
+          fixCase: false,
+          fixCommonMistakes: false,
+        },
+        caseSensitive: false,
+        description: "voluptatibus",
+        examples: [
+          {
+            example: "natus",
+            type: TermExampleCreateType.Good,
+          },
+          {
+            example: "atque",
+            type: TermExampleCreateType.Good,
+          },
+        ],
+        highlight: false,
+        id: 854614,
+        linkedTerms: [
+          {
+            linkedTermId: 743835,
+            reference: "dolorum",
+          },
+        ],
+        mistakes: [
+          {
+            caseSensitive: false,
+            mistake: "voluptate",
+            pos: TermMistakeCreatePos.Adverb,
+            reference: "deleniti",
+          },
+          {
+            caseSensitive: false,
+            mistake: "omnis",
+            pos: TermMistakeCreatePos.Adjective,
+            reference: "distinctio",
+          },
+        ],
+        pos: TermUpdatePos.Adjective,
+        tags: [
+          {
+            tag: "ipsum",
+          },
+          {
+            tag: "voluptate",
+          },
+        ],
+        term: "id",
         type: TermUpdateType.Pending,
       },
     ],
   },
-  xRequestID: "totam",
-  teamId: 628982,
+  xRequestID: "eius",
+  teamId: 137220,
 }).then((res: UpdateTermsResponse) => {
   if (res.statusCode == 200) {
     // handle response

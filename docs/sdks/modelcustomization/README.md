@@ -25,24 +25,24 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 653140,
+  organizationId: 359508,
 });
 
 sdk.modelCustomization.create({
   createCustomizationRequest: {
     additionalHyperParameters: {
-      numVirtualTokens: 670638,
+      numVirtualTokens: 613064,
     },
-    batchSize: 170909,
-    description: "dolorem",
-    epochs: 358152,
-    learningRate: 1289.26,
-    name: "Ronnie Mohr",
-    promptTemplate: "excepturi",
-    trainingDatasetFileId: "accusantium",
-    validationDatasetFileId: "iure",
+    batchSize: 437032,
+    description: "saepe",
+    epochs: 697631,
+    learningRate: 992.8,
+    name: "Lela Orn",
+    promptTemplate: "dolores",
+    trainingDatasetFileId: "dolorem",
+    validationDatasetFileId: "corporis",
   },
-  modelId: "culpa",
+  modelId: "explicabo",
 }).then((res: CreateModelCustomizationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -77,12 +77,12 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 988374,
+  organizationId: 750686,
 });
 
 sdk.modelCustomization.delete({
-  customizationId: "sapiente",
-  modelId: "architecto",
+  customizationId: "enim",
+  modelId: "omnis",
 }).then((res: DeleteModelCustomizationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -117,12 +117,12 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 652790,
+  organizationId: 363711,
 });
 
 sdk.modelCustomization.get({
-  customizationId: "dolorem",
-  modelId: "culpa",
+  customizationId: "minima",
+  modelId: "excepturi",
 }).then((res: GetModelCustomizationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -157,11 +157,11 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 161309,
+  organizationId: 38425,
 });
 
 sdk.modelCustomization.list({
-  modelId: "repellat",
+  modelId: "iure",
 }).then((res: ListModelCustomizationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

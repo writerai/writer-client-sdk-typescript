@@ -18,17 +18,16 @@ Page details
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 import { PageDetailsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { PageWithSectionResponseStatus } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 100226,
+  organizationId: 270008,
 });
 
 sdk.styleguide.get({
-  pageId: 99569,
+  pageId: 703737,
 }).then((res: PageDetailsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -58,18 +57,17 @@ List your styleguide pages
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 import { ListPagesResponse, ListPagesStatus } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { PagePublicApiResponseStatus } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 919483,
+  organizationId: 735194,
 });
 
 sdk.styleguide.listPages({
-  limit: 352312,
-  offset: 714242,
+  limit: 288476,
+  offset: 962189,
   status: ListPagesStatus.Live,
 }).then((res: ListPagesResponse) => {
   if (res.statusCode == 200) {

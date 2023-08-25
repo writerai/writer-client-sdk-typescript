@@ -24,7 +24,6 @@ export * from "./deleteresponse";
 export * from "./document";
 export * from "./draft";
 export * from "./failmessage";
-export * from "./failresponse";
 export * from "./fulllinkedterm";
 export * from "./fulltermwithuser";
 export * from "./generatetemplaterequest";

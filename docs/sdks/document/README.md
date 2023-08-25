@@ -18,18 +18,17 @@ Get document details
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 import { GetDocumentDetailsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { DocumentAccess } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 885338,
+  organizationId: 383464,
 });
 
 sdk.document.get({
-  documentId: 185636,
-  teamId: 679880,
+  documentId: 645785,
+  teamId: 588317,
 }).then((res: GetDocumentDetailsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -63,22 +62,21 @@ import {
   ListTeamDocumentsSortField,
   ListTeamDocumentsSortOrder,
 } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { BriefDocumentAccess } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 952792,
+  organizationId: 324683,
 });
 
 sdk.document.list({
-  limit: 456130,
-  offset: 687488,
-  search: "iusto",
-  sortField: ListTeamDocumentsSortField.CreationTime,
+  limit: 831049,
+  offset: 519711,
+  search: "similique",
+  sortField: ListTeamDocumentsSortField.Title,
   sortOrder: ListTeamDocumentsSortOrder.Desc,
-  teamId: 947371,
+  teamId: 311860,
 }).then((res: ListTeamDocumentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

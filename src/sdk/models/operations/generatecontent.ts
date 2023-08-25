@@ -24,12 +24,6 @@ export class GenerateContentResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     draft?: shared.Draft;
 
-    /**
-     * Bad Request
-     */
-    @SpeakeasyMetadata()
-    failResponse?: shared.FailResponse;
-
     @SpeakeasyMetadata()
     headers?: Record<string, string[]>;
 

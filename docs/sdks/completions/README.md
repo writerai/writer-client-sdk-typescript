@@ -28,21 +28,23 @@ const sdk = new Writer({
 
 sdk.completions.create({
   completionRequest: {
-    bestOf: 978619,
-    frequencyPenalty: 4736.08,
-    logprobs: 799159,
-    maxTokens: 800911,
-    minTokens: 461479,
-    n: 520478,
-    presencePenalty: 7805.29,
-    prompt: "dolorum",
+    bestOf: 1,
+    frequencyPenalty: 9786.19,
+    logprobs: 473608,
+    maxTokens: 1024,
+    minTokens: 1,
+    n: 799159,
+    presencePenalty: 8009.11,
+    prompt: "esse",
     stop: [
-      "nam",
+      "porro",
+      "dolorum",
+      "dicta",
     ],
-    temperature: 6399.21,
-    topP: 5820.2,
+    temperature: 0.7,
+    topP: 1,
   },
-  modelId: "fugit",
+  modelId: "nam",
 }).then((res: CreateCompletionResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -77,30 +79,29 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 537373,
+  organizationId: 639921,
 });
 
 sdk.completions.createModelCustomizationCompletion({
   completionRequest: {
-    bestOf: 944669,
-    frequencyPenalty: 7586.16,
-    logprobs: 521848,
-    maxTokens: 105907,
-    minTokens: 414662,
-    n: 473600,
-    presencePenalty: 2645.55,
-    prompt: "qui",
+    bestOf: 1,
+    frequencyPenalty: 5820.2,
+    logprobs: 143353,
+    maxTokens: 1024,
+    minTokens: 1,
+    n: 537373,
+    presencePenalty: 9446.69,
+    prompt: "optio",
     stop: [
-      "cum",
-      "esse",
-      "ipsum",
-      "excepturi",
+      "beatae",
+      "commodi",
+      "molestiae",
     ],
-    temperature: 1352.18,
-    topP: 187.89,
+    temperature: 0.7,
+    topP: 1,
   },
-  customizationId: "ad",
-  modelId: "natus",
+  customizationId: "modi",
+  modelId: "qui",
 }).then((res: CreateModelCustomizationCompletionResponse) => {
   if (res.statusCode == 200) {
     // handle response

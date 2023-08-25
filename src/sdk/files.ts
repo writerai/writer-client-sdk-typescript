@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -11,6 +12,7 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 /**
  * Methods related to Files
  */
+
 export class Files {
     private sdkConfiguration: SDKConfiguration;
 
@@ -44,7 +46,8 @@ export class Files {
             this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
 
         const headers = { ...config?.headers };
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -78,16 +81,37 @@ export class Files {
                         JSON.parse(decodedRes),
                         operations.DeleteFile200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.failResponse = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.FailResponse
+                    const err = utils.objectToClass(JSON.parse(decodedRes), errors.FailResponse);
+                    err.rawResponse = httpRes;
+                    throw new errors.FailResponse(err);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
+            case (httpRes?.status >= 400 && httpRes?.status < 500) ||
+                (httpRes?.status >= 500 && httpRes?.status < 600):
+                throw new errors.SDKError(
+                    "API error occurred",
+                    httpRes.status,
+                    decodedRes,
+                    httpRes
+                );
         }
 
         return res;
@@ -119,7 +143,8 @@ export class Files {
             this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
 
         const headers = { ...config?.headers };
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -150,16 +175,37 @@ export class Files {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.modelFile = utils.objectToClass(JSON.parse(decodedRes), shared.ModelFile);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.failResponse = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.FailResponse
+                    const err = utils.objectToClass(JSON.parse(decodedRes), errors.FailResponse);
+                    err.rawResponse = httpRes;
+                    throw new errors.FailResponse(err);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
+            case (httpRes?.status >= 400 && httpRes?.status < 500) ||
+                (httpRes?.status >= 500 && httpRes?.status < 600):
+                throw new errors.SDKError(
+                    "API error occurred",
+                    httpRes.status,
+                    decodedRes,
+                    httpRes
+                );
         }
 
         return res;
@@ -191,7 +237,8 @@ export class Files {
             this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
 
         const headers = { ...config?.headers };
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -225,16 +272,37 @@ export class Files {
                         JSON.parse(decodedRes),
                         shared.ModelFilesResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.failResponse = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.FailResponse
+                    const err = utils.objectToClass(JSON.parse(decodedRes), errors.FailResponse);
+                    err.rawResponse = httpRes;
+                    throw new errors.FailResponse(err);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
+            case (httpRes?.status >= 400 && httpRes?.status < 500) ||
+                (httpRes?.status >= 500 && httpRes?.status < 600):
+                throw new errors.SDKError(
+                    "API error occurred",
+                    httpRes.status,
+                    decodedRes,
+                    httpRes
+                );
         }
 
         return res;
@@ -282,7 +350,8 @@ export class Files {
         const headers = { ...reqBodyHeaders, ...config?.headers };
         if (reqBody == null || Object.keys(reqBody).length === 0)
             throw new Error("request body is required");
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -314,16 +383,37 @@ export class Files {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.modelFile = utils.objectToClass(JSON.parse(decodedRes), shared.ModelFile);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.failResponse = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.FailResponse
+                    const err = utils.objectToClass(JSON.parse(decodedRes), errors.FailResponse);
+                    err.rawResponse = httpRes;
+                    throw new errors.FailResponse(err);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
+            case (httpRes?.status >= 400 && httpRes?.status < 500) ||
+                (httpRes?.status >= 500 && httpRes?.status < 600):
+                throw new errors.SDKError(
+                    "API error occurred",
+                    httpRes.status,
+                    decodedRes,
+                    httpRes
+                );
         }
 
         return res;

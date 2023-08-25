@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -11,6 +12,7 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 /**
  * Methods related to Styleguide
  */
+
 export class Styleguide {
     private sdkConfiguration: SDKConfiguration;
 
@@ -44,7 +46,8 @@ export class Styleguide {
             this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
 
         const headers = { ...config?.headers };
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -78,16 +81,37 @@ export class Styleguide {
                         JSON.parse(decodedRes),
                         shared.PageWithSectionResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.failResponse = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.FailResponse
+                    const err = utils.objectToClass(JSON.parse(decodedRes), errors.FailResponse);
+                    err.rawResponse = httpRes;
+                    throw new errors.FailResponse(err);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
+            case (httpRes?.status >= 400 && httpRes?.status < 500) ||
+                (httpRes?.status >= 500 && httpRes?.status < 600):
+                throw new errors.SDKError(
+                    "API error occurred",
+                    httpRes.status,
+                    decodedRes,
+                    httpRes
+                );
         }
 
         return res;
@@ -115,7 +139,8 @@ export class Styleguide {
 
         const headers = { ...config?.headers };
         const queryParams: string = utils.serializeQueryParams(req, this.sdkConfiguration.globals);
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -149,16 +174,37 @@ export class Styleguide {
                         JSON.parse(decodedRes),
                         shared.PaginatedResultPagePublicApiResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.failResponse = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.FailResponse
+                    const err = utils.objectToClass(JSON.parse(decodedRes), errors.FailResponse);
+                    err.rawResponse = httpRes;
+                    throw new errors.FailResponse(err);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
+            case (httpRes?.status >= 400 && httpRes?.status < 500) ||
+                (httpRes?.status >= 500 && httpRes?.status < 600):
+                throw new errors.SDKError(
+                    "API error occurred",
+                    httpRes.status,
+                    decodedRes,
+                    httpRes
+                );
         }
 
         return res;

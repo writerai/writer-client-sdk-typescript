@@ -21,12 +21,6 @@ export class ListModelCustomizationsResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     customizationsResponse?: shared.CustomizationsResponse;
 
-    /**
-     * Bad Request
-     */
-    @SpeakeasyMetadata()
-    failResponse?: shared.FailResponse;
-
     @SpeakeasyMetadata()
     headers?: Record<string, string[]>;
 

@@ -18,18 +18,17 @@ Check your content against your preset styleguide.
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 import { ContentCheckResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { ContentIssueService } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 149675,
+  organizationId: 774234,
 });
 
 sdk.content.check({
   contentRequest: {
-    content: "iste",
+    content: "cum",
     settings: {
       ageAndFamilyStatus: false,
       confidence: false,
@@ -49,7 +48,7 @@ sdk.content.check({
       wordiness: false,
     },
   },
-  teamId: 222321,
+  teamId: 456150,
 }).then((res: ContentCheckResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -84,12 +83,12 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 616934,
+  organizationId: 216550,
 });
 
 sdk.content.correct({
   contentRequest: {
-    content: "laboriosam",
+    content: "excepturi",
     settings: {
       ageAndFamilyStatus: false,
       confidence: false,
@@ -109,8 +108,8 @@ sdk.content.correct({
       wordiness: false,
     },
   },
-  xRequestID: "hic",
-  teamId: 902599,
+  xRequestID: "aspernatur",
+  teamId: 18789,
 }).then((res: ContentCorrectResponse) => {
   if (res.statusCode == 200) {
     // handle response

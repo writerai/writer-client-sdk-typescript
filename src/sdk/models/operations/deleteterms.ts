@@ -27,12 +27,6 @@ export class DeleteTermsResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     deleteResponse?: shared.DeleteResponse;
 
-    /**
-     * Bad Request
-     */
-    @SpeakeasyMetadata()
-    failResponse?: shared.FailResponse;
-
     @SpeakeasyMetadata()
     headers?: Record<string, string[]>;
 

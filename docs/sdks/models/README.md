@@ -17,13 +17,12 @@ List available LLM models
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 import { ListModelsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
-import { GenerationModelInfoResponseType } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
 const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 653108,
+  organizationId: 634274,
 });
 
 sdk.models.list({}).then((res: ListModelsResponse) => {

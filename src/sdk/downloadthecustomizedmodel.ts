@@ -3,14 +3,19 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
-import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
  * Methods related to Download the customized model
  */
+export enum FetchFileAcceptEnum {
+    applicationJson = "application/json",
+    applicationOctetStream = "application/octet-stream",
+}
+
 export class DownloadTheCustomizedModel {
     private sdkConfiguration: SDKConfiguration;
 
@@ -23,7 +28,8 @@ export class DownloadTheCustomizedModel {
      */
     async fetchFile(
         req: operations.FetchCustomizedModelFileRequest,
-        config?: AxiosRequestConfig
+        config?: AxiosRequestConfig,
+        acceptHeaderOverride?: FetchFileAcceptEnum
     ): Promise<operations.FetchCustomizedModelFileResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
             req = new operations.FetchCustomizedModelFileRequest(req);
@@ -44,7 +50,12 @@ export class DownloadTheCustomizedModel {
             this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
 
         const headers = { ...config?.headers };
-        headers["Accept"] = "application/json;q=1, application/octet-stream;q=0";
+        if (acceptHeaderOverride !== undefined) {
+            headers["Accept"] = acceptHeaderOverride.toString();
+        } else {
+            headers["Accept"] = "application/json;q=1, application/octet-stream;q=0";
+        }
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -77,16 +88,37 @@ export class DownloadTheCustomizedModel {
                 if (utils.matchContentType(contentType, `application/octet-stream`)) {
                     res.fetchCustomizedModelFile200ApplicationOctetStreamBinaryString =
                         httpRes?.data;
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case [400, 401, 403, 404, 500].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.failResponse = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.FailResponse
+                    const err = utils.objectToClass(JSON.parse(decodedRes), errors.FailResponse);
+                    err.rawResponse = httpRes;
+                    throw new errors.FailResponse(err);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
+            case (httpRes?.status >= 400 && httpRes?.status < 500) ||
+                (httpRes?.status >= 500 && httpRes?.status < 600):
+                throw new errors.SDKError(
+                    "API error occurred",
+                    httpRes.status,
+                    decodedRes,
+                    httpRes
+                );
         }
 
         return res;

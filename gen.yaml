@@ -1,15 +1,24 @@
 configVersion: 1.0.0
 management:
-  docChecksum: bf208a2a8543531774bae9addd634dc0
+  docChecksum: 044ba6ea348a6fb8206cacad6926373d
   docVersion: "1.7"
-  speakeasyVersion: 1.51.1
-  generationVersion: 2.50.2
+  speakeasyVersion: 1.74.11
+  generationVersion: 2.87.1
 generation:
   sdkClassName: Writer
   singleTagPerOp: false
   telemetryEnabled: false
+features:
+  typescript:
+    acceptHeaders: 2.81.1
+    core: 2.82.1
+    errors: 2.81.2
+    globalSecurity: 2.81.1
+    globalServerURLs: 2.82.0
+    globals: 2.81.1
+    nameOverrides: 2.81.1
 typescript:
-  version: 0.25.0
+  version: 0.40.2
   author: writerai
   maxMethodParams: 0
   packageName: '@writerai/writer-sdk'
