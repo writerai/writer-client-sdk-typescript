@@ -23,28 +23,26 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 870088,
+  organizationId: 272656,
 });
 
 sdk.completions.create({
   completionRequest: {
     bestOf: 1,
-    frequencyPenalty: 9786.19,
-    logprobs: 473608,
+    frequencyPenalty: 3834.41,
+    logprobs: 477665,
     maxTokens: 1024,
     minTokens: 1,
-    n: 799159,
-    presencePenalty: 8009.11,
-    prompt: "esse",
+    n: 791725,
+    presencePenalty: 8121.69,
+    prompt: "voluptatum",
     stop: [
-      "porro",
-      "dolorum",
-      "dicta",
+      "iusto",
     ],
     temperature: 0.7,
     topP: 1,
   },
-  modelId: "nam",
+  modelId: "excepturi",
 }).then((res: CreateCompletionResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -79,29 +77,27 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 639921,
+  organizationId: 392785,
 });
 
 sdk.completions.createModelCustomizationCompletion({
   completionRequest: {
     bestOf: 1,
-    frequencyPenalty: 5820.2,
-    logprobs: 143353,
+    frequencyPenalty: 9255.97,
+    logprobs: 836079,
     maxTokens: 1024,
     minTokens: 1,
-    n: 537373,
-    presencePenalty: 9446.69,
-    prompt: "optio",
+    n: 71036,
+    presencePenalty: 3373.96,
+    prompt: "veritatis",
     stop: [
-      "beatae",
-      "commodi",
-      "molestiae",
+      "deserunt",
     ],
     temperature: 0.7,
     topP: 1,
   },
-  customizationId: "modi",
-  modelId: "qui",
+  customizationId: "perferendis",
+  modelId: "ipsam",
 }).then((res: CreateModelCustomizationCompletionResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -24,15 +24,15 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 988374,
+  organizationId: 943749,
 });
 
 sdk.snippet.delete({
-  xRequestID: "sapiente",
+  xRequestID: "saepe",
   ids: [
-    "mollitia",
+    "fuga",
   ],
-  teamId: 208876,
+  teamId: 449950,
 }).then((res: DeleteSnippetsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -67,26 +67,22 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 635059,
+  organizationId: 359508,
 });
 
 sdk.snippet.find({
-  limit: 161309,
-  offset: 995300,
-  search: "mollitia",
+  limit: 613064,
+  offset: 437032,
+  search: "saepe",
   shortcuts: [
-    "numquam",
-    "commodi",
-    "quam",
+    "quidem",
   ],
-  sortField: FindSnippetsSortField.CreationTime,
+  sortField: FindSnippetsSortField.Shortcut,
   sortOrder: FindSnippetsSortOrder.Asc,
   tags: [
-    "quia",
-    "quis",
-    "vitae",
+    "reiciendis",
   ],
-  teamId: 674752,
+  teamId: 666767,
 }).then((res: FindSnippetsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -121,42 +117,25 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 656330,
+  organizationId: 653140,
 });
 
 sdk.snippet.update({
   requestBody: [
     {
-      description: "odit",
-      id: "c3f5ad01-9da1-4ffe-b8f0-97b0074f1547",
-      shortcut: "dicta",
-      snippet: "harum",
+      description: "laborum",
+      id: "2352c595-5907-4aff-9a3a-2fa946773925",
+      shortcut: "vitae",
+      snippet: "laborum",
       tags: [
         {
-          tag: "accusamus",
-        },
-        {
-          tag: "commodi",
-        },
-      ],
-    },
-    {
-      description: "repudiandae",
-      id: "13b99d48-8e1e-491e-850a-d2abd4426980",
-      shortcut: "magni",
-      snippet: "assumenda",
-      tags: [
-        {
-          tag: "alias",
-        },
-        {
-          tag: "fugit",
+          tag: "animi",
         },
       ],
     },
   ],
-  xRequestID: "dolorum",
-  teamId: 569618,
+  xRequestID: "enim",
+  teamId: 138183,
 }).then((res: UpdateSnippetsResponse) => {
   if (res.statusCode == 200) {
     // handle response

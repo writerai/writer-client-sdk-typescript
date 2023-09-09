@@ -23,12 +23,12 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 383464,
+  organizationId: 716327,
 });
 
 sdk.document.get({
-  documentId: 645785,
-  teamId: 588317,
+  documentId: 841386,
+  teamId: 289406,
 }).then((res: GetDocumentDetailsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -67,16 +67,16 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 324683,
+  organizationId: 264730,
 });
 
 sdk.document.list({
-  limit: 831049,
-  offset: 519711,
-  search: "similique",
-  sortField: ListTeamDocumentsSortField.Title,
-  sortOrder: ListTeamDocumentsSortOrder.Desc,
-  teamId: 311860,
+  limit: 183191,
+  offset: 397821,
+  search: "cupiditate",
+  sortField: ListTeamDocumentsSortField.ModificationTime,
+  sortOrder: ListTeamDocumentsSortOrder.Asc,
+  teamId: 164940,
 }).then((res: ListTeamDocumentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

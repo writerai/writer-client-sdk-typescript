@@ -30,31 +30,15 @@ sdk.coWrite.generateContent({
   generateTemplateRequest: {
     inputs: [
       {
-        name: "Ben Mueller",
+        name: "Dallas Kassulke",
         value: [
-          "magnam",
-          "debitis",
-        ],
-      },
-      {
-        name: "Lucia Goldner",
-        value: [
-          "placeat",
-          "voluptatum",
-          "iusto",
-          "excepturi",
-        ],
-      },
-      {
-        name: "Mrs. Sophie Smith MD",
-        value: [
-          "ipsam",
+          "suscipit",
         ],
       },
     ],
-    templateId: "repellendus",
+    templateId: "iure",
   },
-  teamId: 957156,
+  teamId: 297534,
 }).then((res: GenerateContentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -89,12 +73,12 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 778157,
+  organizationId: 891773,
 });
 
 sdk.coWrite.listTemplates({
-  teamId: 140350,
-  templateId: "at",
+  teamId: 56713,
+  templateId: "delectus",
 }).then((res: ListTemplatesResponse) => {
   if (res.statusCode == 200) {
     // handle response
