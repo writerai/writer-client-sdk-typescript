@@ -1,4 +1,4 @@
-# coWrite
+# CoWrite
 
 ## Overview
 

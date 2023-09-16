@@ -1,4 +1,4 @@
-# aiContentDetector
+# AIContentDetector
 
 ## Overview
 
