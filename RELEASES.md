@@ -605,3 +605,13 @@ Based on:
 - [typescript v0.44.2] .
 ### Releases
 - [NPM v0.44.2] https://www.npmjs.com/package/@writerai/writer-sdk/v/0.44.2 - .
+
+## 2023-09-20 00:13:20
+### Changes
+Based on:
+- OpenAPI Doc 1.7 https://raw.githubusercontent.com/speakeasy-sdks/w-ai-openapi/main/openapi.yaml
+- Speakeasy CLI 1.88.0 (2.118.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.44.3] .
+### Releases
+- [NPM v0.44.3] https://www.npmjs.com/package/@writerai/writer-sdk/v/0.44.3 - .
