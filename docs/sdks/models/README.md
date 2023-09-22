@@ -22,7 +22,7 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 386489,
+  organizationId: 902599,
 });
 
 sdk.models.list({}).then((res: ListModelsResponse) => {

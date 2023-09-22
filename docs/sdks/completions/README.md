@@ -23,26 +23,26 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 272656,
+  organizationId: 477665,
 });
 
 sdk.completions.create({
   completionRequest: {
     bestOf: 1,
-    frequencyPenalty: 3834.41,
-    logprobs: 477665,
+    frequencyPenalty: 7917.25,
+    logprobs: 812169,
     maxTokens: 1024,
     minTokens: 1,
-    n: 791725,
-    presencePenalty: 8121.69,
-    prompt: "voluptatum",
+    n: 528895,
+    presencePenalty: 4799.77,
+    prompt: "excepturi",
     stop: [
-      "iusto",
+      "nisi",
     ],
     temperature: 0.7,
     topP: 1,
   },
-  modelId: "excepturi",
+  modelId: "recusandae",
 }).then((res: CreateCompletionResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -77,27 +77,27 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 392785,
+  organizationId: 836079,
 });
 
 sdk.completions.createModelCustomizationCompletion({
   completionRequest: {
     bestOf: 1,
-    frequencyPenalty: 9255.97,
-    logprobs: 836079,
+    frequencyPenalty: 710.36,
+    logprobs: 337396,
     maxTokens: 1024,
     minTokens: 1,
-    n: 71036,
-    presencePenalty: 3373.96,
-    prompt: "veritatis",
+    n: 87129,
+    presencePenalty: 6481.72,
+    prompt: "perferendis",
     stop: [
-      "deserunt",
+      "ipsam",
     ],
     temperature: 0.7,
     topP: 1,
   },
-  customizationId: "perferendis",
-  modelId: "ipsam",
+  customizationId: "repellendus",
+  modelId: "sapiente",
 }).then((res: CreateModelCustomizationCompletionResponse) => {
   if (res.statusCode == 200) {
     // handle response

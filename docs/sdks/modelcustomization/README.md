@@ -25,24 +25,24 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 143353,
+  organizationId: 944669,
 });
 
 sdk.modelCustomization.create({
   createCustomizationRequest: {
     additionalHyperParameters: {
-      numVirtualTokens: 537373,
+      numVirtualTokens: 758616,
     },
-    batchSize: 944669,
-    description: "optio",
-    epochs: 521848,
-    learningRate: 1059.07,
-    name: "Tanya Gleason",
-    promptTemplate: "cum",
-    trainingDatasetFileId: "esse",
-    validationDatasetFileId: "ipsum",
+    batchSize: 521848,
+    description: "beatae",
+    epochs: 414662,
+    learningRate: 4736,
+    name: "Norma Ryan",
+    promptTemplate: "ipsum",
+    trainingDatasetFileId: "excepturi",
+    validationDatasetFileId: "aspernatur",
   },
-  modelId: "excepturi",
+  modelId: "perferendis",
 }).then((res: CreateModelCustomizationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -77,12 +77,12 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 135218,
+  organizationId: 324141,
 });
 
 sdk.modelCustomization.delete({
-  customizationId: "perferendis",
-  modelId: "ad",
+  customizationId: "natus",
+  modelId: "sed",
 }).then((res: DeleteModelCustomizationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -117,12 +117,12 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 617636,
+  organizationId: 612096,
 });
 
 sdk.modelCustomization.get({
-  customizationId: "sed",
-  modelId: "iste",
+  customizationId: "dolor",
+  modelId: "natus",
 }).then((res: GetModelCustomizationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -157,11 +157,11 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 222321,
+  organizationId: 386489,
 });
 
 sdk.modelCustomization.list({
-  modelId: "natus",
+  modelId: "hic",
 }).then((res: ListModelCustomizationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

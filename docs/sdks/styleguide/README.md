@@ -23,11 +23,11 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 778346,
+  organizationId: 949572,
 });
 
 sdk.styleguide.get({
-  pageId: 196582,
+  pageId: 368725,
 }).then((res: PageDetailsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -62,13 +62,13 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 949572,
+  organizationId: 662527,
 });
 
 sdk.styleguide.listPages({
-  limit: 368725,
-  offset: 662527,
-  status: ListPagesStatus.Offline,
+  limit: 820994,
+  offset: 13571,
+  status: ListPagesStatus.Live,
 }).then((res: ListPagesResponse) => {
   if (res.statusCode == 200) {
     // handle response

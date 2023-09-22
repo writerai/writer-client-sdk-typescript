@@ -22,12 +22,12 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 473608,
+  organizationId: 800911,
 });
 
 sdk.downloadTheCustomizedModel.fetchFile({
-  customizationId: "quod",
-  modelId: "quod",
+  customizationId: "esse",
+  modelId: "totam",
 }).then((res: FetchCustomizedModelFileResponse) => {
   if (res.statusCode == 200) {
     // handle response

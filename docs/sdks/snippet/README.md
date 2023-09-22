@@ -24,15 +24,15 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 943749,
+  organizationId: 681820,
 });
 
 sdk.snippet.delete({
-  xRequestID: "saepe",
+  xRequestID: "in",
   ids: [
-    "fuga",
+    "corporis",
   ],
-  teamId: 449950,
+  teamId: 613064,
 }).then((res: DeleteSnippetsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -67,22 +67,22 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 359508,
+  organizationId: 437032,
 });
 
 sdk.snippet.find({
-  limit: 613064,
-  offset: 437032,
-  search: "saepe",
+  limit: 902349,
+  offset: 697631,
+  search: "architecto",
   shortcuts: [
-    "quidem",
+    "ipsa",
   ],
-  sortField: FindSnippetsSortField.Shortcut,
-  sortOrder: FindSnippetsSortOrder.Asc,
+  sortField: FindSnippetsSortField.ModificationTime,
+  sortOrder: FindSnippetsSortOrder.Desc,
   tags: [
-    "reiciendis",
+    "mollitia",
   ],
-  teamId: 666767,
+  teamId: 670638,
 }).then((res: FindSnippetsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -117,25 +117,25 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 653140,
+  organizationId: 170909,
 });
 
 sdk.snippet.update({
   requestBody: [
     {
-      description: "laborum",
-      id: "2352c595-5907-4aff-9a3a-2fa946773925",
-      shortcut: "vitae",
-      snippet: "laborum",
+      description: "dolorem",
+      id: "52c59559-07af-4f1a-ba2f-a9467739251a",
+      shortcut: "animi",
+      snippet: "enim",
       tags: [
         {
-          tag: "animi",
+          tag: "odit",
         },
       ],
     },
   ],
-  xRequestID: "enim",
-  teamId: 138183,
+  xRequestID: "quo",
+  teamId: 196582,
 }).then((res: UpdateSnippetsResponse) => {
   if (res.statusCode == 200) {
     // handle response

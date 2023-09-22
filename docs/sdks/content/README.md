@@ -23,12 +23,12 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 832620,
+  organizationId: 778157,
 });
 
 sdk.content.check({
   contentRequest: {
-    content: "sapiente",
+    content: "odit",
     settings: {
       ageAndFamilyStatus: false,
       confidence: false,
@@ -48,7 +48,7 @@ sdk.content.check({
       wordiness: false,
     },
   },
-  teamId: 778157,
+  teamId: 870013,
 }).then((res: ContentCheckResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -83,12 +83,12 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 140350,
+  organizationId: 870088,
 });
 
 sdk.content.correct({
   contentRequest: {
-    content: "at",
+    content: "maiores",
     settings: {
       ageAndFamilyStatus: false,
       confidence: false,
@@ -108,8 +108,8 @@ sdk.content.correct({
       wordiness: false,
     },
   },
-  xRequestID: "at",
-  teamId: 978619,
+  xRequestID: "molestiae",
+  teamId: 799159,
 }).then((res: ContentCorrectResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -32,12 +32,12 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 13571,
+  organizationId: 622846,
 });
 
 sdk.terminology.add({
   createTermsRequest: {
-    failHandling: CreateTermsRequestFailHandling.Accumulate,
+    failHandling: CreateTermsRequestFailHandling.ValidateOnly,
     models: [
       {
         approvedTermExtension: {
@@ -46,41 +46,41 @@ sdk.terminology.add({
           fixCommonMistakes: false,
         },
         caseSensitive: false,
-        description: "error",
+        description: "laborum",
         examples: [
           {
-            example: "temporibus",
+            example: "quasi",
             type: TermExampleCreateType.Bad,
           },
         ],
         highlight: false,
         linkedTerms: [
           {
-            linkedTermId: 96098,
-            reference: "reiciendis",
+            linkedTermId: 976460,
+            reference: "vero",
           },
         ],
         mistakes: [
           {
             caseSensitive: false,
-            mistake: "voluptatibus",
-            pos: TermMistakeCreatePos.Adjective,
-            reference: "nihil",
+            mistake: "nihil",
+            pos: TermMistakeCreatePos.Adverb,
+            reference: "voluptatibus",
           },
         ],
-        pos: TermCreatePos.Adverb,
-        reference: "voluptatibus",
+        pos: TermCreatePos.Noun,
+        reference: "omnis",
         tags: [
           {
-            tag: "ipsa",
+            tag: "voluptate",
           },
         ],
-        term: "omnis",
-        type: TermCreateType.Banned,
+        term: "cum",
+        type: TermCreateType.Approved,
       },
     ],
   },
-  teamId: 739264,
+  teamId: 39187,
 }).then((res: AddTermsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -115,15 +115,15 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 19987,
+  organizationId: 441711,
 });
 
 sdk.terminology.delete({
-  xRequestID: "doloremque",
+  xRequestID: "ut",
   ids: [
-    441711,
+    979587,
   ],
-  teamId: 282807,
+  teamId: 120196,
 }).then((res: DeleteTermsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -164,21 +164,21 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 979587,
+  organizationId: 359444,
 });
 
 sdk.terminology.find({
-  limit: 120196,
-  offset: 359444,
-  partOfSpeech: FindTermsPartOfSpeech.Verb,
-  sortField: FindTermsSortField.CreationTime,
+  limit: 296140,
+  offset: 480894,
+  partOfSpeech: FindTermsPartOfSpeech.Noun,
+  sortField: FindTermsSortField.ModificationTime,
   sortOrder: FindTermsSortOrder.Asc,
   tags: [
-    "harum",
+    "accusamus",
   ],
-  teamId: 317983,
-  term: "accusamus",
-  type: FindTermsType.Banned,
+  teamId: 414263,
+  term: "repudiandae",
+  type: FindTermsType.Approved,
 }).then((res: FindTermsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -220,12 +220,12 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 918236,
+  organizationId: 216822,
 });
 
 sdk.terminology.update({
   updateTermsRequest: {
-    failHandling: UpdateTermsRequestFailHandling.Accumulate,
+    failHandling: UpdateTermsRequestFailHandling.Skip,
     models: [
       {
         approvedTermExtension: {
@@ -234,42 +234,42 @@ sdk.terminology.update({
           fixCommonMistakes: false,
         },
         caseSensitive: false,
-        description: "ipsum",
+        description: "molestias",
         examples: [
           {
-            example: "quidem",
+            example: "excepturi",
             type: TermExampleCreateType.Bad,
           },
         ],
         highlight: false,
-        id: 566602,
+        id: 265389,
         linkedTerms: [
           {
-            linkedTermId: 865103,
-            reference: "modi",
+            linkedTermId: 508969,
+            reference: "rem",
           },
         ],
         mistakes: [
           {
             caseSensitive: false,
-            mistake: "praesentium",
-            pos: TermMistakeCreatePos.Adverb,
-            reference: "voluptates",
+            mistake: "voluptates",
+            pos: TermMistakeCreatePos.Noun,
+            reference: "repudiandae",
           },
         ],
-        pos: TermUpdatePos.Noun,
+        pos: TermUpdatePos.Adverb,
         tags: [
           {
-            tag: "repudiandae",
+            tag: "veritatis",
           },
         ],
-        term: "sint",
+        term: "itaque",
         type: TermUpdateType.Approved,
       },
     ],
   },
-  xRequestID: "itaque",
-  teamId: 277718,
+  xRequestID: "enim",
+  teamId: 9356,
 }).then((res: UpdateTermsResponse) => {
   if (res.statusCode == 200) {
     // handle response

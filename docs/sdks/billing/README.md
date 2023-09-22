@@ -22,7 +22,7 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 602763,
+  organizationId: 544883,
 });
 
 sdk.billing.getSubscriptionDetails().then((res: GetSubscriptionDetailsResponse) => {
