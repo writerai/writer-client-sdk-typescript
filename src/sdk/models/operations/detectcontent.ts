@@ -18,15 +18,24 @@ export class DetectContentResponse extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: shared.ContentDetectorResponse })
     contentDetectorResponses?: shared.ContentDetectorResponse[];
 
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
     @SpeakeasyMetadata()
     headers?: Record<string, string[]>;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 }
