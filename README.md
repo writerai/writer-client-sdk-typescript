@@ -46,12 +46,12 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 715190,
+  organizationId: 496531,
 });
 
 sdk.aiContentDetector.detect({
   contentDetectorRequest: {
-    input: "quibusdam",
+    input: "Bronze Indian",
   },
 }).then((res: DetectContentResponse) => {
   if (res.statusCode == 200) {

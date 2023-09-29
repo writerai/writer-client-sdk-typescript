@@ -33,7 +33,7 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 622846,
+  organizationId: 551477,
 });
 
 sdk.terminology.add({
@@ -47,41 +47,41 @@ sdk.terminology.add({
           fixCommonMistakes: false,
         },
         caseSensitive: false,
-        description: "laborum",
+        description: "Optional mobile secured line",
         examples: [
           {
-            example: "quasi",
-            type: TermExampleCreateType.Bad,
+            example: "noon bypass Chief",
+            type: TermExampleCreateType.Good,
           },
         ],
         highlight: false,
         linkedTerms: [
           {
-            linkedTermId: 976460,
-            reference: "vero",
+            linkedTermId: 753323,
+            reference: "Southeast",
           },
         ],
         mistakes: [
           {
             caseSensitive: false,
-            mistake: "nihil",
-            pos: TermMistakeCreatePos.Adverb,
-            reference: "voluptatibus",
+            mistake: "generating payment quantify",
+            pos: TermMistakeCreatePos.Verb,
+            reference: "Urbandale Gasoline",
           },
         ],
-        pos: TermCreatePos.Noun,
-        reference: "omnis",
+        pos: TermCreatePos.Adverb,
+        reference: "methodologies",
         tags: [
           {
-            tag: "voluptate",
+            tag: "Northeast",
           },
         ],
-        term: "cum",
-        type: TermCreateType.Approved,
+        term: "Pomona auxiliary",
+        type: TermCreateType.Banned,
       },
     ],
   },
-  teamId: 39187,
+  teamId: 739517,
 }).then((res: AddTermsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -116,15 +116,15 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 441711,
+  organizationId: 545907,
 });
 
 sdk.terminology.delete({
-  xRequestID: "ut",
+  xRequestID: "Designer complexity gladiolus",
   ids: [
-    979587,
+    921415,
   ],
-  teamId: 120196,
+  teamId: 953140,
 }).then((res: DeleteTermsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -165,20 +165,20 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 359444,
+  organizationId: 40141,
 });
 
 sdk.terminology.find({
-  limit: 296140,
-  offset: 480894,
-  partOfSpeech: FindTermsPartOfSpeech.Noun,
-  sortField: FindTermsSortField.ModificationTime,
+  limit: 326883,
+  offset: 488098,
+  partOfSpeech: FindTermsPartOfSpeech.Adjective,
+  sortField: FindTermsSortField.Type,
   sortOrder: FindTermsSortOrder.Asc,
   tags: [
-    "accusamus",
+    "West",
   ],
-  teamId: 414263,
-  term: "repudiandae",
+  teamId: 413686,
+  term: "Bike generating",
   type: FindTermsType.Approved,
 }).then((res: FindTermsResponse) => {
   if (res.statusCode == 200) {
@@ -221,12 +221,12 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 216822,
+  organizationId: 857478,
 });
 
 sdk.terminology.update({
   updateTermsRequest: {
-    failHandling: UpdateTermsRequestFailHandling.Skip,
+    failHandling: UpdateTermsRequestFailHandling.Accumulate,
     models: [
       {
         approvedTermExtension: {
@@ -235,42 +235,42 @@ sdk.terminology.update({
           fixCommonMistakes: false,
         },
         caseSensitive: false,
-        description: "molestias",
+        description: "Persistent 24/7 focus group",
         examples: [
           {
-            example: "excepturi",
+            example: "dock Quality redundant",
             type: TermExampleCreateType.Bad,
           },
         ],
         highlight: false,
-        id: 265389,
+        id: 134151,
         linkedTerms: [
           {
-            linkedTermId: 508969,
-            reference: "rem",
+            linkedTermId: 54062,
+            reference: "mostly",
           },
         ],
         mistakes: [
           {
             caseSensitive: false,
-            mistake: "voluptates",
-            pos: TermMistakeCreatePos.Noun,
-            reference: "repudiandae",
+            mistake: "dynamic white",
+            pos: TermMistakeCreatePos.Verb,
+            reference: "Forward",
           },
         ],
-        pos: TermUpdatePos.Adverb,
+        pos: TermUpdatePos.Adjective,
         tags: [
           {
-            tag: "veritatis",
+            tag: "East Baht Quality",
           },
         ],
-        term: "itaque",
-        type: TermUpdateType.Approved,
+        term: "Home users Sharable",
+        type: TermUpdateType.Banned,
       },
     ],
   },
-  xRequestID: "enim",
-  teamId: 9356,
+  xRequestID: "Northeast Wooden",
+  teamId: 352919,
 }).then((res: UpdateTermsResponse) => {
   if (res.statusCode == 200) {
     // handle response

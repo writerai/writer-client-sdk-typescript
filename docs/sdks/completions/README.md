@@ -24,26 +24,26 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 477665,
+  organizationId: 486589,
 });
 
 sdk.completions.create({
   completionRequest: {
     bestOf: 1,
-    frequencyPenalty: 7917.25,
-    logprobs: 812169,
+    frequencyPenalty: 4893.82,
+    logprobs: 638424,
     maxTokens: 1024,
     minTokens: 1,
-    n: 528895,
-    presencePenalty: 4799.77,
-    prompt: "excepturi",
+    n: 859213,
+    presencePenalty: 4174.58,
+    prompt: "South",
     stop: [
-      "nisi",
+      "shred",
     ],
     temperature: 0.7,
     topP: 1,
   },
-  modelId: "recusandae",
+  modelId: "technology East",
 }).then((res: CreateCompletionResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -78,27 +78,27 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 836079,
+  organizationId: 919503,
 });
 
 sdk.completions.createModelCustomizationCompletion({
   completionRequest: {
     bestOf: 1,
-    frequencyPenalty: 710.36,
-    logprobs: 337396,
+    frequencyPenalty: 412.97,
+    logprobs: 951257,
     maxTokens: 1024,
     minTokens: 1,
-    n: 87129,
-    presencePenalty: 6481.72,
-    prompt: "perferendis",
+    n: 314952,
+    presencePenalty: 657.2,
+    prompt: "platforms convergence Bicycle",
     stop: [
-      "ipsam",
+      "heavily",
     ],
     temperature: 0.7,
     topP: 1,
   },
-  customizationId: "repellendus",
-  modelId: "sapiente",
+  customizationId: "Beauty cum Southeast",
+  modelId: "Tandem BMX Lead",
 }).then((res: CreateModelCustomizationCompletionResponse) => {
   if (res.statusCode == 200) {
     // handle response

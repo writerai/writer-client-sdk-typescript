@@ -26,24 +26,24 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 944669,
+  organizationId: 486589,
 });
 
 sdk.modelCustomization.create({
   createCustomizationRequest: {
     additionalHyperParameters: {
-      numVirtualTokens: 758616,
+      numVirtualTokens: 489382,
     },
-    batchSize: 521848,
-    description: "beatae",
-    epochs: 414662,
-    learningRate: 4736,
-    name: "Norma Ryan",
-    promptTemplate: "ipsum",
-    trainingDatasetFileId: "excepturi",
-    validationDatasetFileId: "aspernatur",
+    batchSize: 638424,
+    description: "Synchronised full-range emulation",
+    epochs: 134365,
+    learningRate: 7865.46,
+    name: "shred",
+    promptTemplate: "technology East",
+    trainingDatasetFileId: "evolve",
+    validationDatasetFileId: "fuchsia Gasoline Screen",
   },
-  modelId: "perferendis",
+  modelId: "physical Ameliorated",
 }).then((res: CreateModelCustomizationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -78,12 +78,12 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 324141,
+  organizationId: 545907,
 });
 
 sdk.modelCustomization.delete({
-  customizationId: "natus",
-  modelId: "sed",
+  customizationId: "Designer complexity gladiolus",
+  modelId: "objective Aluminium Metal",
 }).then((res: DeleteModelCustomizationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -118,12 +118,12 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 612096,
+  organizationId: 700347,
 });
 
 sdk.modelCustomization.get({
-  customizationId: "dolor",
-  modelId: "natus",
+  customizationId: "program",
+  modelId: "Kia Cambridgeshire",
 }).then((res: GetModelCustomizationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -158,11 +158,11 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 386489,
+  organizationId: 768578,
 });
 
 sdk.modelCustomization.list({
-  modelId: "hic",
+  modelId: "compress",
 }).then((res: ListModelCustomizationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

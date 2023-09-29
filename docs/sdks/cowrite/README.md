@@ -24,22 +24,22 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 847252,
+  organizationId: 569932,
 });
 
 sdk.coWrite.generateContent({
   generateTemplateRequest: {
     inputs: [
       {
-        name: "Sabrina Oberbrunner",
+        name: "er man approach",
         value: [
-          "magnam",
+          "builder",
         ],
       },
     ],
-    templateId: "debitis",
+    templateId: "Planner",
   },
-  teamId: 56713,
+  teamId: 612911,
 }).then((res: GenerateContentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -74,12 +74,12 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 963663,
+  organizationId: 380445,
 });
 
 sdk.coWrite.listTemplates({
-  teamId: 272656,
-  templateId: "suscipit",
+  teamId: 882866,
+  templateId: "Soul",
 }).then((res: ListTemplatesResponse) => {
   if (res.statusCode == 200) {
     // handle response

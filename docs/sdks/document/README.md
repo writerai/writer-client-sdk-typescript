@@ -24,12 +24,12 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 289406,
+  organizationId: 700347,
 });
 
 sdk.document.get({
-  documentId: 264730,
-  teamId: 183191,
+  documentId: 90065,
+  teamId: 558834,
 }).then((res: GetDocumentDetailsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -68,16 +68,16 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 397821,
+  organizationId: 768578,
 });
 
 sdk.document.list({
-  limit: 586513,
-  offset: 552822,
-  search: "perferendis",
+  limit: 99895,
+  offset: 547272,
+  search: "Product",
   sortField: ListTeamDocumentsSortField.Title,
-  sortOrder: ListTeamDocumentsSortOrder.Desc,
-  teamId: 369808,
+  sortOrder: ListTeamDocumentsSortOrder.Asc,
+  teamId: 917416,
 }).then((res: ListTeamDocumentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

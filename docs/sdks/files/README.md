@@ -26,11 +26,11 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 780529,
+  organizationId: 545907,
 });
 
 sdk.files.delete({
-  fileId: "dolorum",
+  fileId: "Designer complexity gladiolus",
 }).then((res: DeleteFileResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -65,11 +65,11 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 118274,
+  organizationId: 700347,
 });
 
 sdk.files.get({
-  fileId: "nam",
+  fileId: "program",
 }).then((res: GetFileResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -104,7 +104,7 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 639921,
+  organizationId: 768578,
 });
 
 sdk.files.list({}).then((res: ListFilesResponse) => {
@@ -141,14 +141,14 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 582020,
+  organizationId: 403654,
 });
 
 sdk.files.upload({
   uploadModelFileRequest: {
     file: {
-      content: "fugit".encode(),
-      file: "deleniti",
+      content: "?SRSKG@^n=" as bytes <<<>>>,
+      file: "Plastic CLI",
     },
   },
 }).then((res: UploadFileResponse) => {

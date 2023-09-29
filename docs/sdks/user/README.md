@@ -23,15 +23,15 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 667411,
+  organizationId: 768578,
 });
 
 sdk.user.list({
-  limit: 842342,
-  offset: 131797,
-  search: "deserunt",
-  sortField: ListUsersSortField.Email,
-  sortOrder: ListUsersSortOrder.Desc,
+  limit: 99895,
+  offset: 547272,
+  search: "Product",
+  sortField: ListUsersSortField.Id,
+  sortOrder: ListUsersSortOrder.Asc,
 }).then((res: ListUsersResponse) => {
   if (res.statusCode == 200) {
     // handle response

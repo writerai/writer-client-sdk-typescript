@@ -25,15 +25,15 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 681820,
+  organizationId: 545907,
 });
 
 sdk.snippet.delete({
-  xRequestID: "in",
+  xRequestID: "Designer complexity gladiolus",
   ids: [
-    "corporis",
+    "ick",
   ],
-  teamId: 613064,
+  teamId: 604931,
 }).then((res: DeleteSnippetsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -68,22 +68,22 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 437032,
+  organizationId: 40141,
 });
 
 sdk.snippet.find({
-  limit: 902349,
-  offset: 697631,
-  search: "architecto",
+  limit: 326883,
+  offset: 488098,
+  search: "whoa West Credit",
   shortcuts: [
-    "ipsa",
+    "Granite",
   ],
-  sortField: FindSnippetsSortField.ModificationTime,
-  sortOrder: FindSnippetsSortOrder.Desc,
+  sortField: FindSnippetsSortField.CreationTime,
+  sortOrder: FindSnippetsSortOrder.Asc,
   tags: [
-    "mollitia",
+    "Iowa",
   ],
-  teamId: 670638,
+  teamId: 785366,
 }).then((res: FindSnippetsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -118,25 +118,25 @@ const sdk = new Writer({
   security: {
     apiKey: "",
   },
-  organizationId: 170909,
+  organizationId: 857478,
 });
 
 sdk.snippet.update({
   requestBody: [
     {
-      description: "dolorem",
-      id: "52c59559-07af-4f1a-ba2f-a9467739251a",
-      shortcut: "animi",
-      snippet: "enim",
+      description: "Ameliorated methodical access",
+      id: "<ID>",
+      shortcut: "male Metal",
+      snippet: "Arizona Cotton extend",
       tags: [
         {
-          tag: "odit",
+          tag: "bifurcated",
         },
       ],
     },
   ],
-  xRequestID: "quo",
-  teamId: 196582,
+  xRequestID: "silver immediately",
+  teamId: 302461,
 }).then((res: UpdateSnippetsResponse) => {
   if (res.statusCode == 200) {
     // handle response
