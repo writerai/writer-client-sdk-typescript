@@ -18,37 +18,36 @@ Create completion for LLM model
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { CreateCompletionResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 486589,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 486589,
+  });
 
-sdk.completions.create({
-  completionRequest: {
-    bestOf: 1,
-    frequencyPenalty: 4893.82,
-    logprobs: 638424,
-    maxTokens: 1024,
-    minTokens: 1,
-    n: 859213,
-    presencePenalty: 4174.58,
-    prompt: "South",
-    stop: [
-      "shred",
-    ],
-    temperature: 0.7,
-    topP: 1,
-  },
-  modelId: "technology East",
-}).then((res: CreateCompletionResponse) => {
+  const res = await sdk.completions.create({
+    completionRequest: {
+      bestOf: 1,
+      maxTokens: 1024,
+      minTokens: 1,
+      prompt: "Configuration Money",
+      stop: [
+        "the",
+        "is",
+        "and",
+      ],
+      temperature: 0.7,
+      topP: 1,
+    },
+    modelId: "Cambridgeshire grey technology",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -72,38 +71,37 @@ Create completion for LLM customization model
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { CreateModelCustomizationCompletionResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 919503,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 919503,
+  });
 
-sdk.completions.createModelCustomizationCompletion({
-  completionRequest: {
-    bestOf: 1,
-    frequencyPenalty: 412.97,
-    logprobs: 951257,
-    maxTokens: 1024,
-    minTokens: 1,
-    n: 314952,
-    presencePenalty: 657.2,
-    prompt: "platforms convergence Bicycle",
-    stop: [
-      "heavily",
-    ],
-    temperature: 0.7,
-    topP: 1,
-  },
-  customizationId: "Beauty cum Southeast",
-  modelId: "Tandem BMX Lead",
-}).then((res: CreateModelCustomizationCompletionResponse) => {
+  const res = await sdk.completions.createModelCustomizationCompletion({
+    completionRequest: {
+      bestOf: 1,
+      maxTokens: 1024,
+      minTokens: 1,
+      prompt: "error",
+      stop: [
+        "the",
+        "is",
+        "and",
+      ],
+      temperature: 0.7,
+      topP: 1,
+    },
+    customizationId: "newton",
+    modelId: "convergence",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -17,24 +17,25 @@ Content detector api
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { DetectContentResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 496531,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 496531,
+  });
 
-sdk.aiContentDetector.detect({
-  contentDetectorRequest: {
-    input: "Bronze Indian",
-  },
-}).then((res: DetectContentResponse) => {
+  const res = await sdk.aiContentDetector.detect({
+    contentDetectorRequest: {
+      input: "Bronze Indian",
+    },
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

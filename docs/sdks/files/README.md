@@ -20,22 +20,23 @@ Delete file
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { DeleteFileResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 545907,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 545907,
+  });
 
-sdk.files.delete({
-  fileId: "Designer complexity gladiolus",
-}).then((res: DeleteFileResponse) => {
+  const res = await sdk.files.delete({
+    fileId: "Designer complexity gladiolus",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -59,22 +60,23 @@ Get file
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { GetFileResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 700347,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 700347,
+  });
 
-sdk.files.get({
-  fileId: "program",
-}).then((res: GetFileResponse) => {
+  const res = await sdk.files.get({
+    fileId: "program",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -98,20 +100,21 @@ List files
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { ListFilesResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 768578,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 768578,
+  });
 
-sdk.files.list({}).then((res: ListFilesResponse) => {
+  const res = await sdk.files.list({});
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -135,27 +138,28 @@ Upload file
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { UploadFileResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 403654,
-});
-
-sdk.files.upload({
-  uploadModelFileRequest: {
-    file: {
-      content: "?SRSKG@^n=" as bytes <<<>>>,
-      file: "Plastic CLI",
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
     },
-  },
-}).then((res: UploadFileResponse) => {
+    organizationId: 403654,
+  });
+
+  const res = await sdk.files.upload({
+    uploadModelFileRequest: {
+      file: {
+        content: "?SRSKG@^n=" as bytes <<<>>>,
+        file: "Plastic CLI",
+      },
+    },
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

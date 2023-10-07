@@ -18,23 +18,24 @@ Get document details
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { GetDocumentDetailsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 700347,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 700347,
+  });
 
-sdk.document.get({
-  documentId: 90065,
-  teamId: 558834,
-}).then((res: GetDocumentDetailsResponse) => {
+  const res = await sdk.document.get({
+    documentId: 90065,
+    teamId: 558834,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -58,31 +59,24 @@ List team documents
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import {
-  ListTeamDocumentsResponse,
-  ListTeamDocumentsSortField,
-  ListTeamDocumentsSortOrder,
-} from "@writerai/writer-sdk/dist/sdk/models/operations";
+import { ListTeamDocumentsSortField, ListTeamDocumentsSortOrder } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 768578,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 768578,
+  });
 
-sdk.document.list({
-  limit: 99895,
-  offset: 547272,
-  search: "Product",
-  sortField: ListTeamDocumentsSortField.Title,
-  sortOrder: ListTeamDocumentsSortOrder.Asc,
-  teamId: 917416,
-}).then((res: ListTeamDocumentsResponse) => {
+  const res = await sdk.document.list({
+    teamId: 99895,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

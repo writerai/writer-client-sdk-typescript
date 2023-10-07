@@ -18,43 +18,44 @@ Check your content against your preset styleguide.
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { ContentCheckResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 935464,
-});
-
-sdk.content.check({
-  contentRequest: {
-    content: "now",
-    settings: {
-      ageAndFamilyStatus: false,
-      confidence: false,
-      contentSafeguards: false,
-      disability: false,
-      genderIdentitySensitivity: false,
-      genderInclusiveNouns: false,
-      genderInclusivePronouns: false,
-      grammar: false,
-      healthyCommunication: false,
-      passiveVoice: false,
-      raceEthnicityNationalitySensitivity: false,
-      sexualOrientationSensitivity: false,
-      spelling: false,
-      substanceUseSensitivity: false,
-      unclearReference: false,
-      wordiness: false,
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
     },
-  },
-  teamId: 740907,
-}).then((res: ContentCheckResponse) => {
+    organizationId: 935464,
+  });
+
+  const res = await sdk.content.check({
+    contentRequest: {
+      content: "now",
+      settings: {
+        ageAndFamilyStatus: false,
+        confidence: false,
+        contentSafeguards: false,
+        disability: false,
+        genderIdentitySensitivity: false,
+        genderInclusiveNouns: false,
+        genderInclusivePronouns: false,
+        grammar: false,
+        healthyCommunication: false,
+        passiveVoice: false,
+        raceEthnicityNationalitySensitivity: false,
+        sexualOrientationSensitivity: false,
+        spelling: false,
+        substanceUseSensitivity: false,
+        unclearReference: false,
+        wordiness: false,
+      },
+    },
+    teamId: 740907,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -78,44 +79,44 @@ Apply the style guide suggestions directly to your content.
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { ContentCorrectResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 501355,
-});
-
-sdk.content.correct({
-  contentRequest: {
-    content: "structure",
-    settings: {
-      ageAndFamilyStatus: false,
-      confidence: false,
-      contentSafeguards: false,
-      disability: false,
-      genderIdentitySensitivity: false,
-      genderInclusiveNouns: false,
-      genderInclusivePronouns: false,
-      grammar: false,
-      healthyCommunication: false,
-      passiveVoice: false,
-      raceEthnicityNationalitySensitivity: false,
-      sexualOrientationSensitivity: false,
-      spelling: false,
-      substanceUseSensitivity: false,
-      unclearReference: false,
-      wordiness: false,
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
     },
-  },
-  xRequestID: "failing",
-  teamId: 125766,
-}).then((res: ContentCorrectResponse) => {
+    organizationId: 501355,
+  });
+
+  const res = await sdk.content.correct({
+    contentRequest: {
+      content: "structure",
+      settings: {
+        ageAndFamilyStatus: false,
+        confidence: false,
+        contentSafeguards: false,
+        disability: false,
+        genderIdentitySensitivity: false,
+        genderInclusiveNouns: false,
+        genderInclusivePronouns: false,
+        grammar: false,
+        healthyCommunication: false,
+        passiveVoice: false,
+        raceEthnicityNationalitySensitivity: false,
+        sexualOrientationSensitivity: false,
+        spelling: false,
+        substanceUseSensitivity: false,
+        unclearReference: false,
+        wordiness: false,
+      },
+    },
+    teamId: 267677,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

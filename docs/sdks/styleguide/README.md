@@ -18,22 +18,23 @@ Page details
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { PageDetailsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 700347,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 700347,
+  });
 
-sdk.styleguide.get({
-  pageId: 90065,
-}).then((res: PageDetailsResponse) => {
+  const res = await sdk.styleguide.get({
+    pageId: 90065,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -57,24 +58,22 @@ List your styleguide pages
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { ListPagesResponse, ListPagesStatus } from "@writerai/writer-sdk/dist/sdk/models/operations";
+import { ListPagesStatus } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 763372,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 763372,
+  });
 
-sdk.styleguide.listPages({
-  limit: 760116,
-  offset: 303332,
-  status: ListPagesStatus.Live,
-}).then((res: ListPagesResponse) => {
+  const res = await sdk.styleguide.listPages({});
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

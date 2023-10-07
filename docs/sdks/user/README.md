@@ -17,26 +17,22 @@ List users
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { ListUsersResponse, ListUsersSortField, ListUsersSortOrder } from "@writerai/writer-sdk/dist/sdk/models/operations";
+import { ListUsersSortField, ListUsersSortOrder } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 768578,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 768578,
+  });
 
-sdk.user.list({
-  limit: 99895,
-  offset: 547272,
-  search: "Product",
-  sortField: ListUsersSortField.Id,
-  sortOrder: ListUsersSortOrder.Asc,
-}).then((res: ListUsersResponse) => {
+  const res = await sdk.user.list({});
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

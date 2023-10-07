@@ -19,26 +19,26 @@ Delete snippets
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { DeleteSnippetsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 545907,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 545907,
+  });
 
-sdk.snippet.delete({
-  xRequestID: "Designer complexity gladiolus",
-  ids: [
-    "ick",
-  ],
-  teamId: 604931,
-}).then((res: DeleteSnippetsResponse) => {
+  const res = await sdk.snippet.delete({
+    ids: [
+      "Van",
+    ],
+    teamId: 386564,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -62,33 +62,30 @@ Find snippets
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { FindSnippetsResponse, FindSnippetsSortField, FindSnippetsSortOrder } from "@writerai/writer-sdk/dist/sdk/models/operations";
+import { FindSnippetsSortField, FindSnippetsSortOrder } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 40141,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 40141,
+  });
 
-sdk.snippet.find({
-  limit: 326883,
-  offset: 488098,
-  search: "whoa West Credit",
-  shortcuts: [
-    "Granite",
-  ],
-  sortField: FindSnippetsSortField.CreationTime,
-  sortOrder: FindSnippetsSortOrder.Asc,
-  tags: [
-    "Iowa",
-  ],
-  teamId: 785366,
-}).then((res: FindSnippetsResponse) => {
+  const res = await sdk.snippet.find({
+    shortcuts: [
+      "underestimate",
+    ],
+    tags: [
+      "Northeast",
+    ],
+    teamId: 803382,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -112,36 +109,34 @@ Update snippets
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { UpdateSnippetsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 857478,
-});
-
-sdk.snippet.update({
-  requestBody: [
-    {
-      description: "Ameliorated methodical access",
-      id: "<ID>",
-      shortcut: "male Metal",
-      snippet: "Arizona Cotton extend",
-      tags: [
-        {
-          tag: "bifurcated",
-        },
-      ],
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
     },
-  ],
-  xRequestID: "silver immediately",
-  teamId: 302461,
-}).then((res: UpdateSnippetsResponse) => {
+    organizationId: 857478,
+  });
+
+  const res = await sdk.snippet.update({
+    requestBody: [
+      {
+        id: "<ID>",
+        snippet: "Rock",
+        tags: [
+          {
+            tag: "male Metal",
+          },
+        ],
+      },
+    ],
+    teamId: 984008,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
