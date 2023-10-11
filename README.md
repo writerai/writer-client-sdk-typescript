@@ -41,24 +41,25 @@ If you cannot see your secret API keys in the Dashboard, this means you do not h
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 
-(async() => {
-  const sdk = new Writer({
-    security: {
-      apiKey: "",
-    },
-    organizationId: 496531,
-  });
+(async () => {
+    const sdk = new Writer({
+        security: {
+            apiKey: "",
+        },
+        organizationId: 496531,
+    });
 
-  const res = await sdk.aiContentDetector.detect({
-    contentDetectorRequest: {
-      input: "Bronze Indian",
-    },
-  });
+    const res = await sdk.aiContentDetector.detect({
+        contentDetectorRequest: {
+            input: "Bronze Indian",
+        },
+    });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+    if (res.statusCode == 200) {
+        // handle response
+    }
 })();
+
 ```
 <!-- End SDK Example Usage -->
 
@@ -156,6 +157,54 @@ return value of `next` is `null`, then there are no more pages to be fetched.
 
 Here's an example of one such pagination call:
 <!-- End Pagination -->
+
+
+
+<!-- Start Global Parameters -->
+# Global Parameters
+
+A parameter is configured globally. This parameter must be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, This global value will be used as the default on the operations that use it. When such operations are called, there is a place in each to override the global value, if needed.
+
+For example, you can set `organizationId` to `547272` at SDK initialization and then you do not have to pass the same value on calls to operations like `detect`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
+
+
+## Available Globals
+
+The following global parameter is available. The required parameter must be set when you initialize the SDK client.
+
+| Name | Type | Required | Description |
+| ---- | ---- |:--------:| ----------- |
+| organizationId | number | ✔️ | The organizationId parameter. |
+
+
+
+## Example
+
+```typescript
+import { Writer } from "@writerai/writer-sdk";
+
+(async () => {
+    const sdk = new Writer({
+        security: {
+            apiKey: "",
+        },
+        organizationId: 496531,
+    });
+
+    const res = await sdk.aiContentDetector.detect({
+        contentDetectorRequest: {
+            input: "Bronze Indian",
+        },
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+
+<!-- End Global Parameters -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
