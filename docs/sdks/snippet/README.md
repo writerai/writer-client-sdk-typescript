@@ -22,9 +22,7 @@ import { Writer } from "@writerai/writer-sdk";
 
 (async() => {
   const sdk = new Writer({
-    security: {
-      apiKey: "",
-    },
+    apiKey: "",
     organizationId: 545907,
   });
 
@@ -66,9 +64,7 @@ import { FindSnippetsSortField, FindSnippetsSortOrder } from "@writerai/writer-s
 
 (async() => {
   const sdk = new Writer({
-    security: {
-      apiKey: "",
-    },
+    apiKey: "",
     organizationId: 40141,
   });
 
@@ -112,9 +108,7 @@ import { Writer } from "@writerai/writer-sdk";
 
 (async() => {
   const sdk = new Writer({
-    security: {
-      apiKey: "",
-    },
+    apiKey: "",
     organizationId: 857478,
   });
 

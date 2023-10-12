@@ -23,9 +23,7 @@ import { Writer } from "@writerai/writer-sdk";
 
 (async() => {
   const sdk = new Writer({
-    security: {
-      apiKey: "",
-    },
+    apiKey: "",
     organizationId: 545907,
   });
 
@@ -63,9 +61,7 @@ import { Writer } from "@writerai/writer-sdk";
 
 (async() => {
   const sdk = new Writer({
-    security: {
-      apiKey: "",
-    },
+    apiKey: "",
     organizationId: 700347,
   });
 
@@ -100,16 +96,16 @@ List files
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
+import { ListFilesRequest } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Writer({
-    security: {
-      apiKey: "",
-    },
+    apiKey: "",
     organizationId: 768578,
   });
+const organizationId: number = 99895;
 
-  const res = await sdk.files.list({});
+  const res = await sdk.files.list(organizationId);
 
   if (res.statusCode == 200) {
     // handle response
@@ -119,10 +115,10 @@ import { Writer } from "@writerai/writer-sdk";
 
 ### Parameters
 
-| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `request`                                                                  | [operations.ListFilesRequest](../../models/operations/listfilesrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
-| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `organizationId`                                             | *number*                                                     | :heavy_minus_sign:                                           | N/A                                                          |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
@@ -141,9 +137,7 @@ import { Writer } from "@writerai/writer-sdk";
 
 (async() => {
   const sdk = new Writer({
-    security: {
-      apiKey: "",
-    },
+    apiKey: "",
     organizationId: 403654,
   });
 

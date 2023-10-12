@@ -21,9 +21,7 @@ import { Writer } from "@writerai/writer-sdk";
 
 (async() => {
   const sdk = new Writer({
-    security: {
-      apiKey: "",
-    },
+    apiKey: "",
     organizationId: 935464,
   });
 
@@ -82,9 +80,7 @@ import { Writer } from "@writerai/writer-sdk";
 
 (async() => {
   const sdk = new Writer({
-    security: {
-      apiKey: "",
-    },
+    apiKey: "",
     organizationId: 501355,
   });
 

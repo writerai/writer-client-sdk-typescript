@@ -24,13 +24,12 @@ export class Styleguide {
      * Page details
      */
     async get(
-        req: operations.PageDetailsRequest,
+        pageId: number,
         config?: AxiosRequestConfig
     ): Promise<operations.PageDetailsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.PageDetailsRequest(req);
-        }
-
+        const req = new operations.PageDetailsRequest({
+            pageId: pageId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults

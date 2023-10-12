@@ -221,13 +221,12 @@ export class Files {
      * List files
      */
     async list(
-        req: operations.ListFilesRequest,
+        organizationId?: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListFilesResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListFilesRequest(req);
-        }
-
+        const req = new operations.ListFilesRequest({
+            organizationId: organizationId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
