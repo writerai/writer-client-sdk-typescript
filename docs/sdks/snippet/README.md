@@ -1,4 +1,5 @@
-# snippet
+# Snippet
+(*snippet*)
 
 ## Overview
 
@@ -18,26 +19,26 @@ Delete snippets
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { DeleteSnippetsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 988374,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 545907,
+  });
 
-sdk.snippet.delete({
-  xRequestID: "sapiente",
-  ids: [
-    "mollitia",
-  ],
-  teamId: 208876,
-}).then((res: DeleteSnippetsResponse) => {
+  const res = await sdk.snippet.delete({
+    ids: [
+      "Van",
+    ],
+    teamId: 386564,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -61,37 +62,30 @@ Find snippets
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { FindSnippetsResponse, FindSnippetsSortField, FindSnippetsSortOrder } from "@writerai/writer-sdk/dist/sdk/models/operations";
+import { FindSnippetsSortField, FindSnippetsSortOrder } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 635059,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 40141,
+  });
 
-sdk.snippet.find({
-  limit: 161309,
-  offset: 995300,
-  search: "mollitia",
-  shortcuts: [
-    "numquam",
-    "commodi",
-    "quam",
-  ],
-  sortField: FindSnippetsSortField.CreationTime,
-  sortOrder: FindSnippetsSortOrder.Asc,
-  tags: [
-    "quia",
-    "quis",
-    "vitae",
-  ],
-  teamId: 674752,
-}).then((res: FindSnippetsResponse) => {
+  const res = await sdk.snippet.find({
+    shortcuts: [
+      "underestimate",
+    ],
+    tags: [
+      "Northeast",
+    ],
+    teamId: 803382,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -115,53 +109,34 @@ Update snippets
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { UpdateSnippetsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 656330,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 857478,
+  });
 
-sdk.snippet.update({
-  requestBody: [
-    {
-      description: "odit",
-      id: "c3f5ad01-9da1-4ffe-b8f0-97b0074f1547",
-      shortcut: "dicta",
-      snippet: "harum",
-      tags: [
-        {
-          tag: "accusamus",
-        },
-        {
-          tag: "commodi",
-        },
-      ],
-    },
-    {
-      description: "repudiandae",
-      id: "13b99d48-8e1e-491e-850a-d2abd4426980",
-      shortcut: "magni",
-      snippet: "assumenda",
-      tags: [
-        {
-          tag: "alias",
-        },
-        {
-          tag: "fugit",
-        },
-      ],
-    },
-  ],
-  xRequestID: "dolorum",
-  teamId: 569618,
-}).then((res: UpdateSnippetsResponse) => {
+  const res = await sdk.snippet.update({
+    requestBody: [
+      {
+        id: "<ID>",
+        snippet: "Rock",
+        tags: [
+          {
+            tag: "male Metal",
+          },
+        ],
+      },
+    ],
+    teamId: 984008,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

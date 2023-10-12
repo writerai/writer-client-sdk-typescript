@@ -1,4 +1,5 @@
-# completions
+# Completions
+(*completions*)
 
 ## Overview
 
@@ -17,39 +18,36 @@ Create completion for LLM model
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { CreateCompletionResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 870088,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 486589,
+  });
 
-sdk.completions.create({
-  completionRequest: {
-    bestOf: 1,
-    frequencyPenalty: 9786.19,
-    logprobs: 473608,
-    maxTokens: 1024,
-    minTokens: 1,
-    n: 799159,
-    presencePenalty: 8009.11,
-    prompt: "esse",
-    stop: [
-      "porro",
-      "dolorum",
-      "dicta",
-    ],
-    temperature: 0.7,
-    topP: 1,
-  },
-  modelId: "nam",
-}).then((res: CreateCompletionResponse) => {
+  const res = await sdk.completions.create({
+    completionRequest: {
+      bestOf: 1,
+      maxTokens: 1024,
+      minTokens: 1,
+      prompt: "Configuration Money",
+      stop: [
+        "the",
+        "is",
+        "and",
+      ],
+      temperature: 0.7,
+      topP: 1,
+    },
+    modelId: "Cambridgeshire grey technology",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -73,40 +71,37 @@ Create completion for LLM customization model
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { CreateModelCustomizationCompletionResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 639921,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 919503,
+  });
 
-sdk.completions.createModelCustomizationCompletion({
-  completionRequest: {
-    bestOf: 1,
-    frequencyPenalty: 5820.2,
-    logprobs: 143353,
-    maxTokens: 1024,
-    minTokens: 1,
-    n: 537373,
-    presencePenalty: 9446.69,
-    prompt: "optio",
-    stop: [
-      "beatae",
-      "commodi",
-      "molestiae",
-    ],
-    temperature: 0.7,
-    topP: 1,
-  },
-  customizationId: "modi",
-  modelId: "qui",
-}).then((res: CreateModelCustomizationCompletionResponse) => {
+  const res = await sdk.completions.createModelCustomizationCompletion({
+    completionRequest: {
+      bestOf: 1,
+      maxTokens: 1024,
+      minTokens: 1,
+      prompt: "error",
+      stop: [
+        "the",
+        "is",
+        "and",
+      ],
+      temperature: 0.7,
+      topP: 1,
+    },
+    customizationId: "newton",
+    modelId: "convergence",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

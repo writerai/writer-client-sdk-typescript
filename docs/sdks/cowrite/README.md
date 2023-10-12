@@ -1,4 +1,5 @@
-# coWrite
+# CoWrite
+(*coWrite*)
 
 ## Overview
 
@@ -17,49 +18,34 @@ Generate content using predefined templates
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { GenerateContentResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 857946,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 569932,
+  });
 
-sdk.coWrite.generateContent({
-  generateTemplateRequest: {
-    inputs: [
-      {
-        name: "Ben Mueller",
-        value: [
-          "magnam",
-          "debitis",
-        ],
-      },
-      {
-        name: "Lucia Goldner",
-        value: [
-          "placeat",
-          "voluptatum",
-          "iusto",
-          "excepturi",
-        ],
-      },
-      {
-        name: "Mrs. Sophie Smith MD",
-        value: [
-          "ipsam",
-        ],
-      },
-    ],
-    templateId: "repellendus",
-  },
-  teamId: 957156,
-}).then((res: GenerateContentResponse) => {
+  const res = await sdk.coWrite.generateContent({
+    generateTemplateRequest: {
+      inputs: [
+        {
+          name: "er man approach",
+          value: [
+            "builder",
+          ],
+        },
+      ],
+      templateId: "Planner",
+    },
+    teamId: 612911,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -83,23 +69,24 @@ Get a list of your existing CoWrite templates
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { ListTemplatesResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 778157,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 380445,
+  });
 
-sdk.coWrite.listTemplates({
-  teamId: 140350,
-  templateId: "at",
-}).then((res: ListTemplatesResponse) => {
+  const res = await sdk.coWrite.listTemplates({
+    teamId: 882866,
+    templateId: "Soul",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

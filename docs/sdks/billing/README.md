@@ -1,4 +1,5 @@
-# billing
+# Billing
+(*billing*)
 
 ## Overview
 
@@ -16,20 +17,21 @@ Get your organization subscription details
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { GetSubscriptionDetailsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 602763,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 850421,
+  });
 
-sdk.billing.getSubscriptionDetails().then((res: GetSubscriptionDetailsResponse) => {
+  const res = await sdk.billing.getSubscriptionDetails();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

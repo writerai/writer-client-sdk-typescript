@@ -1,4 +1,5 @@
-# downloadTheCustomizedModel
+# DownloadTheCustomizedModel
+(*downloadTheCustomizedModel*)
 
 ## Overview
 
@@ -16,23 +17,24 @@ Download your fine-tuned model (available only for Palmyra Base and Palmyra Larg
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { FetchCustomizedModelFileResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 324141,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 501762,
+  });
 
-sdk.downloadTheCustomizedModel.fetchFile({
-  customizationId: "natus",
-  modelId: "sed",
-}).then((res: FetchCustomizedModelFileResponse) => {
+  const res = await sdk.downloadTheCustomizedModel.fetchFile({
+    customizationId: "Racine beyond connecting",
+    modelId: "invoice Folk",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

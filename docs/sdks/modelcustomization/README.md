@@ -1,4 +1,5 @@
-# modelCustomization
+# ModelCustomization
+(*modelCustomization*)
 
 ## Overview
 
@@ -19,35 +20,30 @@ Create model customization
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { CreateModelCustomizationResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 359508,
-});
-
-sdk.modelCustomization.create({
-  createCustomizationRequest: {
-    additionalHyperParameters: {
-      numVirtualTokens: 613064,
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
     },
-    batchSize: 437032,
-    description: "saepe",
-    epochs: 697631,
-    learningRate: 992.8,
-    name: "Lela Orn",
-    promptTemplate: "dolores",
-    trainingDatasetFileId: "dolorem",
-    validationDatasetFileId: "corporis",
-  },
-  modelId: "explicabo",
-}).then((res: CreateModelCustomizationResponse) => {
+    organizationId: 486589,
+  });
+
+  const res = await sdk.modelCustomization.create({
+    createCustomizationRequest: {
+      additionalHyperParameters: {
+        numVirtualTokens: 489382,
+      },
+      name: "Extended South",
+      trainingDatasetFileId: "grey technology East",
+    },
+    modelId: "evolve",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -71,23 +67,24 @@ Delete Model customization
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { DeleteModelCustomizationResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 750686,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 545907,
+  });
 
-sdk.modelCustomization.delete({
-  customizationId: "enim",
-  modelId: "omnis",
-}).then((res: DeleteModelCustomizationResponse) => {
+  const res = await sdk.modelCustomization.delete({
+    customizationId: "Designer complexity gladiolus",
+    modelId: "objective Aluminium Metal",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -111,23 +108,24 @@ Get model customization
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { GetModelCustomizationResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 363711,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 700347,
+  });
 
-sdk.modelCustomization.get({
-  customizationId: "minima",
-  modelId: "excepturi",
-}).then((res: GetModelCustomizationResponse) => {
+  const res = await sdk.modelCustomization.get({
+    customizationId: "program",
+    modelId: "Kia Cambridgeshire",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -151,22 +149,23 @@ List model customizations
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { ListModelCustomizationsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 38425,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 768578,
+  });
 
-sdk.modelCustomization.list({
-  modelId: "iure",
-}).then((res: ListModelCustomizationsResponse) => {
+  const res = await sdk.modelCustomization.list({
+    modelId: "compress",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

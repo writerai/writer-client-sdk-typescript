@@ -1,4 +1,5 @@
-# document
+# Document
+(*document*)
 
 ## Overview
 
@@ -17,23 +18,24 @@ Get document details
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { GetDocumentDetailsResponse } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 383464,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 700347,
+  });
 
-sdk.document.get({
-  documentId: 645785,
-  teamId: 588317,
-}).then((res: GetDocumentDetailsResponse) => {
+  const res = await sdk.document.get({
+    documentId: 90065,
+    teamId: 558834,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -57,31 +59,24 @@ List team documents
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import {
-  ListTeamDocumentsResponse,
-  ListTeamDocumentsSortField,
-  ListTeamDocumentsSortOrder,
-} from "@writerai/writer-sdk/dist/sdk/models/operations";
+import { ListTeamDocumentsSortField, ListTeamDocumentsSortOrder } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 324683,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 768578,
+  });
 
-sdk.document.list({
-  limit: 831049,
-  offset: 519711,
-  search: "similique",
-  sortField: ListTeamDocumentsSortField.Title,
-  sortOrder: ListTeamDocumentsSortOrder.Desc,
-  teamId: 311860,
-}).then((res: ListTeamDocumentsResponse) => {
+  const res = await sdk.document.list({
+    teamId: 99895,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

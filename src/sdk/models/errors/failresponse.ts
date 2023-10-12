@@ -6,9 +6,6 @@ import { SpeakeasyMetadata } from "../../../internal/utils";
 import { FailMessage } from "./failmessage";
 import { classToPlain, Expose, Type } from "class-transformer";
 
-/**
- * Bad Request
- */
 export class FailResponse extends Error {
     @SpeakeasyMetadata({ elemType: FailMessage })
     @Expose({ name: "errors" })

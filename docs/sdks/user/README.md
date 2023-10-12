@@ -1,4 +1,5 @@
-# user
+# User
+(*user*)
 
 ## Overview
 
@@ -16,26 +17,22 @@ List users
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { ListUsersResponse, ListUsersSortField, ListUsersSortOrder } from "@writerai/writer-sdk/dist/sdk/models/operations";
+import { ListUsersSortField, ListUsersSortOrder } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-const sdk = new Writer({
-  security: {
-    apiKey: "",
-  },
-  organizationId: 20651,
-});
+(async() => {
+  const sdk = new Writer({
+    security: {
+      apiKey: "",
+    },
+    organizationId: 768578,
+  });
 
-sdk.user.list({
-  limit: 229219,
-  offset: 758379,
-  search: "accusamus",
-  sortField: ListUsersSortField.CreationTime,
-  sortOrder: ListUsersSortOrder.Desc,
-}).then((res: ListUsersResponse) => {
+  const res = await sdk.user.list({});
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

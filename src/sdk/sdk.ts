@@ -33,7 +33,7 @@ export type SDKProps = {
     /**
      * The security details required to authenticate the SDK
      */
-    security?: shared.Security;
+    security?: shared.Security | (() => Promise<shared.Security>);
 
     /**
      * Allows setting the organizationId parameter for all supported operations
@@ -54,19 +54,24 @@ export type SDKProps = {
      * Allows overriding the default server URL used by the SDK
      */
     serverURL?: string;
+    /**
+     * Allows overriding the default retry config used by the SDK
+     */
+    retryConfig?: utils.RetryConfig;
 };
 
 export class SDKConfiguration {
     defaultClient: AxiosInstance;
-    securityClient: AxiosInstance;
+    security?: shared.Security | (() => Promise<shared.Security>);
     serverURL: string;
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "1.7";
-    sdkVersion = "0.41.1";
-    genVersion = "2.88.7";
+    sdkVersion = "0.48.1";
+    genVersion = "2.152.1";
+    userAgent = "speakeasy-sdk/typescript 0.48.1 2.152.1 1.7 @writerai/writer-sdk";
     globals: any;
-
+    retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
     }
@@ -141,19 +146,9 @@ export class Writer {
         }
 
         const defaultClient = props?.defaultClient ?? axios.create({ baseURL: serverURL });
-        let securityClient = defaultClient;
-
-        if (props?.security) {
-            let security: shared.Security = props.security;
-            if (!(props.security instanceof utils.SpeakeasyBase)) {
-                security = new shared.Security(props.security);
-            }
-            securityClient = utils.createSecurityClient(defaultClient, security);
-        }
-
         this.sdkConfiguration = new SDKConfiguration({
             defaultClient: defaultClient,
-            securityClient: securityClient,
+            security: props?.security,
             serverURL: serverURL,
             globals: {
                 parameters: {
@@ -163,6 +158,7 @@ export class Writer {
                     },
                 },
             },
+            retryConfig: props?.retryConfig,
         });
 
         this.aiContentDetector = new AIContentDetector(this.sdkConfiguration);
