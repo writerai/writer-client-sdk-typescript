@@ -43,9 +43,7 @@ import { Writer } from "@writerai/writer-sdk";
 
 (async () => {
     const sdk = new Writer({
-        security: {
-            apiKey: "",
-        },
+        apiKey: "",
         organizationId: 496531,
     });
 
@@ -185,9 +183,7 @@ import { Writer } from "@writerai/writer-sdk";
 
 (async () => {
     const sdk = new Writer({
-        security: {
-            apiKey: "",
-        },
+        apiKey: "",
         organizationId: 496531,
     });
 
@@ -203,7 +199,6 @@ import { Writer } from "@writerai/writer-sdk";
 })();
 
 ```
-
 <!-- End Global Parameters -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->

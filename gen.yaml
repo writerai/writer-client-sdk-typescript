@@ -2,7 +2,7 @@ configVersion: 1.0.0
 management:
   docChecksum: 044ba6ea348a6fb8206cacad6926373d
   docVersion: "1.7"
-  speakeasyVersion: 1.97.1
+  speakeasyVersion: 1.98.1
   generationVersion: 2.152.1
 generation:
   sdkClassName: Writer
@@ -13,12 +13,13 @@ features:
     acceptHeaders: 2.81.1
     core: 2.90.4
     errors: 2.81.4
+    flattening: 2.81.1
     globalSecurity: 2.82.0
     globalServerURLs: 2.82.0
     globals: 2.81.1
     nameOverrides: 2.81.1
 typescript:
-  version: 0.48.1
+  version: 0.49.0
   author: writerai
   flattenGlobalSecurity: true
   maxMethodParams: true

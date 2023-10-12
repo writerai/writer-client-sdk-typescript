@@ -24,13 +24,12 @@ export class Models {
      * List available LLM models
      */
     async list(
-        req: operations.ListModelsRequest,
+        organizationId?: number,
         config?: AxiosRequestConfig
     ): Promise<operations.ListModelsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListModelsRequest(req);
-        }
-
+        const req = new operations.ListModelsRequest({
+            organizationId: organizationId,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults

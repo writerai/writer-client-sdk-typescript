@@ -21,9 +21,7 @@ import { Writer } from "@writerai/writer-sdk";
 
 (async() => {
   const sdk = new Writer({
-    security: {
-      apiKey: "",
-    },
+    apiKey: "",
     organizationId: 700347,
   });
 
@@ -63,9 +61,7 @@ import { ListTeamDocumentsSortField, ListTeamDocumentsSortOrder } from "@writera
 
 (async() => {
   const sdk = new Writer({
-    security: {
-      apiKey: "",
-    },
+    apiKey: "",
     organizationId: 768578,
   });
 

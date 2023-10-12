@@ -21,9 +21,7 @@ import { ListUsersSortField, ListUsersSortOrder } from "@writerai/writer-sdk/dis
 
 (async() => {
   const sdk = new Writer({
-    security: {
-      apiKey: "",
-    },
+    apiKey: "",
     organizationId: 768578,
   });
 
