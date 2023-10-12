@@ -18,7 +18,7 @@ features:
     globals: 2.81.1
     nameOverrides: 2.81.1
 typescript:
-  version: 0.48.1
+  version: 1.0.0
   author: writerai
   flattenGlobalSecurity: true
   maxMethodParams: true
