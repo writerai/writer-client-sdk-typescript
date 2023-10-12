@@ -20,9 +20,7 @@ import { Writer } from "@writerai/writer-sdk";
 
 (async() => {
   const sdk = new Writer({
-    security: {
-      apiKey: "",
-    },
+    apiKey: "",
     organizationId: 501762,
   });
 

@@ -30,10 +30,7 @@ export const ServerList = ["https://enterprise-api.writer.com"] as const;
  * The available configuration options for the SDK
  */
 export type SDKProps = {
-    /**
-     * The security details required to authenticate the SDK
-     */
-    security?: shared.Security | (() => Promise<shared.Security>);
+    apiKey?: string;
 
     /**
      * Allows setting the organizationId parameter for all supported operations
@@ -67,9 +64,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "1.7";
-    sdkVersion = "0.48.1";
+    sdkVersion = "1.1.0";
     genVersion = "2.152.1";
-    userAgent = "speakeasy-sdk/typescript 0.48.1 2.152.1 1.7 @writerai/writer-sdk";
+    userAgent = "speakeasy-sdk/typescript 1.1.0 2.152.1 1.7 @writerai/writer-sdk";
     globals: any;
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
@@ -148,7 +145,8 @@ export class Writer {
         const defaultClient = props?.defaultClient ?? axios.create({ baseURL: serverURL });
         this.sdkConfiguration = new SDKConfiguration({
             defaultClient: defaultClient,
-            security: props?.security,
+            security: new shared.Security({ apiKey: props?.apiKey }),
+
             serverURL: serverURL,
             globals: {
                 parameters: {

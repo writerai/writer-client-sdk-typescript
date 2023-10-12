@@ -17,16 +17,16 @@ List available LLM models
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
+import { ListModelsRequest } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Writer({
-    security: {
-      apiKey: "",
-    },
+    apiKey: "",
     organizationId: 768578,
   });
+const organizationId: number = 99895;
 
-  const res = await sdk.models.list({});
+  const res = await sdk.models.list(organizationId);
 
   if (res.statusCode == 200) {
     // handle response
@@ -36,10 +36,10 @@ import { Writer } from "@writerai/writer-sdk";
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `request`                                                                    | [operations.ListModelsRequest](../../models/operations/listmodelsrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
-| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `organizationId`                                             | *number*                                                     | :heavy_minus_sign:                                           | N/A                                                          |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
