@@ -20,6 +20,6 @@ features:
 typescript:
   version: 0.48.1
   author: writerai
-  flattenGlobalSecurity: false
-  maxMethodParams: 0
+  flattenGlobalSecurity: true
+  maxMethodParams: true
   packageName: '@writerai/writer-sdk'
