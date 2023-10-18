@@ -26,7 +26,7 @@ import { Writer } from "@writerai/writer-sdk";
 
   const res = await sdk.aiContentDetector.detect({
     contentDetectorRequest: {
-      input: "Bronze Indian",
+      input: "Folk",
     },
   });
 

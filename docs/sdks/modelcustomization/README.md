@@ -32,10 +32,10 @@ import { Writer } from "@writerai/writer-sdk";
       additionalHyperParameters: {
         numVirtualTokens: 489382,
       },
-      name: "Extended South",
-      trainingDatasetFileId: "grey technology East",
+      name: "Configuration",
+      trainingDatasetFileId: "Money",
     },
-    modelId: "evolve",
+    modelId: "blue",
   });
 
   if (res.statusCode == 200) {
@@ -73,8 +73,8 @@ import { Writer } from "@writerai/writer-sdk";
   });
 
   const res = await sdk.modelCustomization.delete({
-    customizationId: "Designer complexity gladiolus",
-    modelId: "objective Aluminium Metal",
+    customizationId: "Van",
+    modelId: "complexity",
   });
 
   if (res.statusCode == 200) {
@@ -112,8 +112,8 @@ import { Writer } from "@writerai/writer-sdk";
   });
 
   const res = await sdk.modelCustomization.get({
-    customizationId: "program",
-    modelId: "Kia Cambridgeshire",
+    customizationId: "Northeast",
+    modelId: "Hatchback",
   });
 
   if (res.statusCode == 200) {
@@ -151,7 +151,7 @@ import { Writer } from "@writerai/writer-sdk";
   });
 
   const res = await sdk.modelCustomization.list({
-    modelId: "compress",
+    modelId: "Northeast",
   });
 
   if (res.statusCode == 200) {

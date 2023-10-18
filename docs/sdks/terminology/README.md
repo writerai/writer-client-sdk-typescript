@@ -46,7 +46,7 @@ import {
           caseSensitive: false,
           examples: [
             {
-              example: "calculate Toyota noon",
+              example: "Lamborghini",
               type: TermExampleCreateType.Bad,
             },
           ],
@@ -56,20 +56,20 @@ import {
           mistakes: [
             {
               caseSensitive: false,
-              mistake: "Chief",
+              mistake: "Toyota",
             },
           ],
           tags: [
             {
-              tag: "kelvin",
+              tag: "noon",
             },
           ],
-          term: "lime",
+          term: "bypass",
           type: TermCreateType.Banned,
         },
       ],
     },
-    teamId: 623862,
+    teamId: 945233,
   });
 
   if (res.statusCode == 200) {
@@ -208,7 +208,7 @@ import {
           caseSensitive: false,
           examples: [
             {
-              example: "Rock",
+              example: "New",
               type: TermExampleCreateType.Good,
             },
           ],
@@ -219,20 +219,20 @@ import {
           mistakes: [
             {
               caseSensitive: false,
-              mistake: "Metal cheater Islands",
+              mistake: "dock",
             },
           ],
           tags: [
             {
-              tag: "withdrawal extend",
+              tag: "Quality",
             },
           ],
-          term: "bifurcated",
-          type: TermUpdateType.Banned,
+          term: "redundant",
+          type: TermUpdateType.Pending,
         },
       ],
     },
-    teamId: 789275,
+    teamId: 134151,
   });
 
   if (res.statusCode == 200) {

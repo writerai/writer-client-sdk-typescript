@@ -116,15 +116,15 @@ import { Writer } from "@writerai/writer-sdk";
     requestBody: [
       {
         id: "<ID>",
-        snippet: "Rock",
+        snippet: "New",
         tags: [
           {
-            tag: "male Metal",
+            tag: "Reactive",
           },
         ],
       },
     ],
-    teamId: 984008,
+    teamId: 991464,
   });
 
   if (res.statusCode == 200) {
