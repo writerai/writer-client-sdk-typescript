@@ -49,7 +49,7 @@ import { Writer } from "@writerai/writer-sdk";
 
     const res = await sdk.aiContentDetector.detect({
         contentDetectorRequest: {
-            input: "Folk",
+            input: "string",
         },
     });
 
@@ -189,7 +189,7 @@ import { Writer } from "@writerai/writer-sdk";
 
     const res = await sdk.aiContentDetector.detect({
         contentDetectorRequest: {
-            input: "Folk",
+            input: "string",
         },
     });
 

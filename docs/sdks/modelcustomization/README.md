@@ -32,10 +32,10 @@ import { Writer } from "@writerai/writer-sdk";
       additionalHyperParameters: {
         numVirtualTokens: 489382,
       },
-      name: "Configuration",
-      trainingDatasetFileId: "Money",
+      name: "string",
+      trainingDatasetFileId: "string",
     },
-    modelId: "blue",
+    modelId: "string",
   });
 
   if (res.statusCode == 200) {
@@ -73,8 +73,8 @@ import { Writer } from "@writerai/writer-sdk";
   });
 
   const res = await sdk.modelCustomization.delete({
-    customizationId: "Van",
-    modelId: "complexity",
+    customizationId: "string",
+    modelId: "string",
   });
 
   if (res.statusCode == 200) {
@@ -112,8 +112,8 @@ import { Writer } from "@writerai/writer-sdk";
   });
 
   const res = await sdk.modelCustomization.get({
-    customizationId: "Northeast",
-    modelId: "Hatchback",
+    customizationId: "string",
+    modelId: "string",
   });
 
   if (res.statusCode == 200) {
@@ -151,7 +151,7 @@ import { Writer } from "@writerai/writer-sdk";
   });
 
   const res = await sdk.modelCustomization.list({
-    modelId: "Northeast",
+    modelId: "string",
   });
 
   if (res.statusCode == 200) {

@@ -46,7 +46,7 @@ import {
           caseSensitive: false,
           examples: [
             {
-              example: "Lamborghini",
+              example: "string",
               type: TermExampleCreateType.Bad,
             },
           ],
@@ -56,20 +56,20 @@ import {
           mistakes: [
             {
               caseSensitive: false,
-              mistake: "Toyota",
+              mistake: "string",
             },
           ],
           tags: [
             {
-              tag: "noon",
+              tag: "string",
             },
           ],
-          term: "bypass",
+          term: "string",
           type: TermCreateType.Banned,
         },
       ],
     },
-    teamId: 945233,
+    teamId: 623445,
   });
 
   if (res.statusCode == 200) {
@@ -150,9 +150,9 @@ import { FindTermsPartOfSpeech, FindTermsSortField, FindTermsSortOrder, FindTerm
 
   const res = await sdk.terminology.find({
     tags: [
-      "underestimate",
+      "string",
     ],
-    teamId: 111247,
+    teamId: 326883,
   });
 
   if (res.statusCode == 200) {
@@ -208,31 +208,31 @@ import {
           caseSensitive: false,
           examples: [
             {
-              example: "New",
+              example: "string",
               type: TermExampleCreateType.Good,
             },
           ],
-          id: 708455,
+          id: 597129,
           linkedTerms: [
             {},
           ],
           mistakes: [
             {
               caseSensitive: false,
-              mistake: "dock",
+              mistake: "string",
             },
           ],
           tags: [
             {
-              tag: "Quality",
+              tag: "string",
             },
           ],
-          term: "redundant",
-          type: TermUpdateType.Pending,
+          term: "string",
+          type: TermUpdateType.Approved,
         },
       ],
     },
-    teamId: 134151,
+    teamId: 344620,
   });
 
   if (res.statusCode == 200) {

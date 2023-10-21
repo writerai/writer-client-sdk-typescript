@@ -28,7 +28,7 @@ import { Writer } from "@writerai/writer-sdk";
   });
 
   const res = await sdk.files.delete({
-    fileId: "Van",
+    fileId: "string",
   });
 
   if (res.statusCode == 200) {
@@ -66,7 +66,7 @@ import { Writer } from "@writerai/writer-sdk";
   });
 
   const res = await sdk.files.get({
-    fileId: "Northeast",
+    fileId: "string",
   });
 
   if (res.statusCode == 200) {
@@ -145,7 +145,7 @@ import { Writer } from "@writerai/writer-sdk";
     uploadModelFileRequest: {
       file: {
         content: "?SRSKG@^n=" as bytes <<<>>>,
-        file: "ullam",
+        file: "string",
       },
     },
   });

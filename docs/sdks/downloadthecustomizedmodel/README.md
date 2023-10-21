@@ -25,8 +25,8 @@ import { Writer } from "@writerai/writer-sdk";
   });
 
   const res = await sdk.downloadTheCustomizedModel.fetchFile({
-    customizationId: "apology",
-    modelId: "Silver",
+    customizationId: "string",
+    modelId: "string",
   });
 
   if (res.statusCode == 200) {

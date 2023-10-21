@@ -27,7 +27,7 @@ import { Writer } from "@writerai/writer-sdk";
 
   const res = await sdk.content.check({
     contentRequest: {
-      content: "Tustin",
+      content: "string",
       settings: {
         ageAndFamilyStatus: false,
         confidence: false,
@@ -47,7 +47,7 @@ import { Writer } from "@writerai/writer-sdk";
         wordiness: false,
       },
     },
-    teamId: 488169,
+    teamId: 38270,
   });
 
   if (res.statusCode == 200) {
@@ -86,7 +86,7 @@ import { Writer } from "@writerai/writer-sdk";
 
   const res = await sdk.content.correct({
     contentRequest: {
-      content: "Hattiesburg",
+      content: "string",
       settings: {
         ageAndFamilyStatus: false,
         confidence: false,
@@ -106,7 +106,7 @@ import { Writer } from "@writerai/writer-sdk";
         wordiness: false,
       },
     },
-    teamId: 754764,
+    teamId: 31310,
   });
 
   if (res.statusCode == 200) {

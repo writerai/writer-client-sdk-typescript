@@ -30,7 +30,7 @@ import { Writer } from "@writerai/writer-sdk";
       bestOf: 1,
       maxTokens: 1024,
       minTokens: 1,
-      prompt: "bluetooth",
+      prompt: "string",
       stop: [
         "the",
         "is",
@@ -39,7 +39,7 @@ import { Writer } from "@writerai/writer-sdk";
       temperature: 0.7,
       topP: 1,
     },
-    modelId: "Extended",
+    modelId: "string",
   });
 
   if (res.statusCode == 200) {
@@ -81,7 +81,7 @@ import { Writer } from "@writerai/writer-sdk";
       bestOf: 1,
       maxTokens: 1024,
       minTokens: 1,
-      prompt: "Uruguay",
+      prompt: "string",
       stop: [
         "the",
         "is",
@@ -90,8 +90,8 @@ import { Writer } from "@writerai/writer-sdk";
       temperature: 0.7,
       topP: 1,
     },
-    customizationId: "streamline",
-    modelId: "newton",
+    customizationId: "string",
+    modelId: "string",
   });
 
   if (res.statusCode == 200) {

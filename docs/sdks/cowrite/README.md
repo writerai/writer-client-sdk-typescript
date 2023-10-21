@@ -29,15 +29,15 @@ import { Writer } from "@writerai/writer-sdk";
     generateTemplateRequest: {
       inputs: [
         {
-          name: "very",
+          name: "string",
           value: [
-            "eek",
+            "string",
           ],
         },
       ],
-      templateId: "Mini",
+      templateId: "string",
     },
-    teamId: 396397,
+    teamId: 888452,
   });
 
   if (res.statusCode == 200) {
@@ -76,7 +76,7 @@ import { Writer } from "@writerai/writer-sdk";
 
   const res = await sdk.coWrite.listTemplates({
     teamId: 882866,
-    templateId: "Morocco",
+    templateId: "string",
   });
 
   if (res.statusCode == 200) {
