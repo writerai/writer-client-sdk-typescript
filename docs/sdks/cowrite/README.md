@@ -29,16 +29,17 @@ import { Writer } from "@writerai/writer-sdk";
     generateTemplateRequest: {
       inputs: [
         {
-          name: "er man approach",
+          name: "string",
           value: [
-            "builder",
+            "string",
           ],
         },
       ],
-      templateId: "Planner",
+      templateId: "string",
     },
-    teamId: 612911,
+    teamId: 888452,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -76,8 +77,9 @@ import { Writer } from "@writerai/writer-sdk";
 
   const res = await sdk.coWrite.listTemplates({
     teamId: 882866,
-    templateId: "Soul",
+    templateId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

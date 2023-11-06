@@ -29,6 +29,7 @@ const pageId: number = 90065;
 
   const res = await sdk.styleguide.get(pageId);
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -65,6 +66,7 @@ import { ListPagesStatus } from "@writerai/writer-sdk/dist/sdk/models/operations
   });
 
   const res = await sdk.styleguide.listPages({});
+
 
   if (res.statusCode == 200) {
     // handle response

@@ -27,6 +27,7 @@ import { ListUsersSortField, ListUsersSortOrder } from "@writerai/writer-sdk/dis
 
   const res = await sdk.user.list({});
 
+
   if (res.statusCode == 200) {
     // handle response
   }

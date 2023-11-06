@@ -27,7 +27,7 @@ import { Writer } from "@writerai/writer-sdk";
 
   const res = await sdk.content.check({
     contentRequest: {
-      content: "now",
+      content: "string",
       settings: {
         ageAndFamilyStatus: false,
         confidence: false,
@@ -47,8 +47,9 @@ import { Writer } from "@writerai/writer-sdk";
         wordiness: false,
       },
     },
-    teamId: 740907,
+    teamId: 38270,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -86,7 +87,7 @@ import { Writer } from "@writerai/writer-sdk";
 
   const res = await sdk.content.correct({
     contentRequest: {
-      content: "structure",
+      content: "string",
       settings: {
         ageAndFamilyStatus: false,
         confidence: false,
@@ -106,8 +107,9 @@ import { Writer } from "@writerai/writer-sdk";
         wordiness: false,
       },
     },
-    teamId: 267677,
+    teamId: 31310,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

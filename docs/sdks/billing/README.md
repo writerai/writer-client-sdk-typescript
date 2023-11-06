@@ -26,6 +26,7 @@ import { Writer } from "@writerai/writer-sdk";
 
   const res = await sdk.billing.getSubscriptionDetails();
 
+
   if (res.statusCode == 200) {
     // handle response
   }

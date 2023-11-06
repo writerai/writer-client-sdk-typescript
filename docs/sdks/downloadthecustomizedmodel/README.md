@@ -25,9 +25,10 @@ import { Writer } from "@writerai/writer-sdk";
   });
 
   const res = await sdk.downloadTheCustomizedModel.fetchFile({
-    customizationId: "Racine beyond connecting",
-    modelId: "invoice Folk",
+    customizationId: "string",
+    modelId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

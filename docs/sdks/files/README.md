@@ -28,8 +28,9 @@ import { Writer } from "@writerai/writer-sdk";
   });
 
   const res = await sdk.files.delete({
-    fileId: "Designer complexity gladiolus",
+    fileId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -66,8 +67,9 @@ import { Writer } from "@writerai/writer-sdk";
   });
 
   const res = await sdk.files.get({
-    fileId: "program",
+    fileId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -107,6 +109,7 @@ const organizationId: number = 99895;
 
   const res = await sdk.files.list(organizationId);
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -145,10 +148,11 @@ import { Writer } from "@writerai/writer-sdk";
     uploadModelFileRequest: {
       file: {
         content: "?SRSKG@^n=" as bytes <<<>>>,
-        file: "Plastic CLI",
+        file: "string",
       },
     },
   });
+
 
   if (res.statusCode == 200) {
     // handle response

@@ -46,7 +46,7 @@ import {
           caseSensitive: false,
           examples: [
             {
-              example: "calculate Toyota noon",
+              example: "string",
               type: TermExampleCreateType.Bad,
             },
           ],
@@ -56,21 +56,22 @@ import {
           mistakes: [
             {
               caseSensitive: false,
-              mistake: "Chief",
+              mistake: "string",
             },
           ],
           tags: [
             {
-              tag: "kelvin",
+              tag: "string",
             },
           ],
-          term: "lime",
+          term: "string",
           type: TermCreateType.Banned,
         },
       ],
     },
-    teamId: 623862,
+    teamId: 623445,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -113,6 +114,7 @@ import { Writer } from "@writerai/writer-sdk";
     teamId: 698486,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -150,10 +152,11 @@ import { FindTermsPartOfSpeech, FindTermsSortField, FindTermsSortOrder, FindTerm
 
   const res = await sdk.terminology.find({
     tags: [
-      "underestimate",
+      "string",
     ],
-    teamId: 111247,
+    teamId: 326883,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -208,32 +211,33 @@ import {
           caseSensitive: false,
           examples: [
             {
-              example: "Rock",
+              example: "string",
               type: TermExampleCreateType.Good,
             },
           ],
-          id: 708455,
+          id: 597129,
           linkedTerms: [
             {},
           ],
           mistakes: [
             {
               caseSensitive: false,
-              mistake: "Metal cheater Islands",
+              mistake: "string",
             },
           ],
           tags: [
             {
-              tag: "withdrawal extend",
+              tag: "string",
             },
           ],
-          term: "bifurcated",
-          type: TermUpdateType.Banned,
+          term: "string",
+          type: TermUpdateType.Approved,
         },
       ],
     },
-    teamId: 789275,
+    teamId: 344620,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

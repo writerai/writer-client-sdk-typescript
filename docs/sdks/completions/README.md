@@ -30,7 +30,7 @@ import { Writer } from "@writerai/writer-sdk";
       bestOf: 1,
       maxTokens: 1024,
       minTokens: 1,
-      prompt: "Configuration Money",
+      prompt: "string",
       stop: [
         "the",
         "is",
@@ -39,8 +39,9 @@ import { Writer } from "@writerai/writer-sdk";
       temperature: 0.7,
       topP: 1,
     },
-    modelId: "Cambridgeshire grey technology",
+    modelId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -81,7 +82,7 @@ import { Writer } from "@writerai/writer-sdk";
       bestOf: 1,
       maxTokens: 1024,
       minTokens: 1,
-      prompt: "error",
+      prompt: "string",
       stop: [
         "the",
         "is",
@@ -90,9 +91,10 @@ import { Writer } from "@writerai/writer-sdk";
       temperature: 0.7,
       topP: 1,
     },
-    customizationId: "newton",
-    modelId: "convergence",
+    customizationId: "string",
+    modelId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

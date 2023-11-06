@@ -49,7 +49,7 @@ import { Writer } from "@writerai/writer-sdk";
 
     const res = await sdk.aiContentDetector.detect({
         contentDetectorRequest: {
-            input: "Bronze Indian",
+            input: "string",
         },
     });
 
@@ -189,7 +189,7 @@ import { Writer } from "@writerai/writer-sdk";
 
     const res = await sdk.aiContentDetector.detect({
         contentDetectorRequest: {
-            input: "Bronze Indian",
+            input: "string",
         },
     });
 
@@ -200,6 +200,141 @@ import { Writer } from "@writerai/writer-sdk";
 
 ```
 <!-- End Global Parameters -->
+
+
+
+<!-- Start Error Handling -->
+# Error Handling
+
+Handling errors in your SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
+
+
+## Example
+
+```typescript
+import { Writer } from "@writerai/writer-sdk";
+
+(async() => {
+  const sdk = new Writer({
+    apiKey: "",
+    organizationId: 496531,
+  });
+
+  
+  let res;
+  try {
+    res = await sdk.aiContentDetector.detect({
+    contentDetectorRequest: {
+      input: "string",
+    },
+  });
+  } catch (e) { 
+    if (e instanceof FailResponse) {
+      console.error(e) // handle exception 
+    
+  }
+
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```
+<!-- End Error Handling -->
+
+
+
+<!-- Start Server Selection -->
+# Server Selection
+
+## Select Server by Index
+
+You can override the default server globally by passing a server index to the `serverIdx: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https://enterprise-api.writer.com` | None |
+
+For example:
+
+
+```typescript
+import { Writer } from "@writerai/writer-sdk";
+
+(async () => {
+    const sdk = new Writer({
+        apiKey: "",
+        organizationId: 496531,
+        serverIdx: 0,
+    });
+
+    const res = await sdk.aiContentDetector.detect({
+        contentDetectorRequest: {
+            input: "string",
+        },
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+
+
+## Override Server URL Per-Client
+
+The default server can also be overridden globally by passing a URL to the `serverURL: str` optional parameter when initializing the SDK client instance. For example:
+
+
+```typescript
+import { Writer } from "@writerai/writer-sdk";
+
+(async () => {
+    const sdk = new Writer({
+        apiKey: "",
+        organizationId: 496531,
+        serverURL: "https://enterprise-api.writer.com",
+    });
+
+    const res = await sdk.aiContentDetector.detect({
+        contentDetectorRequest: {
+            input: "string",
+        },
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+<!-- End Server Selection -->
+
+
+
+<!-- Start Custom HTTP Client -->
+# Custom HTTP Client
+
+The Typescript SDK makes API calls using the (axios)[https://axios-http.com/docs/intro] HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `AxiosInstance` object.
+
+
+For example, you could specify a header for every request that your sdk makes as follows:
+
+```typescript
+from @writerai/writer-sdk import Writer;
+import axios;
+
+const httpClient = axios.create({
+    headers: {'x-custom-header': 'someValue'}
+})
+
+
+const sdk = new Writer({defaultClient: httpClient});
+```
+
+
+<!-- End Custom HTTP Client -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

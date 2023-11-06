@@ -30,6 +30,7 @@ import { Writer } from "@writerai/writer-sdk";
     teamId: 558834,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -68,6 +69,7 @@ import { ListTeamDocumentsSortField, ListTeamDocumentsSortOrder } from "@writera
   const res = await sdk.document.list({
     teamId: 99895,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

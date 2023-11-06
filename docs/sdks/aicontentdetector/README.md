@@ -26,9 +26,10 @@ import { Writer } from "@writerai/writer-sdk";
 
   const res = await sdk.aiContentDetector.detect({
     contentDetectorRequest: {
-      input: "Bronze Indian",
+      input: "string",
     },
   });
+
 
   if (res.statusCode == 200) {
     // handle response

@@ -28,6 +28,7 @@ const organizationId: number = 99895;
 
   const res = await sdk.models.list(organizationId);
 
+
   if (res.statusCode == 200) {
     // handle response
   }

@@ -28,10 +28,11 @@ import { Writer } from "@writerai/writer-sdk";
 
   const res = await sdk.snippet.delete({
     ids: [
-      "Van",
+      "string",
     ],
-    teamId: 386564,
+    teamId: 841399,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -70,13 +71,14 @@ import { FindSnippetsSortField, FindSnippetsSortOrder } from "@writerai/writer-s
 
   const res = await sdk.snippet.find({
     shortcuts: [
-      "underestimate",
+      "string",
     ],
     tags: [
-      "Northeast",
+      "string",
     ],
-    teamId: 803382,
+    teamId: 326883,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -116,16 +118,17 @@ import { Writer } from "@writerai/writer-sdk";
     requestBody: [
       {
         id: "<ID>",
-        snippet: "Rock",
+        snippet: "string",
         tags: [
           {
-            tag: "male Metal",
+            tag: "string",
           },
         ],
       },
     ],
-    teamId: 984008,
+    teamId: 24555,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
