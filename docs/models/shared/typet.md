@@ -1,4 +1,4 @@
-# FullTermWithUserType
+# TypeT
 
 
 ## Values

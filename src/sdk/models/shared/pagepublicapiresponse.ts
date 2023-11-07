@@ -7,7 +7,7 @@ import { SectionInfo } from "./sectioninfo";
 import { SimpleUser } from "./simpleuser";
 import { Expose, Transform, Type } from "class-transformer";
 
-export enum PagePublicApiResponseStatus {
+export enum Status {
     Live = "live",
     Offline = "offline",
 }
@@ -33,7 +33,7 @@ export class PagePublicApiResponse extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status: PagePublicApiResponseStatus;
+    status: Status;
 
     @SpeakeasyMetadata()
     @Expose({ name: "title" })

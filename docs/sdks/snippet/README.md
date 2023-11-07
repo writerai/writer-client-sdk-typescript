@@ -1,5 +1,5 @@
 # Snippet
-(*snippet*)
+(*.snippet*)
 
 ## Overview
 
@@ -61,7 +61,7 @@ Find snippets
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { FindSnippetsSortField, FindSnippetsSortOrder } from "@writerai/writer-sdk/dist/sdk/models/operations";
+import { SortField, SortOrder } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Writer({

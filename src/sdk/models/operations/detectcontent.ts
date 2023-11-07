@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class DetectContentRequest extends SpeakeasyBase {
@@ -15,9 +15,6 @@ export class DetectContentRequest extends SpeakeasyBase {
 }
 
 export class DetectContentResponse extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: shared.ContentDetectorResponse })
-    contentDetectorResponses?: shared.ContentDetectorResponse[];
-
     /**
      * HTTP response content type for this operation
      */
@@ -38,4 +35,7 @@ export class DetectContentResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
+
+    @SpeakeasyMetadata({ elemType: shared.ContentDetectorResponse })
+    classes?: shared.ContentDetectorResponse[];
 }

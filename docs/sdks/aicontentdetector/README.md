@@ -1,5 +1,5 @@
 # AIContentDetector
-(*aiContentDetector*)
+(*.aiContentDetector*)
 
 ## Overview
 

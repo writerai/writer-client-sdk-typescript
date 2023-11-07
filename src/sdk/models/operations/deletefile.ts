@@ -13,7 +13,7 @@ export class DeleteFileRequest extends SpeakeasyBase {
     organizationId?: number;
 }
 
-export class DeleteFile200ApplicationJSON extends SpeakeasyBase {}
+export class DeleteFileResponseBody extends SpeakeasyBase {}
 
 export class DeleteFileResponse extends SpeakeasyBase {
     /**
@@ -38,5 +38,5 @@ export class DeleteFileResponse extends SpeakeasyBase {
     rawResponse?: AxiosResponse;
 
     @SpeakeasyMetadata()
-    deleteFile200ApplicationJSONObject?: DeleteFile200ApplicationJSON;
+    object?: DeleteFileResponseBody;
 }

@@ -1,5 +1,5 @@
 # Billing
-(*billing*)
+(*.billing*)
 
 ## Overview
 

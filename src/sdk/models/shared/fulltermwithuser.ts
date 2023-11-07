@@ -18,7 +18,7 @@ export enum FullTermWithUserPos {
     Adjective = "adjective",
 }
 
-export enum FullTermWithUserType {
+export enum TypeT {
     Approved = "approved",
     Banned = "banned",
     Pending = "pending",
@@ -105,5 +105,5 @@ export class FullTermWithUser extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type: FullTermWithUserType;
+    type: TypeT;
 }

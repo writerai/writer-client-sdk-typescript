@@ -1,5 +1,5 @@
 # Styleguide
-(*styleguide*)
+(*.styleguide*)
 
 ## Overview
 
@@ -57,7 +57,7 @@ List your styleguide pages
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { ListPagesStatus } from "@writerai/writer-sdk/dist/sdk/models/operations";
+import { Status } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Writer({

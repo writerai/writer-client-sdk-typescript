@@ -1,5 +1,5 @@
 # CoWrite
-(*coWrite*)
+(*.coWrite*)
 
 ## Overview
 

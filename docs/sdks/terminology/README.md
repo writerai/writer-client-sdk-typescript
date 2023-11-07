@@ -1,5 +1,5 @@
 # Terminology
-(*terminology*)
+(*.terminology*)
 
 ## Overview
 
@@ -21,7 +21,7 @@ Add terms
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 import {
-  CreateTermsRequestFailHandling,
+  FailHandling,
   TermCreatePos,
   TermCreateType,
   TermExampleCreateType,
@@ -142,7 +142,7 @@ Find terms
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { FindTermsPartOfSpeech, FindTermsSortField, FindTermsSortOrder, FindTermsType } from "@writerai/writer-sdk/dist/sdk/models/operations";
+import { PartOfSpeech, QueryParamSortField, QueryParamSortOrder, TypeT } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Writer({

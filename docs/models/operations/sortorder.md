@@ -1,4 +1,4 @@
-# FindSnippetsSortOrder
+# SortOrder
 
 
 ## Values

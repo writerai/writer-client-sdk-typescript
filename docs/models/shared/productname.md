@@ -1,4 +1,4 @@
-# SubscriptionPublicResponseApiProductName
+# ProductName
 
 
 ## Values

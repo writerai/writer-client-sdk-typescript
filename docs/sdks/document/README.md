@@ -1,5 +1,5 @@
 # Document
-(*document*)
+(*.document*)
 
 ## Overview
 
@@ -58,7 +58,7 @@ List team documents
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { ListTeamDocumentsSortField, ListTeamDocumentsSortOrder } from "@writerai/writer-sdk/dist/sdk/models/operations";
+import { ListTeamDocumentsQueryParamSortField, ListTeamDocumentsQueryParamSortOrder } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Writer({

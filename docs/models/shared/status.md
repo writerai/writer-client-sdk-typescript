@@ -1,4 +1,4 @@
-# PagePublicApiResponseStatus
+# Status
 
 
 ## Values

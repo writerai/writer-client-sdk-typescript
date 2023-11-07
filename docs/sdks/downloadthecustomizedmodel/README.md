@@ -1,5 +1,5 @@
 # DownloadTheCustomizedModel
-(*downloadTheCustomizedModel*)
+(*.downloadTheCustomizedModel*)
 
 ## Overview
 

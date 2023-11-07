@@ -1,4 +1,4 @@
-# FindTermsType
+# TypeT
 
 
 ## Values

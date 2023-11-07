@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class UpdateSnippetsRequest extends SpeakeasyBase {
@@ -33,9 +33,6 @@ export class UpdateSnippetsResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     headers?: Record<string, string[]>;
 
-    @SpeakeasyMetadata({ elemType: shared.SnippetWithUser })
-    snippetWithUsers?: shared.SnippetWithUser[];
-
     /**
      * HTTP response status code for this operation
      */
@@ -47,4 +44,7 @@ export class UpdateSnippetsResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
+
+    @SpeakeasyMetadata({ elemType: shared.SnippetWithUser })
+    classes?: shared.SnippetWithUser[];
 }

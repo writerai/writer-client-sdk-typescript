@@ -1,5 +1,5 @@
 # ModelCustomization
-(*modelCustomization*)
+(*.modelCustomization*)
 
 ## Overview
 

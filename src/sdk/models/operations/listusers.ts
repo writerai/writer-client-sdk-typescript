@@ -3,10 +3,10 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
-export enum ListUsersSortField {
+export enum ListUsersQueryParamSortField {
     Id = "id",
     Name = "name",
     CreationTime = "creationTime",
@@ -16,7 +16,7 @@ export enum ListUsersSortField {
     LastSeen = "lastSeen",
 }
 
-export enum ListUsersSortOrder {
+export enum ListUsersQueryParamSortOrder {
     Asc = "asc",
     Desc = "desc",
 }
@@ -32,10 +32,10 @@ export class ListUsersRequest extends SpeakeasyBase {
     search?: string;
 
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=sortField" })
-    sortField?: ListUsersSortField;
+    sortField?: ListUsersQueryParamSortField;
 
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=sortOrder" })
-    sortOrder?: ListUsersSortOrder;
+    sortOrder?: ListUsersQueryParamSortOrder;
 }
 
 export class ListUsersResponse extends SpeakeasyBase {

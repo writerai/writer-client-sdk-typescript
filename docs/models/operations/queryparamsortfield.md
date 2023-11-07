@@ -1,12 +1,11 @@
-# ListTeamDocumentsSortField
+# QueryParamSortField
 
 
 ## Values
 
 | Name               | Value              |
 | ------------------ | ------------------ |
-| `Title`            | title              |
+| `Term`             | term               |
 | `CreationTime`     | creationTime       |
 | `ModificationTime` | modificationTime   |
-| `ModifiedByMeTime` | modifiedByMeTime   |
-| `OpenedByMeTime`   | openedByMeTime     |
+| `Type`             | type               |

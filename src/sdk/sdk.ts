@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as shared from "../sdk/models/shared";
 import { AIContentDetector } from "./aicontentdetector";
 import { Billing } from "./billing";
 import { Completions } from "./completions";
@@ -13,7 +14,6 @@ import { DownloadTheCustomizedModel } from "./downloadthecustomizedmodel";
 import { Files } from "./files";
 import { ModelCustomization } from "./modelcustomization";
 import { Models } from "./models";
-import * as shared from "./models/shared";
 import { Snippet } from "./snippet";
 import { Styleguide } from "./styleguide";
 import { Terminology } from "./terminology";
@@ -64,9 +64,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "1.7";
-    sdkVersion = "1.2.0";
-    genVersion = "2.173.0";
-    userAgent = "speakeasy-sdk/typescript 1.2.0 2.173.0 1.7 @writerai/writer-sdk";
+    sdkVersion = "2.0.0";
+    genVersion = "2.181.1";
+    userAgent = "speakeasy-sdk/typescript 2.0.0 2.181.1 1.7 @writerai/writer-sdk";
     globals: any;
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
@@ -76,41 +76,45 @@ export class SDKConfiguration {
 
 export class Writer {
     /**
-     * Methods related to AI Content Detector
-     */
-    public aiContentDetector: AIContentDetector;
-    /**
      * Methods related to Billing
      */
     public billing: Billing;
     /**
-     * Methods related to CoWrite
+     * Methods related to AI Content Detector
      */
-    public coWrite: CoWrite;
-    /**
-     * Methods related to Completions
-     */
-    public completions: Completions;
+    public aiContentDetector: AIContentDetector;
     /**
      * Methods related to Content
      */
     public content: Content;
     /**
-     * Methods related to Download the customized model
+     * Methods related to CoWrite
      */
-    public downloadTheCustomizedModel: DownloadTheCustomizedModel;
+    public coWrite: CoWrite;
     /**
      * Methods related to Files
      */
     public files: Files;
     /**
+     * Methods related to Model
+     */
+    public models: Models;
+    /**
+     * Methods related to Completions
+     */
+    public completions: Completions;
+    /**
      * Methods related to Model Customization
      */
     public modelCustomization: ModelCustomization;
     /**
-     * Methods related to Model
+     * Methods related to Download the customized model
      */
-    public models: Models;
+    public downloadTheCustomizedModel: DownloadTheCustomizedModel;
+    /**
+     * Methods related to document
+     */
+    public document: Document;
     /**
      * Methods related to Snippets
      */
@@ -127,10 +131,6 @@ export class Writer {
      * Methods related to User
      */
     public user: User;
-    /**
-     * Methods related to document
-     */
-    public document: Document;
 
     private sdkConfiguration: SDKConfiguration;
 
@@ -159,19 +159,19 @@ export class Writer {
             retryConfig: props?.retryConfig,
         });
 
-        this.aiContentDetector = new AIContentDetector(this.sdkConfiguration);
         this.billing = new Billing(this.sdkConfiguration);
-        this.coWrite = new CoWrite(this.sdkConfiguration);
-        this.completions = new Completions(this.sdkConfiguration);
+        this.aiContentDetector = new AIContentDetector(this.sdkConfiguration);
         this.content = new Content(this.sdkConfiguration);
-        this.downloadTheCustomizedModel = new DownloadTheCustomizedModel(this.sdkConfiguration);
+        this.coWrite = new CoWrite(this.sdkConfiguration);
         this.files = new Files(this.sdkConfiguration);
-        this.modelCustomization = new ModelCustomization(this.sdkConfiguration);
         this.models = new Models(this.sdkConfiguration);
+        this.completions = new Completions(this.sdkConfiguration);
+        this.modelCustomization = new ModelCustomization(this.sdkConfiguration);
+        this.downloadTheCustomizedModel = new DownloadTheCustomizedModel(this.sdkConfiguration);
+        this.document = new Document(this.sdkConfiguration);
         this.snippet = new Snippet(this.sdkConfiguration);
         this.styleguide = new Styleguide(this.sdkConfiguration);
         this.terminology = new Terminology(this.sdkConfiguration);
         this.user = new User(this.sdkConfiguration);
-        this.document = new Document(this.sdkConfiguration);
     }
 }

@@ -1,5 +1,5 @@
 # Files
-(*files*)
+(*.files*)
 
 ## Overview
 
@@ -147,8 +147,8 @@ import { Writer } from "@writerai/writer-sdk";
   const res = await sdk.files.upload({
     uploadModelFileRequest: {
       file: {
-        content: "?SRSKG@^n=" as bytes <<<>>>,
-        file: "string",
+        content: new TextEncoder().encode("0x7cbca97eC6"),
+        fileName: "plastic_cli.gif",
       },
     },
   });

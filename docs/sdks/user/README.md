@@ -1,5 +1,5 @@
 # User
-(*user*)
+(*.user*)
 
 ## Overview
 
@@ -17,7 +17,7 @@ List users
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { ListUsersSortField, ListUsersSortOrder } from "@writerai/writer-sdk/dist/sdk/models/operations";
+import { ListUsersQueryParamSortField, ListUsersQueryParamSortOrder } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Writer({
