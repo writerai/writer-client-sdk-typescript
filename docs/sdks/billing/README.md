@@ -1,5 +1,5 @@
 # Billing
-(*.billing*)
+(*billing*)
 
 ## Overview
 
@@ -26,7 +26,6 @@ import { Writer } from "@writerai/writer-sdk";
 
   const res = await sdk.billing.getSubscriptionDetails();
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -42,5 +41,10 @@ import { Writer } from "@writerai/writer-sdk";
 
 ### Response
 
-**Promise<[operations.GetSubscriptionDetailsResponse](../../models/operations/getsubscriptiondetailsresponse.md)>**
+**Promise<[operations.GetSubscriptionDetailsResponse](../../sdk/models/operations/getsubscriptiondetailsresponse.md)>**
+### Errors
 
+| Error Object        | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| errors.FailResponse | 400,401,403,404,500 | application/json    |
+| errors.SDKError     | 400-600             | */*                 |

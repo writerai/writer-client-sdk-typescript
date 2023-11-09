@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: 044ba6ea348a6fb8206cacad6926373d
   docVersion: "1.7"
-  speakeasyVersion: 1.114.1
-  generationVersion: 2.181.1
+  speakeasyVersion: 1.116.0
+  generationVersion: 2.185.0
 generation:
   comments: {}
   sdkClassName: Writer
@@ -11,7 +11,7 @@ generation:
 features:
   typescript:
     acceptHeaders: 2.81.1
-    core: 3.1.0
+    core: 3.1.2
     errors: 2.81.7
     flattening: 2.81.1
     globalSecurity: 2.82.0
@@ -19,7 +19,7 @@ features:
     globals: 2.81.1
     nameOverrides: 2.81.1
 typescript:
-  version: 2.0.0
+  version: 2.0.1
   author: writerai
   clientServerStatusCodesAsErrors: false
   flattenGlobalSecurity: true
@@ -31,8 +31,10 @@ typescript:
       operations: sdk/models/operations
       shared: sdk/models/shared
       webhooks: sdk/models/webhooks
+  inputModelSuffix: input
   installationURL: https://github.com/writerai/writer-client-sdk-typescript
   maxMethodParams: true
+  outputModelSuffix: output
   packageName: '@writerai/writer-sdk'
   published: true
   repoSubDirectory: .

@@ -40,7 +40,7 @@ export class DownloadTheCustomizedModel {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/llm/organization/{organizationId}/model/{modelId}/customization/{customizationId}/fetch",
             req,
@@ -66,7 +66,7 @@ export class DownloadTheCustomizedModel {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",

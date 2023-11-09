@@ -1,5 +1,5 @@
 # Styleguide
-(*.styleguide*)
+(*styleguide*)
 
 ## Overview
 
@@ -29,7 +29,6 @@ const pageId: number = 90065;
 
   const res = await sdk.styleguide.get(pageId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -46,8 +45,13 @@ const pageId: number = 90065;
 
 ### Response
 
-**Promise<[operations.PageDetailsResponse](../../models/operations/pagedetailsresponse.md)>**
+**Promise<[operations.PageDetailsResponse](../../sdk/models/operations/pagedetailsresponse.md)>**
+### Errors
 
+| Error Object        | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| errors.FailResponse | 400,401,403,404,500 | application/json    |
+| errors.SDKError     | 400-600             | */*                 |
 
 ## listPages
 
@@ -67,7 +71,6 @@ import { Status } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
   const res = await sdk.styleguide.listPages({});
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -76,13 +79,18 @@ import { Status } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
 ### Parameters
 
-| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `request`                                                                  | [operations.ListPagesRequest](../../models/operations/listpagesrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
-| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [operations.ListPagesRequest](../../sdk/models/operations/listpagesrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response
 
-**Promise<[operations.ListPagesResponse](../../models/operations/listpagesresponse.md)>**
+**Promise<[operations.ListPagesResponse](../../sdk/models/operations/listpagesresponse.md)>**
+### Errors
 
+| Error Object        | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| errors.FailResponse | 400,401,403,404,500 | application/json    |
+| errors.SDKError     | 400-600             | */*                 |

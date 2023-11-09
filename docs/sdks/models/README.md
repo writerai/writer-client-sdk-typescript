@@ -1,5 +1,5 @@
 # Models
-(*.models*)
+(*models*)
 
 ## Overview
 
@@ -28,7 +28,6 @@ const organizationId: number = 99895;
 
   const res = await sdk.models.list(organizationId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -45,5 +44,10 @@ const organizationId: number = 99895;
 
 ### Response
 
-**Promise<[operations.ListModelsResponse](../../models/operations/listmodelsresponse.md)>**
+**Promise<[operations.ListModelsResponse](../../sdk/models/operations/listmodelsresponse.md)>**
+### Errors
 
+| Error Object        | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| errors.FailResponse | 400,401,403,404,500 | application/json    |
+| errors.SDKError     | 400-600             | */*                 |

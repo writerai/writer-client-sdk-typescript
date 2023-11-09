@@ -35,7 +35,7 @@ export class CoWrite {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/cowrite/organization/{organizationId}/team/{teamId}/generate",
             req,
@@ -76,7 +76,7 @@ export class CoWrite {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -152,7 +152,7 @@ export class CoWrite {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/cowrite/organization/{organizationId}/team/{teamId}/template/{templateId}",
             req,
@@ -174,7 +174,7 @@ export class CoWrite {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
