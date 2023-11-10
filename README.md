@@ -38,6 +38,8 @@ If you cannot see your secret API keys in the Dashboard, this means you do not h
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
+### Example
+
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 
@@ -155,14 +157,14 @@ Here's an example of one such pagination call:
 
 
 <!-- Start Global Parameters -->
-# Global Parameters
+## Global Parameters
 
 A parameter is configured globally. This parameter must be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, This global value will be used as the default on the operations that use it. When such operations are called, there is a place in each to override the global value, if needed.
 
 For example, you can set `organizationId` to `99895` at SDK initialization and then you do not have to pass the same value on calls to operations like `detect`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
 
 
-## Available Globals
+### Available Globals
 
 The following global parameter is available. The required parameter must be set when you initialize the SDK client.
 
@@ -171,8 +173,7 @@ The following global parameter is available. The required parameter must be set 
 | organizationId | number | ✔️ | The organizationId parameter. |
 
 
-
-## Example
+### Example
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
@@ -200,7 +201,7 @@ import { Writer } from "@writerai/writer-sdk";
 
 
 <!-- Start Error Handling -->
-# Error Handling
+## Error Handling
 
 Handling errors in this SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
 
@@ -209,8 +210,7 @@ Handling errors in this SDK should largely match your expectations.  All operati
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
 | errors.SDKError     | 400-600             | */*                 |
 
-
-## Example
+Example
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
@@ -241,9 +241,9 @@ import { Writer } from "@writerai/writer-sdk";
 
 
 <!-- Start Server Selection -->
-# Server Selection
+## Server Selection
 
-## Select Server by Index
+### Select Server by Index
 
 You can override the default server globally by passing a server index to the `serverIdx: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
 
@@ -251,7 +251,7 @@ You can override the default server globally by passing a server index to the `s
 | - | ------ | --------- |
 | 0 | `https://enterprise-api.writer.com` | None |
 
-For example:
+#### Example
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
@@ -273,10 +273,9 @@ import { Writer } from "@writerai/writer-sdk";
 ```
 
 
-## Override Server URL Per-Client
+### Override Server URL Per-Client
 
 The default server can also be overridden globally by passing a URL to the `serverURL: str` optional parameter when initializing the SDK client instance. For example:
-
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 
@@ -300,10 +299,9 @@ import { Writer } from "@writerai/writer-sdk";
 
 
 <!-- Start Custom HTTP Client -->
-# Custom HTTP Client
+## Custom HTTP Client
 
 The Typescript SDK makes API calls using the (axios)[https://axios-http.com/docs/intro] HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `AxiosInstance` object.
-
 
 For example, you could specify a header for every request that your sdk makes as follows:
 
@@ -315,7 +313,6 @@ const httpClient = axios.create({
     headers: {'x-custom-header': 'someValue'}
 })
 
-
 const sdk = new Writer({defaultClient: httpClient});
 ```
 <!-- End Custom HTTP Client -->
@@ -323,9 +320,9 @@ const sdk = new Writer({defaultClient: httpClient});
 
 
 <!-- Start Authentication -->
-# Authentication
+## Authentication
 
-## Per-Client Security Schemes
+### Per-Client Security Schemes
 
 This SDK supports the following security scheme globally:
 
@@ -334,7 +331,6 @@ This SDK supports the following security scheme globally:
 | `apiKey` | apiKey   | API key  |
 
 To authenticate with the API the `apiKey` parameter must be set when initializing the SDK client instance. For example:
-
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 
