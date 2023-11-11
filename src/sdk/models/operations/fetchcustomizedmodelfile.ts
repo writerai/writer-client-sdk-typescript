@@ -39,5 +39,5 @@ export class FetchCustomizedModelFileResponse extends SpeakeasyBase {
     rawResponse?: AxiosResponse;
 
     @SpeakeasyMetadata()
-    fetchCustomizedModelFile200ApplicationOctetStreamBinaryString?: Uint8Array;
+    bytes?: Uint8Array;
 }

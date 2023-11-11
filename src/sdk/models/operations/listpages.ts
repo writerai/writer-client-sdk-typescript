@@ -3,10 +3,10 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
-export enum ListPagesStatus {
+export enum Status {
     Live = "live",
     Offline = "offline",
 }
@@ -19,7 +19,7 @@ export class ListPagesRequest extends SpeakeasyBase {
     offset?: number;
 
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=status" })
-    status?: ListPagesStatus;
+    status?: Status;
 }
 
 export class ListPagesResponse extends SpeakeasyBase {

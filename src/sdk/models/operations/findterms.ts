@@ -3,29 +3,29 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
-export enum FindTermsPartOfSpeech {
+export enum PartOfSpeech {
     Noun = "noun",
     Verb = "verb",
     Adverb = "adverb",
     Adjective = "adjective",
 }
 
-export enum FindTermsSortField {
+export enum QueryParamSortField {
     Term = "term",
     CreationTime = "creationTime",
     ModificationTime = "modificationTime",
     Type = "type",
 }
 
-export enum FindTermsSortOrder {
+export enum QueryParamSortOrder {
     Asc = "asc",
     Desc = "desc",
 }
 
-export enum FindTermsType {
+export enum TypeT {
     Approved = "approved",
     Banned = "banned",
     Pending = "pending",
@@ -42,13 +42,13 @@ export class FindTermsRequest extends SpeakeasyBase {
     organizationId?: number;
 
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=partOfSpeech" })
-    partOfSpeech?: FindTermsPartOfSpeech;
+    partOfSpeech?: PartOfSpeech;
 
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=sortField" })
-    sortField?: FindTermsSortField;
+    sortField?: QueryParamSortField;
 
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=sortOrder" })
-    sortOrder?: FindTermsSortOrder;
+    sortOrder?: QueryParamSortOrder;
 
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=tags" })
     tags?: string[];
@@ -60,7 +60,7 @@ export class FindTermsRequest extends SpeakeasyBase {
     term?: string;
 
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=type" })
-    type?: FindTermsType;
+    type?: TypeT;
 }
 
 export class FindTermsResponse extends SpeakeasyBase {

@@ -3,10 +3,10 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
-export enum ListTeamDocumentsSortField {
+export enum ListTeamDocumentsQueryParamSortField {
     Title = "title",
     CreationTime = "creationTime",
     ModificationTime = "modificationTime",
@@ -14,7 +14,7 @@ export enum ListTeamDocumentsSortField {
     OpenedByMeTime = "openedByMeTime",
 }
 
-export enum ListTeamDocumentsSortOrder {
+export enum ListTeamDocumentsQueryParamSortOrder {
     Asc = "asc",
     Desc = "desc",
 }
@@ -33,10 +33,10 @@ export class ListTeamDocumentsRequest extends SpeakeasyBase {
     search?: string;
 
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=sortField" })
-    sortField?: ListTeamDocumentsSortField;
+    sortField?: ListTeamDocumentsQueryParamSortField;
 
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=sortOrder" })
-    sortOrder?: ListTeamDocumentsSortOrder;
+    sortOrder?: ListTeamDocumentsQueryParamSortOrder;
 
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=teamId" })
     teamId: number;

@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { ApprovedTermExtension } from "./approvedtermextension";
 import { Expose, Type } from "class-transformer";
 
-export enum FullLinkedTermPos {
+export enum Pos {
     Noun = "noun",
     Verb = "verb",
     Adverb = "adverb",
@@ -33,7 +33,7 @@ export class FullLinkedTerm extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "pos" })
-    pos?: FullLinkedTermPos;
+    pos?: Pos;
 
     @SpeakeasyMetadata()
     @Expose({ name: "term" })

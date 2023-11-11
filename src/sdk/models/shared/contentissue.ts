@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export enum ContentIssueService {
+export enum Service {
     CommonMistakes = "common-mistakes",
     BannedWords = "banned-words",
     Dictionary = "dictionary",
@@ -60,7 +60,7 @@ export class ContentIssue extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "service" })
-    service: ContentIssueService;
+    service: Service;
 
     @SpeakeasyMetadata()
     @Expose({ name: "suggestions" })

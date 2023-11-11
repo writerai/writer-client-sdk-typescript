@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { SimpleUser } from "./simpleuser";
 import { Expose, Transform, Type } from "class-transformer";
 
-export enum BriefDocumentAccess {
+export enum Access {
     Private = "private",
     Public = "public",
     Shared = "shared",
@@ -15,7 +15,7 @@ export enum BriefDocumentAccess {
 export class BriefDocument extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "access" })
-    access: BriefDocumentAccess;
+    access: Access;
 
     @SpeakeasyMetadata()
     @Expose({ name: "createdUser" })

@@ -1,0 +1,16 @@
+# FindSnippetsRequest
+
+
+## Fields
+
+| Field                                                               | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `limit`                                                             | *number*                                                            | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `offset`                                                            | *number*                                                            | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `organizationId`                                                    | *number*                                                            | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `search`                                                            | *string*                                                            | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `shortcuts`                                                         | *string*[]                                                          | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `sortField`                                                         | [operations.SortField](../../../sdk/models/operations/sortfield.md) | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `sortOrder`                                                         | [operations.SortOrder](../../../sdk/models/operations/sortorder.md) | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `tags`                                                              | *string*[]                                                          | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `teamId`                                                            | *number*                                                            | :heavy_check_mark:                                                  | N/A                                                                 |

@@ -16,7 +16,7 @@ export class DeleteModelCustomizationRequest extends SpeakeasyBase {
     organizationId?: number;
 }
 
-export class DeleteModelCustomization200ApplicationJSON extends SpeakeasyBase {}
+export class DeleteModelCustomizationResponseBody extends SpeakeasyBase {}
 
 export class DeleteModelCustomizationResponse extends SpeakeasyBase {
     /**
@@ -41,5 +41,5 @@ export class DeleteModelCustomizationResponse extends SpeakeasyBase {
     rawResponse?: AxiosResponse;
 
     @SpeakeasyMetadata()
-    deleteModelCustomization200ApplicationJSONObject?: DeleteModelCustomization200ApplicationJSON;
+    object?: DeleteModelCustomizationResponseBody;
 }
