@@ -25,7 +25,7 @@ export class CreateModelCustomizationResponse extends SpeakeasyBase {
     contentType: string;
 
     @SpeakeasyMetadata()
-    headers?: Record<string, string[]>;
+    headers: Record<string, string[]>;
 
     @SpeakeasyMetadata()
     modelCustomization?: shared.ModelCustomization;
@@ -40,5 +40,5 @@ export class CreateModelCustomizationResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 }

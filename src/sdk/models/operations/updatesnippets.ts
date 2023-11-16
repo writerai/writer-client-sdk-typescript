@@ -31,7 +31,7 @@ export class UpdateSnippetsResponse extends SpeakeasyBase {
     contentType: string;
 
     @SpeakeasyMetadata()
-    headers?: Record<string, string[]>;
+    headers: Record<string, string[]>;
 
     /**
      * HTTP response status code for this operation
@@ -43,7 +43,7 @@ export class UpdateSnippetsResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 
     @SpeakeasyMetadata({ elemType: shared.SnippetWithUser })
     classes?: shared.SnippetWithUser[];

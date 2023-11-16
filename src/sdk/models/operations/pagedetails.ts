@@ -19,7 +19,7 @@ export class PageDetailsResponse extends SpeakeasyBase {
     contentType: string;
 
     @SpeakeasyMetadata()
-    headers?: Record<string, string[]>;
+    headers: Record<string, string[]>;
 
     @SpeakeasyMetadata()
     pageWithSectionResponse?: shared.PageWithSectionResponse;
@@ -34,5 +34,5 @@ export class PageDetailsResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 }
