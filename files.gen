@@ -66,6 +66,7 @@ src/sdk/models/shared/subscriptionpublicresponseapi.ts
 src/sdk/models/shared/usage.ts
 src/sdk/models/shared/usageitem.ts
 src/sdk/models/shared/metadata.ts
+src/sdk/models/shared/failmessage.ts
 src/sdk/models/shared/contentdetectorresponse.ts
 src/sdk/models/shared/contentdetectorrequest.ts
 src/sdk/models/shared/processedcontent.ts
@@ -113,7 +114,6 @@ src/sdk/models/shared/termmistake.ts
 src/sdk/models/shared/fulllinkedterm.ts
 src/sdk/models/shared/approvedtermextension.ts
 src/sdk/models/shared/termexample.ts
-src/sdk/models/shared/failmessage.ts
 src/sdk/models/shared/createtermsrequest.ts
 src/sdk/models/shared/termcreate.ts
 src/sdk/models/shared/termtagcreate.ts
@@ -128,7 +128,6 @@ src/sdk/models/shared/paginatedresultuserpublicresponse.ts
 src/sdk/models/shared/userpublicresponse.ts
 src/sdk/models/shared/security.ts
 src/sdk/models/errors/failresponse.ts
-src/sdk/models/errors/failmessage.ts
 src/sdk/models/errors/index.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/index.ts
@@ -212,6 +211,7 @@ docs/sdk/models/shared/usage.md
 docs/sdk/models/shared/usageitem.md
 docs/sdk/models/shared/tier.md
 docs/sdk/models/shared/metadata.md
+docs/sdk/models/shared/failmessage.md
 docs/sdk/models/shared/label.md
 docs/sdk/models/shared/contentdetectorresponse.md
 docs/sdk/models/shared/contentdetectorrequest.md
@@ -273,7 +273,6 @@ docs/sdk/models/shared/fulllinkedterm.md
 docs/sdk/models/shared/approvedtermextension.md
 docs/sdk/models/shared/termexampletype.md
 docs/sdk/models/shared/termexample.md
-docs/sdk/models/shared/failmessage.md
 docs/sdk/models/shared/failhandling.md
 docs/sdk/models/shared/createtermsrequest.md
 docs/sdk/models/shared/termcreatepos.md
@@ -297,7 +296,6 @@ docs/sdk/models/shared/accountstatus.md
 docs/sdk/models/shared/userpublicresponse.md
 docs/sdk/models/shared/security.md
 docs/sdk/models/errors/failresponse.md
-docs/sdk/models/errors/failmessage.md
 docs/sdks/writer/README.md
 docs/sdks/billing/README.md
 docs/sdks/aicontentdetector/README.md

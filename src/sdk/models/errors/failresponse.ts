@@ -3,14 +3,17 @@
  */
 
 import { SpeakeasyMetadata } from "../../../internal/utils";
-import { FailMessage } from "./failmessage";
+import * as shared from "../../../sdk/models/shared";
 import { classToPlain, Expose, Type } from "class-transformer";
 
+/**
+ * Bad Request
+ */
 export class FailResponse extends Error {
-    @SpeakeasyMetadata({ elemType: FailMessage })
+    @SpeakeasyMetadata({ elemType: shared.FailMessage })
     @Expose({ name: "errors" })
-    @Type(() => FailMessage)
-    errors?: FailMessage[];
+    @Type(() => shared.FailMessage)
+    errors?: shared.FailMessage[];
 
     @SpeakeasyMetadata()
     @Expose({ name: "extras" })
