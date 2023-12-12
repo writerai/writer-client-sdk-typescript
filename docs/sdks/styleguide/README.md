@@ -20,9 +20,9 @@ Page details
 import { Writer } from "@writerai/writer-sdk";
 import { PageDetailsRequest } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
+    apiKey: "<YOUR_API_KEY_HERE>",
     organizationId: 700347,
   });
 const pageId: number = 90065;
@@ -32,7 +32,9 @@ const pageId: number = 90065;
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -63,9 +65,9 @@ List your styleguide pages
 import { Writer } from "@writerai/writer-sdk";
 import { Status } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
+    apiKey: "<YOUR_API_KEY_HERE>",
     organizationId: 763372,
   });
 
@@ -74,7 +76,9 @@ import { Status } from "@writerai/writer-sdk/dist/sdk/models/operations";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

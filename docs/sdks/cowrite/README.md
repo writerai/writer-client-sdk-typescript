@@ -19,9 +19,9 @@ Generate content using predefined templates
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
+    apiKey: "<YOUR_API_KEY_HERE>",
     organizationId: 569932,
   });
 
@@ -43,7 +43,9 @@ import { Writer } from "@writerai/writer-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -73,9 +75,9 @@ Get a list of your existing CoWrite templates
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
+    apiKey: "<YOUR_API_KEY_HERE>",
     organizationId: 380445,
   });
 
@@ -87,7 +89,9 @@ import { Writer } from "@writerai/writer-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

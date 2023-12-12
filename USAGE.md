@@ -1,10 +1,10 @@
-<!-- Start SDK Example Usage -->
+<!-- Start SDK Example Usage [usage] -->
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 
-(async () => {
+async function run() {
     const sdk = new Writer({
-        apiKey: "",
+        apiKey: "<YOUR_API_KEY_HERE>",
         organizationId: 850421,
     });
 
@@ -13,7 +13,9 @@ import { Writer } from "@writerai/writer-sdk";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->

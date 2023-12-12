@@ -13,6 +13,6 @@
 | `n`                | *number*           | :heavy_minus_sign: | N/A                |                    |
 | `presencePenalty`  | *number*           | :heavy_minus_sign: | N/A                |                    |
 | `prompt`           | *string*           | :heavy_check_mark: | N/A                |                    |
-| `stop`             | *string*[]         | :heavy_minus_sign: | N/A                | the,is,and         |
+| `stop`             | *string*[]         | :heavy_minus_sign: | N/A                | ["the","is","and"] |
 | `temperature`      | *number*           | :heavy_minus_sign: | N/A                | 0.7                |
 | `topP`             | *number*           | :heavy_minus_sign: | N/A                | 1                  |

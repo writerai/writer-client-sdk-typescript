@@ -20,9 +20,9 @@ Delete snippets
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
+    apiKey: "<YOUR_API_KEY_HERE>",
     organizationId: 545907,
   });
 
@@ -36,7 +36,9 @@ import { Writer } from "@writerai/writer-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -67,9 +69,9 @@ Find snippets
 import { Writer } from "@writerai/writer-sdk";
 import { SortField, SortOrder } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
+    apiKey: "<YOUR_API_KEY_HERE>",
     organizationId: 40141,
   });
 
@@ -86,7 +88,9 @@ import { SortField, SortOrder } from "@writerai/writer-sdk/dist/sdk/models/opera
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -116,9 +120,9 @@ Update snippets
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
+    apiKey: "<YOUR_API_KEY_HERE>",
     organizationId: 857478,
   });
 
@@ -140,7 +144,9 @@ import { Writer } from "@writerai/writer-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

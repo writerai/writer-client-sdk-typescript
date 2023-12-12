@@ -28,9 +28,9 @@ import {
   TermMistakeCreatePos,
 } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
+    apiKey: "<YOUR_API_KEY_HERE>",
     organizationId: 551477,
   });
 
@@ -75,7 +75,9 @@ import {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -105,9 +107,9 @@ Delete terms
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
+    apiKey: "<YOUR_API_KEY_HERE>",
     organizationId: 545907,
   });
 
@@ -121,7 +123,9 @@ import { Writer } from "@writerai/writer-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -152,9 +156,9 @@ Find terms
 import { Writer } from "@writerai/writer-sdk";
 import { PartOfSpeech, QueryParamSortField, QueryParamSortOrder, TypeT } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
+    apiKey: "<YOUR_API_KEY_HERE>",
     organizationId: 40141,
   });
 
@@ -168,7 +172,9 @@ import { PartOfSpeech, QueryParamSortField, QueryParamSortOrder, TypeT } from "@
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -205,9 +211,9 @@ import {
   UpdateTermsRequestFailHandling,
 } from "@writerai/writer-sdk/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
+    apiKey: "<YOUR_API_KEY_HERE>",
     organizationId: 857478,
   });
 
@@ -253,7 +259,9 @@ import {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

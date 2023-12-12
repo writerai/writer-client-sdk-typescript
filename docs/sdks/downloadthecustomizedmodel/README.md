@@ -18,9 +18,9 @@ Download your fine-tuned model (available only for Palmyra Base and Palmyra Larg
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
+    apiKey: "<YOUR_API_KEY_HERE>",
     organizationId: 501762,
   });
 
@@ -32,7 +32,9 @@ import { Writer } from "@writerai/writer-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

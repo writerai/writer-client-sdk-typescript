@@ -21,9 +21,9 @@ Delete file
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
+    apiKey: "<YOUR_API_KEY_HERE>",
     organizationId: 545907,
   });
 
@@ -34,7 +34,9 @@ import { Writer } from "@writerai/writer-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -64,9 +66,9 @@ Get file
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
+    apiKey: "<YOUR_API_KEY_HERE>",
     organizationId: 700347,
   });
 
@@ -77,7 +79,9 @@ import { Writer } from "@writerai/writer-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -108,9 +112,9 @@ List files
 import { Writer } from "@writerai/writer-sdk";
 import { ListFilesRequest } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
+    apiKey: "<YOUR_API_KEY_HERE>",
     organizationId: 768578,
   });
 const organizationId: number = 99895;
@@ -120,7 +124,9 @@ const organizationId: number = 99895;
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -150,9 +156,9 @@ Upload file
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
+    apiKey: "<YOUR_API_KEY_HERE>",
     organizationId: 403654,
   });
 
@@ -168,7 +174,9 @@ import { Writer } from "@writerai/writer-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

@@ -19,9 +19,9 @@ Get document details
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
+    apiKey: "<YOUR_API_KEY_HERE>",
     organizationId: 700347,
   });
 
@@ -33,7 +33,9 @@ import { Writer } from "@writerai/writer-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -64,9 +66,9 @@ List team documents
 import { Writer } from "@writerai/writer-sdk";
 import { ListTeamDocumentsQueryParamSortField, ListTeamDocumentsQueryParamSortOrder } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
+    apiKey: "<YOUR_API_KEY_HERE>",
     organizationId: 768578,
   });
 
@@ -77,7 +79,9 @@ import { ListTeamDocumentsQueryParamSortField, ListTeamDocumentsQueryParamSortOr
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

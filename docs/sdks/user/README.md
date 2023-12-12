@@ -19,9 +19,9 @@ List users
 import { Writer } from "@writerai/writer-sdk";
 import { ListUsersQueryParamSortField, ListUsersQueryParamSortOrder } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
+    apiKey: "<YOUR_API_KEY_HERE>",
     organizationId: 768578,
   });
 
@@ -30,7 +30,9 @@ import { ListUsersQueryParamSortField, ListUsersQueryParamSortOrder } from "@wri
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

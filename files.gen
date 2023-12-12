@@ -131,7 +131,6 @@ src/sdk/models/errors/failresponse.ts
 src/sdk/models/errors/index.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/index.ts
-USAGE.md
 docs/sdk/models/operations/getsubscriptiondetailsresponse.md
 docs/sdk/models/operations/detectcontentrequest.md
 docs/sdk/models/operations/detectcontentresponse.md
@@ -311,4 +310,5 @@ docs/sdks/snippet/README.md
 docs/sdks/styleguide/README.md
 docs/sdks/terminology/README.md
 docs/sdks/user/README.md
+USAGE.md
 .gitattributes

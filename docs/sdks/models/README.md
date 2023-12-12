@@ -19,9 +19,9 @@ List available LLM models
 import { Writer } from "@writerai/writer-sdk";
 import { ListModelsRequest } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
+    apiKey: "<YOUR_API_KEY_HERE>",
     organizationId: 768578,
   });
 const organizationId: number = 99895;
@@ -31,7 +31,9 @@ const organizationId: number = 99895;
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
