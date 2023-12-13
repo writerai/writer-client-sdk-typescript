@@ -20,70 +20,70 @@ Add terms
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import {
-  FailHandling,
-  TermCreatePos,
-  TermCreateType,
-  TermExampleCreateType,
-  TermMistakeCreatePos,
-} from "@writerai/writer-sdk/dist/sdk/models/shared";
+import { FailHandling } from "@writerai/writer-sdk/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
-    organizationId: 551477,
-  });
+      apiKey: "<YOUR_API_KEY_HERE>",
+      organizationId: 551477,
+    });
 
+  
   const res = await sdk.terminology.add({
-    createTermsRequest: {
-      models: [
-        {
-          approvedTermExtension: {
-            capitalize: false,
-            fixCase: false,
-            fixCommonMistakes: false,
+      createTermsRequest: {
+        models: [
+          {
+            approvedTermExtension: {
+              capitalize: false,
+              fixCase: false,
+              fixCommonMistakes: false,
+            },
+            caseSensitive: false,
+            examples: [
+              {
+                example: "string",
+                type: TermExampleCreateType.Bad,
+              },
+            ],
+            linkedTerms: [
+              {},
+            ],
+            mistakes: [
+              {
+                caseSensitive: false,
+                mistake: "string",
+              },
+            ],
+            tags: [
+              {
+                tag: "string",
+              },
+            ],
+            term: "string",
+            type: TermCreateType.Banned,
           },
-          caseSensitive: false,
-          examples: [
-            {
-              example: "string",
-              type: TermExampleCreateType.Bad,
-            },
-          ],
-          linkedTerms: [
-            {},
-          ],
-          mistakes: [
-            {
-              caseSensitive: false,
-              mistake: "string",
-            },
-          ],
-          tags: [
-            {
-              tag: "string",
-            },
-          ],
-          term: "string",
-          type: TermCreateType.Banned,
-        },
-      ],
-    },
-    teamId: 623445,
-  });
+        ],
+      },
+      teamId: 623445,
+    });
 
-  if (res.statusCode == 200) {
-    // handle response
+  if (res?.statusCode !== 200) {
+    throw new Error("Unexpected status code: " + res?.statusCode || "-");
   }
-})();
+  
+  // handle response
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `request`                                                                    | [operations.AddTermsRequest](../../sdk/models/operations/addtermsrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
-| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.AddTermsRequest](../../sdk/models/operations/addtermsrequest.md)                                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 
 
 ### Response
@@ -105,31 +105,37 @@ Delete terms
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
-    organizationId: 545907,
-  });
+      apiKey: "<YOUR_API_KEY_HERE>",
+      organizationId: 545907,
+    });
 
+  
   const res = await sdk.terminology.delete({
-    ids: [
-      841399,
-    ],
-    teamId: 698486,
-  });
+      ids: [
+        841399,
+      ],
+      teamId: 698486,
+    });
 
-  if (res.statusCode == 200) {
-    // handle response
+  if (res?.statusCode !== 200) {
+    throw new Error("Unexpected status code: " + res?.statusCode || "-");
   }
-})();
+  
+  // handle response
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.DeleteTermsRequest](../../sdk/models/operations/deletetermsrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteTermsRequest](../../sdk/models/operations/deletetermsrequest.md)                                                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 
 
 ### Response
@@ -150,33 +156,39 @@ Find terms
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { PartOfSpeech, QueryParamSortField, QueryParamSortOrder, TypeT } from "@writerai/writer-sdk/dist/sdk/models/operations";
+import { PartOfSpeech, QueryParamSortField, QueryParamSortOrder, TypeT } from "@writerai/writer-sdk/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
-    organizationId: 40141,
-  });
+      apiKey: "<YOUR_API_KEY_HERE>",
+      organizationId: 40141,
+    });
 
+  
   const res = await sdk.terminology.find({
-    tags: [
-      "string",
-    ],
-    teamId: 326883,
-  });
+      tags: [
+        "string",
+      ],
+      teamId: 326883,
+    });
 
-  if (res.statusCode == 200) {
-    // handle response
+  if (res?.statusCode !== 200) {
+    throw new Error("Unexpected status code: " + res?.statusCode || "-");
   }
-})();
+  
+  // handle response
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [operations.FindTermsRequest](../../sdk/models/operations/findtermsrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.FindTermsRequest](../../sdk/models/operations/findtermsrequest.md)                                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 
 
 ### Response
@@ -197,71 +209,71 @@ Update terms
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import {
-  TermExampleCreateType,
-  TermMistakeCreatePos,
-  TermUpdatePos,
-  TermUpdateType,
-  UpdateTermsRequestFailHandling,
-} from "@writerai/writer-sdk/dist/sdk/models/shared";
+import { UpdateTermsRequestFailHandling } from "@writerai/writer-sdk/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
-    organizationId: 857478,
-  });
+      apiKey: "<YOUR_API_KEY_HERE>",
+      organizationId: 857478,
+    });
 
+  
   const res = await sdk.terminology.update({
-    updateTermsRequest: {
-      models: [
-        {
-          approvedTermExtension: {
-            capitalize: false,
-            fixCase: false,
-            fixCommonMistakes: false,
+      updateTermsRequest: {
+        models: [
+          {
+            approvedTermExtension: {
+              capitalize: false,
+              fixCase: false,
+              fixCommonMistakes: false,
+            },
+            caseSensitive: false,
+            examples: [
+              {
+                example: "string",
+                type: TermExampleCreateType.Good,
+              },
+            ],
+            id: 597129,
+            linkedTerms: [
+              {},
+            ],
+            mistakes: [
+              {
+                caseSensitive: false,
+                mistake: "string",
+              },
+            ],
+            tags: [
+              {
+                tag: "string",
+              },
+            ],
+            term: "string",
+            type: TermUpdateType.Approved,
           },
-          caseSensitive: false,
-          examples: [
-            {
-              example: "string",
-              type: TermExampleCreateType.Good,
-            },
-          ],
-          id: 597129,
-          linkedTerms: [
-            {},
-          ],
-          mistakes: [
-            {
-              caseSensitive: false,
-              mistake: "string",
-            },
-          ],
-          tags: [
-            {
-              tag: "string",
-            },
-          ],
-          term: "string",
-          type: TermUpdateType.Approved,
-        },
-      ],
-    },
-    teamId: 344620,
-  });
+        ],
+      },
+      teamId: 344620,
+    });
 
-  if (res.statusCode == 200) {
-    // handle response
+  if (res?.statusCode !== 200) {
+    throw new Error("Unexpected status code: " + res?.statusCode || "-");
   }
-})();
+  
+  // handle response
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.UpdateTermsRequest](../../sdk/models/operations/updatetermsrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.UpdateTermsRequest](../../sdk/models/operations/updatetermsrequest.md)                                                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 
 
 ### Response

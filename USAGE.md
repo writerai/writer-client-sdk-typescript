@@ -1,19 +1,23 @@
-<!-- Start SDK Example Usage -->
+<!-- Start SDK Example Usage [usage] -->
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 
-(async () => {
+async function run() {
     const sdk = new Writer({
-        apiKey: "",
+        apiKey: "<YOUR_API_KEY_HERE>",
         organizationId: 850421,
     });
 
     const res = await sdk.billing.getSubscriptionDetails();
 
-    if (res.statusCode == 200) {
-        // handle response
+    if (res?.statusCode !== 200) {
+        throw new Error("Unexpected status code: " + res?.statusCode || "-");
     }
-})();
+
+    // handle response
+}
+
+run();
 
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->

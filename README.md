@@ -10,7 +10,7 @@
    <a href="https://github.com/writerai/writer-client-sdk-typescript/releases"><img src="https://img.shields.io/github/v/release/writerai/writer-client-sdk-typescript?sort=semver&style=for-the-badge" /></a>
 </div>
 
-<!-- Start SDK Installation -->
+<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 ### NPM
@@ -24,7 +24,7 @@ npm add @writerai/writer-sdk
 ```bash
 yarn add @writerai/writer-sdk
 ```
-<!-- End SDK Installation -->
+<!-- End SDK Installation [installation] -->
 
 ## Authentication
 
@@ -36,32 +36,36 @@ Your API keys are available in the account dashboard. We include randomly genera
 
 If you cannot see your secret API keys in the Dashboard, this means you do not have access to them. Contact your Writer account owner and ask to be added to their team as a developer.
 
+<!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
-<!-- Start SDK Example Usage -->
+
 ### Example
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 
-(async () => {
+async function run() {
     const sdk = new Writer({
-        apiKey: "",
+        apiKey: "<YOUR_API_KEY_HERE>",
         organizationId: 850421,
     });
 
     const res = await sdk.billing.getSubscriptionDetails();
 
-    if (res.statusCode == 200) {
-        // handle response
+    if (res?.statusCode !== 200) {
+        throw new Error("Unexpected status code: " + res?.statusCode || "-");
     }
-})();
+
+    // handle response
+}
+
+run();
 
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
 
-<!-- Start SDK Available Operations -->
+<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
-
 
 ### [billing](docs/sdks/billing/README.md)
 
@@ -134,29 +138,15 @@ import { Writer } from "@writerai/writer-sdk";
 ### [user](docs/sdks/user/README.md)
 
 * [list](docs/sdks/user/README.md#list) - List users
-<!-- End SDK Available Operations -->
+<!-- End Available Resources and Operations [operations] -->
 
 
 
-<!-- Start Dev Containers -->
-
-<!-- End Dev Containers -->
 
 
 
-<!-- Start Pagination -->
-# Pagination
 
-Some of the endpoints in this SDK support pagination. To use pagination, you make your SDK calls as usual, but the
-returned response object will have a `next` method that can be called to pull down the next group of results. If the
-return value of `next` is `null`, then there are no more pages to be fetched.
-
-Here's an example of one such pagination call:
-<!-- End Pagination -->
-
-
-
-<!-- Start Global Parameters -->
+<!-- Start Global Parameters [global-parameters] -->
 ## Global Parameters
 
 A parameter is configured globally. This parameter must be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, This global value will be used as the default on the operations that use it. When such operations are called, there is a place in each to override the global value, if needed.
@@ -178,9 +168,9 @@ The following global parameter is available. The required parameter must be set 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 
-(async () => {
+async function run() {
     const sdk = new Writer({
-        apiKey: "",
+        apiKey: "<YOUR_API_KEY_HERE>",
         organizationId: 496531,
     });
 
@@ -190,20 +180,24 @@ import { Writer } from "@writerai/writer-sdk";
         },
     });
 
-    if (res.statusCode == 200) {
-        // handle response
+    if (res?.statusCode !== 200) {
+        throw new Error("Unexpected status code: " + res?.statusCode || "-");
     }
-})();
+
+    // handle response
+}
+
+run();
 
 ```
-<!-- End Global Parameters -->
+<!-- End Global Parameters [global-parameters] -->
 
 
 
-<!-- Start Error Handling -->
+<!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Handling errors in this SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
+All SDK methods return a response object or throw an error. If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
 
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
@@ -214,33 +208,38 @@ Example
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
+import * as errors from "@writerai/writer-sdk/sdk/models/errors";
 
-(async() => {
-  const sdk = new Writer({
-    apiKey: "",
-    organizationId: 850421,
-  });
+async function run() {
+    const sdk = new Writer({
+        apiKey: "<YOUR_API_KEY_HERE>",
+        organizationId: 850421,
+    });
 
-  
-  let res;
-  try {
-    res = await sdk.billing.getSubscriptionDetails();
-  } catch (e) { 
-    if (e instanceof errors.FailResponse) {
-      console.error(e) // handle exception 
-    
-  }
+    const res = await sdk.billing.getSubscriptionDetails().catch((err) => {
+        if (err instanceof errors.FailResponse) {
+            console.error(err); // handle exception
+            return null;
+        } else {
+            throw err;
+        }
+    });
 
-  if (res.statusCode == 200) {
+    if (res?.statusCode !== 200) {
+        throw new Error("Unexpected status code: " + res?.statusCode || "-");
+    }
+
     // handle response
-  }
-})();
+}
+
+run();
+
 ```
-<!-- End Error Handling -->
+<!-- End Error Handling [errors] -->
 
 
 
-<!-- Start Server Selection -->
+<!-- Start Server Selection [server] -->
 ## Server Selection
 
 ### Select Server by Index
@@ -251,75 +250,68 @@ You can override the default server globally by passing a server index to the `s
 | - | ------ | --------- |
 | 0 | `https://enterprise-api.writer.com` | None |
 
-#### Example
 
-```typescript
-import { Writer } from "@writerai/writer-sdk";
-
-(async () => {
-    const sdk = new Writer({
-        serverIdx: 0,
-        apiKey: "",
-        organizationId: 850421,
-    });
-
-    const res = await sdk.billing.getSubscriptionDetails();
-
-    if (res.statusCode == 200) {
-        // handle response
-    }
-})();
-
-```
 
 
 ### Override Server URL Per-Client
 
 The default server can also be overridden globally by passing a URL to the `serverURL: str` optional parameter when initializing the SDK client instance. For example:
-```typescript
-import { Writer } from "@writerai/writer-sdk";
-
-(async () => {
-    const sdk = new Writer({
-        serverURL: "https://enterprise-api.writer.com",
-        apiKey: "",
-        organizationId: 850421,
-    });
-
-    const res = await sdk.billing.getSubscriptionDetails();
-
-    if (res.statusCode == 200) {
-        // handle response
-    }
-})();
-
-```
-<!-- End Server Selection -->
+<!-- End Server Selection [server] -->
 
 
 
-<!-- Start Custom HTTP Client -->
+<!-- Start Custom HTTP Client [http-client] -->
 ## Custom HTTP Client
 
-The Typescript SDK makes API calls using the (axios)[https://axios-http.com/docs/intro] HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `AxiosInstance` object.
+The TypeScript SDK makes API calls using an `HTTPClient` that wraps the native
+[Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). This
+client is a thin wrapper around `fetch` and provides the ability to attach hooks
+around the request lifecycle that can be used to modify the request or handle
+errors and response.
 
-For example, you could specify a header for every request that your sdk makes as follows:
+The `HTTPClient` constructor takes an optional `fetcher` argument that can be
+used to integrate a third-party HTTP client or when writing tests to mock out
+the HTTP client and feed in fixtures.
+
+The following example shows how to use the `"beforeRequest"` hook to to add a
+custom header and a timeout to requests and how to use the `"requestError"` hook
+to log errors:
 
 ```typescript
-from @writerai/writer-sdk import Writer;
-import axios;
+import { Writer } from "@writerai/writer-sdk";
+import { HTTPClient } from "@writerai/writer-sdk/lib/http";
 
-const httpClient = axios.create({
-    headers: {'x-custom-header': 'someValue'}
-})
+const httpClient = new HTTPClient({
+  // fetcher takes a function that has the same signature as native `fetch`.
+  fetcher: (request) => {
+    return fetch(request);
+  }
+});
 
-const sdk = new Writer({defaultClient: httpClient});
+httpClient.addHook("beforeRequest", (request) => {
+  const nextRequest = new Request(request, {
+    signal: request.signal || AbortSignal.timeout(5000);
+  });
+
+  nextRequest.headers.set("x-custom-header", "custom value");
+
+  return nextRequest;
+});
+
+httpClient.addHook("requestError", (error, request) => {
+  console.group("Request Error");
+  console.log("Reason:", `${error}`);
+  console.log("Endpoint:", `${request.method} ${request.url}`);
+  console.groupEnd();
+});
+
+const sdk = new Writer({ httpClient });
 ```
-<!-- End Custom HTTP Client -->
+<!-- End Custom HTTP Client [http-client] -->
 
 
 
-<!-- Start Authentication -->
+<!-- Start Authentication [security] -->
 ## Authentication
 
 ### Per-Client Security Schemes
@@ -334,21 +326,25 @@ To authenticate with the API the `apiKey` parameter must be set when initializin
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 
-(async () => {
+async function run() {
     const sdk = new Writer({
-        apiKey: "",
+        apiKey: "<YOUR_API_KEY_HERE>",
         organizationId: 850421,
     });
 
     const res = await sdk.billing.getSubscriptionDetails();
 
-    if (res.statusCode == 200) {
-        // handle response
+    if (res?.statusCode !== 200) {
+        throw new Error("Unexpected status code: " + res?.statusCode || "-");
     }
-})();
+
+    // handle response
+}
+
+run();
 
 ```
-<!-- End Authentication -->
+<!-- End Authentication [security] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
