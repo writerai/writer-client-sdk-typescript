@@ -12,7 +12,7 @@ import { RetryConfig } from "./retries";
 export const ServerList = ["https://enterprise-api.writer.com"] as const;
 
 export type SDKOptions = {
-    apiKey?: string;
+    apiKey?: string | (() => Promise<string>);
 
     /**
      * Allows setting the organizationId parameter for all supported operations
@@ -51,7 +51,7 @@ export function serverURLFromOptions(options: SDKOptions): URL {
 export const SDK_METADATA = Object.freeze({
     language: "typescript",
     openapiDocVersion: "1.7",
-    sdkVersion: "2.2.0",
-    genVersion: "2.214.3",
-    userAgent: "speakeasy-sdk/typescript 2.2.0 2.214.3 1.7 @writerai/writer-sdk",
+    sdkVersion: "2.2.1",
+    genVersion: "2.214.10",
+    userAgent: "speakeasy-sdk/typescript 2.2.1 2.214.10 1.7 @writerai/writer-sdk",
 });

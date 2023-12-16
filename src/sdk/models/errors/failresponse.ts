@@ -52,23 +52,42 @@ export namespace FailResponse$ {
         extras?: any | undefined;
         tpe: string;
     };
-    export type Outbound = {
-        errors?: Array<shared.FailMessage> | undefined;
-        extras?: any | undefined;
-        tpe: string;
-    };
 
-    export const inboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Inbound> = z
+    export const inboundSchema: z.ZodType<FailResponse, z.ZodTypeDef, Inbound> = z
         .object({
             errors: z.array(shared.FailMessage$.inboundSchema).optional(),
             extras: z.any().optional(),
             tpe: z.string(),
         })
         .transform((v) => {
-            return {
+            return new FailResponse({
                 ...(v.errors === undefined ? null : { errors: v.errors }),
                 ...(v.extras === undefined ? null : { extras: v.extras }),
                 tpe: v.tpe,
-            };
+            });
         });
+    export type Outbound = {
+        errors?: Array<shared.FailMessage$.Outbound> | undefined;
+        extras?: any | undefined;
+        tpe: string;
+    };
+
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, FailResponse> = z
+        .instanceof(FailResponse)
+        .transform((v) => v.data$)
+        .pipe(
+            z
+                .object({
+                    errors: z.array(shared.FailMessage$.outboundSchema).optional(),
+                    extras: z.any().optional(),
+                    tpe: z.string(),
+                })
+                .transform((v) => {
+                    return {
+                        ...(v.errors === undefined ? null : { errors: v.errors }),
+                        ...(v.extras === undefined ? null : { extras: v.extras }),
+                        tpe: v.tpe,
+                    };
+                })
+        );
 }

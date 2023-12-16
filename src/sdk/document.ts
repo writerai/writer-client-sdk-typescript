@@ -28,42 +28,55 @@ export class Document extends ClientSDK {
         input: operations.GetDocumentDetailsRequest,
         options?: RequestOptions
     ): Promise<operations.GetDocumentDetailsResponse> {
-        const headers = new Headers();
-        headers.set("user-agent", SDK_METADATA.userAgent);
-        headers.set("Accept", "application/json");
+        const headers$ = new Headers();
+        headers$.set("user-agent", SDK_METADATA.userAgent);
+        headers$.set("Accept", "application/json");
 
-        const payload = operations.GetDocumentDetailsRequest$.outboundSchema.parse(input);
-        const body = null;
+        const payload$ = operations.GetDocumentDetailsRequest$.outboundSchema.parse(input);
+        const body$ = null;
 
-        const pathParams = {
-            documentId: enc$.encodeSimple("documentId", payload.documentId, {
+        const pathParams$ = {
+            documentId: enc$.encodeSimple("documentId", payload$.documentId, {
                 explode: false,
                 charEncoding: "percent",
             }),
             organizationId: enc$.encodeSimple(
                 "organizationId",
-                payload.organizationId ?? this.options$.organizationId,
+                payload$.organizationId ?? this.options$.organizationId,
                 { explode: false, charEncoding: "percent" }
             ),
-            teamId: enc$.encodeSimple("teamId", payload.teamId, {
+            teamId: enc$.encodeSimple("teamId", payload$.teamId, {
                 explode: false,
                 charEncoding: "percent",
             }),
         };
 
-        const path = this.templateURLComponent(
+        const path$ = this.templateURLComponent(
             "/organization/{organizationId}/team/{teamId}/document/{documentId}"
-        )(pathParams);
+        )(pathParams$);
 
-        const security = this.options$.apiKey ? { apiKey: this.options$.apiKey } : {};
-        const securitySettings = this.resolveGlobalSecurity(security);
+        let security$;
+        if (typeof this.options$.apiKey === "function") {
+            security$ = { apiKey: await this.options$.apiKey() };
+        } else if (this.options$.apiKey) {
+            security$ = { apiKey: this.options$.apiKey };
+        } else {
+            security$ = {};
+        }
+        const securitySettings$ = this.resolveGlobalSecurity(security$);
 
         const response = await this.fetch$(
-            { security: securitySettings, method: "get", path, headers, body },
+            {
+                security: securitySettings$,
+                method: "get",
+                path: path$,
+                headers: headers$,
+                body: body$,
+            },
             options
         );
 
-        const responseFields = {
+        const responseFields$ = {
             ContentType: response.headers.get("content-type") ?? "application/octet-stream",
             StatusCode: response.status,
             RawResponse: response,
@@ -72,7 +85,7 @@ export class Document extends ClientSDK {
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
             const result = operations.GetDocumentDetailsResponse$.inboundSchema.parse({
-                ...responseFields,
+                ...responseFields$,
                 Headers: this.unpackHeaders(response.headers),
                 Document: responseBody,
             });
@@ -80,11 +93,11 @@ export class Document extends ClientSDK {
         } else if (this.matchResponse(response, [400, 401, 403, 404, 500], "application/json")) {
             const responseBody = await response.json();
             const result = errors.FailResponse$.inboundSchema.parse({
-                ...responseFields,
+                ...responseFields$,
                 Headers: this.unpackHeaders(response.headers),
                 ...responseBody,
             });
-            throw new errors.FailResponse(result);
+            throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
@@ -98,38 +111,38 @@ export class Document extends ClientSDK {
         input: operations.ListTeamDocumentsRequest,
         options?: RequestOptions
     ): Promise<operations.ListTeamDocumentsResponse> {
-        const headers = new Headers();
-        headers.set("user-agent", SDK_METADATA.userAgent);
-        headers.set("Accept", "application/json");
+        const headers$ = new Headers();
+        headers$.set("user-agent", SDK_METADATA.userAgent);
+        headers$.set("Accept", "application/json");
 
-        const payload = operations.ListTeamDocumentsRequest$.outboundSchema.parse(input);
-        const body = null;
+        const payload$ = operations.ListTeamDocumentsRequest$.outboundSchema.parse(input);
+        const body$ = null;
 
-        const pathParams = {
+        const pathParams$ = {
             organizationId: enc$.encodeSimple(
                 "organizationId",
-                payload.organizationId ?? this.options$.organizationId,
+                payload$.organizationId ?? this.options$.organizationId,
                 { explode: false, charEncoding: "percent" }
             ),
-            teamId: enc$.encodeSimple("teamId", payload.teamId, {
+            teamId: enc$.encodeSimple("teamId", payload$.teamId, {
                 explode: false,
                 charEncoding: "percent",
             }),
         };
 
-        const path = this.templateURLComponent(
+        const path$ = this.templateURLComponent(
             "/organization/{organizationId}/team/{teamId}/document"
-        )(pathParams);
+        )(pathParams$);
 
-        const query = [
-            enc$.encodeForm("limit", payload.limit, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("offset", payload.offset, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("search", payload.search, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("sortField", payload.sortField, {
+        const query$ = [
+            enc$.encodeForm("limit", payload$.limit, { explode: true, charEncoding: "percent" }),
+            enc$.encodeForm("offset", payload$.offset, { explode: true, charEncoding: "percent" }),
+            enc$.encodeForm("search", payload$.search, { explode: true, charEncoding: "percent" }),
+            enc$.encodeForm("sortField", payload$.sortField, {
                 explode: true,
                 charEncoding: "percent",
             }),
-            enc$.encodeForm("sortOrder", payload.sortOrder, {
+            enc$.encodeForm("sortOrder", payload$.sortOrder, {
                 explode: true,
                 charEncoding: "percent",
             }),
@@ -137,15 +150,29 @@ export class Document extends ClientSDK {
             .filter(Boolean)
             .join("&");
 
-        const security = this.options$.apiKey ? { apiKey: this.options$.apiKey } : {};
-        const securitySettings = this.resolveGlobalSecurity(security);
+        let security$;
+        if (typeof this.options$.apiKey === "function") {
+            security$ = { apiKey: await this.options$.apiKey() };
+        } else if (this.options$.apiKey) {
+            security$ = { apiKey: this.options$.apiKey };
+        } else {
+            security$ = {};
+        }
+        const securitySettings$ = this.resolveGlobalSecurity(security$);
 
         const response = await this.fetch$(
-            { security: securitySettings, method: "get", path, headers, query, body },
+            {
+                security: securitySettings$,
+                method: "get",
+                path: path$,
+                headers: headers$,
+                query: query$,
+                body: body$,
+            },
             options
         );
 
-        const responseFields = {
+        const responseFields$ = {
             ContentType: response.headers.get("content-type") ?? "application/octet-stream",
             StatusCode: response.status,
             RawResponse: response,
@@ -154,7 +181,7 @@ export class Document extends ClientSDK {
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
             const result = operations.ListTeamDocumentsResponse$.inboundSchema.parse({
-                ...responseFields,
+                ...responseFields$,
                 Headers: this.unpackHeaders(response.headers),
                 BriefDocuments: responseBody,
             });
@@ -162,11 +189,11 @@ export class Document extends ClientSDK {
         } else if (this.matchResponse(response, [400, 401, 403, 404, 500], "application/json")) {
             const responseBody = await response.json();
             const result = errors.FailResponse$.inboundSchema.parse({
-                ...responseFields,
+                ...responseFields$,
                 Headers: this.unpackHeaders(response.headers),
                 ...responseBody,
             });
-            throw new errors.FailResponse(result);
+            throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);

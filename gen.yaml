@@ -2,26 +2,28 @@ configVersion: 1.0.0
 management:
   docChecksum: 044ba6ea348a6fb8206cacad6926373d
   docVersion: "1.7"
-  speakeasyVersion: 1.126.3
-  generationVersion: 2.214.3
+  speakeasyVersion: 1.126.4
+  generationVersion: 2.214.10
 generation:
   comments: {}
   sdkClassName: Writer
   repoURL: https://github.com/writerai/writer-client-sdk-typescript.git
   usageSnippets:
     optionalPropertyRendering: withExample
+  fixes:
+    nameResolutionDec2023: false
 features:
   typescript:
     acceptHeaders: 2.81.1
-    core: 3.3.3
+    core: 3.3.8
     errors: 2.81.8
     flattening: 2.81.1
-    globalSecurity: 2.82.1
+    globalSecurity: 2.82.2
     globalServerURLs: 2.82.1
     globals: 2.81.1
     nameOverrides: 2.81.1
 typescript:
-  version: 2.2.0
+  version: 2.2.1
   author: writerai
   clientServerStatusCodesAsErrors: false
   flattenGlobalSecurity: true

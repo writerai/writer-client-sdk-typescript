@@ -28,40 +28,53 @@ export class Terminology extends ClientSDK {
         input: operations.AddTermsRequest,
         options?: RequestOptions
     ): Promise<operations.AddTermsResponse> {
-        const headers = new Headers();
-        headers.set("user-agent", SDK_METADATA.userAgent);
-        headers.set("Content-Type", "application/json");
-        headers.set("Accept", "application/json");
+        const headers$ = new Headers();
+        headers$.set("user-agent", SDK_METADATA.userAgent);
+        headers$.set("Content-Type", "application/json");
+        headers$.set("Accept", "application/json");
 
-        const payload = operations.AddTermsRequest$.outboundSchema.parse(input);
+        const payload$ = operations.AddTermsRequest$.outboundSchema.parse(input);
 
-        const body = enc$.encodeJSON("body", payload.CreateTermsRequest, { explode: true });
+        const body$ = enc$.encodeJSON("body", payload$.CreateTermsRequest, { explode: true });
 
-        const pathParams = {
+        const pathParams$ = {
             organizationId: enc$.encodeSimple(
                 "organizationId",
-                payload.organizationId ?? this.options$.organizationId,
+                payload$.organizationId ?? this.options$.organizationId,
                 { explode: false, charEncoding: "percent" }
             ),
-            teamId: enc$.encodeSimple("teamId", payload.teamId, {
+            teamId: enc$.encodeSimple("teamId", payload$.teamId, {
                 explode: false,
                 charEncoding: "percent",
             }),
         };
 
-        const path = this.templateURLComponent(
+        const path$ = this.templateURLComponent(
             "/terminology/organization/{organizationId}/team/{teamId}"
-        )(pathParams);
+        )(pathParams$);
 
-        const security = this.options$.apiKey ? { apiKey: this.options$.apiKey } : {};
-        const securitySettings = this.resolveGlobalSecurity(security);
+        let security$;
+        if (typeof this.options$.apiKey === "function") {
+            security$ = { apiKey: await this.options$.apiKey() };
+        } else if (this.options$.apiKey) {
+            security$ = { apiKey: this.options$.apiKey };
+        } else {
+            security$ = {};
+        }
+        const securitySettings$ = this.resolveGlobalSecurity(security$);
 
         const response = await this.fetch$(
-            { security: securitySettings, method: "post", path, headers, body },
+            {
+                security: securitySettings$,
+                method: "post",
+                path: path$,
+                headers: headers$,
+                body: body$,
+            },
             options
         );
 
-        const responseFields = {
+        const responseFields$ = {
             ContentType: response.headers.get("content-type") ?? "application/octet-stream",
             StatusCode: response.status,
             RawResponse: response,
@@ -70,7 +83,7 @@ export class Terminology extends ClientSDK {
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
             const result = operations.AddTermsResponse$.inboundSchema.parse({
-                ...responseFields,
+                ...responseFields$,
                 Headers: this.unpackHeaders(response.headers),
                 CreateTermsResponse: responseBody,
             });
@@ -78,11 +91,11 @@ export class Terminology extends ClientSDK {
         } else if (this.matchResponse(response, [400, 401, 403, 404, 500], "application/json")) {
             const responseBody = await response.json();
             const result = errors.FailResponse$.inboundSchema.parse({
-                ...responseFields,
+                ...responseFields$,
                 Headers: this.unpackHeaders(response.headers),
                 ...responseBody,
             });
-            throw new errors.FailResponse(result);
+            throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
@@ -96,52 +109,66 @@ export class Terminology extends ClientSDK {
         input: operations.DeleteTermsRequest,
         options?: RequestOptions
     ): Promise<operations.DeleteTermsResponse> {
-        const headers = new Headers();
-        headers.set("user-agent", SDK_METADATA.userAgent);
-        headers.set("Accept", "application/json");
+        const headers$ = new Headers();
+        headers$.set("user-agent", SDK_METADATA.userAgent);
+        headers$.set("Accept", "application/json");
 
-        const payload = operations.DeleteTermsRequest$.outboundSchema.parse(input);
-        const body = null;
+        const payload$ = operations.DeleteTermsRequest$.outboundSchema.parse(input);
+        const body$ = null;
 
-        const pathParams = {
+        const pathParams$ = {
             organizationId: enc$.encodeSimple(
                 "organizationId",
-                payload.organizationId ?? this.options$.organizationId,
+                payload$.organizationId ?? this.options$.organizationId,
                 { explode: false, charEncoding: "percent" }
             ),
-            teamId: enc$.encodeSimple("teamId", payload.teamId, {
+            teamId: enc$.encodeSimple("teamId", payload$.teamId, {
                 explode: false,
                 charEncoding: "percent",
             }),
         };
 
-        const path = this.templateURLComponent(
+        const path$ = this.templateURLComponent(
             "/terminology/organization/{organizationId}/team/{teamId}"
-        )(pathParams);
+        )(pathParams$);
 
-        const query = [
-            enc$.encodeForm("ids", payload.ids, { explode: true, charEncoding: "percent" }),
+        const query$ = [
+            enc$.encodeForm("ids", payload$.ids, { explode: true, charEncoding: "percent" }),
         ]
             .filter(Boolean)
             .join("&");
 
-        headers.set(
+        headers$.set(
             "X-Request-ID",
-            enc$.encodeSimple("X-Request-ID", payload["X-Request-ID"], {
+            enc$.encodeSimple("X-Request-ID", payload$["X-Request-ID"], {
                 explode: false,
                 charEncoding: "none",
             })
         );
 
-        const security = this.options$.apiKey ? { apiKey: this.options$.apiKey } : {};
-        const securitySettings = this.resolveGlobalSecurity(security);
+        let security$;
+        if (typeof this.options$.apiKey === "function") {
+            security$ = { apiKey: await this.options$.apiKey() };
+        } else if (this.options$.apiKey) {
+            security$ = { apiKey: this.options$.apiKey };
+        } else {
+            security$ = {};
+        }
+        const securitySettings$ = this.resolveGlobalSecurity(security$);
 
         const response = await this.fetch$(
-            { security: securitySettings, method: "delete", path, headers, query, body },
+            {
+                security: securitySettings$,
+                method: "delete",
+                path: path$,
+                headers: headers$,
+                query: query$,
+                body: body$,
+            },
             options
         );
 
-        const responseFields = {
+        const responseFields$ = {
             ContentType: response.headers.get("content-type") ?? "application/octet-stream",
             StatusCode: response.status,
             RawResponse: response,
@@ -150,7 +177,7 @@ export class Terminology extends ClientSDK {
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
             const result = operations.DeleteTermsResponse$.inboundSchema.parse({
-                ...responseFields,
+                ...responseFields$,
                 Headers: this.unpackHeaders(response.headers),
                 DeleteResponse: responseBody,
             });
@@ -158,11 +185,11 @@ export class Terminology extends ClientSDK {
         } else if (this.matchResponse(response, [400, 401, 403, 404, 500], "application/json")) {
             const responseBody = await response.json();
             const result = errors.FailResponse$.inboundSchema.parse({
-                ...responseFields,
+                ...responseFields$,
                 Headers: this.unpackHeaders(response.headers),
                 ...responseBody,
             });
-            throw new errors.FailResponse(result);
+            throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
@@ -176,60 +203,74 @@ export class Terminology extends ClientSDK {
         input: operations.FindTermsRequest,
         options?: RequestOptions
     ): Promise<operations.FindTermsResponse> {
-        const headers = new Headers();
-        headers.set("user-agent", SDK_METADATA.userAgent);
-        headers.set("Accept", "application/json");
+        const headers$ = new Headers();
+        headers$.set("user-agent", SDK_METADATA.userAgent);
+        headers$.set("Accept", "application/json");
 
-        const payload = operations.FindTermsRequest$.outboundSchema.parse(input);
-        const body = null;
+        const payload$ = operations.FindTermsRequest$.outboundSchema.parse(input);
+        const body$ = null;
 
-        const pathParams = {
+        const pathParams$ = {
             organizationId: enc$.encodeSimple(
                 "organizationId",
-                payload.organizationId ?? this.options$.organizationId,
+                payload$.organizationId ?? this.options$.organizationId,
                 { explode: false, charEncoding: "percent" }
             ),
-            teamId: enc$.encodeSimple("teamId", payload.teamId, {
+            teamId: enc$.encodeSimple("teamId", payload$.teamId, {
                 explode: false,
                 charEncoding: "percent",
             }),
         };
 
-        const path = this.templateURLComponent(
+        const path$ = this.templateURLComponent(
             "/terminology/organization/{organizationId}/team/{teamId}"
-        )(pathParams);
+        )(pathParams$);
 
-        const query = [
-            enc$.encodeForm("limit", payload.limit, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("offset", payload.offset, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("partOfSpeech", payload.partOfSpeech, {
+        const query$ = [
+            enc$.encodeForm("limit", payload$.limit, { explode: true, charEncoding: "percent" }),
+            enc$.encodeForm("offset", payload$.offset, { explode: true, charEncoding: "percent" }),
+            enc$.encodeForm("partOfSpeech", payload$.partOfSpeech, {
                 explode: true,
                 charEncoding: "percent",
             }),
-            enc$.encodeForm("sortField", payload.sortField, {
+            enc$.encodeForm("sortField", payload$.sortField, {
                 explode: true,
                 charEncoding: "percent",
             }),
-            enc$.encodeForm("sortOrder", payload.sortOrder, {
+            enc$.encodeForm("sortOrder", payload$.sortOrder, {
                 explode: true,
                 charEncoding: "percent",
             }),
-            enc$.encodeForm("tags", payload.tags, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("term", payload.term, { explode: true, charEncoding: "percent" }),
-            enc$.encodeForm("type", payload.type, { explode: true, charEncoding: "percent" }),
+            enc$.encodeForm("tags", payload$.tags, { explode: true, charEncoding: "percent" }),
+            enc$.encodeForm("term", payload$.term, { explode: true, charEncoding: "percent" }),
+            enc$.encodeForm("type", payload$.type, { explode: true, charEncoding: "percent" }),
         ]
             .filter(Boolean)
             .join("&");
 
-        const security = this.options$.apiKey ? { apiKey: this.options$.apiKey } : {};
-        const securitySettings = this.resolveGlobalSecurity(security);
+        let security$;
+        if (typeof this.options$.apiKey === "function") {
+            security$ = { apiKey: await this.options$.apiKey() };
+        } else if (this.options$.apiKey) {
+            security$ = { apiKey: this.options$.apiKey };
+        } else {
+            security$ = {};
+        }
+        const securitySettings$ = this.resolveGlobalSecurity(security$);
 
         const response = await this.fetch$(
-            { security: securitySettings, method: "get", path, headers, query, body },
+            {
+                security: securitySettings$,
+                method: "get",
+                path: path$,
+                headers: headers$,
+                query: query$,
+                body: body$,
+            },
             options
         );
 
-        const responseFields = {
+        const responseFields$ = {
             ContentType: response.headers.get("content-type") ?? "application/octet-stream",
             StatusCode: response.status,
             RawResponse: response,
@@ -238,7 +279,7 @@ export class Terminology extends ClientSDK {
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
             const result = operations.FindTermsResponse$.inboundSchema.parse({
-                ...responseFields,
+                ...responseFields$,
                 Headers: this.unpackHeaders(response.headers),
                 PaginatedResult_FullTermWithUser: responseBody,
             });
@@ -246,11 +287,11 @@ export class Terminology extends ClientSDK {
         } else if (this.matchResponse(response, [400, 401, 403, 404, 500], "application/json")) {
             const responseBody = await response.json();
             const result = errors.FailResponse$.inboundSchema.parse({
-                ...responseFields,
+                ...responseFields$,
                 Headers: this.unpackHeaders(response.headers),
                 ...responseBody,
             });
-            throw new errors.FailResponse(result);
+            throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
@@ -264,48 +305,61 @@ export class Terminology extends ClientSDK {
         input: operations.UpdateTermsRequest,
         options?: RequestOptions
     ): Promise<operations.UpdateTermsResponse> {
-        const headers = new Headers();
-        headers.set("user-agent", SDK_METADATA.userAgent);
-        headers.set("Content-Type", "application/json");
-        headers.set("Accept", "application/json");
+        const headers$ = new Headers();
+        headers$.set("user-agent", SDK_METADATA.userAgent);
+        headers$.set("Content-Type", "application/json");
+        headers$.set("Accept", "application/json");
 
-        const payload = operations.UpdateTermsRequest$.outboundSchema.parse(input);
+        const payload$ = operations.UpdateTermsRequest$.outboundSchema.parse(input);
 
-        const body = enc$.encodeJSON("body", payload.UpdateTermsRequest, { explode: true });
+        const body$ = enc$.encodeJSON("body", payload$.UpdateTermsRequest, { explode: true });
 
-        const pathParams = {
+        const pathParams$ = {
             organizationId: enc$.encodeSimple(
                 "organizationId",
-                payload.organizationId ?? this.options$.organizationId,
+                payload$.organizationId ?? this.options$.organizationId,
                 { explode: false, charEncoding: "percent" }
             ),
-            teamId: enc$.encodeSimple("teamId", payload.teamId, {
+            teamId: enc$.encodeSimple("teamId", payload$.teamId, {
                 explode: false,
                 charEncoding: "percent",
             }),
         };
 
-        const path = this.templateURLComponent(
+        const path$ = this.templateURLComponent(
             "/terminology/organization/{organizationId}/team/{teamId}"
-        )(pathParams);
+        )(pathParams$);
 
-        headers.set(
+        headers$.set(
             "X-Request-ID",
-            enc$.encodeSimple("X-Request-ID", payload["X-Request-ID"], {
+            enc$.encodeSimple("X-Request-ID", payload$["X-Request-ID"], {
                 explode: false,
                 charEncoding: "none",
             })
         );
 
-        const security = this.options$.apiKey ? { apiKey: this.options$.apiKey } : {};
-        const securitySettings = this.resolveGlobalSecurity(security);
+        let security$;
+        if (typeof this.options$.apiKey === "function") {
+            security$ = { apiKey: await this.options$.apiKey() };
+        } else if (this.options$.apiKey) {
+            security$ = { apiKey: this.options$.apiKey };
+        } else {
+            security$ = {};
+        }
+        const securitySettings$ = this.resolveGlobalSecurity(security$);
 
         const response = await this.fetch$(
-            { security: securitySettings, method: "put", path, headers, body },
+            {
+                security: securitySettings$,
+                method: "put",
+                path: path$,
+                headers: headers$,
+                body: body$,
+            },
             options
         );
 
-        const responseFields = {
+        const responseFields$ = {
             ContentType: response.headers.get("content-type") ?? "application/octet-stream",
             StatusCode: response.status,
             RawResponse: response,
@@ -314,7 +368,7 @@ export class Terminology extends ClientSDK {
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
             const result = operations.UpdateTermsResponse$.inboundSchema.parse({
-                ...responseFields,
+                ...responseFields$,
                 Headers: this.unpackHeaders(response.headers),
                 CreateTermsResponse: responseBody,
             });
@@ -322,11 +376,11 @@ export class Terminology extends ClientSDK {
         } else if (this.matchResponse(response, [400, 401, 403, 404, 500], "application/json")) {
             const responseBody = await response.json();
             const result = errors.FailResponse$.inboundSchema.parse({
-                ...responseFields,
+                ...responseFields$,
                 Headers: this.unpackHeaders(response.headers),
                 ...responseBody,
             });
-            throw new errors.FailResponse(result);
+            throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);

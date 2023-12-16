@@ -3,6 +3,7 @@
  */
 
 import * as b64$ from "../../../lib/base64";
+import { blobLikeSchema } from "../../../sdk/types";
 import { z } from "zod";
 
 export type FileT = {
@@ -11,7 +12,7 @@ export type FileT = {
 };
 
 export type UploadModelFileRequest = {
-    file: FileT | File | Blob;
+    file: FileT | Blob;
 };
 
 /** @internal */
@@ -68,12 +69,12 @@ export namespace UploadModelFileRequest$ {
         });
 
     export type Outbound = {
-        file: FileT$.Outbound | File | Blob;
+        file: FileT$.Outbound | Blob;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, UploadModelFileRequest> = z
         .object({
-            file: z.lazy(() => FileT$.outboundSchema).or(z.instanceof(Blob)),
+            file: z.lazy(() => FileT$.outboundSchema).or(blobLikeSchema),
         })
         .transform((v) => {
             return {

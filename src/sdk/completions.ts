@@ -28,40 +28,53 @@ export class Completions extends ClientSDK {
         input: operations.CreateCompletionRequest,
         options?: RequestOptions
     ): Promise<operations.CreateCompletionResponse> {
-        const headers = new Headers();
-        headers.set("user-agent", SDK_METADATA.userAgent);
-        headers.set("Content-Type", "application/json");
-        headers.set("Accept", "application/json");
+        const headers$ = new Headers();
+        headers$.set("user-agent", SDK_METADATA.userAgent);
+        headers$.set("Content-Type", "application/json");
+        headers$.set("Accept", "application/json");
 
-        const payload = operations.CreateCompletionRequest$.outboundSchema.parse(input);
+        const payload$ = operations.CreateCompletionRequest$.outboundSchema.parse(input);
 
-        const body = enc$.encodeJSON("body", payload.CompletionRequest, { explode: true });
+        const body$ = enc$.encodeJSON("body", payload$.CompletionRequest, { explode: true });
 
-        const pathParams = {
-            modelId: enc$.encodeSimple("modelId", payload.modelId, {
+        const pathParams$ = {
+            modelId: enc$.encodeSimple("modelId", payload$.modelId, {
                 explode: false,
                 charEncoding: "percent",
             }),
             organizationId: enc$.encodeSimple(
                 "organizationId",
-                payload.organizationId ?? this.options$.organizationId,
+                payload$.organizationId ?? this.options$.organizationId,
                 { explode: false, charEncoding: "percent" }
             ),
         };
 
-        const path = this.templateURLComponent(
+        const path$ = this.templateURLComponent(
             "/llm/organization/{organizationId}/model/{modelId}/completions"
-        )(pathParams);
+        )(pathParams$);
 
-        const security = this.options$.apiKey ? { apiKey: this.options$.apiKey } : {};
-        const securitySettings = this.resolveGlobalSecurity(security);
+        let security$;
+        if (typeof this.options$.apiKey === "function") {
+            security$ = { apiKey: await this.options$.apiKey() };
+        } else if (this.options$.apiKey) {
+            security$ = { apiKey: this.options$.apiKey };
+        } else {
+            security$ = {};
+        }
+        const securitySettings$ = this.resolveGlobalSecurity(security$);
 
         const response = await this.fetch$(
-            { security: securitySettings, method: "post", path, headers, body },
+            {
+                security: securitySettings$,
+                method: "post",
+                path: path$,
+                headers: headers$,
+                body: body$,
+            },
             options
         );
 
-        const responseFields = {
+        const responseFields$ = {
             ContentType: response.headers.get("content-type") ?? "application/octet-stream",
             StatusCode: response.status,
             RawResponse: response,
@@ -70,7 +83,7 @@ export class Completions extends ClientSDK {
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
             const result = operations.CreateCompletionResponse$.inboundSchema.parse({
-                ...responseFields,
+                ...responseFields$,
                 Headers: this.unpackHeaders(response.headers),
                 CompletionResponse: responseBody,
             });
@@ -78,11 +91,11 @@ export class Completions extends ClientSDK {
         } else if (this.matchResponse(response, [400, 401, 403, 404, 500], "application/json")) {
             const responseBody = await response.json();
             const result = errors.FailResponse$.inboundSchema.parse({
-                ...responseFields,
+                ...responseFields$,
                 Headers: this.unpackHeaders(response.headers),
                 ...responseBody,
             });
-            throw new errors.FailResponse(result);
+            throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
@@ -96,45 +109,58 @@ export class Completions extends ClientSDK {
         input: operations.CreateModelCustomizationCompletionRequest,
         options?: RequestOptions
     ): Promise<operations.CreateModelCustomizationCompletionResponse> {
-        const headers = new Headers();
-        headers.set("user-agent", SDK_METADATA.userAgent);
-        headers.set("Content-Type", "application/json");
-        headers.set("Accept", "application/json");
+        const headers$ = new Headers();
+        headers$.set("user-agent", SDK_METADATA.userAgent);
+        headers$.set("Content-Type", "application/json");
+        headers$.set("Accept", "application/json");
 
-        const payload =
+        const payload$ =
             operations.CreateModelCustomizationCompletionRequest$.outboundSchema.parse(input);
 
-        const body = enc$.encodeJSON("body", payload.CompletionRequest, { explode: true });
+        const body$ = enc$.encodeJSON("body", payload$.CompletionRequest, { explode: true });
 
-        const pathParams = {
-            customizationId: enc$.encodeSimple("customizationId", payload.customizationId, {
+        const pathParams$ = {
+            customizationId: enc$.encodeSimple("customizationId", payload$.customizationId, {
                 explode: false,
                 charEncoding: "percent",
             }),
-            modelId: enc$.encodeSimple("modelId", payload.modelId, {
+            modelId: enc$.encodeSimple("modelId", payload$.modelId, {
                 explode: false,
                 charEncoding: "percent",
             }),
             organizationId: enc$.encodeSimple(
                 "organizationId",
-                payload.organizationId ?? this.options$.organizationId,
+                payload$.organizationId ?? this.options$.organizationId,
                 { explode: false, charEncoding: "percent" }
             ),
         };
 
-        const path = this.templateURLComponent(
+        const path$ = this.templateURLComponent(
             "/llm/organization/{organizationId}/model/{modelId}/customization/{customizationId}/completions"
-        )(pathParams);
+        )(pathParams$);
 
-        const security = this.options$.apiKey ? { apiKey: this.options$.apiKey } : {};
-        const securitySettings = this.resolveGlobalSecurity(security);
+        let security$;
+        if (typeof this.options$.apiKey === "function") {
+            security$ = { apiKey: await this.options$.apiKey() };
+        } else if (this.options$.apiKey) {
+            security$ = { apiKey: this.options$.apiKey };
+        } else {
+            security$ = {};
+        }
+        const securitySettings$ = this.resolveGlobalSecurity(security$);
 
         const response = await this.fetch$(
-            { security: securitySettings, method: "post", path, headers, body },
+            {
+                security: securitySettings$,
+                method: "post",
+                path: path$,
+                headers: headers$,
+                body: body$,
+            },
             options
         );
 
-        const responseFields = {
+        const responseFields$ = {
             ContentType: response.headers.get("content-type") ?? "application/octet-stream",
             StatusCode: response.status,
             RawResponse: response,
@@ -144,7 +170,7 @@ export class Completions extends ClientSDK {
             const responseBody = await response.json();
             const result =
                 operations.CreateModelCustomizationCompletionResponse$.inboundSchema.parse({
-                    ...responseFields,
+                    ...responseFields$,
                     Headers: this.unpackHeaders(response.headers),
                     CompletionResponse: responseBody,
                 });
@@ -152,11 +178,11 @@ export class Completions extends ClientSDK {
         } else if (this.matchResponse(response, [400, 401, 403, 404, 500], "application/json")) {
             const responseBody = await response.json();
             const result = errors.FailResponse$.inboundSchema.parse({
-                ...responseFields,
+                ...responseFields$,
                 Headers: this.unpackHeaders(response.headers),
                 ...responseBody,
             });
-            throw new errors.FailResponse(result);
+            throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);

@@ -26,21 +26,28 @@ export class Billing extends ClientSDK {
     async getSubscriptionDetails(
         options?: RequestOptions
     ): Promise<operations.GetSubscriptionDetailsResponse> {
-        const headers = new Headers();
-        headers.set("user-agent", SDK_METADATA.userAgent);
-        headers.set("Accept", "application/json");
+        const headers$ = new Headers();
+        headers$.set("user-agent", SDK_METADATA.userAgent);
+        headers$.set("Accept", "application/json");
 
-        const path = this.templateURLComponent("/billing/subscription")();
+        const path$ = this.templateURLComponent("/billing/subscription")();
 
-        const security = this.options$.apiKey ? { apiKey: this.options$.apiKey } : {};
-        const securitySettings = this.resolveGlobalSecurity(security);
+        let security$;
+        if (typeof this.options$.apiKey === "function") {
+            security$ = { apiKey: await this.options$.apiKey() };
+        } else if (this.options$.apiKey) {
+            security$ = { apiKey: this.options$.apiKey };
+        } else {
+            security$ = {};
+        }
+        const securitySettings$ = this.resolveGlobalSecurity(security$);
 
         const response = await this.fetch$(
-            { security: securitySettings, method: "get", path, headers },
+            { security: securitySettings$, method: "get", path: path$, headers: headers$ },
             options
         );
 
-        const responseFields = {
+        const responseFields$ = {
             ContentType: response.headers.get("content-type") ?? "application/octet-stream",
             StatusCode: response.status,
             RawResponse: response,
@@ -49,7 +56,7 @@ export class Billing extends ClientSDK {
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
             const result = operations.GetSubscriptionDetailsResponse$.inboundSchema.parse({
-                ...responseFields,
+                ...responseFields$,
                 Headers: this.unpackHeaders(response.headers),
                 SubscriptionPublicResponseApi: responseBody,
             });
@@ -57,11 +64,11 @@ export class Billing extends ClientSDK {
         } else if (this.matchResponse(response, [400, 401, 403, 404, 500], "application/json")) {
             const responseBody = await response.json();
             const result = errors.FailResponse$.inboundSchema.parse({
-                ...responseFields,
+                ...responseFields$,
                 Headers: this.unpackHeaders(response.headers),
                 ...responseBody,
             });
-            throw new errors.FailResponse(result);
+            throw result;
         } else {
             const responseBody = await response.text();
             throw new errors.SDKError("Unexpected API response", response, responseBody);
