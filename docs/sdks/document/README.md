@@ -19,9 +19,9 @@ Get document details
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
+    apiKey: "<YOUR_API_KEY_HERE>",
     organizationId: 700347,
   });
 
@@ -30,18 +30,23 @@ import { Writer } from "@writerai/writer-sdk";
     teamId: 558834,
   });
 
-  if (res.statusCode == 200) {
-    // handle response
+  if (res?.statusCode !== 200) {
+    throw new Error("Unexpected status code: " + res?.statusCode || "-");
   }
-})();
+  
+  // handle response
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.GetDocumentDetailsRequest](../../sdk/models/operations/getdocumentdetailsrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetDocumentDetailsRequest](../../sdk/models/operations/getdocumentdetailsrequest.md)                                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 
 
 ### Response
@@ -52,7 +57,7 @@ import { Writer } from "@writerai/writer-sdk";
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |
 
 ## list
 
@@ -62,11 +67,11 @@ List team documents
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { ListTeamDocumentsQueryParamSortField, ListTeamDocumentsQueryParamSortOrder } from "@writerai/writer-sdk/dist/sdk/models/operations";
+import { ListTeamDocumentsQueryParamSortField, ListTeamDocumentsQueryParamSortOrder } from "@writerai/writer-sdk/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
+    apiKey: "<YOUR_API_KEY_HERE>",
     organizationId: 768578,
   });
 
@@ -74,18 +79,23 @@ import { ListTeamDocumentsQueryParamSortField, ListTeamDocumentsQueryParamSortOr
     teamId: 99895,
   });
 
-  if (res.statusCode == 200) {
-    // handle response
+  if (res?.statusCode !== 200) {
+    throw new Error("Unexpected status code: " + res?.statusCode || "-");
   }
-})();
+  
+  // handle response
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.ListTeamDocumentsRequest](../../sdk/models/operations/listteamdocumentsrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListTeamDocumentsRequest](../../sdk/models/operations/listteamdocumentsrequest.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 
 
 ### Response
@@ -96,4 +106,4 @@ import { ListTeamDocumentsQueryParamSortField, ListTeamDocumentsQueryParamSortOr
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |

@@ -19,9 +19,9 @@ Create completion for LLM model
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
+    apiKey: "<YOUR_API_KEY_HERE>",
     organizationId: 486589,
   });
 
@@ -42,18 +42,23 @@ import { Writer } from "@writerai/writer-sdk";
     modelId: "string",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
+  if (res?.statusCode !== 200) {
+    throw new Error("Unexpected status code: " + res?.statusCode || "-");
   }
-})();
+  
+  // handle response
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.CreateCompletionRequest](../../sdk/models/operations/createcompletionrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CreateCompletionRequest](../../sdk/models/operations/createcompletionrequest.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 
 
 ### Response
@@ -64,7 +69,7 @@ import { Writer } from "@writerai/writer-sdk";
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |
 
 ## createModelCustomizationCompletion
 
@@ -75,9 +80,9 @@ Create completion for LLM customization model
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Writer({
-    apiKey: "",
+    apiKey: "<YOUR_API_KEY_HERE>",
     organizationId: 919503,
   });
 
@@ -99,18 +104,23 @@ import { Writer } from "@writerai/writer-sdk";
     modelId: "string",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
+  if (res?.statusCode !== 200) {
+    throw new Error("Unexpected status code: " + res?.statusCode || "-");
   }
-})();
+  
+  // handle response
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                                                        | Type                                                                                                                             | Required                                                                                                                         | Description                                                                                                                      |
-| -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                        | [operations.CreateModelCustomizationCompletionRequest](../../sdk/models/operations/createmodelcustomizationcompletionrequest.md) | :heavy_check_mark:                                                                                                               | The request object to use for the request.                                                                                       |
-| `config`                                                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                     | :heavy_minus_sign:                                                                                                               | Available config options for making requests.                                                                                    |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CreateModelCustomizationCompletionRequest](../../sdk/models/operations/createmodelcustomizationcompletionrequest.md)                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 
 
 ### Response
@@ -121,4 +131,4 @@ import { Writer } from "@writerai/writer-sdk";
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |
