@@ -24,48 +24,47 @@ import { FailHandling } from "@writerai/writer-sdk/sdk/models/shared";
 
 async function run() {
   const sdk = new Writer({
-      apiKey: "<YOUR_API_KEY_HERE>",
-      organizationId: 551477,
-    });
+    apiKey: "<YOUR_API_KEY_HERE>",
+    organizationId: 551477,
+  });
 
-  
   const res = await sdk.terminology.add({
-      createTermsRequest: {
-        models: [
-          {
-            approvedTermExtension: {
-              capitalize: false,
-              fixCase: false,
-              fixCommonMistakes: false,
-            },
-            caseSensitive: false,
-            examples: [
-              {
-                example: "string",
-                type: TermExampleCreateType.Bad,
-              },
-            ],
-            linkedTerms: [
-              {},
-            ],
-            mistakes: [
-              {
-                caseSensitive: false,
-                mistake: "string",
-              },
-            ],
-            tags: [
-              {
-                tag: "string",
-              },
-            ],
-            term: "string",
-            type: TermCreateType.Banned,
+    createTermsRequest: {
+      models: [
+        {
+          approvedTermExtension: {
+            capitalize: false,
+            fixCase: false,
+            fixCommonMistakes: false,
           },
-        ],
-      },
-      teamId: 623445,
-    });
+          caseSensitive: false,
+          examples: [
+            {
+              example: "string",
+              type: TermExampleCreateType.Bad,
+            },
+          ],
+          linkedTerms: [
+            {},
+          ],
+          mistakes: [
+            {
+              caseSensitive: false,
+              mistake: "string",
+            },
+          ],
+          tags: [
+            {
+              tag: "string",
+            },
+          ],
+          term: "string",
+          type: TermCreateType.Banned,
+        },
+      ],
+    },
+    teamId: 623445,
+  });
 
   if (res?.statusCode !== 200) {
     throw new Error("Unexpected status code: " + res?.statusCode || "-");
@@ -94,7 +93,7 @@ run();
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |
 
 ## delete
 
@@ -107,17 +106,16 @@ import { Writer } from "@writerai/writer-sdk";
 
 async function run() {
   const sdk = new Writer({
-      apiKey: "<YOUR_API_KEY_HERE>",
-      organizationId: 545907,
-    });
+    apiKey: "<YOUR_API_KEY_HERE>",
+    organizationId: 545907,
+  });
 
-  
   const res = await sdk.terminology.delete({
-      ids: [
-        841399,
-      ],
-      teamId: 698486,
-    });
+    ids: [
+      841399,
+    ],
+    teamId: 698486,
+  });
 
   if (res?.statusCode !== 200) {
     throw new Error("Unexpected status code: " + res?.statusCode || "-");
@@ -146,7 +144,7 @@ run();
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |
 
 ## find
 
@@ -160,17 +158,16 @@ import { PartOfSpeech, QueryParamSortField, QueryParamSortOrder, TypeT } from "@
 
 async function run() {
   const sdk = new Writer({
-      apiKey: "<YOUR_API_KEY_HERE>",
-      organizationId: 40141,
-    });
+    apiKey: "<YOUR_API_KEY_HERE>",
+    organizationId: 40141,
+  });
 
-  
   const res = await sdk.terminology.find({
-      tags: [
-        "string",
-      ],
-      teamId: 326883,
-    });
+    tags: [
+      "string",
+    ],
+    teamId: 326883,
+  });
 
   if (res?.statusCode !== 200) {
     throw new Error("Unexpected status code: " + res?.statusCode || "-");
@@ -199,7 +196,7 @@ run();
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |
 
 ## update
 
@@ -213,49 +210,48 @@ import { UpdateTermsRequestFailHandling } from "@writerai/writer-sdk/sdk/models/
 
 async function run() {
   const sdk = new Writer({
-      apiKey: "<YOUR_API_KEY_HERE>",
-      organizationId: 857478,
-    });
+    apiKey: "<YOUR_API_KEY_HERE>",
+    organizationId: 857478,
+  });
 
-  
   const res = await sdk.terminology.update({
-      updateTermsRequest: {
-        models: [
-          {
-            approvedTermExtension: {
-              capitalize: false,
-              fixCase: false,
-              fixCommonMistakes: false,
-            },
-            caseSensitive: false,
-            examples: [
-              {
-                example: "string",
-                type: TermExampleCreateType.Good,
-              },
-            ],
-            id: 597129,
-            linkedTerms: [
-              {},
-            ],
-            mistakes: [
-              {
-                caseSensitive: false,
-                mistake: "string",
-              },
-            ],
-            tags: [
-              {
-                tag: "string",
-              },
-            ],
-            term: "string",
-            type: TermUpdateType.Approved,
+    updateTermsRequest: {
+      models: [
+        {
+          approvedTermExtension: {
+            capitalize: false,
+            fixCase: false,
+            fixCommonMistakes: false,
           },
-        ],
-      },
-      teamId: 344620,
-    });
+          caseSensitive: false,
+          examples: [
+            {
+              example: "string",
+              type: TermExampleCreateType.Good,
+            },
+          ],
+          id: 597129,
+          linkedTerms: [
+            {},
+          ],
+          mistakes: [
+            {
+              caseSensitive: false,
+              mistake: "string",
+            },
+          ],
+          tags: [
+            {
+              tag: "string",
+            },
+          ],
+          term: "string",
+          type: TermUpdateType.Approved,
+        },
+      ],
+    },
+    teamId: 344620,
+  });
 
   if (res?.statusCode !== 200) {
     throw new Error("Unexpected status code: " + res?.statusCode || "-");
@@ -284,4 +280,4 @@ run();
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |

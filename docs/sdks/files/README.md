@@ -23,14 +23,13 @@ import { Writer } from "@writerai/writer-sdk";
 
 async function run() {
   const sdk = new Writer({
-      apiKey: "<YOUR_API_KEY_HERE>",
-      organizationId: 545907,
-    });
+    apiKey: "<YOUR_API_KEY_HERE>",
+    organizationId: 545907,
+  });
 
-  
   const res = await sdk.files.delete({
-      fileId: "string",
-    });
+    fileId: "string",
+  });
 
   if (res?.statusCode !== 200) {
     throw new Error("Unexpected status code: " + res?.statusCode || "-");
@@ -59,7 +58,7 @@ run();
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |
 
 ## get
 
@@ -72,14 +71,13 @@ import { Writer } from "@writerai/writer-sdk";
 
 async function run() {
   const sdk = new Writer({
-      apiKey: "<YOUR_API_KEY_HERE>",
-      organizationId: 700347,
-    });
+    apiKey: "<YOUR_API_KEY_HERE>",
+    organizationId: 700347,
+  });
 
-  
   const res = await sdk.files.get({
-      fileId: "string",
-    });
+    fileId: "string",
+  });
 
   if (res?.statusCode !== 200) {
     throw new Error("Unexpected status code: " + res?.statusCode || "-");
@@ -108,7 +106,7 @@ run();
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |
 
 ## list
 
@@ -121,11 +119,12 @@ import { Writer } from "@writerai/writer-sdk";
 
 async function run() {
   const sdk = new Writer({
-      apiKey: "<YOUR_API_KEY_HERE>",
-      organizationId: 768578,
-    });
+    apiKey: "<YOUR_API_KEY_HERE>",
+    organizationId: 768578,
+  });
 
   const organizationId = 99895;
+  
   const res = await sdk.files.list(organizationId);
 
   if (res?.statusCode !== 200) {
@@ -155,7 +154,7 @@ run();
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |
 
 ## upload
 
@@ -165,22 +164,19 @@ Upload file
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
+import { openAsBlob } from "node:fs";
 
 async function run() {
   const sdk = new Writer({
-      apiKey: "<YOUR_API_KEY_HERE>",
-      organizationId: 403654,
-    });
+    apiKey: "<YOUR_API_KEY_HERE>",
+    organizationId: 403654,
+  });
 
-  
   const res = await sdk.files.upload({
-      uploadModelFileRequest: {
-        file: {
-          content: new TextEncoder().encode("0x7cbca97eC6"),
-          fileName: "plastic_cli.gif",
-        },
-      },
-    });
+    uploadModelFileRequest: {
+      file: await openAsBlob("./sample-file"),
+    },
+  });
 
   if (res?.statusCode !== 200) {
     throw new Error("Unexpected status code: " + res?.statusCode || "-");
@@ -209,4 +205,4 @@ run();
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |

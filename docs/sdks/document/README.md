@@ -21,15 +21,14 @@ import { Writer } from "@writerai/writer-sdk";
 
 async function run() {
   const sdk = new Writer({
-      apiKey: "<YOUR_API_KEY_HERE>",
-      organizationId: 700347,
-    });
+    apiKey: "<YOUR_API_KEY_HERE>",
+    organizationId: 700347,
+  });
 
-  
   const res = await sdk.document.get({
-      documentId: 90065,
-      teamId: 558834,
-    });
+    documentId: 90065,
+    teamId: 558834,
+  });
 
   if (res?.statusCode !== 200) {
     throw new Error("Unexpected status code: " + res?.statusCode || "-");
@@ -58,7 +57,7 @@ run();
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |
 
 ## list
 
@@ -72,14 +71,13 @@ import { ListTeamDocumentsQueryParamSortField, ListTeamDocumentsQueryParamSortOr
 
 async function run() {
   const sdk = new Writer({
-      apiKey: "<YOUR_API_KEY_HERE>",
-      organizationId: 768578,
-    });
+    apiKey: "<YOUR_API_KEY_HERE>",
+    organizationId: 768578,
+  });
 
-  
   const res = await sdk.document.list({
-      teamId: 99895,
-    });
+    teamId: 99895,
+  });
 
   if (res?.statusCode !== 200) {
     throw new Error("Unexpected status code: " + res?.statusCode || "-");
@@ -108,4 +106,4 @@ run();
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |

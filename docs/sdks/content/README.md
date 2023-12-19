@@ -21,35 +21,34 @@ import { Writer } from "@writerai/writer-sdk";
 
 async function run() {
   const sdk = new Writer({
-      apiKey: "<YOUR_API_KEY_HERE>",
-      organizationId: 935464,
-    });
+    apiKey: "<YOUR_API_KEY_HERE>",
+    organizationId: 935464,
+  });
 
-  
   const res = await sdk.content.check({
-      contentRequest: {
-        content: "string",
-        settings: {
-          ageAndFamilyStatus: false,
-          confidence: false,
-          contentSafeguards: false,
-          disability: false,
-          genderIdentitySensitivity: false,
-          genderInclusiveNouns: false,
-          genderInclusivePronouns: false,
-          grammar: false,
-          healthyCommunication: false,
-          passiveVoice: false,
-          raceEthnicityNationalitySensitivity: false,
-          sexualOrientationSensitivity: false,
-          spelling: false,
-          substanceUseSensitivity: false,
-          unclearReference: false,
-          wordiness: false,
-        },
+    contentRequest: {
+      content: "string",
+      settings: {
+        ageAndFamilyStatus: false,
+        confidence: false,
+        contentSafeguards: false,
+        disability: false,
+        genderIdentitySensitivity: false,
+        genderInclusiveNouns: false,
+        genderInclusivePronouns: false,
+        grammar: false,
+        healthyCommunication: false,
+        passiveVoice: false,
+        raceEthnicityNationalitySensitivity: false,
+        sexualOrientationSensitivity: false,
+        spelling: false,
+        substanceUseSensitivity: false,
+        unclearReference: false,
+        wordiness: false,
       },
-      teamId: 38270,
-    });
+    },
+    teamId: 38270,
+  });
 
   if (res?.statusCode !== 200) {
     throw new Error("Unexpected status code: " + res?.statusCode || "-");
@@ -78,7 +77,7 @@ run();
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |
 
 ## correct
 
@@ -91,35 +90,34 @@ import { Writer } from "@writerai/writer-sdk";
 
 async function run() {
   const sdk = new Writer({
-      apiKey: "<YOUR_API_KEY_HERE>",
-      organizationId: 501355,
-    });
+    apiKey: "<YOUR_API_KEY_HERE>",
+    organizationId: 501355,
+  });
 
-  
   const res = await sdk.content.correct({
-      contentRequest: {
-        content: "string",
-        settings: {
-          ageAndFamilyStatus: false,
-          confidence: false,
-          contentSafeguards: false,
-          disability: false,
-          genderIdentitySensitivity: false,
-          genderInclusiveNouns: false,
-          genderInclusivePronouns: false,
-          grammar: false,
-          healthyCommunication: false,
-          passiveVoice: false,
-          raceEthnicityNationalitySensitivity: false,
-          sexualOrientationSensitivity: false,
-          spelling: false,
-          substanceUseSensitivity: false,
-          unclearReference: false,
-          wordiness: false,
-        },
+    contentRequest: {
+      content: "string",
+      settings: {
+        ageAndFamilyStatus: false,
+        confidence: false,
+        contentSafeguards: false,
+        disability: false,
+        genderIdentitySensitivity: false,
+        genderInclusiveNouns: false,
+        genderInclusivePronouns: false,
+        grammar: false,
+        healthyCommunication: false,
+        passiveVoice: false,
+        raceEthnicityNationalitySensitivity: false,
+        sexualOrientationSensitivity: false,
+        spelling: false,
+        substanceUseSensitivity: false,
+        unclearReference: false,
+        wordiness: false,
       },
-      teamId: 31310,
-    });
+    },
+    teamId: 31310,
+  });
 
   if (res?.statusCode !== 200) {
     throw new Error("Unexpected status code: " + res?.statusCode || "-");
@@ -148,4 +146,4 @@ run();
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |

@@ -21,11 +21,12 @@ import { Writer } from "@writerai/writer-sdk";
 
 async function run() {
   const sdk = new Writer({
-      apiKey: "<YOUR_API_KEY_HERE>",
-      organizationId: 700347,
-    });
+    apiKey: "<YOUR_API_KEY_HERE>",
+    organizationId: 700347,
+  });
 
   const pageId = 90065;
+  
   const res = await sdk.styleguide.get(pageId);
 
   if (res?.statusCode !== 200) {
@@ -55,7 +56,7 @@ run();
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |
 
 ## listPages
 
@@ -69,11 +70,10 @@ import { Status } from "@writerai/writer-sdk/sdk/models/operations";
 
 async function run() {
   const sdk = new Writer({
-      apiKey: "<YOUR_API_KEY_HERE>",
-      organizationId: 763372,
-    });
+    apiKey: "<YOUR_API_KEY_HERE>",
+    organizationId: 763372,
+  });
 
-  
   const res = await sdk.styleguide.listPages({});
 
   if (res?.statusCode !== 200) {
@@ -103,4 +103,4 @@ run();
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |

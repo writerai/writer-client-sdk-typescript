@@ -21,27 +21,26 @@ import { Writer } from "@writerai/writer-sdk";
 
 async function run() {
   const sdk = new Writer({
-      apiKey: "<YOUR_API_KEY_HERE>",
-      organizationId: 486589,
-    });
+    apiKey: "<YOUR_API_KEY_HERE>",
+    organizationId: 486589,
+  });
 
-  
   const res = await sdk.completions.create({
-      completionRequest: {
-        bestOf: 1,
-        maxTokens: 1024,
-        minTokens: 1,
-        prompt: "string",
-        stop: [
-          "the",
-          "is",
-          "and",
-        ],
-        temperature: 0.7,
-        topP: 1,
-      },
-      modelId: "string",
-    });
+    completionRequest: {
+      bestOf: 1,
+      maxTokens: 1024,
+      minTokens: 1,
+      prompt: "string",
+      stop: [
+        "the",
+        "is",
+        "and",
+      ],
+      temperature: 0.7,
+      topP: 1,
+    },
+    modelId: "string",
+  });
 
   if (res?.statusCode !== 200) {
     throw new Error("Unexpected status code: " + res?.statusCode || "-");
@@ -70,7 +69,7 @@ run();
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |
 
 ## createModelCustomizationCompletion
 
@@ -83,28 +82,27 @@ import { Writer } from "@writerai/writer-sdk";
 
 async function run() {
   const sdk = new Writer({
-      apiKey: "<YOUR_API_KEY_HERE>",
-      organizationId: 919503,
-    });
+    apiKey: "<YOUR_API_KEY_HERE>",
+    organizationId: 919503,
+  });
 
-  
   const res = await sdk.completions.createModelCustomizationCompletion({
-      completionRequest: {
-        bestOf: 1,
-        maxTokens: 1024,
-        minTokens: 1,
-        prompt: "string",
-        stop: [
-          "the",
-          "is",
-          "and",
-        ],
-        temperature: 0.7,
-        topP: 1,
-      },
-      customizationId: "string",
-      modelId: "string",
-    });
+    completionRequest: {
+      bestOf: 1,
+      maxTokens: 1024,
+      minTokens: 1,
+      prompt: "string",
+      stop: [
+        "the",
+        "is",
+        "and",
+      ],
+      temperature: 0.7,
+      topP: 1,
+    },
+    customizationId: "string",
+    modelId: "string",
+  });
 
   if (res?.statusCode !== 200) {
     throw new Error("Unexpected status code: " + res?.statusCode || "-");
@@ -133,4 +131,4 @@ run();
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |

@@ -20,11 +20,12 @@ import { Writer } from "@writerai/writer-sdk";
 
 async function run() {
   const sdk = new Writer({
-      apiKey: "<YOUR_API_KEY_HERE>",
-      organizationId: 768578,
-    });
+    apiKey: "<YOUR_API_KEY_HERE>",
+    organizationId: 768578,
+  });
 
   const organizationId = 99895;
+  
   const res = await sdk.models.list(organizationId);
 
   if (res?.statusCode !== 200) {
@@ -54,4 +55,4 @@ run();
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |

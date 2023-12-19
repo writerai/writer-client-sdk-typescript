@@ -22,17 +22,16 @@ import { Writer } from "@writerai/writer-sdk";
 
 async function run() {
   const sdk = new Writer({
-      apiKey: "<YOUR_API_KEY_HERE>",
-      organizationId: 545907,
-    });
+    apiKey: "<YOUR_API_KEY_HERE>",
+    organizationId: 545907,
+  });
 
-  
   const res = await sdk.snippet.delete({
-      ids: [
-        "string",
-      ],
-      teamId: 841399,
-    });
+    ids: [
+      "string",
+    ],
+    teamId: 841399,
+  });
 
   if (res?.statusCode !== 200) {
     throw new Error("Unexpected status code: " + res?.statusCode || "-");
@@ -61,7 +60,7 @@ run();
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |
 
 ## find
 
@@ -75,20 +74,19 @@ import { SortField, SortOrder } from "@writerai/writer-sdk/sdk/models/operations
 
 async function run() {
   const sdk = new Writer({
-      apiKey: "<YOUR_API_KEY_HERE>",
-      organizationId: 40141,
-    });
+    apiKey: "<YOUR_API_KEY_HERE>",
+    organizationId: 40141,
+  });
 
-  
   const res = await sdk.snippet.find({
-      shortcuts: [
-        "string",
-      ],
-      tags: [
-        "string",
-      ],
-      teamId: 326883,
-    });
+    shortcuts: [
+      "string",
+    ],
+    tags: [
+      "string",
+    ],
+    teamId: 326883,
+  });
 
   if (res?.statusCode !== 200) {
     throw new Error("Unexpected status code: " + res?.statusCode || "-");
@@ -117,7 +115,7 @@ run();
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |
 
 ## update
 
@@ -130,25 +128,24 @@ import { Writer } from "@writerai/writer-sdk";
 
 async function run() {
   const sdk = new Writer({
-      apiKey: "<YOUR_API_KEY_HERE>",
-      organizationId: 857478,
-    });
+    apiKey: "<YOUR_API_KEY_HERE>",
+    organizationId: 857478,
+  });
 
-  
   const res = await sdk.snippet.update({
-      requestBody: [
-        {
-          id: "<ID>",
-          snippet: "string",
-          tags: [
-            {
-              tag: "string",
-            },
-          ],
-        },
-      ],
-      teamId: 24555,
-    });
+    requestBody: [
+      {
+        id: "<ID>",
+        snippet: "string",
+        tags: [
+          {
+            tag: "string",
+          },
+        ],
+      },
+    ],
+    teamId: 24555,
+  });
 
   if (res?.statusCode !== 200) {
     throw new Error("Unexpected status code: " + res?.statusCode || "-");
@@ -177,4 +174,4 @@ run();
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |

@@ -21,25 +21,24 @@ import { Writer } from "@writerai/writer-sdk";
 
 async function run() {
   const sdk = new Writer({
-      apiKey: "<YOUR_API_KEY_HERE>",
-      organizationId: 569932,
-    });
+    apiKey: "<YOUR_API_KEY_HERE>",
+    organizationId: 569932,
+  });
 
-  
   const res = await sdk.coWrite.generateContent({
-      generateTemplateRequest: {
-        inputs: [
-          {
-            name: "string",
-            value: [
-              "string",
-            ],
-          },
-        ],
-        templateId: "string",
-      },
-      teamId: 888452,
-    });
+    generateTemplateRequest: {
+      inputs: [
+        {
+          name: "string",
+          value: [
+            "string",
+          ],
+        },
+      ],
+      templateId: "string",
+    },
+    teamId: 888452,
+  });
 
   if (res?.statusCode !== 200) {
     throw new Error("Unexpected status code: " + res?.statusCode || "-");
@@ -68,7 +67,7 @@ run();
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |
 
 ## listTemplates
 
@@ -81,15 +80,14 @@ import { Writer } from "@writerai/writer-sdk";
 
 async function run() {
   const sdk = new Writer({
-      apiKey: "<YOUR_API_KEY_HERE>",
-      organizationId: 380445,
-    });
+    apiKey: "<YOUR_API_KEY_HERE>",
+    organizationId: 380445,
+  });
 
-  
   const res = await sdk.coWrite.listTemplates({
-      teamId: 882866,
-      templateId: "string",
-    });
+    teamId: 882866,
+    templateId: "string",
+  });
 
   if (res?.statusCode !== 200) {
     throw new Error("Unexpected status code: " + res?.statusCode || "-");
@@ -118,4 +116,4 @@ run();
 | Error Object        | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
-| errors.SDKError     | 400-600             | */*                 |
+| errors.SDKError     | 4xx-5xx             | */*                 |
