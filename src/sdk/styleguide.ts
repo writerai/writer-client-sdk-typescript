@@ -57,7 +57,7 @@ export class Styleguide extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "get",
+                method: "GET",
                 path: path$,
                 headers: headers$,
                 body: body$,
@@ -97,14 +97,21 @@ export class Styleguide extends ClientSDK {
      * List your styleguide pages
      */
     async listPages(
-        input: operations.ListPagesRequest,
+        limit?: number | undefined,
+        offset?: number | undefined,
+        status?: operations.Status | undefined,
         options?: RequestOptions
     ): Promise<operations.ListPagesResponse> {
+        const input$: operations.ListPagesRequest = {
+            limit: limit,
+            offset: offset,
+            status: status,
+        };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.ListPagesRequest$.outboundSchema.parse(input);
+        const payload$ = operations.ListPagesRequest$.outboundSchema.parse(input$);
         const body$ = null;
 
         const path$ = this.templateURLComponent("/styleguide/page")();
@@ -130,7 +137,7 @@ export class Styleguide extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "get",
+                method: "GET",
                 path: path$,
                 headers: headers$,
                 query: query$,

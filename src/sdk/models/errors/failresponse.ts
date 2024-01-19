@@ -25,8 +25,8 @@ export class FailResponse extends Error {
     /** The original data that was passed to this error instance. */
     data$: FailResponseData;
 
-    constructor(err: FailResponseData, options?: ErrorOptions) {
-        super("", options);
+    constructor(err: FailResponseData) {
+        super("");
         this.data$ = err;
 
         if (err.errors != null) {

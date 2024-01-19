@@ -26,18 +26,17 @@ async function run() {
     organizationId: 545907,
   });
 
-  const res = await sdk.snippet.delete({
-    ids: [
-      "string",
-    ],
-    teamId: 841399,
-  });
-
-  if (res?.statusCode !== 200) {
-    throw new Error("Unexpected status code: " + res?.statusCode || "-");
-  }
+  const teamId = 841399;
+  const xRequestID = "string";
+  const ids = [
+    "string",
+  ];
+  const organizationId = 698486;
   
-  // handle response
+  const result = await sdk.snippet.delete(teamId, xRequestID, ids, organizationId);
+
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -47,7 +46,10 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.DeleteSnippetsRequest](../../sdk/models/operations/deletesnippetsrequest.md)                                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `teamId`                                                                                                                                                                       | *number*                                                                                                                                                                       | :heavy_check_mark:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `xRequestID`                                                                                                                                                                   | *string*                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `ids`                                                                                                                                                                          | *string*[]                                                                                                                                                                     | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `organizationId`                                                                                                                                                               | *number*                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 
@@ -78,7 +80,7 @@ async function run() {
     organizationId: 40141,
   });
 
-  const res = await sdk.snippet.find({
+  const result = await sdk.snippet.find({
     shortcuts: [
       "string",
     ],
@@ -88,11 +90,8 @@ async function run() {
     teamId: 326883,
   });
 
-  if (res?.statusCode !== 200) {
-    throw new Error("Unexpected status code: " + res?.statusCode || "-");
-  }
-  
-  // handle response
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -132,26 +131,25 @@ async function run() {
     organizationId: 857478,
   });
 
-  const res = await sdk.snippet.update({
-    requestBody: [
-      {
-        id: "<ID>",
-        snippet: "string",
-        tags: [
-          {
-            tag: "string",
-          },
-        ],
-      },
-    ],
-    teamId: 24555,
-  });
-
-  if (res?.statusCode !== 200) {
-    throw new Error("Unexpected status code: " + res?.statusCode || "-");
-  }
+  const teamId = 24555;
+  const requestBody = [
+    {
+      id: "<ID>",
+      snippet: "string",
+      tags: [
+        {
+          tag: "string",
+        },
+      ],
+    },
+  ];
+  const xRequestID = "string";
+  const organizationId = 597129;
   
-  // handle response
+  const result = await sdk.snippet.update(teamId, requestBody, xRequestID, organizationId);
+
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -161,7 +159,10 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.UpdateSnippetsRequest](../../sdk/models/operations/updatesnippetsrequest.md)                                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `teamId`                                                                                                                                                                       | *number*                                                                                                                                                                       | :heavy_check_mark:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `requestBody`                                                                                                                                                                  | [shared.SnippetUpdate](../../sdk/models/shared/snippetupdate.md)[]                                                                                                             | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `xRequestID`                                                                                                                                                                   | *string*                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `organizationId`                                                                                                                                                               | *number*                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 

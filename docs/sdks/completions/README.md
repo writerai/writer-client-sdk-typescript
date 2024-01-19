@@ -25,28 +25,26 @@ async function run() {
     organizationId: 486589,
   });
 
-  const res = await sdk.completions.create({
-    completionRequest: {
-      bestOf: 1,
-      maxTokens: 1024,
-      minTokens: 1,
-      prompt: "string",
-      stop: [
-        "the",
-        "is",
-        "and",
-      ],
-      temperature: 0.7,
-      topP: 1,
-    },
-    modelId: "string",
-  });
-
-  if (res?.statusCode !== 200) {
-    throw new Error("Unexpected status code: " + res?.statusCode || "-");
-  }
+  const completionRequest = {
+    bestOf: 1,
+    maxTokens: 1024,
+    minTokens: 1,
+    prompt: "string",
+    stop: [
+      "the",
+      "is",
+      "and",
+    ],
+    temperature: 0.7,
+    topP: 1,
+  };
+  const modelId = "string";
+  const organizationId = 489382;
   
-  // handle response
+  const result = await sdk.completions.create(completionRequest, modelId, organizationId);
+
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -56,7 +54,9 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.CreateCompletionRequest](../../sdk/models/operations/createcompletionrequest.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `completionRequest`                                                                                                                                                            | [shared.CompletionRequest](../../sdk/models/shared/completionrequest.md)                                                                                                       | :heavy_check_mark:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `modelId`                                                                                                                                                                      | *string*                                                                                                                                                                       | :heavy_check_mark:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `organizationId`                                                                                                                                                               | *number*                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 
@@ -86,29 +86,27 @@ async function run() {
     organizationId: 919503,
   });
 
-  const res = await sdk.completions.createModelCustomizationCompletion({
-    completionRequest: {
-      bestOf: 1,
-      maxTokens: 1024,
-      minTokens: 1,
-      prompt: "string",
-      stop: [
-        "the",
-        "is",
-        "and",
-      ],
-      temperature: 0.7,
-      topP: 1,
-    },
-    customizationId: "string",
-    modelId: "string",
-  });
-
-  if (res?.statusCode !== 200) {
-    throw new Error("Unexpected status code: " + res?.statusCode || "-");
-  }
+  const completionRequest = {
+    bestOf: 1,
+    maxTokens: 1024,
+    minTokens: 1,
+    prompt: "string",
+    stop: [
+      "the",
+      "is",
+      "and",
+    ],
+    temperature: 0.7,
+    topP: 1,
+  };
+  const customizationId = "string";
+  const modelId = "string";
+  const organizationId = 41297;
   
-  // handle response
+  const result = await sdk.completions.createModelCustomizationCompletion(completionRequest, customizationId, modelId, organizationId);
+
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -118,7 +116,10 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.CreateModelCustomizationCompletionRequest](../../sdk/models/operations/createmodelcustomizationcompletionrequest.md)                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `completionRequest`                                                                                                                                                            | [shared.CompletionRequest](../../sdk/models/shared/completionrequest.md)                                                                                                       | :heavy_check_mark:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `customizationId`                                                                                                                                                              | *string*                                                                                                                                                                       | :heavy_check_mark:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `modelId`                                                                                                                                                                      | *string*                                                                                                                                                                       | :heavy_check_mark:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `organizationId`                                                                                                                                                               | *number*                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 

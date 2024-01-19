@@ -8,6 +8,7 @@ import { HTTPClient } from "../lib/http";
 import { ClientSDK, RequestOptions } from "../lib/sdks";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 
 export class ModelCustomization extends ClientSDK {
     private readonly options$: SDKOptions;
@@ -25,15 +26,22 @@ export class ModelCustomization extends ClientSDK {
      * Create model customization
      */
     async create(
-        input: operations.CreateModelCustomizationRequest,
+        createCustomizationRequest: shared.CreateCustomizationRequest,
+        modelId: string,
+        organizationId?: number | undefined,
         options?: RequestOptions
     ): Promise<operations.CreateModelCustomizationResponse> {
+        const input$: operations.CreateModelCustomizationRequest = {
+            createCustomizationRequest: createCustomizationRequest,
+            modelId: modelId,
+            organizationId: organizationId,
+        };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.CreateModelCustomizationRequest$.outboundSchema.parse(input);
+        const payload$ = operations.CreateModelCustomizationRequest$.outboundSchema.parse(input$);
 
         const body$ = enc$.encodeJSON("body", payload$.CreateCustomizationRequest, {
             explode: true,
@@ -68,7 +76,7 @@ export class ModelCustomization extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "post",
+                method: "POST",
                 path: path$,
                 headers: headers$,
                 body: body$,
@@ -108,14 +116,21 @@ export class ModelCustomization extends ClientSDK {
      * Delete Model customization
      */
     async delete(
-        input: operations.DeleteModelCustomizationRequest,
+        customizationId: string,
+        modelId: string,
+        organizationId?: number | undefined,
         options?: RequestOptions
     ): Promise<operations.DeleteModelCustomizationResponse> {
+        const input$: operations.DeleteModelCustomizationRequest = {
+            customizationId: customizationId,
+            modelId: modelId,
+            organizationId: organizationId,
+        };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.DeleteModelCustomizationRequest$.outboundSchema.parse(input);
+        const payload$ = operations.DeleteModelCustomizationRequest$.outboundSchema.parse(input$);
         const body$ = null;
 
         const pathParams$ = {
@@ -151,7 +166,7 @@ export class ModelCustomization extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "delete",
+                method: "DELETE",
                 path: path$,
                 headers: headers$,
                 body: body$,
@@ -191,14 +206,21 @@ export class ModelCustomization extends ClientSDK {
      * Get model customization
      */
     async get(
-        input: operations.GetModelCustomizationRequest,
+        customizationId: string,
+        modelId: string,
+        organizationId?: number | undefined,
         options?: RequestOptions
     ): Promise<operations.GetModelCustomizationResponse> {
+        const input$: operations.GetModelCustomizationRequest = {
+            customizationId: customizationId,
+            modelId: modelId,
+            organizationId: organizationId,
+        };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.GetModelCustomizationRequest$.outboundSchema.parse(input);
+        const payload$ = operations.GetModelCustomizationRequest$.outboundSchema.parse(input$);
         const body$ = null;
 
         const pathParams$ = {
@@ -234,7 +256,7 @@ export class ModelCustomization extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "get",
+                method: "GET",
                 path: path$,
                 headers: headers$,
                 body: body$,
@@ -274,14 +296,19 @@ export class ModelCustomization extends ClientSDK {
      * List model customizations
      */
     async list(
-        input: operations.ListModelCustomizationsRequest,
+        modelId: string,
+        organizationId?: number | undefined,
         options?: RequestOptions
     ): Promise<operations.ListModelCustomizationsResponse> {
+        const input$: operations.ListModelCustomizationsRequest = {
+            modelId: modelId,
+            organizationId: organizationId,
+        };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.ListModelCustomizationsRequest$.outboundSchema.parse(input);
+        const payload$ = operations.ListModelCustomizationsRequest$.outboundSchema.parse(input$);
         const body$ = null;
 
         const pathParams$ = {
@@ -313,7 +340,7 @@ export class ModelCustomization extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "get",
+                method: "GET",
                 path: path$,
                 headers: headers$,
                 body: body$,

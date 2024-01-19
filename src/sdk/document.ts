@@ -25,14 +25,21 @@ export class Document extends ClientSDK {
      * Get document details
      */
     async get(
-        input: operations.GetDocumentDetailsRequest,
+        documentId: number,
+        teamId: number,
+        organizationId?: number | undefined,
         options?: RequestOptions
     ): Promise<operations.GetDocumentDetailsResponse> {
+        const input$: operations.GetDocumentDetailsRequest = {
+            documentId: documentId,
+            teamId: teamId,
+            organizationId: organizationId,
+        };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.GetDocumentDetailsRequest$.outboundSchema.parse(input);
+        const payload$ = operations.GetDocumentDetailsRequest$.outboundSchema.parse(input$);
         const body$ = null;
 
         const pathParams$ = {
@@ -68,7 +75,7 @@ export class Document extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "get",
+                method: "GET",
                 path: path$,
                 headers: headers$,
                 body: body$,
@@ -163,7 +170,7 @@ export class Document extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "get",
+                method: "GET",
                 path: path$,
                 headers: headers$,
                 query: query$,

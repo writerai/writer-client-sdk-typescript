@@ -8,6 +8,7 @@ import { HTTPClient } from "../lib/http";
 import { ClientSDK, RequestOptions } from "../lib/sdks";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 
 export class CoWrite extends ClientSDK {
     private readonly options$: SDKOptions;
@@ -25,15 +26,22 @@ export class CoWrite extends ClientSDK {
      * Generate content using predefined templates
      */
     async generateContent(
-        input: operations.GenerateContentRequest,
+        generateTemplateRequest: shared.GenerateTemplateRequest,
+        teamId: number,
+        organizationId?: number | undefined,
         options?: RequestOptions
     ): Promise<operations.GenerateContentResponse> {
+        const input$: operations.GenerateContentRequest = {
+            generateTemplateRequest: generateTemplateRequest,
+            teamId: teamId,
+            organizationId: organizationId,
+        };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.GenerateContentRequest$.outboundSchema.parse(input);
+        const payload$ = operations.GenerateContentRequest$.outboundSchema.parse(input$);
 
         const body$ = enc$.encodeJSON("body", payload$.GenerateTemplateRequest, { explode: true });
 
@@ -66,7 +74,7 @@ export class CoWrite extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "post",
+                method: "POST",
                 path: path$,
                 headers: headers$,
                 body: body$,
@@ -106,14 +114,21 @@ export class CoWrite extends ClientSDK {
      * Get a list of your existing CoWrite templates
      */
     async listTemplates(
-        input: operations.ListTemplatesRequest,
+        teamId: number,
+        templateId: string,
+        organizationId?: number | undefined,
         options?: RequestOptions
     ): Promise<operations.ListTemplatesResponse> {
+        const input$: operations.ListTemplatesRequest = {
+            teamId: teamId,
+            templateId: templateId,
+            organizationId: organizationId,
+        };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.ListTemplatesRequest$.outboundSchema.parse(input);
+        const payload$ = operations.ListTemplatesRequest$.outboundSchema.parse(input$);
         const body$ = null;
 
         const pathParams$ = {
@@ -149,7 +164,7 @@ export class CoWrite extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "get",
+                method: "GET",
                 path: path$,
                 headers: headers$,
                 body: body$,

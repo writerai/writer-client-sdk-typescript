@@ -7,8 +7,8 @@ import { z } from "zod";
 
 export type ContentCheckRequest = {
     contentRequest: shared.ContentRequest;
-    organizationId?: number | undefined;
     teamId: number;
+    organizationId?: number | undefined;
 };
 
 export type ContentCheckResponse = {
@@ -32,41 +32,41 @@ export type ContentCheckResponse = {
 export namespace ContentCheckRequest$ {
     export type Inbound = {
         ContentRequest: shared.ContentRequest$.Inbound;
-        organizationId?: number | undefined;
         teamId: number;
+        organizationId?: number | undefined;
     };
 
     export const inboundSchema: z.ZodType<ContentCheckRequest, z.ZodTypeDef, Inbound> = z
         .object({
             ContentRequest: shared.ContentRequest$.inboundSchema,
-            organizationId: z.number().int().optional(),
             teamId: z.number().int(),
+            organizationId: z.number().int().optional(),
         })
         .transform((v) => {
             return {
                 contentRequest: v.ContentRequest,
-                ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
                 teamId: v.teamId,
+                ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
             };
         });
 
     export type Outbound = {
         ContentRequest: shared.ContentRequest$.Outbound;
-        organizationId?: number | undefined;
         teamId: number;
+        organizationId?: number | undefined;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ContentCheckRequest> = z
         .object({
             contentRequest: shared.ContentRequest$.outboundSchema,
-            organizationId: z.number().int().optional(),
             teamId: z.number().int(),
+            organizationId: z.number().int().optional(),
         })
         .transform((v) => {
             return {
                 ContentRequest: v.contentRequest,
-                ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
                 teamId: v.teamId,
+                ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
             };
         });
 }

@@ -6,9 +6,9 @@ import * as shared from "../../../sdk/models/shared";
 import { z } from "zod";
 
 export type ListTemplatesRequest = {
-    organizationId?: number | undefined;
     teamId: number;
     templateId: string;
+    organizationId?: number | undefined;
 };
 
 export type ListTemplatesResponse = {
@@ -31,42 +31,42 @@ export type ListTemplatesResponse = {
 /** @internal */
 export namespace ListTemplatesRequest$ {
     export type Inbound = {
-        organizationId?: number | undefined;
         teamId: number;
         templateId: string;
+        organizationId?: number | undefined;
     };
 
     export const inboundSchema: z.ZodType<ListTemplatesRequest, z.ZodTypeDef, Inbound> = z
         .object({
-            organizationId: z.number().int().optional(),
             teamId: z.number().int(),
             templateId: z.string(),
+            organizationId: z.number().int().optional(),
         })
         .transform((v) => {
             return {
-                ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
                 teamId: v.teamId,
                 templateId: v.templateId,
+                ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
             };
         });
 
     export type Outbound = {
-        organizationId?: number | undefined;
         teamId: number;
         templateId: string;
+        organizationId?: number | undefined;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ListTemplatesRequest> = z
         .object({
-            organizationId: z.number().int().optional(),
             teamId: z.number().int(),
             templateId: z.string(),
+            organizationId: z.number().int().optional(),
         })
         .transform((v) => {
             return {
-                ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
                 teamId: v.teamId,
                 templateId: v.templateId,
+                ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
             };
         });
 }

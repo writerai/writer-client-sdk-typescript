@@ -6,10 +6,10 @@ import * as shared from "../../../sdk/models/shared";
 import { z } from "zod";
 
 export type DeleteTermsRequest = {
+    teamId: number;
     xRequestID?: string | undefined;
     ids?: Array<number> | undefined;
     organizationId?: number | undefined;
-    teamId: number;
 };
 
 export type DeleteTermsResponse = {
@@ -32,48 +32,48 @@ export type DeleteTermsResponse = {
 /** @internal */
 export namespace DeleteTermsRequest$ {
     export type Inbound = {
+        teamId: number;
         "X-Request-ID"?: string | undefined;
         ids?: Array<number> | undefined;
         organizationId?: number | undefined;
-        teamId: number;
     };
 
     export const inboundSchema: z.ZodType<DeleteTermsRequest, z.ZodTypeDef, Inbound> = z
         .object({
+            teamId: z.number().int(),
             "X-Request-ID": z.string().optional(),
             ids: z.array(z.number().int()).optional(),
             organizationId: z.number().int().optional(),
-            teamId: z.number().int(),
         })
         .transform((v) => {
             return {
+                teamId: v.teamId,
                 ...(v["X-Request-ID"] === undefined ? null : { xRequestID: v["X-Request-ID"] }),
                 ...(v.ids === undefined ? null : { ids: v.ids }),
                 ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
-                teamId: v.teamId,
             };
         });
 
     export type Outbound = {
+        teamId: number;
         "X-Request-ID"?: string | undefined;
         ids?: Array<number> | undefined;
         organizationId?: number | undefined;
-        teamId: number;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, DeleteTermsRequest> = z
         .object({
+            teamId: z.number().int(),
             xRequestID: z.string().optional(),
             ids: z.array(z.number().int()).optional(),
             organizationId: z.number().int().optional(),
-            teamId: z.number().int(),
         })
         .transform((v) => {
             return {
+                teamId: v.teamId,
                 ...(v.xRequestID === undefined ? null : { "X-Request-ID": v.xRequestID }),
                 ...(v.ids === undefined ? null : { ids: v.ids }),
                 ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
-                teamId: v.teamId,
             };
         });
 }

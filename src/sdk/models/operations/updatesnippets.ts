@@ -6,10 +6,10 @@ import * as shared from "../../../sdk/models/shared";
 import { z } from "zod";
 
 export type UpdateSnippetsRequest = {
+    teamId: number;
     requestBody?: Array<shared.SnippetUpdate> | undefined;
     xRequestID?: string | undefined;
     organizationId?: number | undefined;
-    teamId: number;
 };
 
 export type UpdateSnippetsResponse = {
@@ -32,48 +32,48 @@ export type UpdateSnippetsResponse = {
 /** @internal */
 export namespace UpdateSnippetsRequest$ {
     export type Inbound = {
+        teamId: number;
         RequestBody?: Array<shared.SnippetUpdate$.Inbound> | undefined;
         "X-Request-ID"?: string | undefined;
         organizationId?: number | undefined;
-        teamId: number;
     };
 
     export const inboundSchema: z.ZodType<UpdateSnippetsRequest, z.ZodTypeDef, Inbound> = z
         .object({
+            teamId: z.number().int(),
             RequestBody: z.array(shared.SnippetUpdate$.inboundSchema).optional(),
             "X-Request-ID": z.string().optional(),
             organizationId: z.number().int().optional(),
-            teamId: z.number().int(),
         })
         .transform((v) => {
             return {
+                teamId: v.teamId,
                 ...(v.RequestBody === undefined ? null : { requestBody: v.RequestBody }),
                 ...(v["X-Request-ID"] === undefined ? null : { xRequestID: v["X-Request-ID"] }),
                 ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
-                teamId: v.teamId,
             };
         });
 
     export type Outbound = {
+        teamId: number;
         RequestBody?: Array<shared.SnippetUpdate$.Outbound> | undefined;
         "X-Request-ID"?: string | undefined;
         organizationId?: number | undefined;
-        teamId: number;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, UpdateSnippetsRequest> = z
         .object({
+            teamId: z.number().int(),
             requestBody: z.array(shared.SnippetUpdate$.outboundSchema).optional(),
             xRequestID: z.string().optional(),
             organizationId: z.number().int().optional(),
-            teamId: z.number().int(),
         })
         .transform((v) => {
             return {
+                teamId: v.teamId,
                 ...(v.requestBody === undefined ? null : { RequestBody: v.requestBody }),
                 ...(v.xRequestID === undefined ? null : { "X-Request-ID": v.xRequestID }),
                 ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
-                teamId: v.teamId,
             };
         });
 }

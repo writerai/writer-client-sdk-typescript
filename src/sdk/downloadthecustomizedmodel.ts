@@ -30,9 +30,16 @@ export class DownloadTheCustomizedModel extends ClientSDK {
      * Download your fine-tuned model (available only for Palmyra Base and Palmyra Large)
      */
     async fetchFile(
-        input: operations.FetchCustomizedModelFileRequest,
+        customizationId: string,
+        modelId: string,
+        organizationId?: number | undefined,
         options?: RequestOptions & { acceptHeaderOverride?: FetchFileAcceptEnum }
     ): Promise<operations.FetchCustomizedModelFileResponse> {
+        const input$: operations.FetchCustomizedModelFileRequest = {
+            customizationId: customizationId,
+            modelId: modelId,
+            organizationId: organizationId,
+        };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
 
@@ -40,7 +47,7 @@ export class DownloadTheCustomizedModel extends ClientSDK {
             options?.acceptHeaderOverride || "application/json;q=1, application/octet-stream;q=0";
         headers$.set("Accept", accept);
 
-        const payload$ = operations.FetchCustomizedModelFileRequest$.outboundSchema.parse(input);
+        const payload$ = operations.FetchCustomizedModelFileRequest$.outboundSchema.parse(input$);
         const body$ = null;
 
         const pathParams$ = {
@@ -76,7 +83,7 @@ export class DownloadTheCustomizedModel extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "get",
+                method: "GET",
                 path: path$,
                 headers: headers$,
                 body: body$,
@@ -91,11 +98,11 @@ export class DownloadTheCustomizedModel extends ClientSDK {
         };
 
         if (this.matchResponse(response, 200, "application/octet-stream")) {
-            const responseBody = await response.arrayBuffer();
+            const responseBody = response.body ?? undefined;
             const result = operations.FetchCustomizedModelFileResponse$.inboundSchema.parse({
                 ...responseFields$,
                 Headers: this.unpackHeaders(response.headers),
-                bytes: new Uint8Array(responseBody),
+                stream: responseBody,
             });
             return result;
         } else if (this.matchResponse(response, [400, 401, 403, 404, 500], "application/json")) {

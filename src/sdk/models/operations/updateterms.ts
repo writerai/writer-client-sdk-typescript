@@ -7,9 +7,9 @@ import { z } from "zod";
 
 export type UpdateTermsRequest = {
     updateTermsRequest: shared.UpdateTermsRequest;
+    teamId: number;
     xRequestID?: string | undefined;
     organizationId?: number | undefined;
-    teamId: number;
 };
 
 export type UpdateTermsResponse = {
@@ -33,47 +33,47 @@ export type UpdateTermsResponse = {
 export namespace UpdateTermsRequest$ {
     export type Inbound = {
         UpdateTermsRequest: shared.UpdateTermsRequest$.Inbound;
+        teamId: number;
         "X-Request-ID"?: string | undefined;
         organizationId?: number | undefined;
-        teamId: number;
     };
 
     export const inboundSchema: z.ZodType<UpdateTermsRequest, z.ZodTypeDef, Inbound> = z
         .object({
             UpdateTermsRequest: shared.UpdateTermsRequest$.inboundSchema,
+            teamId: z.number().int(),
             "X-Request-ID": z.string().optional(),
             organizationId: z.number().int().optional(),
-            teamId: z.number().int(),
         })
         .transform((v) => {
             return {
                 updateTermsRequest: v.UpdateTermsRequest,
+                teamId: v.teamId,
                 ...(v["X-Request-ID"] === undefined ? null : { xRequestID: v["X-Request-ID"] }),
                 ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
-                teamId: v.teamId,
             };
         });
 
     export type Outbound = {
         UpdateTermsRequest: shared.UpdateTermsRequest$.Outbound;
+        teamId: number;
         "X-Request-ID"?: string | undefined;
         organizationId?: number | undefined;
-        teamId: number;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, UpdateTermsRequest> = z
         .object({
             updateTermsRequest: shared.UpdateTermsRequest$.outboundSchema,
+            teamId: z.number().int(),
             xRequestID: z.string().optional(),
             organizationId: z.number().int().optional(),
-            teamId: z.number().int(),
         })
         .transform((v) => {
             return {
                 UpdateTermsRequest: v.updateTermsRequest,
+                teamId: v.teamId,
                 ...(v.xRequestID === undefined ? null : { "X-Request-ID": v.xRequestID }),
                 ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
-                teamId: v.teamId,
             };
         });
 }

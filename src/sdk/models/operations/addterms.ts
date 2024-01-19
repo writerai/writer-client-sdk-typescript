@@ -7,8 +7,8 @@ import { z } from "zod";
 
 export type AddTermsRequest = {
     createTermsRequest: shared.CreateTermsRequest;
-    organizationId?: number | undefined;
     teamId: number;
+    organizationId?: number | undefined;
 };
 
 export type AddTermsResponse = {
@@ -32,41 +32,41 @@ export type AddTermsResponse = {
 export namespace AddTermsRequest$ {
     export type Inbound = {
         CreateTermsRequest: shared.CreateTermsRequest$.Inbound;
-        organizationId?: number | undefined;
         teamId: number;
+        organizationId?: number | undefined;
     };
 
     export const inboundSchema: z.ZodType<AddTermsRequest, z.ZodTypeDef, Inbound> = z
         .object({
             CreateTermsRequest: shared.CreateTermsRequest$.inboundSchema,
-            organizationId: z.number().int().optional(),
             teamId: z.number().int(),
+            organizationId: z.number().int().optional(),
         })
         .transform((v) => {
             return {
                 createTermsRequest: v.CreateTermsRequest,
-                ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
                 teamId: v.teamId,
+                ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
             };
         });
 
     export type Outbound = {
         CreateTermsRequest: shared.CreateTermsRequest$.Outbound;
-        organizationId?: number | undefined;
         teamId: number;
+        organizationId?: number | undefined;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, AddTermsRequest> = z
         .object({
             createTermsRequest: shared.CreateTermsRequest$.outboundSchema,
-            organizationId: z.number().int().optional(),
             teamId: z.number().int(),
+            organizationId: z.number().int().optional(),
         })
         .transform((v) => {
             return {
                 CreateTermsRequest: v.createTermsRequest,
-                ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
                 teamId: v.teamId,
+                ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
             };
         });
 }

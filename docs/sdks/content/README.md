@@ -25,36 +25,34 @@ async function run() {
     organizationId: 935464,
   });
 
-  const res = await sdk.content.check({
-    contentRequest: {
-      content: "string",
-      settings: {
-        ageAndFamilyStatus: false,
-        confidence: false,
-        contentSafeguards: false,
-        disability: false,
-        genderIdentitySensitivity: false,
-        genderInclusiveNouns: false,
-        genderInclusivePronouns: false,
-        grammar: false,
-        healthyCommunication: false,
-        passiveVoice: false,
-        raceEthnicityNationalitySensitivity: false,
-        sexualOrientationSensitivity: false,
-        spelling: false,
-        substanceUseSensitivity: false,
-        unclearReference: false,
-        wordiness: false,
-      },
+  const contentRequest = {
+    content: "string",
+    settings: {
+      ageAndFamilyStatus: false,
+      confidence: false,
+      contentSafeguards: false,
+      disability: false,
+      genderIdentitySensitivity: false,
+      genderInclusiveNouns: false,
+      genderInclusivePronouns: false,
+      grammar: false,
+      healthyCommunication: false,
+      passiveVoice: false,
+      raceEthnicityNationalitySensitivity: false,
+      sexualOrientationSensitivity: false,
+      spelling: false,
+      substanceUseSensitivity: false,
+      unclearReference: false,
+      wordiness: false,
     },
-    teamId: 38270,
-  });
-
-  if (res?.statusCode !== 200) {
-    throw new Error("Unexpected status code: " + res?.statusCode || "-");
-  }
+  };
+  const teamId = 38270;
+  const organizationId = 919579;
   
-  // handle response
+  const result = await sdk.content.check(contentRequest, teamId, organizationId);
+
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -64,7 +62,9 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.ContentCheckRequest](../../sdk/models/operations/contentcheckrequest.md)                                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `contentRequest`                                                                                                                                                               | [shared.ContentRequest](../../sdk/models/shared/contentrequest.md)                                                                                                             | :heavy_check_mark:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `teamId`                                                                                                                                                                       | *number*                                                                                                                                                                       | :heavy_check_mark:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `organizationId`                                                                                                                                                               | *number*                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 
@@ -94,36 +94,35 @@ async function run() {
     organizationId: 501355,
   });
 
-  const res = await sdk.content.correct({
-    contentRequest: {
-      content: "string",
-      settings: {
-        ageAndFamilyStatus: false,
-        confidence: false,
-        contentSafeguards: false,
-        disability: false,
-        genderIdentitySensitivity: false,
-        genderInclusiveNouns: false,
-        genderInclusivePronouns: false,
-        grammar: false,
-        healthyCommunication: false,
-        passiveVoice: false,
-        raceEthnicityNationalitySensitivity: false,
-        sexualOrientationSensitivity: false,
-        spelling: false,
-        substanceUseSensitivity: false,
-        unclearReference: false,
-        wordiness: false,
-      },
+  const contentRequest = {
+    content: "string",
+    settings: {
+      ageAndFamilyStatus: false,
+      confidence: false,
+      contentSafeguards: false,
+      disability: false,
+      genderIdentitySensitivity: false,
+      genderInclusiveNouns: false,
+      genderInclusivePronouns: false,
+      grammar: false,
+      healthyCommunication: false,
+      passiveVoice: false,
+      raceEthnicityNationalitySensitivity: false,
+      sexualOrientationSensitivity: false,
+      spelling: false,
+      substanceUseSensitivity: false,
+      unclearReference: false,
+      wordiness: false,
     },
-    teamId: 31310,
-  });
-
-  if (res?.statusCode !== 200) {
-    throw new Error("Unexpected status code: " + res?.statusCode || "-");
-  }
+  };
+  const teamId = 31310;
+  const xRequestID = "string";
+  const organizationId = 383223;
   
-  // handle response
+  const result = await sdk.content.correct(contentRequest, teamId, xRequestID, organizationId);
+
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -133,7 +132,10 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.ContentCorrectRequest](../../sdk/models/operations/contentcorrectrequest.md)                                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `contentRequest`                                                                                                                                                               | [shared.ContentRequest](../../sdk/models/shared/contentrequest.md)                                                                                                             | :heavy_check_mark:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `teamId`                                                                                                                                                                       | *number*                                                                                                                                                                       | :heavy_check_mark:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `xRequestID`                                                                                                                                                                   | *string*                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `organizationId`                                                                                                                                                               | *number*                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 
