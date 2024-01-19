@@ -37,7 +37,7 @@ typescript:
       webhooks: sdk/models/webhooks
   inputModelSuffix: input
   installationURL: https://github.com/writerai/writer-client-sdk-typescript
-  maxMethodParams: true
+  maxMethodParams: 4
   outputModelSuffix: output
   packageName: '@writerai/writer-sdk'
   published: true
