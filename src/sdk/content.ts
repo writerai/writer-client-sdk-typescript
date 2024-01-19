@@ -8,6 +8,7 @@ import { HTTPClient } from "../lib/http";
 import { ClientSDK, RequestOptions } from "../lib/sdks";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 
 export class Content extends ClientSDK {
     private readonly options$: SDKOptions;
@@ -25,15 +26,22 @@ export class Content extends ClientSDK {
      * Check your content against your preset styleguide.
      */
     async check(
-        input: operations.ContentCheckRequest,
+        contentRequest: shared.ContentRequest,
+        teamId: number,
+        organizationId?: number | undefined,
         options?: RequestOptions
     ): Promise<operations.ContentCheckResponse> {
+        const input$: operations.ContentCheckRequest = {
+            contentRequest: contentRequest,
+            teamId: teamId,
+            organizationId: organizationId,
+        };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.ContentCheckRequest$.outboundSchema.parse(input);
+        const payload$ = operations.ContentCheckRequest$.outboundSchema.parse(input$);
 
         const body$ = enc$.encodeJSON("body", payload$.ContentRequest, { explode: true });
 
@@ -66,7 +74,7 @@ export class Content extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "post",
+                method: "POST",
                 path: path$,
                 headers: headers$,
                 body: body$,
@@ -106,15 +114,24 @@ export class Content extends ClientSDK {
      * Apply the style guide suggestions directly to your content.
      */
     async correct(
-        input: operations.ContentCorrectRequest,
+        contentRequest: shared.ContentRequest,
+        teamId: number,
+        xRequestID?: string | undefined,
+        organizationId?: number | undefined,
         options?: RequestOptions
     ): Promise<operations.ContentCorrectResponse> {
+        const input$: operations.ContentCorrectRequest = {
+            contentRequest: contentRequest,
+            teamId: teamId,
+            xRequestID: xRequestID,
+            organizationId: organizationId,
+        };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.ContentCorrectRequest$.outboundSchema.parse(input);
+        const payload$ = operations.ContentCorrectRequest$.outboundSchema.parse(input$);
 
         const body$ = enc$.encodeJSON("body", payload$.ContentRequest, { explode: true });
 
@@ -155,7 +172,7 @@ export class Content extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "post",
+                method: "POST",
                 path: path$,
                 headers: headers$,
                 body: body$,

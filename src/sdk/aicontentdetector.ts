@@ -8,6 +8,7 @@ import { HTTPClient } from "../lib/http";
 import { ClientSDK, RequestOptions } from "../lib/sdks";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 
 export class AIContentDetector extends ClientSDK {
     private readonly options$: SDKOptions;
@@ -25,15 +26,20 @@ export class AIContentDetector extends ClientSDK {
      * Content detector api
      */
     async detect(
-        input: operations.DetectContentRequest,
+        contentDetectorRequest: shared.ContentDetectorRequest,
+        organizationId?: number | undefined,
         options?: RequestOptions
     ): Promise<operations.DetectContentResponse> {
+        const input$: operations.DetectContentRequest = {
+            contentDetectorRequest: contentDetectorRequest,
+            organizationId: organizationId,
+        };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.DetectContentRequest$.outboundSchema.parse(input);
+        const payload$ = operations.DetectContentRequest$.outboundSchema.parse(input$);
 
         const body$ = enc$.encodeJSON("body", payload$.ContentDetectorRequest, { explode: true });
 
@@ -62,7 +68,7 @@ export class AIContentDetector extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "post",
+                method: "POST",
                 path: path$,
                 headers: headers$,
                 body: body$,

@@ -50,13 +50,10 @@ async function run() {
         organizationId: 850421,
     });
 
-    const res = await sdk.billing.getSubscriptionDetails();
+    const result = await sdk.billing.getSubscriptionDetails();
 
-    if (res?.statusCode !== 200) {
-        throw new Error("Unexpected status code: " + res?.statusCode || "-");
-    }
-
-    // handle response
+    // Handle the result
+    console.log(result);
 }
 
 run();
@@ -174,17 +171,15 @@ async function run() {
         organizationId: 496531,
     });
 
-    const res = await sdk.aiContentDetector.detect({
-        contentDetectorRequest: {
-            input: "string",
-        },
-    });
+    const contentDetectorRequest = {
+        input: "string",
+    };
+    const organizationId = 592237;
 
-    if (res?.statusCode !== 200) {
-        throw new Error("Unexpected status code: " + res?.statusCode || "-");
-    }
+    const result = await sdk.aiContentDetector.detect(contentDetectorRequest, organizationId);
 
-    // handle response
+    // Handle the result
+    console.log(result);
 }
 
 run();
@@ -216,20 +211,23 @@ async function run() {
         organizationId: 850421,
     });
 
-    const res = await sdk.billing.getSubscriptionDetails().catch((err) => {
-        if (err instanceof errors.FailResponse) {
-            console.error(err); // handle exception
-            return null;
-        } else {
-            throw err;
+    let result;
+    try {
+        result = await sdk.billing.getSubscriptionDetails();
+    } catch (err) {
+        switch (true) {
+            case err instanceof errors.FailResponse: {
+                console.error(err); // handle exception
+                return;
+            }
+            default: {
+                throw err;
+            }
         }
-    });
-
-    if (res?.statusCode !== 200) {
-        throw new Error("Unexpected status code: " + res?.statusCode || "-");
     }
 
-    // handle response
+    // Handle the result
+    console.log(result);
 }
 
 run();
@@ -244,18 +242,56 @@ run();
 
 ### Select Server by Index
 
-You can override the default server globally by passing a server index to the `serverIdx: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+You can override the default server globally by passing a server index to the `serverIdx` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
 
 | # | Server | Variables |
 | - | ------ | --------- |
 | 0 | `https://enterprise-api.writer.com` | None |
 
+```typescript
+import { Writer } from "@writerai/writer-sdk";
 
+async function run() {
+    const sdk = new Writer({
+        serverIdx: 0,
+        apiKey: "<YOUR_API_KEY_HERE>",
+        organizationId: 850421,
+    });
+
+    const result = await sdk.billing.getSubscriptionDetails();
+
+    // Handle the result
+    console.log(result);
+}
+
+run();
+
+```
 
 
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverURL: str` optional parameter when initializing the SDK client instance. For example:
+The default server can also be overridden globally by passing a URL to the `serverURL` optional parameter when initializing the SDK client instance. For example:
+
+```typescript
+import { Writer } from "@writerai/writer-sdk";
+
+async function run() {
+    const sdk = new Writer({
+        serverURL: "https://enterprise-api.writer.com",
+        apiKey: "<YOUR_API_KEY_HERE>",
+        organizationId: 850421,
+    });
+
+    const result = await sdk.billing.getSubscriptionDetails();
+
+    // Handle the result
+    console.log(result);
+}
+
+run();
+
+```
 <!-- End Server Selection [server] -->
 
 
@@ -332,13 +368,10 @@ async function run() {
         organizationId: 850421,
     });
 
-    const res = await sdk.billing.getSubscriptionDetails();
+    const result = await sdk.billing.getSubscriptionDetails();
 
-    if (res?.statusCode !== 200) {
-        throw new Error("Unexpected status code: " + res?.statusCode || "-");
-    }
-
-    // handle response
+    // Handle the result
+    console.log(result);
 }
 
 run();
@@ -370,23 +403,27 @@ async function run() {
         organizationId: 403654,
     });
 
-    const res = await sdk.files.upload({
-        uploadModelFileRequest: {
-            file: await openAsBlob("./sample-file"),
-        },
-    });
+    const uploadModelFileRequest = {
+        file: await openAsBlob("./sample-file"),
+    };
+    const organizationId = 330343;
 
-    if (res?.statusCode !== 200) {
-        throw new Error("Unexpected status code: " + res?.statusCode || "-");
-    }
+    const result = await sdk.files.upload(uploadModelFileRequest, organizationId);
 
-    // handle response
+    // Handle the result
+    console.log(result);
 }
 
 run();
 
 ```
 <!-- End File uploads [file-upload] -->
+
+<!-- Start Requirements [requirements] -->
+## Requirements
+
+For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
+<!-- End Requirements [requirements] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

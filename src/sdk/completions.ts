@@ -8,6 +8,7 @@ import { HTTPClient } from "../lib/http";
 import { ClientSDK, RequestOptions } from "../lib/sdks";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 
 export class Completions extends ClientSDK {
     private readonly options$: SDKOptions;
@@ -25,15 +26,22 @@ export class Completions extends ClientSDK {
      * Create completion for LLM model
      */
     async create(
-        input: operations.CreateCompletionRequest,
+        completionRequest: shared.CompletionRequest,
+        modelId: string,
+        organizationId?: number | undefined,
         options?: RequestOptions
     ): Promise<operations.CreateCompletionResponse> {
+        const input$: operations.CreateCompletionRequest = {
+            completionRequest: completionRequest,
+            modelId: modelId,
+            organizationId: organizationId,
+        };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.CreateCompletionRequest$.outboundSchema.parse(input);
+        const payload$ = operations.CreateCompletionRequest$.outboundSchema.parse(input$);
 
         const body$ = enc$.encodeJSON("body", payload$.CompletionRequest, { explode: true });
 
@@ -66,7 +74,7 @@ export class Completions extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "post",
+                method: "POST",
                 path: path$,
                 headers: headers$,
                 body: body$,
@@ -106,16 +114,25 @@ export class Completions extends ClientSDK {
      * Create completion for LLM customization model
      */
     async createModelCustomizationCompletion(
-        input: operations.CreateModelCustomizationCompletionRequest,
+        completionRequest: shared.CompletionRequest,
+        customizationId: string,
+        modelId: string,
+        organizationId?: number | undefined,
         options?: RequestOptions
     ): Promise<operations.CreateModelCustomizationCompletionResponse> {
+        const input$: operations.CreateModelCustomizationCompletionRequest = {
+            completionRequest: completionRequest,
+            customizationId: customizationId,
+            modelId: modelId,
+            organizationId: organizationId,
+        };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
         const payload$ =
-            operations.CreateModelCustomizationCompletionRequest$.outboundSchema.parse(input);
+            operations.CreateModelCustomizationCompletionRequest$.outboundSchema.parse(input$);
 
         const body$ = enc$.encodeJSON("body", payload$.CompletionRequest, { explode: true });
 
@@ -152,7 +169,7 @@ export class Completions extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "post",
+                method: "POST",
                 path: path$,
                 headers: headers$,
                 body: body$,

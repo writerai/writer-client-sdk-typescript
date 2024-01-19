@@ -7,8 +7,8 @@ import { z } from "zod";
 
 export type GenerateContentRequest = {
     generateTemplateRequest: shared.GenerateTemplateRequest;
-    organizationId?: number | undefined;
     teamId: number;
+    organizationId?: number | undefined;
 };
 
 export type GenerateContentResponse = {
@@ -32,41 +32,41 @@ export type GenerateContentResponse = {
 export namespace GenerateContentRequest$ {
     export type Inbound = {
         GenerateTemplateRequest: shared.GenerateTemplateRequest$.Inbound;
-        organizationId?: number | undefined;
         teamId: number;
+        organizationId?: number | undefined;
     };
 
     export const inboundSchema: z.ZodType<GenerateContentRequest, z.ZodTypeDef, Inbound> = z
         .object({
             GenerateTemplateRequest: shared.GenerateTemplateRequest$.inboundSchema,
-            organizationId: z.number().int().optional(),
             teamId: z.number().int(),
+            organizationId: z.number().int().optional(),
         })
         .transform((v) => {
             return {
                 generateTemplateRequest: v.GenerateTemplateRequest,
-                ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
                 teamId: v.teamId,
+                ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
             };
         });
 
     export type Outbound = {
         GenerateTemplateRequest: shared.GenerateTemplateRequest$.Outbound;
-        organizationId?: number | undefined;
         teamId: number;
+        organizationId?: number | undefined;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, GenerateContentRequest> = z
         .object({
             generateTemplateRequest: shared.GenerateTemplateRequest$.outboundSchema,
-            organizationId: z.number().int().optional(),
             teamId: z.number().int(),
+            organizationId: z.number().int().optional(),
         })
         .transform((v) => {
             return {
                 GenerateTemplateRequest: v.generateTemplateRequest,
-                ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
                 teamId: v.teamId,
+                ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
             };
         });
 }

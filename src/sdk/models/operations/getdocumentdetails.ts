@@ -7,8 +7,8 @@ import { z } from "zod";
 
 export type GetDocumentDetailsRequest = {
     documentId: number;
-    organizationId?: number | undefined;
     teamId: number;
+    organizationId?: number | undefined;
 };
 
 export type GetDocumentDetailsResponse = {
@@ -32,41 +32,41 @@ export type GetDocumentDetailsResponse = {
 export namespace GetDocumentDetailsRequest$ {
     export type Inbound = {
         documentId: number;
-        organizationId?: number | undefined;
         teamId: number;
+        organizationId?: number | undefined;
     };
 
     export const inboundSchema: z.ZodType<GetDocumentDetailsRequest, z.ZodTypeDef, Inbound> = z
         .object({
             documentId: z.number().int(),
-            organizationId: z.number().int().optional(),
             teamId: z.number().int(),
+            organizationId: z.number().int().optional(),
         })
         .transform((v) => {
             return {
                 documentId: v.documentId,
-                ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
                 teamId: v.teamId,
+                ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
             };
         });
 
     export type Outbound = {
         documentId: number;
-        organizationId?: number | undefined;
         teamId: number;
+        organizationId?: number | undefined;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, GetDocumentDetailsRequest> = z
         .object({
             documentId: z.number().int(),
-            organizationId: z.number().int().optional(),
             teamId: z.number().int(),
+            organizationId: z.number().int().optional(),
         })
         .transform((v) => {
             return {
                 documentId: v.documentId,
-                ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
                 teamId: v.teamId,
+                ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
             };
         });
 }

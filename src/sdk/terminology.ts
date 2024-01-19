@@ -8,6 +8,7 @@ import { HTTPClient } from "../lib/http";
 import { ClientSDK, RequestOptions } from "../lib/sdks";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 
 export class Terminology extends ClientSDK {
     private readonly options$: SDKOptions;
@@ -25,15 +26,22 @@ export class Terminology extends ClientSDK {
      * Add terms
      */
     async add(
-        input: operations.AddTermsRequest,
+        createTermsRequest: shared.CreateTermsRequest,
+        teamId: number,
+        organizationId?: number | undefined,
         options?: RequestOptions
     ): Promise<operations.AddTermsResponse> {
+        const input$: operations.AddTermsRequest = {
+            createTermsRequest: createTermsRequest,
+            teamId: teamId,
+            organizationId: organizationId,
+        };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.AddTermsRequest$.outboundSchema.parse(input);
+        const payload$ = operations.AddTermsRequest$.outboundSchema.parse(input$);
 
         const body$ = enc$.encodeJSON("body", payload$.CreateTermsRequest, { explode: true });
 
@@ -66,7 +74,7 @@ export class Terminology extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "post",
+                method: "POST",
                 path: path$,
                 headers: headers$,
                 body: body$,
@@ -106,14 +114,23 @@ export class Terminology extends ClientSDK {
      * Delete terms
      */
     async delete(
-        input: operations.DeleteTermsRequest,
+        teamId: number,
+        xRequestID?: string | undefined,
+        ids?: Array<number> | undefined,
+        organizationId?: number | undefined,
         options?: RequestOptions
     ): Promise<operations.DeleteTermsResponse> {
+        const input$: operations.DeleteTermsRequest = {
+            teamId: teamId,
+            xRequestID: xRequestID,
+            ids: ids,
+            organizationId: organizationId,
+        };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.DeleteTermsRequest$.outboundSchema.parse(input);
+        const payload$ = operations.DeleteTermsRequest$.outboundSchema.parse(input$);
         const body$ = null;
 
         const pathParams$ = {
@@ -159,7 +176,7 @@ export class Terminology extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "delete",
+                method: "DELETE",
                 path: path$,
                 headers: headers$,
                 query: query$,
@@ -261,7 +278,7 @@ export class Terminology extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "get",
+                method: "GET",
                 path: path$,
                 headers: headers$,
                 query: query$,
@@ -302,15 +319,24 @@ export class Terminology extends ClientSDK {
      * Update terms
      */
     async update(
-        input: operations.UpdateTermsRequest,
+        updateTermsRequest: shared.UpdateTermsRequest,
+        teamId: number,
+        xRequestID?: string | undefined,
+        organizationId?: number | undefined,
         options?: RequestOptions
     ): Promise<operations.UpdateTermsResponse> {
+        const input$: operations.UpdateTermsRequest = {
+            updateTermsRequest: updateTermsRequest,
+            teamId: teamId,
+            xRequestID: xRequestID,
+            organizationId: organizationId,
+        };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.UpdateTermsRequest$.outboundSchema.parse(input);
+        const payload$ = operations.UpdateTermsRequest$.outboundSchema.parse(input$);
 
         const body$ = enc$.encodeJSON("body", payload$.UpdateTermsRequest, { explode: true });
 
@@ -351,7 +377,7 @@ export class Terminology extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "put",
+                method: "PUT",
                 path: path$,
                 headers: headers$,
                 body: body$,

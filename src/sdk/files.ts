@@ -8,6 +8,7 @@ import { HTTPClient } from "../lib/http";
 import { ClientSDK, RequestOptions } from "../lib/sdks";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { isBlobLike } from "../sdk/types";
 
 export class Files extends ClientSDK {
@@ -26,14 +27,19 @@ export class Files extends ClientSDK {
      * Delete file
      */
     async delete(
-        input: operations.DeleteFileRequest,
+        fileId: string,
+        organizationId?: number | undefined,
         options?: RequestOptions
     ): Promise<operations.DeleteFileResponse> {
+        const input$: operations.DeleteFileRequest = {
+            fileId: fileId,
+            organizationId: organizationId,
+        };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.DeleteFileRequest$.outboundSchema.parse(input);
+        const payload$ = operations.DeleteFileRequest$.outboundSchema.parse(input$);
         const body$ = null;
 
         const pathParams$ = {
@@ -65,7 +71,7 @@ export class Files extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "delete",
+                method: "DELETE",
                 path: path$,
                 headers: headers$,
                 body: body$,
@@ -105,14 +111,19 @@ export class Files extends ClientSDK {
      * Get file
      */
     async get(
-        input: operations.GetFileRequest,
+        fileId: string,
+        organizationId?: number | undefined,
         options?: RequestOptions
     ): Promise<operations.GetFileResponse> {
+        const input$: operations.GetFileRequest = {
+            fileId: fileId,
+            organizationId: organizationId,
+        };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.GetFileRequest$.outboundSchema.parse(input);
+        const payload$ = operations.GetFileRequest$.outboundSchema.parse(input$);
         const body$ = null;
 
         const pathParams$ = {
@@ -144,7 +155,7 @@ export class Files extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "get",
+                method: "GET",
                 path: path$,
                 headers: headers$,
                 body: body$,
@@ -222,7 +233,7 @@ export class Files extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "get",
+                method: "GET",
                 path: path$,
                 headers: headers$,
                 body: body$,
@@ -262,14 +273,19 @@ export class Files extends ClientSDK {
      * Upload file
      */
     async upload(
-        input: operations.UploadFileRequest,
+        uploadModelFileRequest: shared.UploadModelFileRequest,
+        organizationId?: number | undefined,
         options?: RequestOptions
     ): Promise<operations.UploadFileResponse> {
+        const input$: operations.UploadFileRequest = {
+            uploadModelFileRequest: uploadModelFileRequest,
+            organizationId: organizationId,
+        };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.UploadFileRequest$.outboundSchema.parse(input);
+        const payload$ = operations.UploadFileRequest$.outboundSchema.parse(input$);
 
         const body$ = new FormData();
 
@@ -310,7 +326,7 @@ export class Files extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "post",
+                method: "POST",
                 path: path$,
                 headers: headers$,
                 body: body$,

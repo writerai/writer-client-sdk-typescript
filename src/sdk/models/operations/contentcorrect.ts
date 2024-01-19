@@ -7,9 +7,9 @@ import { z } from "zod";
 
 export type ContentCorrectRequest = {
     contentRequest: shared.ContentRequest;
+    teamId: number;
     xRequestID?: string | undefined;
     organizationId?: number | undefined;
-    teamId: number;
 };
 
 export type ContentCorrectResponse = {
@@ -33,47 +33,47 @@ export type ContentCorrectResponse = {
 export namespace ContentCorrectRequest$ {
     export type Inbound = {
         ContentRequest: shared.ContentRequest$.Inbound;
+        teamId: number;
         "X-Request-ID"?: string | undefined;
         organizationId?: number | undefined;
-        teamId: number;
     };
 
     export const inboundSchema: z.ZodType<ContentCorrectRequest, z.ZodTypeDef, Inbound> = z
         .object({
             ContentRequest: shared.ContentRequest$.inboundSchema,
+            teamId: z.number().int(),
             "X-Request-ID": z.string().optional(),
             organizationId: z.number().int().optional(),
-            teamId: z.number().int(),
         })
         .transform((v) => {
             return {
                 contentRequest: v.ContentRequest,
+                teamId: v.teamId,
                 ...(v["X-Request-ID"] === undefined ? null : { xRequestID: v["X-Request-ID"] }),
                 ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
-                teamId: v.teamId,
             };
         });
 
     export type Outbound = {
         ContentRequest: shared.ContentRequest$.Outbound;
+        teamId: number;
         "X-Request-ID"?: string | undefined;
         organizationId?: number | undefined;
-        teamId: number;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ContentCorrectRequest> = z
         .object({
             contentRequest: shared.ContentRequest$.outboundSchema,
+            teamId: z.number().int(),
             xRequestID: z.string().optional(),
             organizationId: z.number().int().optional(),
-            teamId: z.number().int(),
         })
         .transform((v) => {
             return {
                 ContentRequest: v.contentRequest,
+                teamId: v.teamId,
                 ...(v.xRequestID === undefined ? null : { "X-Request-ID": v.xRequestID }),
                 ...(v.organizationId === undefined ? null : { organizationId: v.organizationId }),
-                teamId: v.teamId,
             };
         });
 }

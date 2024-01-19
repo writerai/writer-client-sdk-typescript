@@ -24,13 +24,10 @@ async function run() {
     organizationId: 850421,
   });
 
-  const res = await sdk.billing.getSubscriptionDetails();
+  const result = await sdk.billing.getSubscriptionDetails();
 
-  if (res?.statusCode !== 200) {
-    throw new Error("Unexpected status code: " + res?.statusCode || "-");
-  }
-  
-  // handle response
+  // Handle the result
+  console.log(result)
 }
 
 run();

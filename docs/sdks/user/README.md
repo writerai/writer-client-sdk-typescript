@@ -25,13 +25,10 @@ async function run() {
     organizationId: 768578,
   });
 
-  const res = await sdk.user.list({});
+  const result = await sdk.user.list({});
 
-  if (res?.statusCode !== 200) {
-    throw new Error("Unexpected status code: " + res?.statusCode || "-");
-  }
-  
-  // handle response
+  // Handle the result
+  console.log(result)
 }
 
 run();

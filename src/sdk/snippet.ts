@@ -8,6 +8,7 @@ import { HTTPClient } from "../lib/http";
 import { ClientSDK, RequestOptions } from "../lib/sdks";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 
 export class Snippet extends ClientSDK {
     private readonly options$: SDKOptions;
@@ -25,14 +26,23 @@ export class Snippet extends ClientSDK {
      * Delete snippets
      */
     async delete(
-        input: operations.DeleteSnippetsRequest,
+        teamId: number,
+        xRequestID?: string | undefined,
+        ids?: Array<string> | undefined,
+        organizationId?: number | undefined,
         options?: RequestOptions
     ): Promise<operations.DeleteSnippetsResponse> {
+        const input$: operations.DeleteSnippetsRequest = {
+            teamId: teamId,
+            xRequestID: xRequestID,
+            ids: ids,
+            organizationId: organizationId,
+        };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.DeleteSnippetsRequest$.outboundSchema.parse(input);
+        const payload$ = operations.DeleteSnippetsRequest$.outboundSchema.parse(input$);
         const body$ = null;
 
         const pathParams$ = {
@@ -78,7 +88,7 @@ export class Snippet extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "delete",
+                method: "DELETE",
                 path: path$,
                 headers: headers$,
                 query: query$,
@@ -179,7 +189,7 @@ export class Snippet extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "get",
+                method: "GET",
                 path: path$,
                 headers: headers$,
                 query: query$,
@@ -220,15 +230,24 @@ export class Snippet extends ClientSDK {
      * Update snippets
      */
     async update(
-        input: operations.UpdateSnippetsRequest,
+        teamId: number,
+        requestBody?: Array<shared.SnippetUpdate> | undefined,
+        xRequestID?: string | undefined,
+        organizationId?: number | undefined,
         options?: RequestOptions
     ): Promise<operations.UpdateSnippetsResponse> {
+        const input$: operations.UpdateSnippetsRequest = {
+            teamId: teamId,
+            requestBody: requestBody,
+            xRequestID: xRequestID,
+            organizationId: organizationId,
+        };
         const headers$ = new Headers();
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.UpdateSnippetsRequest$.outboundSchema.parse(input);
+        const payload$ = operations.UpdateSnippetsRequest$.outboundSchema.parse(input$);
 
         const body$ = enc$.encodeJSON("body", payload$.RequestBody, { explode: true });
 
@@ -269,7 +288,7 @@ export class Snippet extends ClientSDK {
         const response = await this.fetch$(
             {
                 security: securitySettings$,
-                method: "put",
+                method: "PUT",
                 path: path$,
                 headers: headers$,
                 body: body$,
