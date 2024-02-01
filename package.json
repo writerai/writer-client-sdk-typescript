@@ -1,7 +1,7 @@
 {
   "type": "commonjs",
   "name": "@writerai/writer-sdk",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "author": "writerai",
   "main": "./index.js",
   "sideEffects": false,

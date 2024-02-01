@@ -17,7 +17,7 @@ export enum FullTermWithUserPos {
     Adjective = "adjective",
 }
 
-export enum TypeT {
+export enum Type {
     Approved = "approved",
     Banned = "banned",
     Pending = "pending",
@@ -41,14 +41,14 @@ export type FullTermWithUser = {
     tags?: Array<TermTagResponse> | undefined;
     term: string;
     termBankId: number;
-    type: TypeT;
+    type: Type;
 };
 
 /** @internal */
 export const FullTermWithUserPos$ = z.nativeEnum(FullTermWithUserPos);
 
 /** @internal */
-export const TypeT$ = z.nativeEnum(TypeT);
+export const Type$ = z.nativeEnum(Type);
 
 /** @internal */
 export namespace FullTermWithUser$ {
@@ -70,7 +70,7 @@ export namespace FullTermWithUser$ {
         tags?: Array<TermTagResponse$.Inbound> | undefined;
         term: string;
         termBankId: number;
-        type: TypeT;
+        type: Type;
     };
 
     export const inboundSchema: z.ZodType<FullTermWithUser, z.ZodTypeDef, Inbound> = z
@@ -98,7 +98,7 @@ export namespace FullTermWithUser$ {
             tags: z.array(TermTagResponse$.inboundSchema).optional(),
             term: z.string(),
             termBankId: z.number().int(),
-            type: TypeT$,
+            type: Type$,
         })
         .transform((v) => {
             return {
@@ -145,7 +145,7 @@ export namespace FullTermWithUser$ {
         tags?: Array<TermTagResponse$.Outbound> | undefined;
         term: string;
         termBankId: number;
-        type: TypeT;
+        type: Type;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, FullTermWithUser> = z
@@ -167,7 +167,7 @@ export namespace FullTermWithUser$ {
             tags: z.array(TermTagResponse$.outboundSchema).optional(),
             term: z.string(),
             termBankId: z.number().int(),
-            type: TypeT$,
+            type: Type$,
         })
         .transform((v) => {
             return {
