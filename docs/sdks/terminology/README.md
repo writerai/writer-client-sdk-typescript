@@ -156,7 +156,7 @@ Find terms
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { PartOfSpeech, QueryParamSortField, QueryParamSortOrder, TypeT } from "@writerai/writer-sdk/sdk/models/operations";
+import { PartOfSpeech, QueryParamSortField, QueryParamSortOrder, Type } from "@writerai/writer-sdk/sdk/models/operations";
 
 async function run() {
   const sdk = new Writer({

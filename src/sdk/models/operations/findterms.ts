@@ -24,7 +24,7 @@ export enum QueryParamSortOrder {
     Desc = "desc",
 }
 
-export enum TypeT {
+export enum Type {
     Approved = "approved",
     Banned = "banned",
     Pending = "pending",
@@ -40,7 +40,7 @@ export type FindTermsRequest = {
     tags?: Array<string> | undefined;
     teamId: number;
     term?: string | undefined;
-    type?: TypeT | undefined;
+    type?: Type | undefined;
 };
 
 export type FindTermsResponse = {
@@ -70,7 +70,7 @@ export const QueryParamSortField$ = z.nativeEnum(QueryParamSortField);
 export const QueryParamSortOrder$ = z.nativeEnum(QueryParamSortOrder);
 
 /** @internal */
-export const TypeT$ = z.nativeEnum(TypeT);
+export const Type$ = z.nativeEnum(Type);
 
 /** @internal */
 export namespace FindTermsRequest$ {
@@ -84,7 +84,7 @@ export namespace FindTermsRequest$ {
         tags?: Array<string> | undefined;
         teamId: number;
         term?: string | undefined;
-        type?: TypeT | undefined;
+        type?: Type | undefined;
     };
 
     export const inboundSchema: z.ZodType<FindTermsRequest, z.ZodTypeDef, Inbound> = z
@@ -98,7 +98,7 @@ export namespace FindTermsRequest$ {
             tags: z.array(z.string()).optional(),
             teamId: z.number().int(),
             term: z.string().optional(),
-            type: TypeT$.optional(),
+            type: Type$.optional(),
         })
         .transform((v) => {
             return {
@@ -125,7 +125,7 @@ export namespace FindTermsRequest$ {
         tags?: Array<string> | undefined;
         teamId: number;
         term?: string | undefined;
-        type?: TypeT | undefined;
+        type?: Type | undefined;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, FindTermsRequest> = z
@@ -139,7 +139,7 @@ export namespace FindTermsRequest$ {
             tags: z.array(z.string()).optional(),
             teamId: z.number().int(),
             term: z.string().optional(),
-            type: TypeT$.optional(),
+            type: Type$.optional(),
         })
         .transform((v) => {
             return {

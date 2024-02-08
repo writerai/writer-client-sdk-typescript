@@ -4,9 +4,9 @@ management:
   docChecksum: 044ba6ea348a6fb8206cacad6926373d
   docVersion: "1.7"
   speakeasyVersion: internal
-  generationVersion: 2.237.2
-  releaseVersion: 3.0.0
-  configChecksum: 5c40271630062e9e046631df61bc74b1
+  generationVersion: 2.245.1
+  releaseVersion: 3.0.1
+  configChecksum: 80facfd3997f59c96eccc6bf9ee970d0
   repoURL: https://github.com/writerai/writer-client-sdk-typescript.git
   repoSubDirectory: .
   installationURL: https://github.com/writerai/writer-client-sdk-typescript
@@ -14,7 +14,7 @@ management:
 features:
   typescript:
     acceptHeaders: 2.81.1
-    core: 3.4.7
+    core: 3.4.8
     downloadStreams: 0.1.1
     errors: 2.81.8
     flattening: 2.81.1
@@ -223,7 +223,7 @@ generatedFiles:
   - docs/sdk/models/operations/partofspeech.md
   - docs/sdk/models/operations/queryparamsortfield.md
   - docs/sdk/models/operations/queryparamsortorder.md
-  - docs/sdk/models/operations/typet.md
+  - docs/sdk/models/operations/type.md
   - docs/sdk/models/operations/findtermsrequest.md
   - docs/sdk/models/operations/findtermsresponse.md
   - docs/sdk/models/operations/updatetermsrequest.md
@@ -291,7 +291,7 @@ generatedFiles:
   - docs/sdk/models/shared/pagepublicapiresponse.md
   - docs/sdk/models/shared/createtermsresponse.md
   - docs/sdk/models/shared/fulltermwithuserpos.md
-  - docs/sdk/models/shared/typet.md
+  - docs/sdk/models/shared/type.md
   - docs/sdk/models/shared/fulltermwithuser.md
   - docs/sdk/models/shared/termtagresponse.md
   - docs/sdk/models/shared/termmistakepos.md
