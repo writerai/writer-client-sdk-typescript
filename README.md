@@ -172,7 +172,7 @@ async function run() {
     });
 
     const contentDetectorRequest = {
-        input: "string",
+        input: "<value>",
     };
     const organizationId = 592237;
 
@@ -203,7 +203,6 @@ Example
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import * as errors from "@writerai/writer-sdk/sdk/models/errors";
 
 async function run() {
     const sdk = new Writer({

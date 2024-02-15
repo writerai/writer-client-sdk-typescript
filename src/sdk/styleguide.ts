@@ -21,6 +21,7 @@ export class Styleguide extends ClientSDK {
         this.options$ = options;
         void this.options$;
     }
+
     /**
      * Page details
      */

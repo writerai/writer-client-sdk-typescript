@@ -8,7 +8,7 @@ generation:
     parameterOrderingFeb2024: false
     requestResponseComponentNamesFeb2024: false
 typescript:
-  version: 3.0.2
+  version: 3.0.3
   author: writerai
   clientServerStatusCodesAsErrors: false
   flattenGlobalSecurity: true

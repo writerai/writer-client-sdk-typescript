@@ -22,6 +22,7 @@ export class CoWrite extends ClientSDK {
         this.options$ = options;
         void this.options$;
     }
+
     /**
      * Generate content using predefined templates
      */

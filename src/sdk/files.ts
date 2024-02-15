@@ -23,6 +23,7 @@ export class Files extends ClientSDK {
         this.options$ = options;
         void this.options$;
     }
+
     /**
      * Delete file
      */

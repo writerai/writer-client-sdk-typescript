@@ -26,7 +26,7 @@ async function run() {
   });
 
   const contentRequest = {
-    content: "string",
+    content: "<value>",
     settings: {
       ageAndFamilyStatus: false,
       confidence: false,
@@ -95,7 +95,7 @@ async function run() {
   });
 
   const contentRequest = {
-    content: "string",
+    content: "<value>",
     settings: {
       ageAndFamilyStatus: false,
       confidence: false,
@@ -116,7 +116,7 @@ async function run() {
     },
   };
   const teamId = 31310;
-  const xRequestID = "string";
+  const xRequestID = "<value>";
   const organizationId = 383223;
   
   const result = await sdk.content.correct(contentRequest, teamId, xRequestID, organizationId);

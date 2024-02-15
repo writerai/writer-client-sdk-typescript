@@ -27,7 +27,7 @@ async function run() {
     organizationId: 545907,
   });
 
-  const fileId = "string";
+  const fileId = "<value>";
   const organizationId = 841399;
   
   const result = await sdk.files.delete(fileId, organizationId);
@@ -74,7 +74,7 @@ async function run() {
     organizationId: 700347,
   });
 
-  const fileId = "string";
+  const fileId = "<value>";
   const organizationId = 90065;
   
   const result = await sdk.files.get(fileId, organizationId);

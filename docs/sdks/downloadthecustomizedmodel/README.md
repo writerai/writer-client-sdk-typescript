@@ -24,8 +24,8 @@ async function run() {
     organizationId: 501762,
   });
 
-  const customizationId = "string";
-  const modelId = "string";
+  const customizationId = "<value>";
+  const modelId = "<value>";
   const organizationId = 948692;
   
   const result = await sdk.downloadTheCustomizedModel.fetchFile(customizationId, modelId, organizationId);

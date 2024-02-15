@@ -21,6 +21,7 @@ export class Document extends ClientSDK {
         this.options$ = options;
         void this.options$;
     }
+
     /**
      * Get document details
      */

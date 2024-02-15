@@ -26,6 +26,7 @@ export class DownloadTheCustomizedModel extends ClientSDK {
         this.options$ = options;
         void this.options$;
     }
+
     /**
      * Download your fine-tuned model (available only for Palmyra Base and Palmyra Large)
      */

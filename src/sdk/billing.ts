@@ -20,6 +20,7 @@ export class Billing extends ClientSDK {
         this.options$ = options;
         void this.options$;
     }
+
     /**
      * Get your organization subscription details
      */

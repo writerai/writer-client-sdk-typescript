@@ -27,9 +27,9 @@ async function run() {
   });
 
   const teamId = 841399;
-  const xRequestID = "string";
+  const xRequestID = "<value>";
   const ids = [
-    "string",
+    "<value>",
   ];
   const organizationId = 698486;
   
@@ -72,7 +72,6 @@ Find snippets
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { SortField, SortOrder } from "@writerai/writer-sdk/sdk/models/operations";
 
 async function run() {
   const sdk = new Writer({
@@ -82,10 +81,10 @@ async function run() {
 
   const result = await sdk.snippet.find({
     shortcuts: [
-      "string",
+      "<value>",
     ],
     tags: [
-      "string",
+      "<value>",
     ],
     teamId: 326883,
   });
@@ -134,16 +133,16 @@ async function run() {
   const teamId = 24555;
   const requestBody = [
     {
-      id: "<ID>",
-      snippet: "string",
+      id: "<id>",
+      snippet: "<value>",
       tags: [
         {
-          tag: "string",
+          tag: "<value>",
         },
       ],
     },
   ];
-  const xRequestID = "string";
+  const xRequestID = "<value>";
   const organizationId = 597129;
   
   const result = await sdk.snippet.update(teamId, requestBody, xRequestID, organizationId);

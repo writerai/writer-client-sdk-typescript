@@ -67,7 +67,6 @@ List team documents
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { ListTeamDocumentsQueryParamSortField, ListTeamDocumentsQueryParamSortOrder } from "@writerai/writer-sdk/sdk/models/operations";
 
 async function run() {
   const sdk = new Writer({

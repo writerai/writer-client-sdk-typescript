@@ -22,6 +22,7 @@ export class Snippet extends ClientSDK {
         this.options$ = options;
         void this.options$;
     }
+
     /**
      * Delete snippets
      */

@@ -22,6 +22,7 @@ export class Content extends ClientSDK {
         this.options$ = options;
         void this.options$;
     }
+
     /**
      * Check your content against your preset styleguide.
      */

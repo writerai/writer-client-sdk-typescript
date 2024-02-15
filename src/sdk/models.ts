@@ -21,6 +21,7 @@ export class Models extends ClientSDK {
         this.options$ = options;
         void this.options$;
     }
+
     /**
      * List available LLM models
      */

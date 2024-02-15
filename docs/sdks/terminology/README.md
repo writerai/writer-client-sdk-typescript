@@ -20,7 +20,7 @@ Add terms
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { FailHandling } from "@writerai/writer-sdk/sdk/models/shared";
+import { TermCreateType, TermExampleCreateType } from "@writerai/writer-sdk/sdk/models/shared";
 
 async function run() {
   const sdk = new Writer({
@@ -39,7 +39,7 @@ async function run() {
         caseSensitive: false,
         examples: [
           {
-            example: "string",
+            example: "<value>",
             type: TermExampleCreateType.Bad,
           },
         ],
@@ -49,15 +49,15 @@ async function run() {
         mistakes: [
           {
             caseSensitive: false,
-            mistake: "string",
+            mistake: "<value>",
           },
         ],
         tags: [
           {
-            tag: "string",
+            tag: "<value>",
           },
         ],
-        term: "string",
+        term: "<value>",
         type: TermCreateType.Banned,
       },
     ],
@@ -111,7 +111,7 @@ async function run() {
   });
 
   const teamId = 841399;
-  const xRequestID = "string";
+  const xRequestID = "<value>";
   const ids = [
     698486,
   ];
@@ -156,7 +156,6 @@ Find terms
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { PartOfSpeech, QueryParamSortField, QueryParamSortOrder, Type } from "@writerai/writer-sdk/sdk/models/operations";
 
 async function run() {
   const sdk = new Writer({
@@ -166,7 +165,7 @@ async function run() {
 
   const result = await sdk.terminology.find({
     tags: [
-      "string",
+      "<value>",
     ],
     teamId: 326883,
   });
@@ -205,7 +204,7 @@ Update terms
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { UpdateTermsRequestFailHandling } from "@writerai/writer-sdk/sdk/models/shared";
+import { TermExampleCreateType, TermUpdateType } from "@writerai/writer-sdk/sdk/models/shared";
 
 async function run() {
   const sdk = new Writer({
@@ -224,7 +223,7 @@ async function run() {
         caseSensitive: false,
         examples: [
           {
-            example: "string",
+            example: "<value>",
             type: TermExampleCreateType.Good,
           },
         ],
@@ -235,21 +234,21 @@ async function run() {
         mistakes: [
           {
             caseSensitive: false,
-            mistake: "string",
+            mistake: "<value>",
           },
         ],
         tags: [
           {
-            tag: "string",
+            tag: "<value>",
           },
         ],
-        term: "string",
+        term: "<value>",
         type: TermUpdateType.Approved,
       },
     ],
   };
   const teamId = 344620;
-  const xRequestID = "string";
+  const xRequestID = "<value>";
   const organizationId = 708455;
   
   const result = await sdk.terminology.update(updateTermsRequest, teamId, xRequestID, organizationId);

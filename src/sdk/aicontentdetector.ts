@@ -22,6 +22,7 @@ export class AIContentDetector extends ClientSDK {
         this.options$ = options;
         void this.options$;
     }
+
     /**
      * Content detector api
      */

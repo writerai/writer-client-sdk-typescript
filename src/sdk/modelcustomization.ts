@@ -22,6 +22,7 @@ export class ModelCustomization extends ClientSDK {
         this.options$ = options;
         void this.options$;
     }
+
     /**
      * Create model customization
      */

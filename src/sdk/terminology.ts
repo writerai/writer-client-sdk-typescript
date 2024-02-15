@@ -22,6 +22,7 @@ export class Terminology extends ClientSDK {
         this.options$ = options;
         void this.options$;
     }
+
     /**
      * Add terms
      */

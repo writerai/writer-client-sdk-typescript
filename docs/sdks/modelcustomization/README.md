@@ -31,10 +31,10 @@ async function run() {
     additionalHyperParameters: {
       numVirtualTokens: 489382,
     },
-    name: "string",
-    trainingDatasetFileId: "string",
+    name: "<value>",
+    trainingDatasetFileId: "<value>",
   };
-  const modelId = "string";
+  const modelId = "<value>";
   const organizationId = 638424;
   
   const result = await sdk.modelCustomization.create(createCustomizationRequest, modelId, organizationId);
@@ -82,8 +82,8 @@ async function run() {
     organizationId: 545907,
   });
 
-  const customizationId = "string";
-  const modelId = "string";
+  const customizationId = "<value>";
+  const modelId = "<value>";
   const organizationId = 841399;
   
   const result = await sdk.modelCustomization.delete(customizationId, modelId, organizationId);
@@ -131,8 +131,8 @@ async function run() {
     organizationId: 700347,
   });
 
-  const customizationId = "string";
-  const modelId = "string";
+  const customizationId = "<value>";
+  const modelId = "<value>";
   const organizationId = 90065;
   
   const result = await sdk.modelCustomization.get(customizationId, modelId, organizationId);
@@ -180,7 +180,7 @@ async function run() {
     organizationId: 768578,
   });
 
-  const modelId = "string";
+  const modelId = "<value>";
   const organizationId = 99895;
   
   const result = await sdk.modelCustomization.list(modelId, organizationId);

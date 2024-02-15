@@ -22,6 +22,7 @@ export class Completions extends ClientSDK {
         this.options$ = options;
         void this.options$;
     }
+
     /**
      * Create completion for LLM model
      */
