@@ -42,7 +42,6 @@ export class Styleguide extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent("/styleguide/page/{pageId}")(pathParams$);
 
         let security$;

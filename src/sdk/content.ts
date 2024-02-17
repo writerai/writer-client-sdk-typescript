@@ -57,7 +57,6 @@ export class Content extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent(
             "/content/organization/{organizationId}/team/{teamId}/check"
         )(pathParams$);
@@ -147,7 +146,6 @@ export class Content extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent(
             "/content/organization/{organizationId}/team/{teamId}/correct"
         )(pathParams$);

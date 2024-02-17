@@ -46,7 +46,6 @@ export class Models extends ClientSDK {
                 { explode: false, charEncoding: "percent" }
             ),
         };
-
         const path$ = this.templateURLComponent("/llm/organization/{organizationId}/model")(
             pathParams$
         );

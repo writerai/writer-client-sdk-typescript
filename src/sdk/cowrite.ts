@@ -57,7 +57,6 @@ export class CoWrite extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent(
             "/cowrite/organization/{organizationId}/team/{teamId}/generate"
         )(pathParams$);
@@ -147,7 +146,6 @@ export class CoWrite extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent(
             "/cowrite/organization/{organizationId}/team/{teamId}/template/{templateId}"
         )(pathParams$);

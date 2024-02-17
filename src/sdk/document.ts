@@ -58,7 +58,6 @@ export class Document extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent(
             "/organization/{organizationId}/team/{teamId}/document/{documentId}"
         )(pathParams$);
@@ -137,7 +136,6 @@ export class Document extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent(
             "/organization/{organizationId}/team/{teamId}/document"
         )(pathParams$);

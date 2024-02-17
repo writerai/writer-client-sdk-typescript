@@ -4,7 +4,7 @@ management:
   docChecksum: 044ba6ea348a6fb8206cacad6926373d
   docVersion: "1.7"
   speakeasyVersion: internal
-  generationVersion: 2.258.0
+  generationVersion: 2.262.2
   releaseVersion: 3.0.3
   configChecksum: 6ac4f953a0ce019c3f9e592869836580
   repoURL: https://github.com/writerai/writer-client-sdk-typescript.git

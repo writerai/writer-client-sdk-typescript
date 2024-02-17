@@ -59,7 +59,6 @@ export class ModelCustomization extends ClientSDK {
                 { explode: false, charEncoding: "percent" }
             ),
         };
-
         const path$ = this.templateURLComponent(
             "/llm/organization/{organizationId}/model/{modelId}/customization"
         )(pathParams$);
@@ -149,7 +148,6 @@ export class ModelCustomization extends ClientSDK {
                 { explode: false, charEncoding: "percent" }
             ),
         };
-
         const path$ = this.templateURLComponent(
             "/llm/organization/{organizationId}/model/{modelId}/customization/{customizationId}"
         )(pathParams$);
@@ -239,7 +237,6 @@ export class ModelCustomization extends ClientSDK {
                 { explode: false, charEncoding: "percent" }
             ),
         };
-
         const path$ = this.templateURLComponent(
             "/llm/organization/{organizationId}/model/{modelId}/customization/{customizationId}"
         )(pathParams$);
@@ -323,7 +320,6 @@ export class ModelCustomization extends ClientSDK {
                 { explode: false, charEncoding: "percent" }
             ),
         };
-
         const path$ = this.templateURLComponent(
             "/llm/organization/{organizationId}/model/{modelId}/customization"
         )(pathParams$);

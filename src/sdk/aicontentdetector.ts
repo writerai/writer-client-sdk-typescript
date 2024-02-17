@@ -51,7 +51,6 @@ export class AIContentDetector extends ClientSDK {
                 { explode: false, charEncoding: "percent" }
             ),
         };
-
         const path$ = this.templateURLComponent("/content/organization/{organizationId}/detect")(
             pathParams$
         );

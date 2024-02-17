@@ -57,7 +57,6 @@ export class Completions extends ClientSDK {
                 { explode: false, charEncoding: "percent" }
             ),
         };
-
         const path$ = this.templateURLComponent(
             "/llm/organization/{organizationId}/model/{modelId}/completions"
         )(pathParams$);
@@ -152,7 +151,6 @@ export class Completions extends ClientSDK {
                 { explode: false, charEncoding: "percent" }
             ),
         };
-
         const path$ = this.templateURLComponent(
             "/llm/organization/{organizationId}/model/{modelId}/customization/{customizationId}/completions"
         )(pathParams$);

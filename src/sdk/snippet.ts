@@ -57,7 +57,6 @@ export class Snippet extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent(
             "/snippet/organization/{organizationId}/team/{teamId}"
         )(pathParams$);
@@ -151,7 +150,6 @@ export class Snippet extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent(
             "/snippet/organization/{organizationId}/team/{teamId}"
         )(pathParams$);
@@ -263,7 +261,6 @@ export class Snippet extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent(
             "/snippet/organization/{organizationId}/team/{teamId}"
         )(pathParams$);

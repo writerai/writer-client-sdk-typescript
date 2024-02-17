@@ -57,7 +57,6 @@ export class Terminology extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent(
             "/terminology/organization/{organizationId}/team/{teamId}"
         )(pathParams$);
@@ -145,7 +144,6 @@ export class Terminology extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent(
             "/terminology/organization/{organizationId}/team/{teamId}"
         )(pathParams$);
@@ -239,7 +237,6 @@ export class Terminology extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent(
             "/terminology/organization/{organizationId}/team/{teamId}"
         )(pathParams$);
@@ -352,7 +349,6 @@ export class Terminology extends ClientSDK {
                 charEncoding: "percent",
             }),
         };
-
         const path$ = this.templateURLComponent(
             "/terminology/organization/{organizationId}/team/{teamId}"
         )(pathParams$);

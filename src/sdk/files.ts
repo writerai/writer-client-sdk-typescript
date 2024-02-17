@@ -54,7 +54,6 @@ export class Files extends ClientSDK {
                 { explode: false, charEncoding: "percent" }
             ),
         };
-
         const path$ = this.templateURLComponent("/llm/organization/{organizationId}/file/{fileId}")(
             pathParams$
         );
@@ -138,7 +137,6 @@ export class Files extends ClientSDK {
                 { explode: false, charEncoding: "percent" }
             ),
         };
-
         const path$ = this.templateURLComponent("/llm/organization/{organizationId}/file/{fileId}")(
             pathParams$
         );
@@ -216,7 +214,6 @@ export class Files extends ClientSDK {
                 { explode: false, charEncoding: "percent" }
             ),
         };
-
         const path$ = this.templateURLComponent("/llm/organization/{organizationId}/file")(
             pathParams$
         );
@@ -309,7 +306,6 @@ export class Files extends ClientSDK {
                 { explode: false, charEncoding: "percent" }
             ),
         };
-
         const path$ = this.templateURLComponent("/llm/organization/{organizationId}/file")(
             pathParams$
         );
