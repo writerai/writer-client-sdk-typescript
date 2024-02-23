@@ -37,9 +37,10 @@ export class FailResponse extends Error {
         }
         this.tpe = err.tpe;
 
-        const msg = "message" in err && typeof err.message === "string" ? err.message : "";
-        const content = JSON.stringify(err);
-        this.message = [msg, content].filter(Boolean).join("\n");
+        this.message =
+            "message" in err && typeof err.message === "string"
+                ? err.message
+                : "API error occurred";
 
         this.name = "FailResponse";
     }

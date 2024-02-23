@@ -332,7 +332,6 @@ export class Files extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.UploadFileRequest$.outboundSchema.parse(input$);
-
         const body$ = new FormData();
 
         if (isBlobLike(payload$.UploadModelFileRequest.file)) {

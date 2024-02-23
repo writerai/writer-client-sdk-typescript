@@ -58,7 +58,6 @@ export class ModelCustomization extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.CreateModelCustomizationRequest$.outboundSchema.parse(input$);
-
         const body$ = enc$.encodeJSON("body", payload$.CreateCustomizationRequest, {
             explode: true,
         });

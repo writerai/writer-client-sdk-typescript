@@ -58,7 +58,6 @@ export class Terminology extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.AddTermsRequest$.outboundSchema.parse(input$);
-
         const body$ = enc$.encodeJSON("body", payload$.CreateTermsRequest, { explode: true });
 
         const pathParams$ = {
@@ -377,7 +376,6 @@ export class Terminology extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.UpdateTermsRequest$.outboundSchema.parse(input$);
-
         const body$ = enc$.encodeJSON("body", payload$.UpdateTermsRequest, { explode: true });
 
         const pathParams$ = {

@@ -58,7 +58,6 @@ export class Completions extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.CreateCompletionRequest$.outboundSchema.parse(input$);
-
         const body$ = enc$.encodeJSON("body", payload$.CompletionRequest, { explode: true });
 
         const pathParams$ = {
@@ -159,7 +158,6 @@ export class Completions extends ClientSDK {
 
         const payload$ =
             operations.CreateModelCustomizationCompletionRequest$.outboundSchema.parse(input$);
-
         const body$ = enc$.encodeJSON("body", payload$.CompletionRequest, { explode: true });
 
         const pathParams$ = {

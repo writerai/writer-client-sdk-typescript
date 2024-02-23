@@ -4,9 +4,9 @@ management:
   docChecksum: 044ba6ea348a6fb8206cacad6926373d
   docVersion: "1.7"
   speakeasyVersion: internal
-  generationVersion: 2.263.3
-  releaseVersion: 3.1.0
-  configChecksum: e1517e2288c9f1d6ef39761f5cb9f9f3
+  generationVersion: 2.269.0
+  releaseVersion: 3.2.0
+  configChecksum: 53f7b6f038d9575e00f1468666cf8667
   repoURL: https://github.com/writerai/writer-client-sdk-typescript.git
   repoSubDirectory: .
   installationURL: https://github.com/writerai/writer-client-sdk-typescript
@@ -22,6 +22,7 @@ features:
     globalServerURLs: 2.82.3
     globals: 2.81.1
     nameOverrides: 2.81.1
+    responseFormat: 0.1.0
 generatedFiles:
   - src/sdk/billing.ts
   - src/sdk/aicontentdetector.ts

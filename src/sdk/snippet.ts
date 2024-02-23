@@ -278,7 +278,6 @@ export class Snippet extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.UpdateSnippetsRequest$.outboundSchema.parse(input$);
-
         const body$ = enc$.encodeJSON("body", payload$.RequestBody, { explode: true });
 
         const pathParams$ = {

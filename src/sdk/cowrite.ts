@@ -58,7 +58,6 @@ export class CoWrite extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.GenerateContentRequest$.outboundSchema.parse(input$);
-
         const body$ = enc$.encodeJSON("body", payload$.GenerateTemplateRequest, { explode: true });
 
         const pathParams$ = {

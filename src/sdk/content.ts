@@ -58,7 +58,6 @@ export class Content extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.ContentCheckRequest$.outboundSchema.parse(input$);
-
         const body$ = enc$.encodeJSON("body", payload$.ContentRequest, { explode: true });
 
         const pathParams$ = {
@@ -158,7 +157,6 @@ export class Content extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.ContentCorrectRequest$.outboundSchema.parse(input$);
-
         const body$ = enc$.encodeJSON("body", payload$.ContentRequest, { explode: true });
 
         const pathParams$ = {

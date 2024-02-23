@@ -56,7 +56,6 @@ export class AIContentDetector extends ClientSDK {
         headers$.set("Accept", "application/json");
 
         const payload$ = operations.DetectContentRequest$.outboundSchema.parse(input$);
-
         const body$ = enc$.encodeJSON("body", payload$.ContentDetectorRequest, { explode: true });
 
         const pathParams$ = {
