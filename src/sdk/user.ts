@@ -6,6 +6,7 @@ import { SDKHooks } from "../hooks";
 import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "../lib/config";
 import * as enc$ from "../lib/encodings";
 import { HTTPClient } from "../lib/http";
+import * as schemas$ from "../lib/schemas";
 import { ClientSDK, RequestOptions } from "../lib/sdks";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
@@ -48,7 +49,11 @@ export class User extends ClientSDK {
         headers$.set("user-agent", SDK_METADATA.userAgent);
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.ListUsersRequest$.outboundSchema.parse(input);
+        const payload$ = schemas$.parse(
+            input,
+            (value$) => operations.ListUsersRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = null;
 
         const path$ = this.templateURLComponent("/user")();
@@ -84,9 +89,8 @@ export class User extends ClientSDK {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],
         };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -107,19 +111,31 @@ export class User extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.ListUsersResponse$.inboundSchema.parse({
-                ...responseFields$,
-                Headers: this.unpackHeaders(response.headers),
-                PaginatedResult_UserPublicResponse: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.ListUsersResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        Headers: this.unpackHeaders(response.headers),
+                        PaginatedResult_UserPublicResponse: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, [400, 401, 403, 404, 500], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.FailResponse$.inboundSchema.parse({
-                ...responseFields$,
-                Headers: this.unpackHeaders(response.headers),
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.FailResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        Headers: this.unpackHeaders(response.headers),
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();

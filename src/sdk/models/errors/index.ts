@@ -4,3 +4,4 @@
 
 export * from "./failresponse";
 export * from "./sdkerror";
+export * from "./sdkvalidationerror";

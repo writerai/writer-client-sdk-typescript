@@ -5,6 +5,7 @@
 import { SDKHooks } from "../hooks";
 import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "../lib/config";
 import { HTTPClient } from "../lib/http";
+import * as schemas$ from "../lib/schemas";
 import { ClientSDK, RequestOptions } from "../lib/sdks";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
@@ -65,9 +66,8 @@ export class Billing extends ClientSDK {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],
         };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "GET",
                 path: path$,
@@ -87,19 +87,31 @@ export class Billing extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.GetSubscriptionDetailsResponse$.inboundSchema.parse({
-                ...responseFields$,
-                Headers: this.unpackHeaders(response.headers),
-                SubscriptionPublicResponseApi: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.GetSubscriptionDetailsResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        Headers: this.unpackHeaders(response.headers),
+                        SubscriptionPublicResponseApi: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, [400, 401, 403, 404, 500], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.FailResponse$.inboundSchema.parse({
-                ...responseFields$,
-                Headers: this.unpackHeaders(response.headers),
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.FailResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        Headers: this.unpackHeaders(response.headers),
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();

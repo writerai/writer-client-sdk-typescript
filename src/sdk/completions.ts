@@ -6,6 +6,7 @@ import { SDKHooks } from "../hooks";
 import { SDK_METADATA, SDKOptions, serverURLFromOptions } from "../lib/config";
 import * as enc$ from "../lib/encodings";
 import { HTTPClient } from "../lib/http";
+import * as schemas$ from "../lib/schemas";
 import { ClientSDK, RequestOptions } from "../lib/sdks";
 import * as errors from "../sdk/models/errors";
 import * as operations from "../sdk/models/operations";
@@ -57,7 +58,11 @@ export class Completions extends ClientSDK {
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ = operations.CreateCompletionRequest$.outboundSchema.parse(input$);
+        const payload$ = schemas$.parse(
+            input$,
+            (value$) => operations.CreateCompletionRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = enc$.encodeJSON("body", payload$.CompletionRequest, { explode: true });
 
         const pathParams$ = {
@@ -92,9 +97,8 @@ export class Completions extends ClientSDK {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],
         };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "POST",
                 path: path$,
@@ -115,19 +119,31 @@ export class Completions extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result = operations.CreateCompletionResponse$.inboundSchema.parse({
-                ...responseFields$,
-                Headers: this.unpackHeaders(response.headers),
-                CompletionResponse: responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.CreateCompletionResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        Headers: this.unpackHeaders(response.headers),
+                        CompletionResponse: val$,
+                    });
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, [400, 401, 403, 404, 500], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.FailResponse$.inboundSchema.parse({
-                ...responseFields$,
-                Headers: this.unpackHeaders(response.headers),
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.FailResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        Headers: this.unpackHeaders(response.headers),
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
@@ -156,8 +172,12 @@ export class Completions extends ClientSDK {
         headers$.set("Content-Type", "application/json");
         headers$.set("Accept", "application/json");
 
-        const payload$ =
-            operations.CreateModelCustomizationCompletionRequest$.outboundSchema.parse(input$);
+        const payload$ = schemas$.parse(
+            input$,
+            (value$) =>
+                operations.CreateModelCustomizationCompletionRequest$.outboundSchema.parse(value$),
+            "Input validation failed"
+        );
         const body$ = enc$.encodeJSON("body", payload$.CompletionRequest, { explode: true });
 
         const pathParams$ = {
@@ -196,9 +216,8 @@ export class Completions extends ClientSDK {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],
         };
-        const request = await this.createRequest$(
+        const request = this.createRequest$(
             {
-                context,
                 security: securitySettings$,
                 method: "POST",
                 path: path$,
@@ -219,20 +238,33 @@ export class Completions extends ClientSDK {
 
         if (this.matchResponse(response, 200, "application/json")) {
             const responseBody = await response.json();
-            const result =
-                operations.CreateModelCustomizationCompletionResponse$.inboundSchema.parse({
-                    ...responseFields$,
-                    Headers: this.unpackHeaders(response.headers),
-                    CompletionResponse: responseBody,
-                });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return operations.CreateModelCustomizationCompletionResponse$.inboundSchema.parse(
+                        {
+                            ...responseFields$,
+                            Headers: this.unpackHeaders(response.headers),
+                            CompletionResponse: val$,
+                        }
+                    );
+                },
+                "Response validation failed"
+            );
             return result;
         } else if (this.matchResponse(response, [400, 401, 403, 404, 500], "application/json")) {
             const responseBody = await response.json();
-            const result = errors.FailResponse$.inboundSchema.parse({
-                ...responseFields$,
-                Headers: this.unpackHeaders(response.headers),
-                ...responseBody,
-            });
+            const result = schemas$.parse(
+                responseBody,
+                (val$) => {
+                    return errors.FailResponse$.inboundSchema.parse({
+                        ...responseFields$,
+                        Headers: this.unpackHeaders(response.headers),
+                        ...val$,
+                    });
+                },
+                "Response validation failed"
+            );
             throw result;
         } else {
             const responseBody = await response.text();
