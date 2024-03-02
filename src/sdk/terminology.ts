@@ -90,9 +90,13 @@ export class Terminology extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "addTerms",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "addTerms" };
         const doOptions = {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],
@@ -215,9 +219,13 @@ export class Terminology extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "deleteTerms",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "deleteTerms" };
         const doOptions = {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],
@@ -339,9 +347,13 @@ export class Terminology extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "findTerms",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "findTerms" };
         const doOptions = {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],
@@ -461,9 +473,13 @@ export class Terminology extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "updateTerms",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "updateTerms" };
         const doOptions = {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],

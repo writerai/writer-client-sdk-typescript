@@ -92,9 +92,13 @@ export class Document extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getDocumentDetails",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getDocumentDetails" };
         const doOptions = {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],
@@ -210,9 +214,13 @@ export class Document extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "listTeamDocuments",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "listTeamDocuments" };
         const doOptions = {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],

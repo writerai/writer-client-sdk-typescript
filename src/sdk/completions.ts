@@ -90,9 +90,13 @@ export class Completions extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createCompletion",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createCompletion" };
         const doOptions = {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],
@@ -209,9 +213,13 @@ export class Completions extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createModelCustomizationCompletion",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createModelCustomizationCompletion" };
         const doOptions = {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],

@@ -92,9 +92,13 @@ export class ModelCustomization extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "createModelCustomization",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "createModelCustomization" };
         const doOptions = {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],
@@ -207,9 +211,13 @@ export class ModelCustomization extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "deleteModelCustomization",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "deleteModelCustomization" };
         const doOptions = {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],
@@ -322,9 +330,13 @@ export class ModelCustomization extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getModelCustomization",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getModelCustomization" };
         const doOptions = {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],
@@ -431,9 +443,13 @@ export class ModelCustomization extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "listModelCustomizations",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "listModelCustomizations" };
         const doOptions = {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],

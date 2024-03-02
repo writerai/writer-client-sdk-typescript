@@ -103,9 +103,13 @@ export class Snippet extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "deleteSnippets",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "deleteSnippets" };
         const doOptions = {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],
@@ -226,9 +230,13 @@ export class Snippet extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "findSnippets",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "findSnippets" };
         const doOptions = {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],
@@ -348,9 +356,13 @@ export class Snippet extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "updateSnippets",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "updateSnippets" };
         const doOptions = {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],

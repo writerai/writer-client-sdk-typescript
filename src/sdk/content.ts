@@ -90,9 +90,13 @@ export class Content extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "contentCheck",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "contentCheck" };
         const doOptions = {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],
@@ -212,9 +216,13 @@ export class Content extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "contentCorrect",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "contentCorrect" };
         const doOptions = {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],

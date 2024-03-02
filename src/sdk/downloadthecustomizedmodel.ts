@@ -100,9 +100,13 @@ export class DownloadTheCustomizedModel extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "fetchCustomizedModelFile",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "fetchCustomizedModelFile" };
         const doOptions = {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],

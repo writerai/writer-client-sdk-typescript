@@ -88,9 +88,13 @@ export class Files extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "deleteFile",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "deleteFile" };
         const doOptions = {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],
@@ -197,9 +201,13 @@ export class Files extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "getFile",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "getFile" };
         const doOptions = {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],
@@ -300,9 +308,13 @@ export class Files extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "listFiles",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "listFiles" };
         const doOptions = {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],
@@ -417,9 +429,13 @@ export class Files extends ClientSDK {
         } else {
             security$ = {};
         }
+        const context = {
+            operationID: "uploadFile",
+            oAuth2Scopes: [],
+            securitySource: this.options$.apiKey,
+        };
         const securitySettings$ = this.resolveGlobalSecurity(security$);
 
-        const context = { operationID: "uploadFile" };
         const doOptions = {
             context,
             errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],
