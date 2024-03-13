@@ -4,7 +4,7 @@
 
 import { SectionInfo, SectionInfo$ } from "./sectioninfo";
 import { SimpleUser, SimpleUser$ } from "./simpleuser";
-import { z } from "zod";
+import * as z from "zod";
 
 export enum Status {
     Live = "live",

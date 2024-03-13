@@ -6,7 +6,7 @@ import {
     CompletionGenerationChoice,
     CompletionGenerationChoice$,
 } from "./completiongenerationchoice";
-import { z } from "zod";
+import * as z from "zod";
 
 export type CompletionResponse = {
     choices?: Array<CompletionGenerationChoice> | undefined;

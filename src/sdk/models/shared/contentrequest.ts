@@ -3,7 +3,7 @@
  */
 
 import { ContentSettings, ContentSettings$ } from "./contentsettings";
-import { z } from "zod";
+import * as z from "zod";
 
 export type ContentRequest = {
     content: string;

@@ -3,7 +3,7 @@
  */
 
 import { MagicRequestInput, MagicRequestInput$ } from "./magicrequestinput";
-import { z } from "zod";
+import * as z from "zod";
 
 export type GenerateTemplateRequest = {
     inputs?: Array<MagicRequestInput> | undefined;

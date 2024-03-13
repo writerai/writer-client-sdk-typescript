@@ -10,7 +10,7 @@ import { LinkedTermCreate, LinkedTermCreate$ } from "./linkedtermcreate";
 import { TermExampleCreate, TermExampleCreate$ } from "./termexamplecreate";
 import { TermMistakeCreate, TermMistakeCreate$ } from "./termmistakecreate";
 import { TermTagCreate, TermTagCreate$ } from "./termtagcreate";
-import { z } from "zod";
+import * as z from "zod";
 
 export enum TermCreatePos {
     Noun = "noun",

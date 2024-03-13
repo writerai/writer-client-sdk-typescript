@@ -3,7 +3,7 @@
  */
 
 import { SnippetTagV2, SnippetTagV2$ } from "./snippettagv2";
-import { z } from "zod";
+import * as z from "zod";
 
 export type SnippetUpdate = {
     description?: string | undefined;

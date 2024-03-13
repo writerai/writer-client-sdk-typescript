@@ -6,7 +6,7 @@ import {
     GenerationModelInfoResponse,
     GenerationModelInfoResponse$,
 } from "./generationmodelinforesponse";
-import { z } from "zod";
+import * as z from "zod";
 
 export type GenerationModelsResponse = {
     data?: Array<GenerationModelInfoResponse> | undefined;

@@ -4,7 +4,7 @@
 
 import { FailMessage, FailMessage$ } from "./failmessage";
 import { FullTermWithUser, FullTermWithUser$ } from "./fulltermwithuser";
-import { z } from "zod";
+import * as z from "zod";
 
 export type CreateTermsResponse = {
     fails?: Array<FailMessage> | undefined;

@@ -3,7 +3,7 @@
  */
 
 import { ApprovedTermExtension, ApprovedTermExtension$ } from "./approvedtermextension";
-import { z } from "zod";
+import * as z from "zod";
 
 export enum Pos {
     Noun = "noun",

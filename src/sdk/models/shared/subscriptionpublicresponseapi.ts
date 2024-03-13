@@ -4,7 +4,7 @@
 
 import { MetaData, MetaData$ } from "./metadata";
 import { Usage, Usage$ } from "./usage";
-import { z } from "zod";
+import * as z from "zod";
 
 export enum ProductName {
     Free = "free",
