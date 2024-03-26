@@ -25,7 +25,7 @@ async function run() {
   });
 
   const contentDetectorRequest = {
-    input: "string",
+    input: "<value>",
   };
   const organizationId = 592237;
   

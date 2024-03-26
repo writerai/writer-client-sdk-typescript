@@ -3,7 +3,7 @@
  */
 
 import { HyperParameters, HyperParameters$ } from "./hyperparameters";
-import { z } from "zod";
+import * as z from "zod";
 
 export type CreateCustomizationRequest = {
     additionalHyperParameters?: HyperParameters | undefined;

@@ -825,3 +825,103 @@ Based on:
 - [typescript v3.0.1] .
 ### Releases
 - [NPM v3.0.1] https://www.npmjs.com/package/@writerai/writer-sdk/v/3.0.1 - .
+
+## 2024-02-09 00:13:55
+### Changes
+Based on:
+- OpenAPI Doc 1.7 https://raw.githubusercontent.com/speakeasy-sdks/w-ai-openapi/main/openapi.yaml
+- Speakeasy CLI 1.176.0 (2.250.22) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v3.0.2] .
+### Releases
+- [NPM v3.0.2] https://www.npmjs.com/package/@writerai/writer-sdk/v/3.0.2 - .
+
+## 2024-02-15 00:14:02
+### Changes
+Based on:
+- OpenAPI Doc 1.7 https://raw.githubusercontent.com/speakeasy-sdks/w-ai-openapi/main/openapi.yaml
+- Speakeasy CLI 1.180.0 (2.258.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v3.0.3] .
+### Releases
+- [NPM v3.0.3] https://www.npmjs.com/package/@writerai/writer-sdk/v/3.0.3 - .
+
+## 2024-02-17 00:14:09
+### Changes
+Based on:
+- OpenAPI Doc 1.7 https://raw.githubusercontent.com/speakeasy-sdks/w-ai-openapi/main/openapi.yaml
+- Speakeasy CLI 1.183.2 (2.262.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v3.0.3] .
+### Releases
+- [NPM v3.0.3] https://www.npmjs.com/package/@writerai/writer-sdk/v/3.0.3 - .
+
+## 2024-02-20 00:14:06
+### Changes
+Based on:
+- OpenAPI Doc 1.7 https://raw.githubusercontent.com/speakeasy-sdks/w-ai-openapi/main/openapi.yaml
+- Speakeasy CLI 1.183.3 (2.263.3) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v3.1.0] .
+### Releases
+- [NPM v3.1.0] https://www.npmjs.com/package/@writerai/writer-sdk/v/3.1.0 - .
+
+## 2024-02-23 00:13:59
+### Changes
+Based on:
+- OpenAPI Doc 1.7 https://raw.githubusercontent.com/speakeasy-sdks/w-ai-openapi/main/openapi.yaml
+- Speakeasy CLI 1.192.1 (2.269.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v3.2.0] .
+### Releases
+- [NPM v3.2.0] https://www.npmjs.com/package/@writerai/writer-sdk/v/3.2.0 - .
+
+## 2024-02-24 00:13:12
+### Changes
+Based on:
+- OpenAPI Doc 1.7 https://raw.githubusercontent.com/speakeasy-sdks/w-ai-openapi/main/openapi.yaml
+- Speakeasy CLI 1.193.4 (2.272.4) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v3.3.0] .
+### Releases
+- [NPM v3.3.0] https://www.npmjs.com/package/@writerai/writer-sdk/v/3.3.0 - .
+
+## 2024-03-02 00:13:31
+### Changes
+Based on:
+- OpenAPI Doc 1.7 https://raw.githubusercontent.com/speakeasy-sdks/w-ai-openapi/main/openapi.yaml
+- Speakeasy CLI 1.200.0 (2.277.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v3.3.1] .
+### Releases
+- [NPM v3.3.1] https://www.npmjs.com/package/@writerai/writer-sdk/v/3.3.1 - .
+
+## 2024-03-13 00:14:05
+### Changes
+Based on:
+- OpenAPI Doc 1.7 https://raw.githubusercontent.com/speakeasy-sdks/w-ai-openapi/main/openapi.yaml
+- Speakeasy CLI 1.207.1 (2.280.6) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v3.4.0] .
+### Releases
+- [NPM v3.4.0] https://www.npmjs.com/package/@writerai/writer-sdk/v/3.4.0 - .
+
+## 2024-03-14 00:13:50
+### Changes
+Based on:
+- OpenAPI Doc 1.7 https://raw.githubusercontent.com/speakeasy-sdks/w-ai-openapi/main/openapi.yaml
+- Speakeasy CLI 1.209.2 (2.281.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v3.4.1] .
+### Releases
+- [NPM v3.4.1] https://www.npmjs.com/package/@writerai/writer-sdk/v/3.4.1 - .
+
+## 2024-03-20 00:13:41
+### Changes
+Based on:
+- OpenAPI Doc 1.7 https://raw.githubusercontent.com/speakeasy-sdks/w-ai-openapi/main/openapi.yaml
+- Speakeasy CLI 1.213.0 (2.283.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v3.4.2] .
+### Releases
+- [NPM v3.4.2] https://www.npmjs.com/package/@writerai/writer-sdk/v/3.4.2 - .

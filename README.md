@@ -172,7 +172,7 @@ async function run() {
     });
 
     const contentDetectorRequest = {
-        input: "string",
+        input: "<value>",
     };
     const organizationId = 592237;
 
@@ -199,7 +199,8 @@ All SDK methods return a response object or throw an error. If Error objects are
 | errors.FailResponse | 400,401,403,404,500 | application/json    |
 | errors.SDKError     | 4xx-5xx             | */*                 |
 
-Example
+Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted string since validation errors can list many issues and the plain error string may be difficult read when debugging. 
+
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
@@ -216,6 +217,13 @@ async function run() {
         result = await sdk.billing.getSubscriptionDetails();
     } catch (err) {
         switch (true) {
+            case err instanceof errors.SDKValidationError: {
+                // Validation errors can be pretty-printed
+                console.error(err.pretty());
+                // Raw value may also be inspected
+                console.error(err.rawValue);
+                return;
+            }
             case err instanceof errors.FailResponse: {
                 console.error(err); // handle exception
                 return;

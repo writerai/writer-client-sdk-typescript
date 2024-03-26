@@ -6,7 +6,7 @@ import {
     CompletionGenerationChoiceLogprobs,
     CompletionGenerationChoiceLogprobs$,
 } from "./completiongenerationchoicelogprobs";
-import { z } from "zod";
+import * as z from "zod";
 
 export type CompletionGenerationChoice = {
     logprobs?: CompletionGenerationChoiceLogprobs | undefined;

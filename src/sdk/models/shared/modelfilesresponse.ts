@@ -3,7 +3,7 @@
  */
 
 import { ModelFile, ModelFile$ } from "./modelfile";
-import { z } from "zod";
+import * as z from "zod";
 
 export type ModelFilesResponse = {
     files?: Array<ModelFile> | undefined;

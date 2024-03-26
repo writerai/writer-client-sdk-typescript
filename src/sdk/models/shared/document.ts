@@ -3,7 +3,7 @@
  */
 
 import { SimpleUser, SimpleUser$ } from "./simpleuser";
-import { z } from "zod";
+import * as z from "zod";
 
 export enum DocumentAccess {
     Private = "private",

@@ -3,7 +3,7 @@
  */
 
 import { Input, Input$ } from "./input";
-import { z } from "zod";
+import * as z from "zod";
 
 export type TemplateDetailsResponse = {
     categoryId: number;

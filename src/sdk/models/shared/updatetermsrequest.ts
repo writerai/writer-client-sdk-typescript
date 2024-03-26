@@ -3,7 +3,7 @@
  */
 
 import { TermUpdate, TermUpdate$ } from "./termupdate";
-import { z } from "zod";
+import * as z from "zod";
 
 export enum UpdateTermsRequestFailHandling {
     Accumulate = "accumulate",

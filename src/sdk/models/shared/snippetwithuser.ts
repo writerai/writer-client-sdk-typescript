@@ -4,7 +4,7 @@
 
 import { SnippetTagV2, SnippetTagV2$ } from "./snippettagv2";
 import { TerminologyUser, TerminologyUser$ } from "./terminologyuser";
-import { z } from "zod";
+import * as z from "zod";
 
 export type SnippetWithUser = {
     createdUser: TerminologyUser;

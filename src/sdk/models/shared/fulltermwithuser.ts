@@ -8,7 +8,7 @@ import { TermExample, TermExample$ } from "./termexample";
 import { TerminologyUser, TerminologyUser$ } from "./terminologyuser";
 import { TermMistake, TermMistake$ } from "./termmistake";
 import { TermTagResponse, TermTagResponse$ } from "./termtagresponse";
-import { z } from "zod";
+import * as z from "zod";
 
 export enum FullTermWithUserPos {
     Noun = "noun",

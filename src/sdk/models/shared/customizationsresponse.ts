@@ -3,7 +3,7 @@
  */
 
 import { ModelCustomization, ModelCustomization$ } from "./modelcustomization";
-import { z } from "zod";
+import * as z from "zod";
 
 export type CustomizationsResponse = {
     customizations?: Array<ModelCustomization> | undefined;

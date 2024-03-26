@@ -3,10 +3,10 @@ id: 235d426a-c612-4304-ac5f-6c28e6f08f2c
 management:
   docChecksum: 044ba6ea348a6fb8206cacad6926373d
   docVersion: "1.7"
-  speakeasyVersion: internal
-  generationVersion: 2.245.1
-  releaseVersion: 3.0.1
-  configChecksum: 80facfd3997f59c96eccc6bf9ee970d0
+  speakeasyVersion: 1.213.0
+  generationVersion: 2.283.1
+  releaseVersion: 3.4.2
+  configChecksum: 74f203d445b0ac8df7f8a27866a750a5
   repoURL: https://github.com/writerai/writer-client-sdk-typescript.git
   repoSubDirectory: .
   installationURL: https://github.com/writerai/writer-client-sdk-typescript
@@ -14,14 +14,15 @@ management:
 features:
   typescript:
     acceptHeaders: 2.81.1
-    core: 3.4.8
+    core: 3.6.3
     downloadStreams: 0.1.1
-    errors: 2.81.8
+    errors: 2.81.9
     flattening: 2.81.1
-    globalSecurity: 2.82.2
-    globalServerURLs: 2.82.1
+    globalSecurity: 2.82.8
+    globalServerURLs: 2.82.4
     globals: 2.81.1
     nameOverrides: 2.81.1
+    responseFormat: 0.2.2
 generatedFiles:
   - src/sdk/billing.ts
   - src/sdk/aicontentdetector.ts
@@ -41,22 +42,21 @@ generatedFiles:
   - .eslintrc.js
   - .npmignore
   - RUNTIMES.md
-  - package-lock.json
   - package.json
   - src/index.ts
   - src/lib/base64.ts
   - src/lib/config.ts
   - src/lib/encodings.ts
-  - src/lib/event-streams.ts
   - src/lib/http.ts
   - src/lib/retries.ts
+  - src/lib/schemas.ts
   - src/lib/sdks.ts
   - src/lib/security.ts
   - src/lib/url.ts
   - src/sdk/index.ts
   - src/sdk/models/errors/sdkerror.ts
+  - src/sdk/models/errors/sdkvalidationerror.ts
   - src/sdk/types/blobs.ts
-  - src/sdk/types/decimal.ts
   - src/sdk/types/index.ts
   - src/sdk/types/operations.ts
   - src/sdk/types/rfcdate.ts
@@ -341,3 +341,6 @@ generatedFiles:
   - docs/sdks/user/README.md
   - USAGE.md
   - .gitattributes
+  - src/hooks/hooks.ts
+  - src/hooks/types.ts
+  - src/hooks/index.ts

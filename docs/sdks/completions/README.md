@@ -29,7 +29,7 @@ async function run() {
     bestOf: 1,
     maxTokens: 1024,
     minTokens: 1,
-    prompt: "string",
+    prompt: "<value>",
     stop: [
       "the",
       "is",
@@ -38,7 +38,7 @@ async function run() {
     temperature: 0.7,
     topP: 1,
   };
-  const modelId = "string";
+  const modelId = "<value>";
   const organizationId = 489382;
   
   const result = await sdk.completions.create(completionRequest, modelId, organizationId);
@@ -90,7 +90,7 @@ async function run() {
     bestOf: 1,
     maxTokens: 1024,
     minTokens: 1,
-    prompt: "string",
+    prompt: "<value>",
     stop: [
       "the",
       "is",
@@ -99,8 +99,8 @@ async function run() {
     temperature: 0.7,
     topP: 1,
   };
-  const customizationId = "string";
-  const modelId = "string";
+  const customizationId = "<value>";
+  const modelId = "<value>";
   const organizationId = 41297;
   
   const result = await sdk.completions.createModelCustomizationCompletion(completionRequest, customizationId, modelId, organizationId);

@@ -4,7 +4,7 @@
 
 import { Pagination, Pagination$ } from "./pagination";
 import { SnippetWithUser, SnippetWithUser$ } from "./snippetwithuser";
-import { z } from "zod";
+import * as z from "zod";
 
 export type PaginatedResultSnippetWithUser = {
     pagination: Pagination;

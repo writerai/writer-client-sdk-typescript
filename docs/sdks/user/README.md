@@ -17,7 +17,6 @@ List users
 
 ```typescript
 import { Writer } from "@writerai/writer-sdk";
-import { ListUsersQueryParamSortField, ListUsersQueryParamSortOrder } from "@writerai/writer-sdk/sdk/models/operations";
 
 async function run() {
   const sdk = new Writer({

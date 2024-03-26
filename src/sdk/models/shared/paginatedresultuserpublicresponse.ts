@@ -4,7 +4,7 @@
 
 import { Pagination, Pagination$ } from "./pagination";
 import { UserPublicResponse, UserPublicResponse$ } from "./userpublicresponse";
-import { z } from "zod";
+import * as z from "zod";
 
 export type PaginatedResultUserPublicResponse = {
     pagination: Pagination;

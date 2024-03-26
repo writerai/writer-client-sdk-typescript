@@ -3,7 +3,7 @@
  */
 
 import { TermCreate, TermCreate$ } from "./termcreate";
-import { z } from "zod";
+import * as z from "zod";
 
 export enum FailHandling {
     Accumulate = "accumulate",

@@ -5,8 +5,16 @@ generation:
     optionalPropertyRendering: withExample
   fixes:
     nameResolutionDec2023: false
+    parameterOrderingFeb2024: false
+    requestResponseComponentNamesFeb2024: false
+  auth:
+    oAuth2ClientCredentialsEnabled: false
 typescript:
-  version: 3.0.1
+  version: 3.4.2
+  additionalDependencies:
+    dependencies: {}
+    devDependencies: {}
+    peerDependencies: {}
   author: writerai
   clientServerStatusCodesAsErrors: false
   flattenGlobalSecurity: true
@@ -22,4 +30,5 @@ typescript:
   maxMethodParams: 4
   outputModelSuffix: output
   packageName: '@writerai/writer-sdk'
+  responseFormat: envelope
   templateVersion: v2

@@ -3,7 +3,7 @@
  */
 
 import { UsageItem, UsageItem$ } from "./usageitem";
-import { z } from "zod";
+import * as z from "zod";
 
 export type Usage = {
     coWriteWords: UsageItem;

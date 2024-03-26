@@ -28,13 +28,13 @@ async function run() {
   const generateTemplateRequest = {
     inputs: [
       {
-        name: "string",
+        name: "<value>",
         value: [
-          "string",
+          "<value>",
         ],
       },
     ],
-    templateId: "string",
+    templateId: "<value>",
   };
   const teamId = 888452;
   const organizationId = 926220;
@@ -85,7 +85,7 @@ async function run() {
   });
 
   const teamId = 882866;
-  const templateId = "string";
+  const templateId = "<value>";
   const organizationId = 55511;
   
   const result = await sdk.coWrite.listTemplates(teamId, templateId, organizationId);

@@ -4,7 +4,7 @@
 
 import { BriefDocument, BriefDocument$ } from "./briefdocument";
 import { Pagination, Pagination$ } from "./pagination";
-import { z } from "zod";
+import * as z from "zod";
 
 export type BriefDocuments = {
     pagination: Pagination;

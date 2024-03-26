@@ -3,7 +3,7 @@
  */
 
 import { ContentIssue, ContentIssue$ } from "./contentissue";
-import { z } from "zod";
+import * as z from "zod";
 
 export type ProcessedContent = {
     issues?: Array<ContentIssue> | undefined;

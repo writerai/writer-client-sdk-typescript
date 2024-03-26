@@ -4,7 +4,7 @@
 
 import { FullTermWithUser, FullTermWithUser$ } from "./fulltermwithuser";
 import { Pagination, Pagination$ } from "./pagination";
-import { z } from "zod";
+import * as z from "zod";
 
 export type PaginatedResultFullTermWithUser = {
     pagination: Pagination;
