@@ -3,10 +3,10 @@ id: 235d426a-c612-4304-ac5f-6c28e6f08f2c
 management:
   docChecksum: 044ba6ea348a6fb8206cacad6926373d
   docVersion: "1.7"
-  speakeasyVersion: 1.213.0
-  generationVersion: 2.283.1
-  releaseVersion: 3.4.2
-  configChecksum: 74f203d445b0ac8df7f8a27866a750a5
+  speakeasyVersion: 1.227.0
+  generationVersion: 2.291.0
+  releaseVersion: 3.5.0
+  configChecksum: bc7e2f2ed69fff58485f2a4e40a7f743
   repoURL: https://github.com/writerai/writer-client-sdk-typescript.git
   repoSubDirectory: .
   installationURL: https://github.com/writerai/writer-client-sdk-typescript
@@ -14,13 +14,13 @@ management:
 features:
   typescript:
     acceptHeaders: 2.81.1
-    core: 3.6.3
+    core: 3.7.0
     downloadStreams: 0.1.1
     errors: 2.81.9
     flattening: 2.81.1
     globalSecurity: 2.82.8
     globalServerURLs: 2.82.4
-    globals: 2.81.1
+    globals: 2.82.0
     nameOverrides: 2.81.1
     responseFormat: 0.2.2
 generatedFiles:
